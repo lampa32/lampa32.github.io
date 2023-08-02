@@ -36,23 +36,23 @@ Lampa.Keypad.listener.follow('keydown', function (e) {
       },
           {
         title: 'Фильмы и сериалы',
-        url: 'http://lampa32.ru/tv/films.json'
+        url: 'https://lampa32.github.io/tv/films.json'
       },
           {
         title: 'Детские',
-        url: 'http://lampa32.ru/tv/kids.json'
+        url: 'https://lampa32.github.io/tv/kids.json'
       },
           {
         title: 'Познавательные',
-        url: 'http://lampa32.ru/tv/cognitive.json'
+        url: 'https://lampa32.github.io/tv/cognitive.json'
       },
           {
         title: 'Музыкальные',
-        url: 'http://lampa32.ru/tv/music.json'
+        url: 'https://lampa32.github.io/tv/music.json'
       },
           {
         title: 'Федеральные',
-        url: 'http://lampa32.ru/tv/federals.json'
+        url: 'https://lampa32.github.io/tv/federals.json'
       }];
 		this.create = function() {
 			var _this = this;
@@ -219,7 +219,7 @@ Lampa.Keypad.listener.follow('keydown', function (e) {
                                 var menu_items = $('<li class="menu__item selector" data-action="tvtv_r"><div class="menu__ico">' + ico + '</div><div class="menu__text">Lampa32 TV</div></li>');
 				menu_items.on('hover:enter', function() {
 					Lampa.Activity.push({
-						url: 'http://lampa32.ru/tv/federals.json',
+						url: 'https://lampa32.github.io/tv/federals.json',
 						title: 'Федеральные',
 						component: 'kanals_n',
 						page: 1
