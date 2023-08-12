@@ -14,9 +14,9 @@
    // Lampa.Storage.set('tmdb_proxy_api', 'http://cors.lampa32.ru/proxy/');
     window.lampa_settings.torrents_use = true;
     window.lampa_settings.demo = false;
-	window.lampa_settings.read_only = false;
+    window.lampa_settings.read_only = false;
 
     var script = document.createElement ('script');
-script.src = ('http://freebie.tom.ru/filmix.js','https://lampa32.github.io/torrserver.js','https://lampa32.github.io/jackett.js','https://lampa32.github.io/plugins/addon.js','http://cub.watch/plugin/tmdb-proxy');
+script.src = ('http://freebie.tom.ru/filmix.js', 'https://lampa32.github.io/torrserver.js', 'https://lampa32.github.io/jackett.js', 'https://lampa32.github.io/plugins/addon.js', 'http://cub.watch/plugin/tmdb-proxy');
 document.getElementsByTagName ('head')[0].appendChild (script);
 })();
