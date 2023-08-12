@@ -32,7 +32,7 @@ Lampa.Keypad.listener.follow('keydown', function (e) {
 		var last;
 		var catalogs = [{
         title: 'Спортивные',
-        url: 'http://lampa32.ru/tv/sport.json'
+        url: 'https://lampa32.github.io/tv/sport.json'
       },
           {
         title: 'Фильмы и сериалы',
