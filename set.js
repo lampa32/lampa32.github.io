@@ -26,11 +26,8 @@ document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
 script.src = 'https://lampa32.github.io/plugins/addon.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
-     var pluginsArray = Lampa.Storage.get('plugins');
-	// Добавляем новый элемент к списку  
-pluginsArray.push({"author": "AndreyURL54", "url": "https://andreyurl54.github.io/diesel5/tricks.js", "name": "Приятные мелочи", "status": 1});
-pluginsArray.push({"author": "mods", "url": "http://lampa.stream/modss", "name": "mods", "status": 1});
-	// Внедряем изменённый список в лампу
-Lampa.Storage.set('plugins', pluginsArray);
-Lampa.Settings.update();
+     var script = document.createElement ('script');
+script.src = 'http://cub.watch/plugin/tmdb-proxy';
+document.getElementsByTagName ('head')[0].appendChild (script);
+     
 })();
