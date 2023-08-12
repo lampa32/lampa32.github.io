@@ -24,6 +24,6 @@ document.getElementsByTagName ('head')[0].appendChild (script);
 script.src = 'https://lampa32.github.io/jackett.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
-script.src = 'https://scabrum.github.io/plugins/addon.js';
+script.src = 'https://lampa32.github.io/plugins/addon.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
 })();
