@@ -10,8 +10,8 @@
    // Lampa.Storage.set('torrserver_use_link', 'one');
    // Lampa.Storage.set('torrserver_url', '');
    // Lampa.Storage.set('jackett_interview', 'all');
-    Lampa.Storage.set('tmdb_proxy_image', 'http://imagetmdb.com');
-    Lampa.Storage.set('tmdb_proxy_api', 'http://cors.lampa32.ru/proxy/');
+   // Lampa.Storage.set('tmdb_proxy_image', 'http://imagetmdb.com');
+   // Lampa.Storage.set('tmdb_proxy_api', 'http://cors.lampa32.ru/proxy/');
     window.lampa_settings.torrents_use = true;
 
     var script = document.createElement ('script');
@@ -26,4 +26,9 @@ document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
 script.src = 'https://lampa32.github.io/plugins/addon.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
+     var pluginsArray = Lampa.Storage.get('plugins');
+	// Добавляем новый элемент к списку  
+pluginsArray.push({"author": "AndreyURL54", "url": "https://andreyurl54.github.io/diesel5/tricks.js", "name": "Приятные мелочи", "status": 1});
+	// Внедряем изменённый список в лампу
+Lampa.Storage.set('plugins', pluginsArray);
 })();
