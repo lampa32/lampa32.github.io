@@ -20,10 +20,10 @@
 script.src = 'http://freebie.tom.ru/filmix.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
     var script = document.createElement ('script');
-script.src = 'http://lampa32.ru/torrserver.js';
+script.src = 'https://lampa32.github.io/torrserver.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
-script.src = 'http://lampa32.ru/jackett.js';
+script.src = 'https://lampa32.github.io/jackett.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
 script.src = 'http://cub.watch/plugin/tmdb-proxy';
