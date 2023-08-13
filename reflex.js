@@ -1,5 +1,6 @@
 (function () {
     'use strict';
+    Lampa.Platform.tv();
 // Список URL-ов плагинов
     const pluginUrls = ['http://my.lampa32.ru/online.js', '/js/radio.js', '/js/proxy.js', '/js/test.js', '/js/add.js'];
     // Загрузка и выполнение каждого плагина
