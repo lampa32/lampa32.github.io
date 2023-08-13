@@ -1,5 +1,5 @@
 [
-{"group":"","name":"Первый канал HD","time":"http://epgtut.tk/epg_lite.xml.gz","picture":"http://lampa32.ru/tv/icons/logo-perviy-kanal-hd.png","video":"http://live-okkotv.cdnvideo.ru/okkotv/1tv.smil/tracks-v1a1/mono.m3u8"},
+{"group":"","name":"Первый канал HD","time":"","picture":"http://lampa32.ru/tv/icons/logo-perviy-kanal-hd.png","video":"http://live-okkotv.cdnvideo.ru/okkotv/1tv.smil/tracks-v1a1/mono.m3u8"},
 {"group":"","name":"Россия 1 HD","time":"","picture":"http://lampa32.ru/tv/icons/4f01cf9e69600ef5fa1bd69f793998be.png","video":"https://okkotv-live.cdnvideo.ru/channel/Russia1HD.m3u8"},
 {"group":"","name":"Пятый канал","time":"","picture":"https://cdn-st1.rtr-vesti.ru/vh/pictures/hd/323/068/0.png","video":"https://okkotv-live.cdnvideo.ru/channel/5_OTT.m3u8"},
 {"group":"","name":"Россия 24","time":"","picture":"https://telestroka.ru/i/channels/rossia24.jpg","video":"https://okkotv-live.cdnvideo.ru/channel/Russia24.m3u8"},
