@@ -23,13 +23,4 @@ Lampa.Platform.tv();
       puts = puts.filter(function (element, index) {
         return puts.indexOf(element) === index;
       });
-      console.log('Plugins', 'list:', puts);
-      var errors = [];
-      var original = {};
-      var include = [];
-      puts.forEach(function (url) {
-        var encode = addPluginParams(url);
-        include.push(encode);
-        original[encode] = url;
-      });
 })();
