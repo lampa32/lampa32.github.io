@@ -1,7 +1,6 @@
- function load(call) {
-    console.log('Plugins', 'start load');
-    modify();
- }
+(function() {
+	'use strict';
+    Lampa.Platform.tv();
     Account.plugins(function (plugins) {
       var puts = window.lampa_settings.plugins_use ? plugins.filter(function (plugin) {
         return plugin.status;
@@ -21,3 +20,5 @@
       puts = puts.filter(function (element, index) {
         return puts.indexOf(element) === index;
       });
+
+})();
