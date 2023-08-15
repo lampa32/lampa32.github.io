@@ -27,7 +27,7 @@
 		var menu_items = $('<li class="menu__item selector" data-action="exit_r"><div class="menu__ico">' + ico + '</div><div class="menu__text">' + Lampa.Lang.translate('exit_menu') + '</div></li>');
 			menu_items.on('hover:enter', function() {
 				Lampa.Activity.push({
-						url: 'http://lampa32.ru/tv/federals.json'
+						url: 'http://185.229.66.133:3000?XHR=1&R'
 			});
 			$('.menu .menu__list').eq(1).append(menu_items);
 	}
