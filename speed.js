@@ -22,6 +22,5 @@
 			});
 		}
 	}
-	if (!window.plugin_exit_m_ready) createExitMenu();
   }
 })();
