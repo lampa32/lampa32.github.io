@@ -2,7 +2,7 @@
 (function() {
 	'use strict';
 Lampa.SettingsApi.addParam({
-    		component: 'more',
+    		component: 'add_plugin',
     		param: {
     			name: 'pub_speed',
     			type: 'static', //доступно select,input,trigger,title,static
