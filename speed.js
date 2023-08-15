@@ -30,8 +30,9 @@
 						url: 'http://185.229.66.133:3000?XHR=1&R'
 			});
 			$('.menu .menu__list').eq(1).append(menu_items);
-	}
-	
+	  }
+				      
+        }
 	function createExitMenu() {
 		window.plugin_exit_m_ready = true;
 		Lampa.Component.add('exit_m', exit_m);
