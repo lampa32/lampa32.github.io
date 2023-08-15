@@ -19,6 +19,8 @@ Lampa.SettingsApi.addParam({
                 Lampa.Controller.toggle('settings_component');
               }
             });
+			}
+				})
 	
 
 })();
