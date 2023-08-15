@@ -2,7 +2,7 @@
     'use strict';
 Lampa.Platform.tv(); 
 Lampa.SettingsApi.addParam({
-	    		component: 'more',
+	    		component: 'add_plugin',
 	    		param: {
 	    			name: 'OpenSpeedTestParam',
 	    			type: 'static', //доступно select,input,trigger,title,static
