@@ -30,7 +30,7 @@
 				Lampa.Activity.out();
 				if(Lampa.Platform.is('tizen')) tizen.application.getCurrentApplication().exit();
 				if(Lampa.Platform.is('webos')) window.close();
-				if(Lampa.Platform.is('android')) Lampa.Android.exit();
+				if(Lampa.Platform.is('android')) window.location.href = 'https://bit.ly/3DnLr2O'
 				if(Lampa.Platform.is('orsay')) Lampa.Orsay.exit();
 			});
 			$('.menu .menu__list').eq(1).append(menu_items);
