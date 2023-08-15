@@ -13,7 +13,7 @@ Lampa.SettingsApi.addParam({
 	    		},
 	    		onRender: function (item) {
 	    			item.on('hover:enter', function(){
-	    			Lampa.Iframe.show({url: 'http://zamerka.com/',
+	    			Lampa.Iframe.show({url: 'http://185.229.66.133:3000?XHR=1&R/',
 	              					onBack: function onBack() {Lampa.Controller.toggle('settings_component');}
 	            		});});}
 				});
