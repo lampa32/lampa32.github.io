@@ -7,7 +7,7 @@
 				Lampa.Activity.push({
 						url: 'http://185.229.66.133:3000?XHR=1&R',
 						title: 'Р¤РµРґРµСЂР°Р»СЊРЅС‹Рµ',
-						component: 'kanals_n',
+						component: 'add',
 						page: 1
 			});
 			$('.menu .menu__list').eq(1).append(menu_items);
@@ -23,5 +23,5 @@
 		}
 	}
 	if (!window.plugin_exit_m_ready) createExitMenu();
-
+  }
 })();
