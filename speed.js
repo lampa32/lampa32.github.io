@@ -1,47 +1,24 @@
 (function() {
 	'use strict';
-
-	Lampa.Lang.add({
-		exit_menu: {
-			ru: 'Выход',
-			en: 'Exit',
-			uk: 'Вихід',
-			be: 'Вынахад',
-			zh: '出口',
-			pt: 'Saída'
-		}
-	});
-
-	function exit_m(object) {
-		this.create = function () {};
-		this.build = function() {}; // this.activity.loader(false);
-		this.start = function () {};
-		this.pause = function() {};
-		this.stop = function() {};
-		this.render = function() {};
-		this.destroy = function() {};
+  function startkanals_n() {
+		window.plugin_kanals_N_ready = true;
+		Lampa.Component.add('kanals_n', kanals_n);
+		Lampa.Listener.follow('app', function(r) {
+			if (r.type == 'ready') {
+				var ico = '<svg height=\"244\" viewBox=\"0 0 260 244\" xmlns=\"http://www.w3.org/2000/svg\" style=\"fill-rule:evenodd;\" fill=\"currentColor\"><path d=\"M259.5 47.5v114c-1.709 14.556-9.375 24.723-23 30.5a2934.377 2934.377 0 0 1-107 1.5c-35.704.15-71.37-.35-107-1.5-13.625-5.777-21.291-15.944-23-30.5v-115c1.943-15.785 10.61-25.951 26-30.5a10815.71 10815.71 0 0 1 208 0c15.857 4.68 24.523 15.18 26 31.5zm-230-13a4963.403 4963.403 0 0 0 199 0c5.628 1.128 9.128 4.462 10.5 10 .667 40 .667 80 0 120-1.285 5.618-4.785 8.785-10.5 9.5-66 .667-132 .667-198 0-5.715-.715-9.215-3.882-10.5-9.5-.667-40-.667-80 0-120 1.35-5.18 4.517-8.514 9.5-10z\"/><path d=\"M70.5 71.5c17.07-.457 34.07.043 51 1.5 5.44 5.442 5.107 10.442-1 15-5.991.5-11.991.666-18 .5.167 14.337 0 28.671-.5 43-3.013 5.035-7.18 6.202-12.5 3.5a11.529 11.529 0 0 1-3.5-4.5 882.407 882.407 0 0 1-.5-42c-5.676.166-11.343 0-17-.5-4.569-2.541-6.069-6.375-4.5-11.5 1.805-2.326 3.972-3.992 6.5-5zM137.5 73.5c4.409-.882 7.909.452 10.5 4a321.009 321.009 0 0 0 16 30 322.123 322.123 0 0 0 16-30c2.602-3.712 6.102-4.879 10.5-3.5 5.148 3.334 6.314 7.834 3.5 13.5a1306.032 1306.032 0 0 0-22 43c-5.381 6.652-10.715 6.652-16 0a1424.647 1424.647 0 0 0-23-45c-1.691-5.369-.191-9.369 4.5-12zM57.5 207.5h144c7.788 2.242 10.288 7.242 7.5 15a11.532 11.532 0 0 1-4.5 3.5c-50 .667-100 .667-150 0-6.163-3.463-7.496-8.297-4-14.5 2.025-2.064 4.358-3.398 7-4z\"/></svg>';
+                                var menu_items = $('<li class="menu__item selector" data-action="tvtv_r"><div class="menu__ico">' + ico + '</div><div class="menu__text">Lampa32 TV</div></li>');
+				menu_items.on('hover:enter', function() {
+					Lampa.Activity.push({
+						url: 'http://lampa32.ru/tv/federals.json',
+						title: 'Р¤РµРґРµСЂР°Р»СЊРЅС‹Рµ',
+						component: 'kanals_n',
+						page: 1
+					});
+				});
+				$('.menu .menu__list').eq(0).append(menu_items);
+			}
+		});
 	}
-	
-	function add() {
-		var ico = '<svg version="1.1" id="exit" color="#fff" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">\n<g>\n	<path fill="currentColor" d="M256,5.1c138.6,0,250.9,112.3,250.9,250.9S394.6,506.9,256,506.9S5.1,394.6,5.1,256S117.4,5.1,256,5.1z\n		 M256,40.1C136.7,40.1,40.1,136.7,40.1,256S136.7,471.9,256,471.9S471.9,375.3,471.9,256S375.3,40.1,256,40.1z M311.4,176.6\n		c6.7-6.7,17.5-6.7,24.2,0c6.7,6.7,6.7,17.5,0,24.2l-55.1,55.1l55.1,55c6.7,6.7,6.7,17.5,0,24.2c-6.7,6.7-17.5,6.7-24.2,0L256.3,280\n		l-55.1,55.1c-6,6-15.4,6.6-22.1,1.8l-2.2-1.8c-6.7-6.7-6.7-17.5,0-24.2l55.1-55l-55.1-55c-6.7-6.7-6.7-17.5,0-24.2s17.5-6.7,24.2,0\n		l55.1,55.1L311.4,176.6z"/>\n</g>\n</svg>';
-		var menu_items = $('<li class="menu__item selector" data-action="exit_r"><div class="menu__ico">' + ico + '</div><div class="menu__text">' + Lampa.Lang.translate('exit_menu') + '</div></li>');
-			menu_items.on('hover:enter', function() {
-				Lampa.Activity.push({
-						url: 'http://185.229.66.133:3000?XHR=1&R'
-			});
-			$('.menu .menu__list').eq(1).append(menu_items);
-	  }
-				      
-        }
-	function createExitMenu() {
-		window.plugin_exit_m_ready = true;
-		Lampa.Component.add('exit_m', exit_m);
-		if (window.appready) add(); else {
-			Lampa.Listener.follow('app', function (e) {
-				if (e.type == 'ready') add();
-			});
-		}
-	}
-	if (!window.plugin_exit_m_ready) createExitMenu();
-
+	if (!window.plugin_kanals_n_ready) startkanals_n();
 })();
+	
