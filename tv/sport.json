@@ -24,7 +24,7 @@
 {"group":"","name":"MMA TV","time":"","picture":"http://lampa32.ru/tv/icons/mmatv.jpg","video":"http://tv.tuva.ru/m1global/index.m3u8"},
 {"group":"","name":"Wrestling","time":"","picture":"https://i.pinimg.com/originals/45/78/2e/45782e75f3efea056283fc10c2e897de.png","video":"https://d2p372oxiwmcn1.cloudfront.net/hls/main.m3u8"},
 {"group":"","name":"Бокс ТВ","time":"","picture":"http://only4.tv/ch/422.png","video":"https://sc.id-tv.kz/BoksTV_36_37.m3u8"},
-{"group":"","name":"КХЛ ТВ","time":"","picture":"http://only4.tv/ch/1318.png","video":"http://cdn-lb.iptv2022.com/p/bUYkEJ6CJP5MRZ6DFs5Xqg,1688590821/streaming/khltv/324/1/tracks-v4a1/mono.m3u8"},
+{"group":"","name":"КХЛ ТВ","time":"","picture":"http://only4.tv/ch/1318.png","video":"http://bl.uma.media/live/148307/HLS/4614144_3/2/1/playlist.m3u8"},
 {"group":"","name":"KHL Prime","time":"","picture":"http://lampa32.ru/tv/icons/c1dfe0ad14ec54fee86d5cd87d07b462.png","video":"https://okkotv-live.cdnvideo.ru/dash/khl_prime_hd/playlist.mpd"},
 {"group":"","name":"Tennis Channel","time":"","picture":"http://lampa32.ru/tv/icons/tennis.png","video":"http://tennischannel-intl-samsung-uk.amagi.tv/playlist720_p.m3u8"},
 {"group":"","name":"Мир баскетбола","time":"","picture":"http://lampa32.ru/tv/icons/mirbas.png","video":"http://streamer1.ruslanatv.ru/russia/mir_basketbola_2023/playlist.m3u8"},
