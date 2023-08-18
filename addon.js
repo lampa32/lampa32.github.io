@@ -1044,7 +1044,42 @@ Lampa.SettingsApi.addComponent({
 						});
 					}
 		});
-		
+	        Lampa.SettingsApi.addParam({
+					component: 'add_tv_plugin',
+					param: {
+						name: 'Lampa32_TV',
+						type: 'select',
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+						},
+					//default: '1',
+					},
+					field: {
+						name: 'Lampa32 TV',
+						description: 'Плагин для бесплатного просмотра телеканалов'
+					},
+					onChange: function(value) {
+						if (value == '1') {
+							itemON('https://lampa32.github.io/tv.js', 'Lampa32 TV', '@lampa32', 'Lampa32_TV');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://lampa32.github.io/tv.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
+					},
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('https://lampa32.github.io/tv.js')
+						setTimeout(function() {	
+							$('div[data-name="Lampa32_TV"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Lampa32_TV"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Lampa32_TV"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
+		});
 		Lampa.SettingsApi.addParam({
 					component: 'add_tv_plugin',
 					param: {
