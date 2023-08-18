@@ -924,7 +924,7 @@ Lampa.SettingsApi.addComponent({
 						});
 					}
 		});
-                     
+                /*     
 		Lampa.SettingsApi.addParam({
 					component: 'add_torrent_plugin',
 					param: {
@@ -961,7 +961,7 @@ Lampa.SettingsApi.addComponent({
 						}, 100);			  
 					}
 		});
-         
+                */
 		Lampa.SettingsApi.addParam({
 					component: 'add_torrent_plugin',
 					param: {
