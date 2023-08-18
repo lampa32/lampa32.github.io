@@ -127,7 +127,7 @@ Lampa.SettingsApi.addComponent({
 					}
 		});
 		
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'TMDB',
@@ -164,7 +164,7 @@ Lampa.SettingsApi.addComponent({
 						}, 100);
 					}
 		});
-       
+                */
 		Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
