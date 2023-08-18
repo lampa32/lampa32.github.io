@@ -28,7 +28,10 @@ document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
 script.src = 'http://cub.watch/plugin/tmdb-proxy';
 document.getElementsByTagName ('head')[0].appendChild (script);
-    (function(m, e, t, r, i, k, a) {
+     var script = document.createElement ('script');
+script.src = 'https://lampa32.github.io/addon.js';
+document.getElementsByTagName ('head')[0].appendChild (script);
+     (function(m, e, t, r, i, k, a) {
                m[i] = m[i] || function() {
                        (m[i].a = m[i].a || []).push(arguments)
                };
