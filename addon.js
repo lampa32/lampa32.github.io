@@ -278,6 +278,42 @@ Lampa.SettingsApi.addComponent({
 	        Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
+						name: 'Style_Interface32',
+						type: 'select',
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+						},
+					//default: '1',
+						},
+					field: {
+						name: 'Стильный интерфейс',
+						description: 'Новый стильный интерфейс для каталога TMDB и CUB. Понравится тем, кому нравится интерфейс в кинопоиске или netflix'
+					},
+					onChange: function(value) {
+						if (value == '1') {
+							itemON('https://lampa32.github.io/interface.js', 'Стильный Интерфейс', '@lampa', 'Style_Interface32');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://lampa32.github.io/interface.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
+					},
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
+						var myResult = checkPlugin('https://lampa32.github.io/interface.js')
+						setTimeout(function() {	
+							$('div[data-name="Style_Interface32"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Style_Interface32"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Style_Interface32"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
+		});
+	        Lampa.SettingsApi.addParam({
+					component: 'add_interface_plugin',
+					param: {
 						name: 'Want',
 						type: 'select',
 						values: {
