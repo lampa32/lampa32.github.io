@@ -429,7 +429,42 @@ Lampa.SettingsApi.addComponent({
 						});
 					}
 		});
-       
+                Lampa.SettingsApi.addParam({
+					component: 'add_management_plugin',
+					param: {
+                               		name: 'Timecode32',
+						type: 'select',
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+						},
+					//default: '1',
+						},
+					field: {
+                                    name: 'Синхронизация тайм-кодов',
+                                    description: 'Плагин синхронизирует ваши тайм-коды между устройствами. Чтобы не пересекаться с другими пользователями, нужно зарегистрироваться на сайте http://cub.watch и зайти в аккаунт в приложении Lampa'
+					},
+					onChange: function(value) {
+						if (value == '1') {
+							itemON('http://my.lampa32.ru/timecode.js', 'Синхронизация Тайм-Кодов', '@lampa32', 'Timecode32');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://my.lampa32.ru/timecode.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
+					},
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://my.lampa32.ru/timecode.js')
+						setTimeout(function() {	
+							$('div[data-name="Timecode32"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Timecode32"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Timecode32"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
+		});
 		Lampa.SettingsApi.addParam({
 					component: 'add_management_plugin',
 					param: {
@@ -694,6 +729,42 @@ Lampa.SettingsApi.addComponent({
 						});
 					}
 		});
+	        Lampa.SettingsApi.addParam({
+					component: 'add_online_plugin',
+					param: {
+						name: 'Filmix_online',
+						type: 'select',
+					values: {
+						1:	'Установить',
+						2:	'Удалить',
+					},
+					//default: '1',
+					},
+					field: {
+						name: 'Filmix',
+						description: 'Плагин позволяет смотреть фильмы и сериалы онлайн в хорошем качестве'
+					},
+					onChange: function(value) {
+						if (value == '1') {
+							itemON('http://freebie.tom.ru/filmix.js', 'Filmix', '@VitalikPVA', 'Filmix_online');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "http://freebie.tom.ru/filmix.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
+					},
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('http://freebie.tom.ru/filmix.js')
+						setTimeout(function() {	
+							$('div[data-name="Filmix_online"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Filmix_online"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Filmix_online"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);		  
+					}
+        });
                  
 		Lampa.SettingsApi.addParam({
 					component: 'add_online_plugin',
