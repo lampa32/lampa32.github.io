@@ -446,15 +446,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://my.lampa32.ru/timecode.js', 'Синхронизация Тайм-Кодов', '@lampa32', 'Timecode32');
+							itemON('http://79.137.204.8:9118/timecode.js', 'Синхронизация Тайм-Кодов', '@lampa32', 'Timecode32');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://my.lampa32.ru/timecode.js";
+							var pluginToRemoveUrl = "http://79.137.204.8:9118/timecode.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://my.lampa32.ru/timecode.js')
+						var myResult = checkPlugin('http://79.137.204.8:9118/timecode.js')
 						setTimeout(function() {	
 							$('div[data-name="Timecode32"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
