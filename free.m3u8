@@ -1,0 +1,34 @@
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/terra.png",Terra
+https://okkotv-live.cdnvideo.ru/channel/NGC_HD/1080p.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/VIASAT_NATURE.png",Viasat Nature HD
+https://okkotv-live.cdnvideo.ru/channel/Viasat_Nature_ad_HD.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="https://crimeastar.net/wp-content/uploads/2020/04/viasat-explore-1-2048x1024.png",Viasat Explore HD
+https://okkotv-live.cdnvideo.ru/channel/Viasat_Explore_HD.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/telekanal-viasat-history-otzyvy-1372371098.png",Viasat History HD
+https://okkotv-live.cdnvideo.ru/channel/Viasat_History_ad_HD.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/historyhd.jpg",History HD
+http://91.233.215.250:7272/PK41HvJyzlbR8XZ
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/orugie.jpg",Оружие
+https://tbs01-edge11.itdc.ge/oruzhie/tracks-v1a1/mono.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="https://ntvplus.tv/files/image/01/17/00/woj.png",Дикий
+http://217.107.34.114:8007/playlist.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/DOHD.png",Дикая Охота HD
+http://81.177.136.209:8007/playlist.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/DRHD.png",Дикая Рыбалка HD
+http://cdn-lb.iptv2022.com/p/wAuqSARQCGm-eF3eJxSmgA,1686070926/streaming/ribalkahd/324/1/index.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/foodnetwork.jpg",Food Network
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2419/index.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/foodtime.jpeg",Food Time
+http://31.134.132.245:8080/eda_hd/index.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/kuhnya.jpeg",Кухня ТВ
+http://31.134.132.245:8080/kuhnya/index.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/animalplanet.jpeg",Animal Planet
+http://europe3.livetv.az/russia/animal_planet_sd_new_2023/playlist.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/nauka.jpeg",Наука
+https://tbs01-edge11.itdc.ge/nayka/tracks-v1a1/mono.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/prikluchenia.jpeg",Приключения
+http://193.33.240.8:8080/teletravel_hd/index.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/planeta.png",Планета HD
+http://193.33.240.8:8080/planeta_hd/index.m3u8
+#EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/givplaneta.png",Живая Планета
+http://193.33.88.172/zhivaya-planeta/tracks-v1a1/mono.m3u8
