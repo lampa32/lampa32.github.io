@@ -32,7 +32,6 @@ http://193.33.240.8:8080/teletravel_hd/index.m3u8
 http://193.33.240.8:8080/planeta_hd/index.m3u8
 #EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/givplaneta.png",Живая Планета
 http://193.33.88.172/zhivaya-planeta/tracks-v1a1/mono.m3u8
-
 #EXTINF:0 group-title="Федеральные" tvg-logo="http://lampa32.ru/tv/icons/logo-perviy-kanal-hd.png",Первый канал HD
 http://live-okkotv.cdnvideo.ru/okkotv/1tv.smil/tracks-v1a1/mono.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="http://lampa32.ru/tv/icons/4f01cf9e69600ef5fa1bd69f793998be.png",Россия 1 HD
@@ -73,7 +72,6 @@ https://okkotv-live.cdnvideo.ru/channel/Mir_OTT.m3u8
 https://okkotv-live.cdnvideo.ru/channel/Izvestiya_HD_2.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="https://i.ytimg.com/vi/qv_Mh8fS6cQ/maxresdefault.jpg",360 Новости
 https://okkotv-live.cdnvideo.ru/channel/360_Novosti_HD/1080p.m3u8
-
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="http://lampa32.ru/tv/icons/a1_2.jpg",A1 HD
 https://okkotv-live.cdnvideo.ru/channel/A1_HD.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="http://lampa32.ru/tv/icons/1506854701_58-min[1].png",A2 HD
@@ -118,7 +116,6 @@ http://okkotv-live.cdnvideo.ru/channel/Phoenix_HD/1080p.m3u8
 https://okkotv-live.cdnvideo.ru/channel/START_Air_HD.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="https://teleoboz.ru/upload/iblock/abf/abfa4cb1f7bf8c0d3e2c510ed729ed1a.JPG",START World HD
 https://okkotv-live.cdnvideo.ru/channel/START_World_HD.m3u8
-
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/stskids.png",CTC Kids HD
 https://okkotv-live.cdnvideo.ru/channel/CTC_Kids_HD.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/sun.jpg",Солнце
@@ -141,7 +138,6 @@ http://europe3.livetv.az/russia/mult_sd_new_2023/playlist.m3u8
 http://193.33.240.8:8080/ryzhiy/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/nickelodeon.png",Nickelodeon
 http://45.144.31.195:8026/playlist.m3u8
-
 #EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/muztvlive.jpg",Муз ТВ
 https://okkotv-live.cdnvideo.ru/channel/MuzTV.m3u8
 #EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/muzboxgold.jpg",MusicBox Gold
@@ -160,7 +156,6 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2130/index.m3u8
 http://hz1.teleport.cc/HLS/HD.m3u8
 #EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/muzpervogo.jpg",Музыка Первого
 http://193.33.88.172/muz-pervogo/tracks-v1a1/mono.m3u8
-
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/6261.png",Старт HD
 https://okkotv-live.cdnvideo.ru/channel/Start/1080p.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/5568.png",Viasat Sport HD
@@ -231,7 +226,7 @@ http://146.158.0.56:80/Motosport/index.m3u8
 https://tbs01-edge11.itdc.ge/drive/tracks-v1a1/mono.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/qsport.jpg",Q Sport HD
 http://91.233.215.250:7272/ipKJnd6cVw1Nu7a
-#EXTINF:0 group-title="Спортивные" tvg-logo="https://sun6-23.userapi.com/s/v1/ig2/tEb_yw55OliPlwnH__KtzOPevFnc4FPEFes2tsUKe3LhDk6VEHH_Y0Cdm34pF9q70cUtl1yzBUSuXw-yDB8Nnp9U.jpg?size=1273x1275&quality=95&crop=54,22,1273,1275&ava=1 ",Red Bull
+#EXTINF:0 group-title="Спортивные" tvg-logo="https://sun6-23.userapi.com/s/v1/ig2/tEb_yw55OliPlwnH__KtzOPevFnc4FPEFes2tsUKe3LhDk6VEHH_Y0Cdm34pF9q70cUtl1yzBUSuXw-yDB8Nnp9U.jpg?size=1273x1275&quality=95&crop=54,22,1273,1275&ava=1",Red Bull
 https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_1660.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/belarus-5.jpg ",Беларусь 5 HD
 https://ngtrk.dc.beltelecom.by/ngtrk/smil:belarus5int.smil/playlist.m3u8
