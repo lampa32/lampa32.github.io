@@ -17,13 +17,13 @@
     window.lampa_settings.read_only = false;
 
     var script = document.createElement ('script');
-script.src = 'http://my.lampa32.ru/online.js';
+script.src = 'http://tv.lampa32.ru/online.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
     var script = document.createElement ('script');
 script.src = 'https://lampa32.github.io/torrserver.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
-script.src = 'https://scabrum.github.io/plugins/jackett.js';
+script.src = 'https://lampa32.github.io/jackett.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
 script.src = 'http://cub.watch/plugin/tmdb-proxy';
