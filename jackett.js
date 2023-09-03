@@ -65,16 +65,16 @@ Lampa.SettingsApi.addParam({
         $('body').append(METRIKA);
 
 	function checkPlugin(pluginToCheck) {
-	var plugins = Lampa.Storage.get('plugins');
+	var plugins = Lampa.Storage.get('parser');
 	var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
 	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
         };
 	setTimeout(function() {	
-							$('div[data-name="jackett_url2"]').append('<div class="settings-param__status one"></div>')
+							$('div[data-name="jackett_url"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
-								$('div[data-name="jackett_url2"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								$('div[data-name="jackett_url"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 							} else {
-								$('div[data-name="jackett_url2"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								$('div[data-name="jackett_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);
 	
