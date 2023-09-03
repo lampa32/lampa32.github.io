@@ -64,9 +64,9 @@ Lampa.SettingsApi.addParam({
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93942763" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
 
-	function checkPlugin(pluginToCheck) {
-	var plugins = Lampa.Storage.get('parser');
-	var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
+	function checkJackett(JackettToCheck) {
+	var Jackett = Lampa.Storage.get('parser');
+	var checkResult = Jackett.filter(function(obj) {return obj.url == JackettToCheck});
 	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
         };
 	setTimeout(function() {	
