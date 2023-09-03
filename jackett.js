@@ -63,4 +63,19 @@ Lampa.SettingsApi.addParam({
         });
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93942763" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
+
+	function checkPlugin(pluginToCheck) {
+	var plugins = Lampa.Storage.get('plugins');
+	var checkResult = plugins.filter(function(obj) {return obj.url == pluginToCheck});
+	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
+        };
+	setTimeout(function() {	
+							$('div[data-name="jackett_url2"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="jackett_url2"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="jackett_url2"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+	
  })();
