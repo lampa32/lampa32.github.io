@@ -64,18 +64,4 @@ Lampa.SettingsApi.addParam({
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93942763" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
 
-	function checkJackett(JackettToCheck) {
-	var Jackett = Lampa.Storage.get('parser');
-	var checkResult = Jackett.filter(function(obj) {return obj.url == JackettToCheck});
-	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
-        };
-	setTimeout(function() {	
-							$('div[data-name="jackett_url"]').append('<div class="settings-param__status one"></div>')
-							if (myResult) {
-								$('div[data-name="jackett_url"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
-							} else {
-								$('div[data-name="jackett_url"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
-							}
-						}, 100);
-	
  })();
