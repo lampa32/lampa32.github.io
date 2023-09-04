@@ -65,6 +65,7 @@ Lampa.SettingsApi.addParam({
         $('body').append(METRIKA);
 
 if (Lampa.Platform.is('noname')) {Lampa.Noty.show('android!')} 
+ Lampa.Noty.show("Плагин успешно установлен")
    else {Lampa.Noty.show('Not Android')}
 
 var userAgent = navigator.userAgent;
@@ -76,7 +77,6 @@ if (agentFilter > 0) {result = 'notAndroid'}
   else {result= 'android'};
 
 if ((Lampa.Platform.is('android'))&&(result == 'android')) {
-Lampa.Noty.show("Плагин успешно установлен")
 }
 
  })();
