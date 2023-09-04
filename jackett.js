@@ -74,7 +74,7 @@ var userAgent = navigator.userAgent;
 var agentFilter = userAgent.match(/Android/i);
 
 var result;
-if (agentFilter > 0) {result = 'notAndroid'} 
+if (agentFilter.lenght > 0) {result = 'notAndroid'} 
   else {result= 'android'};
 
 if ((Lampa.Platform.is('android'))&&(result == 'android')) {
