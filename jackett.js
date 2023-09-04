@@ -64,8 +64,9 @@ Lampa.SettingsApi.addParam({
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93942763" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
 
-if (Lampa.Platform.is('noname')) {Lampa.Noty.show('android!')} 
+if (Lampa.Platform.is('noname')) { 
  Lampa.Noty.show("Установите APK приложения Lampa")
+}
    else {Lampa.Noty.show('Not Android')}
 
 var userAgent = navigator.userAgent;
