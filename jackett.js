@@ -65,7 +65,7 @@ Lampa.SettingsApi.addParam({
         $('body').append(METRIKA);
 
 if (Lampa.Platform.is('noname')) {Lampa.Noty.show('android!')} 
- Lampa.Noty.show("Плагин успешно установлен")
+ Lampa.Noty.show("Установите APK приложения Lampa")
    else {Lampa.Noty.show('Not Android')}
 
 var userAgent = navigator.userAgent;
