@@ -38,11 +38,11 @@ Lampa.SettingsApi.addParam({
 				},
 				onChange: function (value) {
 					if (value == '0') Lampa.Storage.set('torrserver_url_two', '');
-				        if (value == '1') Lampa.Storage.set('torrserver_url_two', 'http://77.39.15.165:8090');
+				        if (value == '1') Lampa.Storage.set('torrserver_url_two', 'http://87.225.91.41:8090');
                                         if (value == '2') Lampa.Storage.set('torrserver_url_two', 'http://84.201.137.235:8090');
                                         if (value == '3') Lampa.Storage.set('torrserver_url_two', 'http://109.105.90.19:8090');
                                         if (value == '4') Lampa.Storage.set('torrserver_url_two', 'http://zhilkin.org:80');
-                                        if (value == '5') Lampa.Storage.set('torrserver_url_two', 'http://78.107.250.144:8090');
+                                        if (value == '5') Lampa.Storage.set('torrserver_url_two', 'http://89.20.102.140:8090');
                                         if (value == '6') Lampa.Storage.set('torrserver_url_two', 'http://84.201.189.105:8090');
                                         if (value == '7') Lampa.Storage.set('torrserver_url_two', 'http://85.113.39.177:8090');
                                         if (value == '8') Lampa.Storage.set('torrserver_url_two', 'http://37.194.36.37:8090');
