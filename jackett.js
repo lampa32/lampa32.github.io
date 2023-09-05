@@ -64,20 +64,4 @@ Lampa.SettingsApi.addParam({
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93942763" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
 
-if (Lampa.Platform.is('noname')) { 
- Lampa.Noty.show("Установите APK приложения Lampa")
-}
-   else {Lampa.Noty.show('No MSX')}
-
-var userAgent = navigator.userAgent;
-
-var agentFilter = userAgent.match(/Android/i);
-
-var result;
-if (agentFilter.lenght > 0) {result = 'notAndroid'} 
-  else {result= 'android'};
-
-if ((Lampa.Platform.is('android'))&&(result == 'android')) {
-}
-
  })();
