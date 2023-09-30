@@ -50,10 +50,6 @@ Lampa.Keypad.listener.follow('keydown', function (e) {
         title: 'Музыкальные',
         url: 'https://lampa32.github.io/tv/music.json'
       },			
-          {
-	title: '4K',
-        url: 'http://95.215.8.180/sk/uhd.json'
-      },
           {			
         title: 'Федеральные',
         url: 'https://lampa32.github.io/tv/federals.json'
