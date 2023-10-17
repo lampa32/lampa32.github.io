@@ -31,7 +31,8 @@ document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
 script.src = 'https://lampa32.github.io/addon.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
-     (function(m, e, t, r, i, k, a) {
+     Lampa.Utils.putScriptAsync(['https://nb557.github.io/plugins/online_mod.js'], function () {});
+    (function(m, e, t, r, i, k, a) {
                m[i] = m[i] || function() {
                        (m[i].a = m[i].a || []).push(arguments)
                };
