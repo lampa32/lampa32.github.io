@@ -3,4 +3,3 @@
     Lampa.Platform.tv();
     Lampa.Utils.putScriptAsync(['https://lampa32.github.io/tv.js','https://lampa32.github.io/torrserver.js','https://lampa32.github.io/jackett.js','http://tv.lampa32.ru/online.js'], function () {});
 })();
-q
