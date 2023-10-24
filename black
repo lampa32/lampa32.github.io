@@ -19,8 +19,6 @@
      }
   });
   Lampa.Storage.listener.follow('change', function (e) {});
-                Lampa.Settings.listener.follow('open', function (e) {
-                  Lampa.Settings.main().update();
-                  Lampa.Settings.main().render().find('[data-component="tmdb"]').addClass('hide');
+  Lampa.Settings.main().render().find('[data-component="tmdb"]').addClass('hide');
        });
 })();
