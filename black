@@ -20,5 +20,4 @@
   });
   Lampa.Storage.listener.follow('change', function (e) {});
   Lampa.Settings.main().render().find('[data-component="tmdb"]').addClass('hide');
-       });
 })();
