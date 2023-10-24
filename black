@@ -18,4 +18,12 @@
              },10);
      }
   });
+
+		Lampa.Listener.follow('app',(e)=>{
+        if(e.type == 'ready'){
+			setTimeout(function(){
+				$("[feed-item__head]").eq(0).remove();
+			},10); 
+        }
+    });
 })();
