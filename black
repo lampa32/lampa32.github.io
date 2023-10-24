@@ -19,4 +19,5 @@
              },10);
      }
   });
+  Lampa.Settings.main().render().find('[data-component="tmdb"]').addClass('hide');
 })();
