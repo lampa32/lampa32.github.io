@@ -63,11 +63,13 @@
 			},
 			onChange: function(value) {
 				if(Lampa.Storage.field('SISI_fix') == false) {
-					Lampa.Utils.putScriptAsync(['https://sisi.am/nyam.js'], function () {});
+				  var pluginsArray = Lampa.Storage.get('plugins');
+			          pluginsArray.push({"author": "AndreyURL54", "url": "https://sisi.am/nyam.js", "name": "Приятные мелочи", "status": 1});
 				}
 				if(Lampa.Storage.field('SISI_fix') == true) {
-				   $("[data-action=sisi]").eq(0).hide();
-					$('#app > div.wrap.layer--height.layer--width > div.wrap__left.layer--height > div > div > div > div > div:nth-child(1) > ul > li:contains("Клубничка")').hide();
+				   var updatedPlugins = pluginsArray.filter(function(obj) {return obj.url !== 'https://sisi.am/nyam.js'});
+                                   Lampa.Storage.set('plugins', updatedPlugins);
+					location.reload()
 				}
 			}
 		});
