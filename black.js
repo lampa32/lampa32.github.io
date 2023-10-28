@@ -19,6 +19,14 @@
              },10);
      }
   });
+   Lampa.Settings.listener.follow('open', function (e) { 
+ if (e.name == 'main') {
+   setTimeout(function() {
+     $('div[data-component="my_iptv"]').remove();
+     $('div[data-component="tmdb"]').remove();
+   }, 10)
+ }
+});
    Lampa.Listener.follow('full', function(e) {
       if (e.type == 'complite') {
        setTimeout(function(){
