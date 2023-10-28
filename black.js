@@ -3,7 +3,7 @@
     Lampa.Platform.tv();
     Lampa.Utils.putScriptAsync(['http://lampa32.ru/newtv.js','http://cub.watch/plugin/tmdb-proxy','http://45.67.228.34:9118/online.js','http://lampa32.ru/mult.js'], function () {});
   window.lampa_settings.torrents_use = false;
- // window.lampa_settings.plugins_use = false;
+  window.lampa_settings.plugins_use = false;
   window.lampa_settings.account_use = false;
   Lampa.Storage.set('source', 'cub');
   Lampa.Listener.follow('app', function (e) {
