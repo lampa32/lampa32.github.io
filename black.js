@@ -66,6 +66,7 @@
 					$('#app > div.wrap.layer--height.layer--width > div.wrap__left.layer--height > div > div > div > div > div:nth-child(1) > ul > li:contains("Клубничка")').show();
 				}
 				if(Lampa.Storage.field('SISI_fix') == true) {
+				   $("[data-action=sisi]").eq(0).show();
 					$('#app > div.wrap.layer--height.layer--width > div.wrap__left.layer--height > div > div > div > div > div:nth-child(1) > ul > li:contains("Клубничка")').hide();
 				}
 			}
