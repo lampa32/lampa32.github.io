@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-    Lampa.Utils.putScriptAsync(['http://lampa32.ru/newtv.js','http://cub.watch/plugin/tmdb-proxy','http://45.67.228.34:9118/online.js','http://lampa32.ru/mult.js','https://sisi.am/nyam.js'], function () {});
+    Lampa.Utils.putScriptAsync(['http://lampa32.ru/newtv.js','http://cub.watch/plugin/tmdb-proxy','http://45.67.228.34:9118/online.js','http://lampa32.ru/mult.js',''], function () {});
   window.lampa_settings.torrents_use = false;
   window.lampa_settings.plugins_use = false;
   window.lampa_settings.account_use = false;
@@ -63,7 +63,7 @@
 			},
 			onChange: function(value) {
 				if(Lampa.Storage.field('SISI_fix') == false) {
-					$('#app > div.wrap.layer--height.layer--width > div.wrap__left.layer--height > div > div > div > div > div:nth-child(1) > ul > li:contains("Клубничка")').show();
+					Lampa.Utils.putScriptAsync(['https://sisi.am/nyam.js'], function () {});
 				}
 				if(Lampa.Storage.field('SISI_fix') == true) {
 				   $("[data-action=sisi]").eq(0).hide();
