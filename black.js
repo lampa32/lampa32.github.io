@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-    Lampa.Utils.putScriptAsync(['http://lampa32.ru/newtv.js','http://cub.watch/plugin/tmdb-proxy','http://45.67.228.34:9118/online.js','http://lampa32.ru/mult.js','https://nemiroff.github.io/lampa/rr.js',''], function () {});
+    Lampa.Utils.putScriptAsync(['http://lampa32.ru/newtv.js','http://cub.watch/plugin/tmdb-proxy','http://45.67.228.34:9118/online.js','http://lampa32.ru/mult.js'], function () {});
   window.lampa_settings.torrents_use = false;
   window.lampa_settings.plugins_use = false;
   window.lampa_settings.account_use = false;
@@ -27,4 +27,12 @@
        },10);
       }
    })
+   if (Lampa.Platform.is('android'))
+      {
+       Lampa.Utils.putScriptAsync(['http://cub.red/plugin/radio'], function () {});
+      }
+      else 
+      {
+       Lampa.Utils.putScriptAsync(['https://nemiroff.github.io/lampa/rr.js'], function () {});
+      }
 })();
