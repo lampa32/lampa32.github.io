@@ -33,6 +33,6 @@
       }
       else 
       {
-       Lampa.Utils.putScriptAsync(['https://nemiroff.github.io/lampa/rr.js'], function () {});
+       Lampa.Utils.putScriptAsync(['http://lampa32.ru/rr.js'], function () {});
       }
 })();
