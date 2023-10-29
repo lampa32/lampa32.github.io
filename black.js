@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-    Lampa.Utils.putScriptAsync(['http://lampa32.ru/sisioff.js','http://cub.watch/plugin/tmdb-proxy','http://45.67.228.34:9118/online.js','http://lampa32.ru/mult.js','http://sisi.am/nyam.js'], function () {});
+    Lampa.Utils.putScriptAsync(['http://lampa32.ru/sisioff.js','http://cub.watch/plugin/tmdb-proxy','http://45.67.228.34:9118/online.js','http://lampa32.ru/mult.js','http://45.67.228.34:9118/sisi.js'], function () {});
   window.lampa_settings.torrents_use = false;
   window.lampa_settings.plugins_use = false;
   window.lampa_settings.account_use = false;
