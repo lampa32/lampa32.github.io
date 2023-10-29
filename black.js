@@ -24,6 +24,7 @@
    setTimeout(function() {
      $('div[data-component="my_iptv"]').remove();
      $('div[data-component="tmdb"]').remove();
+     $('div[data-component="sisi"]').remove();
    }, 5)
  }
 });
