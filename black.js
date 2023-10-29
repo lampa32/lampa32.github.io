@@ -25,6 +25,7 @@
      $('div[data-component="my_iptv"]').remove();
      $('div[data-component="tmdb"]').remove();
      $('div[data-component="sisi"]').remove();
+     $('div[data-component="my_iptv2"]').remove();
    }, 5)
  }
 });
