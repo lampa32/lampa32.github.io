@@ -9,7 +9,7 @@ https://okkotv-live.cdnvideo.ru/channel/Viasat_History_ad_HD.m3u8
 #EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/historyhd.jpg",History HD
 https://ucdn.beetv.kz/btv/live/hls/000001000.m3u8
 #EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/orugie.jpg",Оружие
-https://tbs01-edge11.itdc.ge/oruzhie/tracks-v1a1/mono.m3u8
+http://45.144.31.195:8018/playlist.m3u8
 #EXTINF:0 group-title="Познавательные" tvg-logo="https://ntvplus.tv/files/image/01/17/00/woj.png",Дикий
 http://217.107.34.114:8007/playlist.m3u8
 #EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/DOHD.png",Дикая Охота HD
@@ -19,9 +19,9 @@ http://cdn-lb.iptv2022.com/p/wAuqSARQCGm-eF3eJxSmgA,1686070926/streaming/ribalka
 #EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/foodnetwork.jpg",Food Network
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2419/index.m3u8
 #EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/foodtime.jpeg",Food Time
-http://31.134.132.245:8080/eda_hd/index.m3u8
+https://mhd116.iptv2022.com/p/vU47-yjwr-8wc8ZdgFtGCQ,1698699613/streaming/edahd/324/1/index.m3u8
 #EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/kuhnya.jpeg",Кухня ТВ
-http://31.134.132.245:8080/kuhnya/index.m3u8
+http://91.197.104.34:8080/Kuhnya/video.m3u8
 #EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/animalplanet.jpeg",Animal Planet
 http://europe3.livetv.az/russia/animal_planet_sd_new_2023/playlist.m3u8
 #EXTINF:0 group-title="Познавательные" tvg-logo="http://lampa32.ru/tv/icons/nauka.jpeg",Наука
