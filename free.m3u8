@@ -182,7 +182,7 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2399/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/938d5b25e6e89631175a7c77e3f36918.png",Setanta Sports 1 HD
 https://tv.movielab.pro/942/video.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/c1eb2dd0be9de9c5fa45b272e63b9fbe.png",Setanta Sports 2 HD
-https://tv.movielab.pro/943/video.m3u8
+http://95.216.6.244:8000/play/a003/index.m3u8?bw945913340648.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/setanta3.jpg",Setanta Sports +
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/5068/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://epg.it999.ru/img2/2782.png",Телеканал Футбол
@@ -228,7 +228,7 @@ http://146.158.0.56:80/Motosport/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/5563.png",Драйв
 http://46.174.83.66/Drive/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/qsport.jpg",Q Sport HD
-http://91.233.215.250:7272/ipKJnd6cVw1Nu7a
+http://89.254.128.5:22280/qsport/manifest.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="https://sun6-23.userapi.com/s/v1/ig2/tEb_yw55OliPlwnH__KtzOPevFnc4FPEFes2tsUKe3LhDk6VEHH_Y0Cdm34pF9q70cUtl1yzBUSuXw-yDB8Nnp9U.jpg",Red Bull
 https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_1660.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/belarus-5.jpg ",Беларусь 5 HD
