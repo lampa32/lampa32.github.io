@@ -899,15 +899,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://jin.energy/newonline.js', 'Онлайн Prestige', '@lampa', 'Онлайн_Prestige');
+							itemON('https://bwa.to/plugins/prestige.js', 'Онлайн Prestige', '@lampa', 'Онлайн_Prestige');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://jin.energy/newonline.js";
+							var pluginToRemoveUrl = "https://bwa.to/plugins/prestige.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
                },
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://jin.energy/newonline.js')
+						var myResult = checkPlugin('https://bwa.to/plugins/prestige.js')
 						setTimeout(function() {	
 							$('div[data-name="Онлайн_Prestige"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -936,15 +936,15 @@ Lampa.SettingsApi.addComponent({
 					},
                            		onChange: function(value) {
 					if (value == '1') {
-						itemON('http://jin.energy/online.js', 'Онлайн', '@lampa', 'Онлайн');
+						itemON('https://bwa.to/o', 'Онлайн', '@lampa', 'Онлайн');
 					}
 					if (value == '2') {
-						var pluginToRemoveUrl = "http://jin.energy/online.js";
+						var pluginToRemoveUrl = "https://bwa.to/o";
 						deletePlugin(pluginToRemoveUrl);
 					}
                 },
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://jin.energy/online.js')
+						var myResult = checkPlugin('https://bwa.to/o')
 						setTimeout(function() {	
 							$('div[data-name="Онлайн"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -1402,15 +1402,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://cub.watch/plugin/radio', 'Радио Record', '@lampa', 'Record');
+							itemON('http://cub.red/plugin/radio', 'Радио Record', '@lampa', 'Record');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://cub.watch/plugin/radio";
+							var pluginToRemoveUrl = "http://cub.red/plugin/radio";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://cub.watch/plugin/radio')
+						var myResult = checkPlugin('http://cub.red/plugin/radio')
 						setTimeout(function() {	
 							$('div[data-name="Record"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -1521,15 +1521,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://sisi.am/nyam.js', 'Клубничка', '@rik', 'Sisi');
+							itemON('https://bwa.to/s', 'Клубничка', '@rik', 'Sisi');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://sisi.am/nyam.js";
+							var pluginToRemoveUrl = "https://bwa.to/s";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('https://sisi.am/nyam.js')
+						var myResult = checkPlugin('https://bwa.to/s')
 						setTimeout(function() {	
 							$('div[data-name="Sisi"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
