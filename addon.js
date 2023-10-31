@@ -186,16 +186,16 @@ Lampa.SettingsApi.addComponent({
                             },
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://cub.watch/plugin/tmdb-proxy', 'TMDB Proxy', '@lampa', 'TMDB');
+							itemON('http://cub.red/plugin/tmdb-proxy', 'TMDB Proxy', '@lampa', 'TMDB');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://cub.watch/plugin/tmdb-proxy";
+							var pluginToRemoveUrl = "http://cub.red/plugin/tmdb-proxy";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {
 						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://cub.watch/plugin/tmdb-proxy')
+						var myResult = checkPlugin('http://cub.red/plugin/tmdb-proxy')
 						setTimeout(function() {	
 							$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -635,15 +635,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://cub.watch/plugin/dlna', 'DLNA', '@lampa', 'DLNA');
+							itemON('http://cub.red/plugin/dlna', 'DLNA', '@lampa', 'DLNA');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://cub.watch/plugin/dlna";
+							var pluginToRemoveUrl = "http://cub.red/plugin/dlna";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://cub.watch/plugin/dlna')
+						var myResult = checkPlugin('http://cub.red/plugin/dlna')
 						setTimeout(function() {	
 							$('div[data-name="DLNA"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -1092,15 +1092,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://cub.watch/plugin/tracks', 'Tracks', '@lampa', 'Tracks');
+							itemON('http://cub.red/plugin/tracks', 'Tracks', '@lampa', 'Tracks');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://cub.watch/plugin/tracks";
+							var pluginToRemoveUrl = "http://cub.red/plugin/tracks";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://cub.watch/plugin/tracks')
+						var myResult = checkPlugin('http://cub.red/plugin/tracks')
 						setTimeout(function() {	
 							$('div[data-name="Tracks"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -1320,15 +1320,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://cub.watch/plugin/iptv', 'IPTV', '@lampa', 'IPTV');
+							itemON('http://cub.red/plugin/iptv', 'IPTV', '@lampa', 'IPTV');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://cub.watch/plugin/iptv";
+							var pluginToRemoveUrl = "http://cub.red/plugin/iptv";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://cub.watch/plugin/iptv')
+						var myResult = checkPlugin('http://cub.red/plugin/iptv')
 						setTimeout(function() {	
 							$('div[data-name="IPTV"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
