@@ -4,16 +4,16 @@
 {"group":"","name":"Viasat Explore HD","time":"","picture":"https://crimeastar.net/wp-content/uploads/2020/04/viasat-explore-1-2048x1024.png","video":"https://okkotv-live.cdnvideo.ru/channel/Viasat_Explore_HD.m3u8"},
 {"group":"","name":"Viasat History HD","time":"","picture":"http://lampa32.ru/tv/icons/telekanal-viasat-history-otzyvy-1372371098.png","video":"https://okkotv-live.cdnvideo.ru/channel/Viasat_History_ad_HD.m3u8"},
 {"group":"","name":"History HD","time":"","picture":"http://lampa32.ru/tv/icons/historyhd.jpg","video":"https://ucdn.beetv.kz/btv/live/hls/000001000.m3u8"},
-{"group":"","name":"Оружие","time":"","picture":"http://lampa32.ru/tv/icons/orugie.jpg","video":"https://tbs01-edge11.itdc.ge/oruzhie/tracks-v1a1/mono.m3u8"},
+{"group":"","name":"Оружие","time":"","picture":"http://lampa32.ru/tv/icons/orugie.jpg","video":"http://45.144.31.195:8018/playlist.m3u8"},
 {"group":"","name":"Дикий","time":"","picture":"https://ntvplus.tv/files/image/01/17/00/woj.png","video":"http://217.107.34.114:8007/playlist.m3u8"},
 {"group":"","name":"Дикая Охота HD","time":"","picture":"http://lampa32.ru/tv/icons/DOHD.png","video":"http://81.177.136.209:8007/playlist.m3u8"},
 {"group":"","name":"Дикая Рыбалка HD","time":"","picture":"http://lampa32.ru/tv/icons/DRHD.png","video":"http://cdn-lb.iptv2022.com/p/wAuqSARQCGm-eF3eJxSmgA,1686070926/streaming/ribalkahd/324/1/index.m3u8"},
 {"group":"","name":"Food Network","time":"","picture":"http://lampa32.ru/tv/icons/foodnetwork.jpg","video":"http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2419/index.m3u8"},
 {"group":"","name":"Food Time","time":"","picture":"http://lampa32.ru/tv/icons/foodtime.jpeg","video":"http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/918/index.m3u8"},
 {"group":"","name":"Кухня ТВ","time":"","picture":"http://lampa32.ru/tv/icons/kuhnya.jpeg","video":"http://31.148.48.15:80/Kuhnya_TV/index.m3u8"},
-{"group":"","name":"Animal Planet","time":"","picture":"http://lampa32.ru/tv/icons/animalplanet.jpeg","video":"http://45.159.74.14:80/AnimalPlanet/tracks-v1a2/mono.m3u8"},
-{"group":"","name":"Наука","time":"","picture":"http://lampa32.ru/tv/icons/nauka.jpeg","video":"http://6.troya.one:34000/ch073/mono.m3u8?token=skaz0chn1k16.yNTIcIjDckxbKRvU8tgsC98jqerchMW6A8w_3AqwKKqz-zJ_K_vIBHcygEyMbSol"},
+{"group":"","name":"Animal Planet","time":"","picture":"http://lampa32.ru/tv/icons/animalplanet.jpeg","video":"http://91.196.39.252:4000/play/a01l"},
+{"group":"","name":"Наука","time":"","picture":"http://lampa32.ru/tv/icons/nauka.jpeg","video":"http://212.0.211.102:9999/play/a009/index.m3u8"},
 {"group":"","name":"Приключения","time":"","picture":"http://lampa32.ru/tv/icons/prikluchenia.jpeg","video":"http://193.33.240.8:8080/teletravel_hd/index.m3u8"},
 {"group":"","name":"Планета HD","time":"","picture":"http://lampa32.ru/tv/icons/planeta.png","video":"http://193.33.240.8:8080/planeta_hd/index.m3u8"},
-{"group":"","name":"Живая Планета","time":"","picture":"http://lampa32.ru/tv/icons/givplaneta.png","video":"http://6.troya.one:34000/ch453/mono.m3u8?token=skaz0chn1k16.yNTIcIjDckxbKRvU8tgsC1vWq7ROwEcEcIKoHQmJama4N4aoK0Lger0N0R75ZcdB"}
+{"group":"","name":"Живая Планета","time":"","picture":"http://lampa32.ru/tv/icons/givplaneta.png","video":"http://109.239.208.82:80/liveplanet/index.m3u8"}
 ]  
