@@ -16,7 +16,7 @@
     window.lampa_settings.demo = false;
     window.lampa_settings.read_only = false;
 
-    var script = document.createElement ('script');
+    /* var script = document.createElement ('script');
 script.src = 'http://tv.lampa32.ru/online.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
     var script = document.createElement ('script');
@@ -26,12 +26,12 @@ document.getElementsByTagName ('head')[0].appendChild (script);
 script.src = 'https://lampa32.github.io/jackett.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
-script.src = 'http://cub.watch/plugin/tmdb-proxy';
+script.src = 'http://cub.red/plugin/tmdb-proxy';
 document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
 script.src = 'https://lampa32.github.io/addon.js';
-document.getElementsByTagName ('head')[0].appendChild (script);
-    //Lampa.Utils.putScriptAsync(['https://nb557.github.io/plugins/online_mod.js','https://bwa.to/o'], function () {});
+document.getElementsByTagName ('head')[0].appendChild (script);   */
+    Lampa.Utils.putScriptAsync(['http://tv.lampa32.ru/online.js','https://lampa32.github.io/torrserver.js','https://lampa32.github.io/jackett.js','http://cub.red/plugin/tmdb-proxy','https://lampa32.github.io/addon.js','https://lampa32.github.io/mult.js'], function () {});
     (function(m, e, t, r, i, k, a) {
                m[i] = m[i] || function() {
                        (m[i].a = m[i].a || []).push(arguments)
