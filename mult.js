@@ -8,5 +8,5 @@
                 $('.menu .menu__list').eq(0).append(mult);
                   setTimeout(function() {$("[data-action=mult]").insertAfter($("[data-action=tv]"));}, 1000)
            }
-  setTimeout(function() { multstart() },0)
+  setTimeout(function() { multstart() }, 1000)
   })();
