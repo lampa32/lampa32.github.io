@@ -263,5 +263,12 @@ Lampa.Keypad.listener.follow('keydown', function (e) {
         window.lampa_settings.account_use = false;
   setTimeout(function(){
      $('.open--settings').remove();
-   }, 1000);
+   }, 1000)
+Lampa.Settings.listener.follow('open', function (e) { 
+ if (e.name == 'main') {
+   setTimeout(function() {
+     $('div[data-component="more"]').remove();
+   }, 5)
+ }
+});
 })();
