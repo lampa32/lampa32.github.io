@@ -15,7 +15,7 @@
     window.lampa_settings.torrents_use = true;
     window.lampa_settings.demo = false;
     window.lampa_settings.read_only = false;
-
+    window.plugin_kanals_N_ready = true;
     /* var script = document.createElement ('script');
 script.src = 'http://tv.lampa32.ru/online.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
@@ -31,8 +31,9 @@ document.getElementsByTagName ('head')[0].appendChild (script);
      var script = document.createElement ('script');
 script.src = 'https://lampa32.github.io/addon.js';
 document.getElementsByTagName ('head')[0].appendChild (script);   */
+    
     Lampa.Utils.putScriptAsync(['http://tv.lampa32.ru/online.js','https://lampa32.github.io/torrserver.js','https://lampa32.github.io/jackett.js','http://cub.red/plugin/tmdb-proxy','https://lampa32.github.io/tv.js','https://lampa32.github.io/mult.js'], function () {});
-     if (!window.plugin_kanals_n_ready) startkanals_n();
+     
     (function(m, e, t, r, i, k, a) {
                m[i] = m[i] || function() {
                        (m[i].a = m[i].a || []).push(arguments)
