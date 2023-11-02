@@ -13,7 +13,7 @@
 {"group":"","name":"Кухня ТВ","time":"","picture":"http://lampa32.ru/tv/icons/kuhnya.jpeg","video":"http://31.148.48.15:80/Kuhnya_TV/index.m3u8"},
 {"group":"","name":"Animal Planet","time":"","picture":"http://lampa32.ru/tv/icons/animalplanet.jpeg","video":"http://91.196.39.252:4000/play/a01l"},
 {"group":"","name":"Наука","time":"","picture":"http://lampa32.ru/tv/icons/nauka.jpeg","video":"http://212.0.211.102:9999/play/a009/index.m3u8"},
-{"group":"","name":"Приключения","time":"","picture":"http://lampa32.ru/tv/icons/prikluchenia.jpeg","video":"http://193.33.240.8:8080/teletravel_hd/index.m3u8"},
-{"group":"","name":"Планета HD","time":"","picture":"http://lampa32.ru/tv/icons/planeta.png","video":"http://193.33.240.8:8080/planeta_hd/index.m3u8"},
+{"group":"","name":"Приключения","time":"","picture":"http://lampa32.ru/tv/icons/prikluchenia.jpeg","video":"http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/920/index.m3u8"},
+{"group":"","name":"Планета HD","time":"","picture":"http://lampa32.ru/tv/icons/planeta.png","video":"http://89.104.114.32:8080/planeta_hd/mono.m3u8?token=DWEvjhKS3G"},
 {"group":"","name":"Живая Планета","time":"","picture":"http://lampa32.ru/tv/icons/givplaneta.png","video":"http://109.239.208.82:80/liveplanet/index.m3u8"}
 ]  
