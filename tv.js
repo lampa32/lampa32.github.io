@@ -254,7 +254,7 @@ Lampa.Keypad.listener.follow('keydown', function (e) {
      if (e.type == 'ready') {
              setTimeout(function(){
                         $("[data-action=about]").eq(0).remove();
-                        $("[data-action=console]").eq(0).remove();
+                       // $("[data-action=console]").eq(0).remove();
                         $("[data-action=settings]").eq(0).remove();
              },10);
      }
