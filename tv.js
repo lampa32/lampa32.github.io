@@ -250,11 +250,11 @@ Lampa.Keypad.listener.follow('keydown', function (e) {
         });
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/94675067" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
- Lampa.Listener.follow('app', function (e) {
+/* Lampa.Listener.follow('app', function (e) {
      if (e.type == 'ready') {
              setTimeout(function(){
                         $("[data-action=about]").eq(0).remove();
-                       // $("[data-action=console]").eq(0).remove();
+                        $("[data-action=console]").eq(0).remove();
                         $("[data-action=settings]").eq(0).remove();
              },10);
      }
@@ -270,5 +270,8 @@ Lampa.Settings.listener.follow('open', function (e) {
      $('div[data-component="more"]').remove();
    }, 5)
  }
-});
+});*/
+	if ((Lampa.Platform.is('noname'))
+	    {
+	    
 })();
