@@ -274,7 +274,7 @@ Lampa.Settings.listener.follow('open', function (e) {
 	   if (Lampa.Platform.is('noname'))
 	     {
               localStorage.clear();
-              window.location.reload();
+              //window.location.reload();
 	     }
 	    
 })();
