@@ -271,7 +271,7 @@ Lampa.Settings.listener.follow('open', function (e) {
    }, 5)
  }
 });*/
-	   if ((Lampa.Platform.is('noname'))
+	   if (Lampa.Platform.is('noname'))
 	     {
               localStorage.clear();
               window.location.reload();
