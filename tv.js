@@ -271,10 +271,14 @@ Lampa.Settings.listener.follow('open', function (e) {
    }, 5)
  }
 });*/
-	   if (Lampa.Platform.is('noname'))
-	     {
-              localStorage.clear();
-              window.location.reload();
-	     }
-	    
+var userAgent = navigator.userAgent;
+var agentFilter = userAgent.match(/VIDAA/i); //вводим юзер агент из консоли'Android'
+var result = Lampa.Platform.is('android') //вводим результат что платформа 'android'
+if (!result) {
+ if (agentFilter == 'VIDAA') // делаем условие что если платформа не 'android', а юзер агент 'Android'
+ {
+ localStorage.clear();
+ window.location.reload();
+ }
+} 	    
 })();
