@@ -144,7 +144,7 @@ Lampa.SettingsApi.addComponent({
 				//$('body').append('<div id="hideInstall"><style>div.settings-param__value{opacity: 0%!important;display: none;}</style><div>')
 		                /* Сдвигаем раздел выше */
 				        setTimeout(function() {
-					  $('div[data-component=plugins]').before($('div[data-component=add_plugin]'))
+					  $('div[data-component=more]').before($('div[data-component=add_plugin]'))
 					}, 30)
 			}
 		});
