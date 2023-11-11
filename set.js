@@ -15,7 +15,13 @@
     window.lampa_settings.torrents_use = true;
     window.lampa_settings.demo = false;
     window.lampa_settings.read_only = false;
-    
+    window.lampa_settings.plugins_use = false;
+    window.lampa_settings.account_use = false;
+
+Lampa.Settings.listener.follow('open', function (e) {
+ if (e.name == 'main') {
+   setTimeout(function() {
+       
     /* var script = document.createElement ('script');
 script.src = 'http://tv.lampa32.ru/online.js';
 document.getElementsByTagName ('head')[0].appendChild (script);
