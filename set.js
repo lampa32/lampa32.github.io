@@ -28,6 +28,7 @@ Lampa.Settings.listener.follow('open', function (e) {
 });    
     setTimeout(function(){
       $('.open--premium').remove();
+      $('.open--notice').remove();
      }, 1000);    
     Lampa.Listener.follow('app', function (e) {
      if (e.type == 'ready') {
@@ -36,6 +37,7 @@ Lampa.Settings.listener.follow('open', function (e) {
                  $("[data-action=mytorrents]").eq(0).remove();
                  $("[data-action=about]").eq(0).remove();
                  $("[data-action=console]").eq(0).remove();
+                 $("[data-action=subscribes]").eq(0).remove();
               },10);
      }
   });
