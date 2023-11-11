@@ -12,7 +12,7 @@
    // Lampa.Storage.set('jackett_interview', 'all');
    // Lampa.Storage.set('tmdb_proxy_image', 'http://imagetmdb.com');
    // Lampa.Storage.set('tmdb_proxy_api', 'http://cors.lampa32.ru/proxy/');
-    Lampa.Storage.set('keyboard_type', 'integrate');1
+    Lampa.Storage.set('keyboard_type', 'integrate');
     window.lampa_settings.torrents_use = true;
     window.lampa_settings.demo = false;
     window.lampa_settings.read_only = false;
