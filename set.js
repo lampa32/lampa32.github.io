@@ -26,6 +26,19 @@ Lampa.Settings.listener.follow('open', function (e) {
    }, 5)
  }
 });    
+    setTimeout(function(){
+      $('.open--premium').remove();
+     }, 1000);    
+    Lampa.Listener.follow('app', function (e) {
+     if (e.type == 'ready') {
+             setTimeout(function(){
+                 $("[data-action=anime]").eq(0).remove();
+                 $("[data-action=mytorrents]").eq(0).remove();
+                 $("[data-action=about]").eq(0).remove();
+                 $("[data-action=console]").eq(0).remove();
+              },10);
+     }
+  });
        
     /* var script = document.createElement ('script');
 script.src = 'http://tv.lampa32.ru/online.js';
