@@ -28,7 +28,7 @@ Lampa.Settings.listener.follow('open', function (e) {
 });    
     setTimeout(function(){
       $('.open--premium').remove();
-      $('.open--notice').remove();
+      //$('.open--notice').remove();
      }, 1000);    
     Lampa.Listener.follow('app', function (e) {
      if (e.type == 'ready') {
