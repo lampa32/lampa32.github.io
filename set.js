@@ -36,7 +36,7 @@ Lampa.Settings.listener.follow('open', function (e) {
                  $("[data-action=anime]").eq(0).remove();
                  $("[data-action=mytorrents]").eq(0).remove();
                  $("[data-action=about]").eq(0).remove();
-                 //$("[data-action=console]").eq(0).remove();
+                 $("[data-action=console]").eq(0).remove();
                  $("[data-action=subscribes]").eq(0).remove();
               },10);
      }
