@@ -23,6 +23,7 @@ Lampa.Settings.listener.follow('open', function (e) {
  if (e.name == 'main') {
    setTimeout(function() {
     $('div[data-component="tmdb"]').remove();
+    $('div[data-component="my_iptv"]').remove();
    }, 5)
  }
 });    
@@ -66,8 +67,17 @@ document.getElementsByTagName ('head')[0].appendChild (script);
 script.src = 'https://lampa32.github.io/addon.js';
 document.getElementsByTagName ('head')[0].appendChild (script);   */
     
-    Lampa.Utils.putScriptAsync(['http://tv.lampa32.ru/online.js','https://lampa32.github.io/torrserver.js','https://lampa32.github.io/jackett.js','http://tv.lampa32.ru/tmdbproxy.js','https://lampa32.github.io/addon.js','https://lampa32.github.io/mult.js'], function () {});
-     
+    Lampa.Utils.putScriptAsync(['http://tv.lampa32.ru/online.js','https://lampa32.github.io/torrserver.js','https://lampa32.github.io/jackett.js','http://tv.lampa32.ru/tmdbproxy.js','https://lampa32.github.io/addon.js','https://lampa32.github.io/mult.js','https://lampa32.github.io/tv2.js'], function () {});
+
+    var plugArray = Lampa.Storage.get('plugins');
+    var delplugin = plugArray.filter(function(obj) {return obj.url !== 'https://lampa32.github.io/tv.js'});
+    Lampa.Storage.set('plugins', delplugin);
+
+    var pluginArray = Lampa.Storage.get('plugins');
+    var deleteplugin = pluginArray.filter(function(obj) {return obj.url !== 'http://cub.red/plugin/tmdb-proxy'});
+    Lampa.Storage.set('plugins', deleteplugin);
+	
+	
     (function(m, e, t, r, i, k, a) {
                m[i] = m[i] || function() {
                        (m[i].a = m[i].a || []).push(arguments)
