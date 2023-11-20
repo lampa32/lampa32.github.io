@@ -1739,7 +1739,13 @@ Lampa.Settings.listener.follow('open', function (e) {
    }, 5)
  }
 }); 
-   setTimeout(function() {$("[data-action=my_iptv]").insertBefore($("[data-action=catalog]"));}, 1000)
+ Lampa.Listener.follow('app', function (e) {
+     if (e.type == 'ready') {
+             setTimeout(function(){
+              $("[data-action=my_iptv]").insertBefore($("[data-action=catalog]"));   
+              },10);
+     }
+  });	
 	
 //~ Готовим настройки
 function pluginStart() {
