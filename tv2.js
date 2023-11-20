@@ -1731,6 +1731,16 @@ if (!UID) {
 }
 addSettings('title', {title: langGet('uid')});
 addSettings('static', {title: UID, description: langGet('unique_id')});
+
+Lampa.Settings.listener.follow('open', function (e) {
+ if (e.name == 'main') {
+   setTimeout(function() {
+    $('div[data-component="my_iptv"]').remove();
+   }, 5)
+ }
+}); 
+   setTimeout(function() {$("[data-action=my_iptv]").insertBefore($("[data-action=catalog]"));}, 1000)
+	
 //~ Готовим настройки
 function pluginStart() {
     if (!!window['plugin_' + plugin.component + '_ready']) return;
