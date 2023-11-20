@@ -1743,7 +1743,7 @@ Lampa.Settings.listener.follow('open', function (e) {
      if (e.type == 'ready') {
              setTimeout(function(){
               $("[data-action=my_iptv]").insertBefore("[data-action=catalog]");   
-              },10);
+              },2000);
      }
   });	
 	
