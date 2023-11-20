@@ -1742,7 +1742,7 @@ Lampa.Settings.listener.follow('open', function (e) {
  Lampa.Listener.follow('app', function (e) {
      if (e.type == 'ready') {
              setTimeout(function(){
-              $('div[data-action=my_iptv]').insertBefore($('div[data-action=catalog]'));   
+              $('div[data-action=my_iptv]').after($('div[data-action=catalog]'));   
               },2000);
      }
   });
