@@ -23,7 +23,6 @@ Lampa.Settings.listener.follow('open', function (e) {
  if (e.name == 'main') {
    setTimeout(function() {
     $('div[data-component="tmdb"]').remove();
-    $('div[data-component="my_iptv"]').remove();
    }, 5)
  }
 });    
