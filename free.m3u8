@@ -232,7 +232,7 @@ http://92.100.39.32:2289/play/a08n/index.m3u8
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2021/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/qsport.jpg",Q Sport HD
 http://89.254.128.5:22280/qsport/manifest.m3u8
-#EXTINF:0 group-title="Спортивные" tvg-logo="https://sun6-23.userapi.com/s/v1/ig2/tEb_yw55OliPlwnH__KtzOPevFnc4FPEFes2tsUKe3LhDk6VEHH_Y0Cdm34pF9q70cUtl1yzBUSuXw-yDB8Nnp9U.jpg",Red Bull
+#EXTINF:0 group-title="Спортивные" tvg-logo="https://red24artists.com/wp-content/uploads/2017/02/Layla-Anna-Lee-TV-Presenter-redbull-tv-logo-2x.jpg",Red Bull
 https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_1660.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/belarus-5.jpg ",Беларусь 5 HD
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2177/index.m3u8
