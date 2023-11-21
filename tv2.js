@@ -1752,8 +1752,8 @@ else Lampa.Listener.follow('app', function(e){if (e.type === 'ready') pluginStar
 Lampa.Listener.follow('app', function (e) {
      if (e.type == 'ready') {
              setTimeout(function(){
-              $("[data-action=my_iptv_]").insertAfter($("[data-action=anime]"));   
-              },2000);
+              $("[data-action=my_iptv]").insertAfter($("[data-action=anime]"));   
+              },5000);
      }
 });
 })();
