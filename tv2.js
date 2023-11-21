@@ -1738,15 +1738,7 @@ Lampa.Settings.listener.follow('open', function (e) {
     $('div[data-component="my_iptv"]').remove();
    }, 5)
  }
-}); 
- Lampa.Listener.follow('app', function (e) {
-     if (e.type == 'ready') {
-             setTimeout(function(){
-              $("[data-action=my_iptv_]").insertAfter($("[data-action=anime]"));   
-              },2000);
-     }
-  });
-	
+}); 	
 //~ Готовим настройки
 function pluginStart() {
     if (!!window['plugin_' + plugin.component + '_ready']) return;
@@ -1757,5 +1749,9 @@ function pluginStart() {
  
 if (!!window.appready) pluginStart();
 else Lampa.Listener.follow('app', function(e){if (e.type === 'ready') pluginStart()});
-
+Lampa.Listener.follow('app', function (e) {
+     if (e.type == 'ready') {
+             setTimeout(function(){
+              $("[data-action=my_iptv_]").insertAfter($("[data-action=anime]"));   
+              },2000);
 })();
