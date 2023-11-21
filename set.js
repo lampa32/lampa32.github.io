@@ -40,7 +40,7 @@ Lampa.Settings.listener.follow('open', function (e) {
                  $("[data-action=console]").eq(0).remove();
                  $("[data-action=subscribes]").eq(0).remove();
 		 $("[data-action=my_iptv]").insertAfter($("[data-action=catalog]"));
-              },10);
+              },2000);
      }
   });
      Lampa.Listener.follow('full', function(e) {
