@@ -39,8 +39,7 @@ Lampa.Settings.listener.follow('open', function (e) {
                  $("[data-action=about]").eq(0).remove();
                  $("[data-action=console]").eq(0).remove();
                  $("[data-action=subscribes]").eq(0).remove();
-		 $("[data-action=my_iptv]").insertAfter($("[data-action=catalog]"));
-              },2000);
+              },10);
      }
   });
      Lampa.Listener.follow('full', function(e) {
