@@ -1193,7 +1193,7 @@ Lampa.SettingsApi.addComponent({
 						});
 					}
 		});
-	        Lampa.SettingsApi.addParam({
+	       /* Lampa.SettingsApi.addParam({
 					component: 'add_tv_plugin',
 					param: {
 						name: 'Lampa32_TV',
@@ -1228,7 +1228,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);
 					}
-		});
+		});*/
 		Lampa.SettingsApi.addParam({
 					component: 'add_tv_plugin',
 					param: {
