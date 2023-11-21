@@ -1754,4 +1754,6 @@ Lampa.Listener.follow('app', function (e) {
              setTimeout(function(){
               $("[data-action=my_iptv_]").insertAfter($("[data-action=anime]"));   
               },2000);
+     }
+});
 })();
