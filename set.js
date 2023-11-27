@@ -74,7 +74,7 @@ document.getElementsByTagName ('head')[0].appendChild (script);   */
     Lampa.Storage.set('plugins', delplugin);
 
     var pluginArray = Lampa.Storage.get('plugins');
-    var deleteplugin = pluginArray.filter(function(obj) {return obj.url !== 'http://cub.red/plugin/tmdb-proxy'});
+    var deleteplugin = pluginArray.filter(function(obj) {return obj.url !== 'https://cub.red/plugin/tmdb-proxy'});
     Lampa.Storage.set('plugins', deleteplugin);
 	
 	
