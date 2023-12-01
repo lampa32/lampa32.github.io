@@ -19,6 +19,7 @@
     window.lampa_settings.read_only = false;
     window.lampa_settings.plugins_use = false;
     window.lampa_settings.account_use = false;
+    window.lampa_settings.dcma = true;
 
 Lampa.Settings.listener.follow('open', function (e) {
  if (e.name == 'main') {
