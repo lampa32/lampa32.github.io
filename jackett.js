@@ -2,6 +2,7 @@
 	'use strict';
 Lampa.Platform.tv();
 Lampa.Storage.set('parser_use', true)
+	window.lampa_settings.dcma = false;
 
 Lampa.SettingsApi.addParam({
     component: 'parser',
