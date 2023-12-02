@@ -20,12 +20,12 @@
     window.lampa_settings.plugins_use = false;
     window.lampa_settings.account_use = false;
     
-    var dcma_timer = setInterval(function(){
+    /*var dcma_timer = setInterval(function(){
 	  if(window.lampa_settings.dcma){
 		clearInterval(dcma_timer)
 		window.lampa_settings.dcma = false
 	  }
-    },1000)
+    },1000)*/
 
 
 Lampa.Settings.listener.follow('open', function (e) {
