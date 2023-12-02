@@ -2,7 +2,12 @@
 	'use strict';
 Lampa.Platform.tv();
 Lampa.Storage.set('parser_use', true)
-	window.lampa_settings.dcma = false;
+	var dcma_timer = setInterval(function(){
+	  if(window.lampa_settings.dcma){
+		clearInterval(dcma_timer)
+		window.lampa_settings.dcma = false
+	  }
+	},1000)
 
 Lampa.SettingsApi.addParam({
     component: 'parser',
