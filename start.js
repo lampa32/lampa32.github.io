@@ -20,12 +20,12 @@
 
     Lampa.TMDB.image = function (url) {
       var base = Lampa.Utils.protocol() + 'image.tmdb.org/' + url;
-      return Lampa.Storage.field('proxy_tmdb') ? 'http://tvlampa.fun:9118/proxyimg/' + account(base) : base;
+      return Lampa.Storage.field('proxy_tmdb') ? 'https://vrn.my.to/proxyimg/' + account(base) : base;
     };
 
     Lampa.TMDB.api = function (url) {
       var base = Lampa.Utils.protocol() + 'api.themoviedb.org/3/' + url;
-      return Lampa.Storage.field('proxy_tmdb') ? 'http://tvlampa.fun:9118/proxy/' + account(base) : base;
+      return Lampa.Storage.field('proxy_tmdb') ? 'https://vrn.my.to/proxy/' + account(base) : base;
     };
 
     Lampa.Settings.listener.follow('open', function (e) {
