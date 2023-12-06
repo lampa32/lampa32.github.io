@@ -5,7 +5,7 @@
         if(typeof Lampa !== 'undefined'){
             clearInterval(timer);
 
-            /*if(!Lampa.Storage.get('full','false'))*/ start();
+            if(!Lampa.Storage.get('full','false')) start();
 			
             window.lampa_settings.torrents_use = true;
             window.lampa_settings.demo = false;
@@ -14,7 +14,7 @@
     },100);
 
 	function start(){
-      //  Lampa.Storage.set('full','true');
+        Lampa.Storage.set('full','true');
         
         var plugins = Lampa.Plugins.get();
 		
@@ -65,4 +65,11 @@
         if(plugins_push.length) Lampa.Utils.putScript([plugins_push],function(){},function(){},function(){},true);
         
     }
+    if (!Lampa.Storage.get('full_del')) {
+    var plugArray = Lampa.Storage.get('plugins');
+    var delplugin = plugArray.filter(function(obj) {return obj.url !== 'https://lampa32.github.io/full.js'});
+    Lampa.Storage.set('plugins', delplugin);
+    Lampa.Storage.set('full_del', true); location.reload()
+    }
+
 })();
