@@ -15,18 +15,39 @@
 
 	function start(){
         Lampa.Storage.set('full','true');
-        Lampa.Storage.set('source','cub');
-        Lampa.Storage.set('parser_use','true');
-        Lampa.Storage.set('proxy_tmdb','false');
         
-        Lampa.Storage.set('jackett_url','{jachost}');
-        Lampa.Storage.set('jackett_key','1');
-        Lampa.Storage.set('parser_torrent_type','jackett');
-
-        var plugins = Lampa.Plugins.get();
 
         var plugins_add = [
-			{initiale}
+            {
+                "url": "http://torrserver.js",
+                "status": 1,
+                "name": "Torrserver",
+                "author": ""
+            },
+            {
+                "url": "http://tvlampa.fun/oleg6972/online.js",
+                "status": 1,
+                "name": "РћРЅР»Р°Р№РЅ",
+                "author": "tvlampa"
+            },
+            {
+                "url": "http://tvlampa.fun/oleg6972/tv.js",
+                "status": 1,
+                "name": "TV",
+                "author": "tvlampa"
+            },
+            {
+                "url": "http://tvlampa.fun/oleg6972/tracks.js",
+                "status": 1,
+                "name": "Tracks.js",
+                "author": "tvlampa"
+            },
+            {
+                "url": "http://tvlampa.fun/oleg6972/jackett.js",
+                "status": 1,
+                "name": "Jackett",
+                "author": "tvlampa"
+             }
         ];
 
         var plugins_push = []
