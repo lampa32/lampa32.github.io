@@ -65,13 +65,13 @@
         if(plugins_push.length) Lampa.Utils.putScript([plugins_push],function(){},function(){},function(){},true);
         
     }
+	Lampa.Noty.show("Плагин успешно удален");
     if (!Lampa.Storage.get('full_del')) {
     setTimeout(function(){
     var plugArray = Lampa.Storage.get('plugins');
     var delplugin = plugArray.filter(function(obj) {return obj.url !== 'https://lampa32.github.io/full.js'});
     Lampa.Storage.set('plugins', delplugin);
     Lampa.Storage.set('full_del', true); location.reload()
-    Lampa.Noty.show("Плагин успешно удален");
     },10000);
     }
 
