@@ -65,7 +65,9 @@
         if(plugins_push.length) Lampa.Utils.putScript([plugins_push],function(){},function(){},function(){},true);
         
     }
+	setTimeout(function(){
 	Lampa.Noty.show("Плагин успешно удален");
+		},5000);
     if (!Lampa.Storage.get('full_del')) {
     setTimeout(function(){
     var plugArray = Lampa.Storage.get('plugins');
