@@ -5,7 +5,7 @@
         if(typeof Lampa !== 'undefined'){
             clearInterval(timer);
 
-            if(!Lampa.Storage.get('full','false')) start();
+            /*if(!Lampa.Storage.get('full','false'))*/ start();
 			
             window.lampa_settings.torrents_use = true;
             window.lampa_settings.demo = false;
@@ -14,13 +14,13 @@
     },100);
 
 	function start(){
-        Lampa.Storage.set('full','true');
+      //  Lampa.Storage.set('full','true');
         
         var plugins = Lampa.Plugins.get();
 		
         var plugins_add = [
             {
-                "url": "http://torrserver.js",
+                "url": "https://lampa32.github.io/torrserver.js",
                 "status": 1,
                 "name": "Torrserver",
                 "author": ""
