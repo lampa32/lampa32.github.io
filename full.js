@@ -11,7 +11,7 @@
      var pluginsArray = Lampa.Storage.get('plugins');
     	pluginsArray.push({"url": "https://lampa32.github.io/tv.js", "status": 1},{"url": "https://lampa32.github.io/tv2.js", "status": 1});
        Lampa.Storage.set('plugins', pluginsArray);
-       Lampa.Storage.set('keyboard_type', 'integrate');
+       //Lampa.Storage.set('keyboard_type', 'integrate');
        Lampa.Storage.set('tv_install', true); location.reload()
     }
 
