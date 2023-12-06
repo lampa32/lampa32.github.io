@@ -14,7 +14,7 @@
     },100);
 
 	function start(){
-        Lampa.Storage.set('full','true');
+     //   Lampa.Storage.set('full','true');
         
 
         var plugins_add = [
