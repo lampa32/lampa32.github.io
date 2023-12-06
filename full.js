@@ -16,7 +16,8 @@
 	function start(){
      //   Lampa.Storage.set('full','true');
         
-
+        var plugins = Lampa.Plugins.get();
+		
         var plugins_add = [
             {
                 "url": "http://torrserver.js",
