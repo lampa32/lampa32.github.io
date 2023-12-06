@@ -5,7 +5,7 @@
         if(typeof Lampa !== 'undefined'){
             clearInterval(timer);
 
-            if(!Lampa.Storage.get('full','false')) start();
+            /*if(!Lampa.Storage.get('full','false'))*/ start();
 			
             window.lampa_settings.torrents_use = true;
             window.lampa_settings.demo = false;
