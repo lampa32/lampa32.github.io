@@ -26,16 +26,16 @@
                 "author": ""
             },
             {
-                "url": "http://tvlampa.fun/oleg6972/online.js",
+                "url": "https://scabrum.github.io/plugins/jackett.js",
                 "status": 1,
-                "name": "",
-                "author": "tvlampa"
+                "name": "Переключение Парсеров",
+                "author": ""
             },
             {
-                "url": "http://tvlampa.fun/oleg6972/tv.js",
+                "url": "https://nb557.github.io/plugins/online_mod.js",
                 "status": 1,
-                "name": "TV",
-                "author": "tvlampa"
+                "name": "Online Mod",
+                "author": "@t_anton"
             },
             {
                 "url": "http://tvlampa.fun/oleg6972/tracks.js",
@@ -67,14 +67,14 @@
     }
     setTimeout(function(){
 	Lampa.Noty.show("Приложение будет перезапущено ...");
-    },5000);
+    },3000);
     if (!Lampa.Storage.get('full_del')) {
       setTimeout(function(){
          var plugArray = Lampa.Storage.get('plugins');
          var delplugin = plugArray.filter(function(obj) {return obj.url !== 'https://lampa32.github.io/full.js'});
          Lampa.Storage.set('plugins', delplugin);
          Lampa.Storage.set('full_del', true); location.reload()
-      },10000);
+      },7000);
     }
 
 })();
