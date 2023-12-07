@@ -38,10 +38,10 @@
                 "author": "@t_anton"
             },
             {
-                "url": "http://tvlampa.fun/oleg6972/tracks.js",
+                "url": "http://cub.red/plugin/tracks",
                 "status": 1,
-                "name": "Tracks.js",
-                "author": "tvlampa"
+                "name": "Tracks",
+                "author": "@lampa"
             },
             {
                 "url": "http://tvlampa.fun/oleg6972/jackett.js",
