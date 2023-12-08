@@ -73,7 +73,7 @@
          var plugArray = Lampa.Storage.get('plugins');
          var delplugin = plugArray.filter(function(obj) {return obj.url !== 'https://lampa32.github.io/full.js'});
          Lampa.Storage.set('plugins', delplugin);
-         Lampa.Storage.set('full_del', true); //location.reload()
+         Lampa.Storage.set('full_del', true); location.reload()
       },6000);
     }
 
