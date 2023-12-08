@@ -23,13 +23,13 @@
                 "url": "https://scabrum.github.io/plugins/addon.js",
                 "status": 1,
                 "name": "Альтернативный Магазин",
-                "author": ""
+                "author": "@AndreyURL54"
             },
             {
                 "url": "https://scabrum.github.io/plugins/jackett.js",
                 "status": 1,
                 "name": "Переключение Парсеров",
-                "author": ""
+                "author": "@AndreyURL54"
             },
             {
                 "url": "https://nb557.github.io/plugins/online_mod.js",
@@ -44,10 +44,10 @@
                 "author": "@lampa"
             },
             {
-                "url": "http://tvlampa.fun/oleg6972/jackett.js",
+                "url": "http://cub.red/plugin/radio",
                 "status": 1,
-                "name": "Jackett",
-                "author": "tvlampa"
+                "name": "Радио",
+                "author": "@lampa"
              }
         ];
 
