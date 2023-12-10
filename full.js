@@ -24,13 +24,13 @@
                 "url": "https://scabrum.github.io/plugins/addon.js",
                 "status": 1,
                 "name": "Альтернативный Магазин",
-                "author": "@AndreyURL54"
+                "author": "@scabrum"
             },
             {
                 "url": "https://scabrum.github.io/plugins/jackett.js",
                 "status": 1,
                 "name": "Переключение Парсеров",
-                "author": "@AndreyURL54"
+                "author": "@scabrum"
             },
             {
                 "url": "https://nb557.github.io/plugins/online_mod.js",
@@ -49,6 +49,12 @@
                 "status": 1,
                 "name": "Радио",
                 "author": "@lampa"
+             },
+	     {
+                "url": "http://79.137.205.41/start.js",
+                "status": 1,
+                "name": "Start On",
+                "author": "@scabrum"
              }
         ];
 
