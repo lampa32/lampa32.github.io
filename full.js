@@ -72,7 +72,7 @@
         if(plugins_push.length) Lampa.Utils.putScript([plugins_push],function(){},function(){},function(){},true);
         
     }
-    setTimeout(function(){
+    /*setTimeout(function(){
 	Lampa.Noty.show("Приложение будет перезапущено ...");
     },3000);
     if (!Lampa.Storage.get('full_del')) {
@@ -82,7 +82,7 @@
          Lampa.Storage.set('plugins', delplugin);
          Lampa.Storage.set('full_del', true); //location.reload()
       },6000);
-    }
+    }*/
     var ads = '<div style="padding: 0.5em 0.3em; padding-top: 0;"><div style="background: #3e3e3e; padding: 1.5em; border-radius: 0.3em;"><div style="line-height: 0.4;">Добавляйтесь в нашу группу  <span style="color: #24b4f9">@modssmy_bot</span> </div></div></div>'
 
 	Lampa.SettingsApi.addParam({
