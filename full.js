@@ -83,7 +83,7 @@
          Lampa.Storage.set('full_del', true); //location.reload()
       },6000);
     }
-    var ads = '<div style="padding: 1.5em 2.5em; padding-top: 0;"><div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;"><div style="line-height: 1.4;">Добавляйтесь в нашу группу  <span style="color: #24b4f9">@modssmy_bot</span> </div></div></div>'
+    var ads = '<div style="padding: 2.0em 2.0em; padding-top: 0;"><div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;"><div style="line-height: 1.4;">Добавляйтесь в нашу группу  <span style="color: #24b4f9">@modssmy_bot</span> </div></div></div>'
 
 	Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
