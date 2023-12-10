@@ -84,7 +84,8 @@
       },6000);
     }
     //var ads = '<div style="padding: 1.5em 2em; padding-top: 0;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="line-height: 1.4;">Надоело смотреть в плохом качестве?<br>Хочешь смотреть в FHD и 4K? Переходи в телеграм бот <span style="color: #24b4f9">@modssmy_bot</span> для подключения VIP</div>', '</div>', '</div>'
-    Lampa.Settings.listener.follow('open', function (e) {
+    setTimeout(function(){
+	Lampa.Settings.listener.follow('open', function (e) {
 					if (e.name == 'main') {
 						Lampa.SettingsApi.addComponent({
 							component: 'add_ads',
@@ -110,4 +111,5 @@
 						});
 					}
 		});
+		},5000);
 })();
