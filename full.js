@@ -68,7 +68,7 @@
     }
     setTimeout(function(){
 	Lampa.Noty.show("Приложение будет перезапущено ...");
-    },4000);
+    },3000);
     if (!Lampa.Storage.get('full_del')) {
       setTimeout(function(){
          var plugArray = Lampa.Storage.get('plugins');
