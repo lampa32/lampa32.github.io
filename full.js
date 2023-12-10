@@ -80,11 +80,11 @@
          var plugArray = Lampa.Storage.get('plugins');
          var delplugin = plugArray.filter(function(obj) {return obj.url !== 'https://lampa32.github.io/full.js'});
          Lampa.Storage.set('plugins', delplugin);
-         Lampa.Storage.set('full_del', true); location.reload()
+         Lampa.Storage.set('full_del', true); //location.reload()
       },6000);
     }
     //var ads = '<div style="padding: 1.5em 2em; padding-top: 0;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="line-height: 1.4;">Надоело смотреть в плохом качестве?<br>Хочешь смотреть в FHD и 4K? Переходи в телеграм бот <span style="color: #24b4f9">@modssmy_bot</span> для подключения VIP</div>', '</div>', '</div>'
-    setTimeout(function(){
+
 	Lampa.SettingsApi.addParam({
 					component: 'add_plugin',
 					param: {
@@ -96,5 +96,4 @@
                                 name: '&&&'//'<div style="padding: 1.5em 2em; padding-top: 0;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="line-height: 1.4;">Надоело смотреть в плохом качестве?<br>Хочешь смотреть в FHD и 4K? Переходи в телеграм бот <span style="color: #24b4f9">@modssmy_bot</span> для подключения VIP</div>', '</div>', '</div>'
                         },
 		});
-		},5000);
 })();
