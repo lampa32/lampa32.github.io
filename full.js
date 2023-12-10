@@ -16,6 +16,7 @@
 	function start(){
         Lampa.Storage.set('full','true');
         Lampa.Storage.set('jackett_url', 'jacred.xyz');
+	Lampa.Storage.set('parse_in_search', true);
         var plugins = Lampa.Plugins.get();
 		
         var plugins_add = [
