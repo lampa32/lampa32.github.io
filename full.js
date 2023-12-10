@@ -93,7 +93,7 @@
 						default: true
                         		},
 					field: {
-                                name: '<div style="padding: 1.5em 2em; padding-top: 0;"><div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;"><div style="line-height: 1.4;">РќР°РґРѕРµР»Рѕ СЃРјРѕС‚СЂРµС‚СЊ РІ РїР»РѕС…РѕРј РєР°С‡РµСЃС‚РІРµ?<br>РҐРѕС‡РµС€СЊ СЃРјРѕС‚СЂРµС‚СЊ РІ FHD Рё 4K? РџРµСЂРµС…РѕРґРё РІ С‚РµР»РµРіСЂР°Рј Р±РѕС‚ <span style="color: #24b4f9">@modssmy_bot</span> РґР»СЏ РїРѕРґРєР»СЋС‡РµРЅРёСЏ VIP</div></div></div>'
+                                name: '<div style="padding: 1.5em 2em; padding-top: 0;"><div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;"><div style="line-height: 1.4;">Добавляйтесь в нашу группу  <span style="color: #24b4f9">@modssmy_bot</span> </div></div></div>'
                         },
 		});
 })();
