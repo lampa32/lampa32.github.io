@@ -98,9 +98,9 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/200/index.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="https://rt-static.rt.ru/sites/default/files/img/wink/kino_9.png",TV1000 HD
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/6387/index.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="https://s26037.cdn.ngenix.net/sdp/mos/nclogo1593514116881.png",TV1000 Action HD
-https://okkotv-live.cdnvideo.ru/channel/TV1000_Action_HD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/6386/index.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="https://s26037.cdn.ngenix.net/sdp/mos/nclogo1593514220982.png",TV1000 Русское кино HD
-https://okkotv-live.cdnvideo.ru/channel/TV1000_Rus_Kino_HD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/101/index.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="http://lampa32.ru/tv/icons/ostro.jpeg",Остросюжетное HD
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/904/index.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="http://lampa32.ru/tv/icons/premialnoe.jpeg",Премиальное HD
@@ -110,15 +110,15 @@ https://okkotv-live.cdnvideo.ru/channel/Star_Family_HD/1080p.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="http://www.sputres.ru/images/2016/09/scifi_nb.jpg",Sony Sci-Fi
 https://okkotv-live.cdnvideo.ru/channel/Sony_SciFi.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="http://lampa32.ru/tv/icons/black_logo_1.png",Black
-https://okkotv-live.cdnvideo.ru/channel/Sony_Turbo.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/708/index.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="http://lampa32.ru/tv/icons/red.png",Red
-https://okkotv-live.cdnvideo.ru/channel/Sony_ET.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/559/index.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="https://avatars.mds.yandex.net/i?id=f150e901deca751bfaeccab94ec71466_l-5222263-images-thumbs&n=13",Феникс Кино HD
-http://okkotv-live.cdnvideo.ru/channel/Phoenix_HD/1080p.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2039/index.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="https://avatars.mds.yandex.net/i?id=1628c3c65a7a461e6e20f15fa04fe83618635c4d-7985106-images-thumbs&n=13",START Air HD
-https://okkotv-live.cdnvideo.ru/channel/START_Air_HD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/18036/index.m3u8
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="https://teleoboz.ru/upload/iblock/abf/abfa4cb1f7bf8c0d3e2c510ed729ed1a.JPG",START World HD
-https://okkotv-live.cdnvideo.ru/channel/START_World_HD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/18032/index.m3u8
 
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/stskids.png",CTC Kids HD
 https://okkotv-live.cdnvideo.ru/channel/CTC_Kids_HD.m3u8
