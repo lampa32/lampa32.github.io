@@ -57,23 +57,23 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/15116/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="http://lampa32.ru/tv/icons/tv3.png",ТВ3 HD
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/5033/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="http://lampa32.ru/tv/icons/logo-pyatnica-min.png",Пятница HD
-https://okkotv-live.cdnvideo.ru/channel/Pyatnizza_OTT_HD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/5031/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="https://images.iptv.rt.ru/sdp/mos/nclogo1508420635111.png",ТНТ HD
-https://okkotv-live.cdnvideo.ru/channel/TNT_OTT_HD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/237/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="http://lampa32.ru/tv/icons/yu.jpg",Ю
-https://okkotv-live.cdnvideo.ru/channel/Yu_OTT.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/534/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="https://user.vsevnet.ru/cache/smotreshka/che_new.png",Че
-https://okkotv-live.cdnvideo.ru/channel/Che_OTT_2.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/513/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="http://lampa32.ru/tv/icons/sts-love.jpg",СТС Love
-https://okkotv-live.cdnvideo.ru/channel/CTC_Love_OTT_2.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/103/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="http://lampa32.ru/tv/icons/zvezda.jpg",Звезда
-https://okkotv-live.cdnvideo.ru/channel/Zvezda_SD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/19230/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="https://avatars.mds.yandex.net/i?id=7ff8f3bdaf23817fd54c99863dbfcf4d_l-5286781-images-thumbs&n=13",Мир
-https://okkotv-live.cdnvideo.ru/channel/Mir_OTT.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/214/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="https://images.iptv.rt.ru/sdp/mos/nclogo1543571854883.png",Известия HD
-https://okkotv-live.cdnvideo.ru/channel/Izvestiya_HD_2.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2008/index.m3u8
 #EXTINF:0 group-title="Федеральные" tvg-logo="https://i.ytimg.com/vi/qv_Mh8fS6cQ/maxresdefault.jpg",360 Новости
-https://okkotv-live.cdnvideo.ru/channel/360_Novosti_HD/1080p.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2065/index.m3u8
 
 #EXTINF:0 group-title="Фильмы и сериалы" tvg-logo="http://lampa32.ru/tv/icons/a1_2.jpg",A1 HD
 https://okkotv-live.cdnvideo.ru/channel/A1_HD.m3u8
