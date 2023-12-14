@@ -163,7 +163,7 @@ http://hz1.teleport.cc/HLS/HD.m3u8
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/155/index.m3u8
 
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/6261.png",Старт HD
-http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/6384/index.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2007/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/5568.png",Viasat Sport HD
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/12075/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/19109.png",Extreme Sports
@@ -191,11 +191,11 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/5068/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://epg.it999.ru/img2/2782.png",Телеканал Футбол
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/5050/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/14105.png",Матч! Футбол 1 HD
-http://bl.uma.media/live/126863/HLS/6866944_3/2/1/playlist.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/222/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/1401.png",Матч! Футбол 2 HD
-http://bl.uma.media/live/126864/HLS/6866944_3/2/1/playlist.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/211/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/1402.png",Матч! Футбол 3 HD
-http://bl.uma.media/live/126865/HLS/6866944_3/2/1/playlist.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/206/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/10KINwHHtwSkJaA4capfpmVijOvJ_1554810848.jpeg",Матч! HD
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/212/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/maxresdefault_live.jpg",Матч! Премьер HD
@@ -213,11 +213,11 @@ http://tv.tuva.ru/m1global/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="https://i.pinimg.com/originals/45/78/2e/45782e75f3efea056283fc10c2e897de.png",Wrestling
 https://d2p372oxiwmcn1.cloudfront.net/hls/main.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/422.png",Бокс ТВ
-http://91.196.39.252:4000/play/a01i
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/870/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/1318.png",КХЛ ТВ
 http://bl.uma.media/live/148307/HLS/4614144_3/2/1/playlist.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/c1dfe0ad14ec54fee86d5cd87d07b462.png",KHL Prime
-https://okkotv-live.cdnvideo.ru/dash/khl_prime_hd/playlist.mpd
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/19396/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/tennis.png",Tennis Channel
 http://tennischannel-intl-samsung-uk.amagi.tv/playlist720_p.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/mirbas.png",Мир баскетбола
