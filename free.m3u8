@@ -121,13 +121,13 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/18036/index.m3u8
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/18032/index.m3u8
 
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/stskids.png",CTC Kids HD
-https://okkotv-live.cdnvideo.ru/channel/CTC_Kids_HD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2001/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/sun.jpg",Солнце
-https://okkotv-live.cdnvideo.ru/channel/Disney.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/872/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/Multilandia-logo-2020-full.png",Мультиландия
-https://okkotv-live.cdnvideo.ru/channel/Multilandia_HD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/5055/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/duck.jpg",Duck TV
-https://okkotv-live.cdnvideo.ru/channel/DuckTV/480p.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/1031/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/leva.png",Лёва HD
 https://strm.yandex.ru/kal/leva/leva0.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/gosskaz.png",В гостях у сказки
@@ -144,7 +144,7 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2052/index.m3u8
 http://45.144.31.195:8026/playlist.m3u8
 
 #EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/muztvlive.jpg",Муз ТВ
-https://okkotv-live.cdnvideo.ru/channel/MuzTV.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/15461/index.m3u8
 #EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/muzboxgold.jpg",MusicBox Gold
 https://strm.yandex.ru/kal/musicboxgold/musicboxgold0.m3u8
 #EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/tntmus.jpeg",ТНТ Music
@@ -163,9 +163,9 @@ http://hz1.teleport.cc/HLS/HD.m3u8
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/155/index.m3u8
 
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/6261.png",Старт HD
-https://okkotv-live.cdnvideo.ru/channel/Start/1080p.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/6384/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/5568.png",Viasat Sport HD
-https://okkotv-live.cdnvideo.ru/channel/Viasat_Sport_HD/1080p.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/12075/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/19109.png",Extreme Sports
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/144/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/8/87/Logo_des_TV-Senders_EdgeSport_HD_2022.jpg?20220706082646",Edge Sport HD
@@ -197,7 +197,7 @@ http://bl.uma.media/live/126864/HLS/6866944_3/2/1/playlist.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/1402.png",Матч! Футбол 3 HD
 http://bl.uma.media/live/126865/HLS/6866944_3/2/1/playlist.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/10KINwHHtwSkJaA4capfpmVijOvJ_1554810848.jpeg",Матч! HD
-https://okkotv-live.cdnvideo.ru/channel/Match_OTT_HD.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/212/index.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/maxresdefault_live.jpg",Матч! Премьер HD
 http://bl.uma.media/live/126866/HLS/6866944_4/2/1/playlist.m3u8
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://lampa32.ru/tv/icons/Match-Strana-Logo.png",Матч! Страна HD
