@@ -6,7 +6,7 @@
            var mult = $('<li class="menu__item selector" data-action="mult"><div class="menu__ico">' + ico + '</div><div class="menu__text">Мультфильмы</div></li>');
            mult.on('hover:enter', function() { Lampa.Activity.push({"url":"","title":"Мультфильмы","component":"category","genres":16,"id":16,"source":"cub","card_type":true,"page":1}) });
                 $('.menu .menu__list').eq(0).append(mult);
-                  setTimeout(function() {$("[data-action=mult]").insertAfter($("[data-action=tv]"));}, 1000)
+                  setTimeout(function() {$("[data-action=mult]").insertAfter($("[data-action=tv]"));}, 1500)
            }
-  setTimeout(function() { multstart() }, 1000)
+  setTimeout(function() { multstart() }, 1500)
   })();
