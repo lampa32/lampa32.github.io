@@ -28,13 +28,13 @@
     },1000)
 
 
-Lampa.Settings.listener.follow('open', function (e) {
+/*Lampa.Settings.listener.follow('open', function (e) {
  if (e.name == 'main') {
    setTimeout(function() {
     $('div[data-component="tmdb"]').remove();
    }, 5)
  }
-});    
+}); */   
     setTimeout(function(){
       $('.open--premium').remove();
       //$('.open--notice').remove();
