@@ -10,9 +10,9 @@
    // Lampa.Storage.set('torrserver_use_link', 'one');
    // Lampa.Storage.set('torrserver_url', '');
    // Lampa.Storage.set('jackett_interview', 'all');
-    Lampa.Storage.set('tmdb_proxy_image', 'http://cors.lampa32.ru/prox/');
-    Lampa.Storage.set('tmdb_proxy_api', 'http://cors.lampa32.ru/prox/');
-    Lampa.Storage.set('proxy_tmdb','true');
+   // Lampa.Storage.set('tmdb_proxy_image', 'http://cors.lampa32.ru/prox/');
+   // Lampa.Storage.set('tmdb_proxy_api', 'http://cors.lampa32.ru/prox/');
+   // Lampa.Storage.set('proxy_tmdb','true');
     Lampa.Storage.set('keyboard_type', 'integrate');
     window.lampa_settings.torrents_use = true;
     window.lampa_settings.demo = false;
@@ -20,21 +20,21 @@
     window.lampa_settings.plugins_use = false;
     window.lampa_settings.account_use = false;
     
-    var dcma_timer = setInterval(function(){
+   /* var dcma_timer = setInterval(function(){
 	  if(window.lampa_settings.dcma){
 		clearInterval(dcma_timer)
 		window.lampa_settings.dcma = false
 	  }
-    },1000)
+    },1000)*/
 
 
-/*Lampa.Settings.listener.follow('open', function (e) {
+Lampa.Settings.listener.follow('open', function (e) {
  if (e.name == 'main') {
    setTimeout(function() {
     $('div[data-component="tmdb"]').remove();
    }, 5)
  }
-}); */   
+});    
     setTimeout(function(){
       $('.open--premium').remove();
       //$('.open--notice').remove();
@@ -75,7 +75,7 @@ document.getElementsByTagName ('head')[0].appendChild (script);
 script.src = 'https://lampa32.github.io/addon.js';
 document.getElementsByTagName ('head')[0].appendChild (script);   */
     
-    Lampa.Utils.putScriptAsync(['http://tv.lampa32.ru/online.js','https://lampa32.github.io/torrserver.js','https://lampa32.github.io/jackett.js',/*'http://79.137.204.8:9118/tmdbproxy.js',*/'https://lampa32.github.io/addon.js','https://lampa32.github.io/mult.js','https://lampa32.github.io/tv2.js','https://cub.red/plugin/collections'], function () {});
+    Lampa.Utils.putScriptAsync(['http://tv.lampa32.ru/online.js','https://lampa32.github.io/torrserver.js','https://lampa32.github.io/jackett.js','http://79.137.204.8:9118/tmdbproxy.js','https://lampa32.github.io/addon.js','https://lampa32.github.io/mult.js','https://lampa32.github.io/tv2.js','https://cub.red/plugin/collections'], function () {});
 
     var plugArray = Lampa.Storage.get('plugins');
     var delplugin = plugArray.filter(function(obj) {return obj.url !== 'http://cub.red/plugin/tmdb-proxy'});
