@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-    Lampa.Storage.set('protocol', 'http');
+   // Lampa.Storage.set('protocol', 'http');
  
   if (Lampa.Storage.get('source') == 'cub') {
     Lampa.Storage.set('source', 'tmdb')
