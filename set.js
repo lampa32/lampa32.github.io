@@ -1,9 +1,9 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-   // Lampa.Storage.set('source', 'tmdb');
-    Lampa.Storage.set('protocol', 'http');
     Lampa.Storage.set('keyboard_type', 'integrate');
+   // Lampa.Storage.set('source', 'tmdb');
+   // Lampa.Storage.set('protocol', 'http');
    // Lampa.Storage.set('parser_use', 'true');
    // Lampa.Storage.set('jackett_url', '');
    // Lampa.Storage.set('jackett_key', '');
