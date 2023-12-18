@@ -80,13 +80,13 @@ document.getElementsByTagName ('head')[0].appendChild (script);   */
     
     Lampa.Utils.putScriptAsync(['http://tv.lampa32.ru/online.js','https://lampa32.github.io/torrserver.js','https://lampa32.github.io/jackett.js','https://lampa32.github.io/start.js','https://lampa32.github.io/addon.js','https://lampa32.github.io/mult.js','https://lampa32.github.io/tv2.js','https://cub.red/plugin/collections'], function () {});
 
-    var plugArray = Lampa.Storage.get('plugins');
+   /* var plugArray = Lampa.Storage.get('plugins');
     var delplugin = plugArray.filter(function(obj) {return obj.url !== 'http://cub.red/plugin/tmdb-proxy'});
     Lampa.Storage.set('plugins', delplugin);
 
     var pluginArray = Lampa.Storage.get('plugins');
     var deleteplugin = pluginArray.filter(function(obj) {return obj.url !== 'https://cub.red/plugin/tmdb-proxy'});
-    Lampa.Storage.set('plugins', deleteplugin);
+    Lampa.Storage.set('plugins', deleteplugin);*/
 	
 	
     (function(m, e, t, r, i, k, a) {
