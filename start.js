@@ -26,11 +26,11 @@
       return Lampa.Storage.field('proxy_tmdb') ? 'http://cors.lampa32.ru/proxy/' + Lampa.Utils.addUrlComponent(base) : base;
     };
 
-    Lampa.Settings.listener.follow('open', function (e) {
+   /* Lampa.Settings.listener.follow('open', function (e) {
       if (e.name == 'tmdb') {
         e.body.find('[data-parent="proxy"]').remove();
       }
-    });
+    });*/
 
     var dcma_timer = setInterval(function(){
       if(window.lampa_settings.dcma){
