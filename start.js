@@ -1,14 +1,14 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-   // Lampa.Storage.set('protocol', 'http');
+    Lampa.Storage.set('protocol', 'http');
  
   if (Lampa.Storage.get('source') == 'cub') {
     Lampa.Storage.set('source', 'tmdb')
   }
 
-    var plugArray = Lampa.Storage.get('plugins');
-    var delplugin = plugArray.filter(function(obj) {return obj.url !== 'http://cub.red/plugin/tmdb-proxy'});
+    var pluginArray = Lampa.Storage.get('plugins');
+    var delplugin = pluginArray.filter(function(obj) {return obj.url !== 'http://cub.red/plugin/tmdb-proxy'});
     Lampa.Storage.set('plugins', delplugin);
 
     var pluginArray = Lampa.Storage.get('plugins');
