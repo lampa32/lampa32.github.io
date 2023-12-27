@@ -142,6 +142,10 @@ https://ucdn.beetv.kz/btv/live/hls/000001207.m3u8
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2052/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/nickelodeon.png",Nickelodeon
 http://45.144.31.195:8026/playlist.m3u8
+#EXTINF:0 group-title="Детские" tvg-logo="http://top5-top10.ru/wp-content/uploads/2019/09/TiJi.jpg",Tiji TV
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/108/index.m3u8
+#EXTINF:0 group-title="Детские" tvg-logo="https://kokoc.com/upload/blog/611/6.png",Disney Cartoon
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/15027/index.m3u8
 
 #EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/muztvlive.jpg",Муз ТВ
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/15461/index.m3u8
