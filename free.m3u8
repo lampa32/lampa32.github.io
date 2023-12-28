@@ -169,6 +169,8 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2130/index.m3u8
 http://hz1.teleport.cc/HLS/HD.m3u8
 #EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/muzpervogo.jpg",Музыка Первого
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/155/index.m3u8
+#EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/jara.png",Жара HD
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2129/index.m3u8
 
 #EXTINF:0 group-title="Спортивные" tvg-logo="http://only4.tv/ch/6261.png",Старт HD
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2007/index.m3u8
