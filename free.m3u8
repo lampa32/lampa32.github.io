@@ -137,7 +137,7 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/156/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/detmir.png",Детский Мир
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/543/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/mult.jpg",Мульт
-https://ucdn.beetv.kz/btv/live/hls/000001207.m3u8
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/240/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/rizhiy.png",Рыжий
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/2052/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/nickelodeon.png",Nickelodeon
@@ -148,6 +148,8 @@ http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/108/index.m3u8
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/15027/index.m3u8
 #EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/ani.jpg",Ani
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/129/index.m3u8
+#EXTINF:0 group-title="Детские" tvg-logo="http://lampa32.ru/tv/icons/mulmuz.jpg",Мультимузыка
+http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/749/index.m3u8
 
 #EXTINF:0 group-title="Музыкальные" tvg-logo="http://lampa32.ru/tv/icons/muztvlive.jpg",Муз ТВ
 http://puaosar4.akciatv.ru/iptv/HVZLBXGWWQA6YS/15461/index.m3u8
