@@ -27,7 +27,7 @@ function checkAlive(){
 				//var adder = '';
 				//if (parserBase[i] == 'spawn.pp.ua:59117') var adder = '2&Query=Rebel%20Moon%20-%20Part%20One%3A%20A%20Child%20of%20Fire&title=%D0%9C%D1%8F%D1%82%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F%20%D0%9B%D1%83%D0%BD%D0%B0%2C%20%D1%87%D0%B0%D1%81%D1%82%D1%8C%201%3A%20%D0%94%D0%B8%D1%82%D1%8F%20%D0%BE%D0%B3%D0%BD%D1%8F&title_original=Rebel%20Moon%20-%20Part%20One%3A%20A%20Child%20of%20Fire&year=2023&is_serial=1&genres=%D1%84%D0%B0%D0%BD%D1%82%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%B0%2C%D0%B1%D0%BE%D0%B5%D0%B2%D0%B8%D0%BA%2C%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F&Category[]=2000'
 				var k = i + 2; 
-				var mySelector = 'body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child('+ k +') > div';
+				var mySel = 'body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child('+ k +') > div';
 				if ($('body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child(1) > div').text() !== 'Не выбран') return//Lampa.Noty.show('!==')
 				var link = 'http://' + parserBase[i] + '/api/v2.0/indexers/status:healthy/results?apikey=';// + adder;
 				var xhr = new XMLHttpRequest();
@@ -35,18 +35,18 @@ function checkAlive(){
 				xhr.open("GET", link, true);
 				xhr.send();
 				xhr.ontimeout = function() {
-					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
+					if ($(mySel).text() == parserName[i]) $(mySel).css('color','ff2e36');
 				}
 				
 				xhr.onerror = function() {
-					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
+					if ($(mySel).text() == parserName[i]) $(mySel).css('color','ff2e36');
 				}
 				xhr.onload = function() {
 					if (xhr.status == 200) {
-						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','1aff00')
+						if ($(mySel).text() == parserName[i]) $(mySel).css('color','1aff00')
 					}
 					if (xhr.status == 401) {
-						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36')
+						if ($(mySel).text() == parserName[i]) $(mySel).css('color','ff2e36')
 					}
 				}
 			}, 1000)
