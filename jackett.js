@@ -21,7 +21,7 @@ var parserName = [
 	'Unknown'
 ]
 
-function checkAlive(){
+/*function checkAlive(){
 		for (let i = 0; i <= (parserBase.length - 1); i++) {	
 			setTimeout(function(){
 				//var adder = '';
