@@ -53,13 +53,13 @@ function checkAlive(){
 		}
 }
 
-Lampa.Controller.listener.follow('toggle', function(e) {
+/*Lampa.Controller.listener.follow('toggle', function(e) {
    	if(e.name == 'select') {
    		setTimeout(function() {
 			var myResult = checkAlive()
 		}, 10);
    	}
-});
+});*/
 
 
 function changeParser() {
