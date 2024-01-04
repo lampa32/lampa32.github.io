@@ -2,11 +2,28 @@
     'use strict';
     Lampa.Platform.tv();
     Lampa.Storage.set('protocol', 'http');
- 
+/* 
   if (Lampa.Storage.get('source') == 'cub') {
     Lampa.Storage.set('source', 'tmdb')
   }
-
+*/
+ document.addEventListener("DOMSubtreeModified", function(event) {
+	var divs = document.getElementsByClassName("search__sources");
+	var startSource = Lampa.Storage.get('source');
+		if (divs.length > 0) {
+			if (Lampa.Storage.get('source') == 'cub') {
+				var startSource = Lampa.Storage.get('source');
+				Lampa.Storage.set('mySource', startSource) // метка
+				Lampa.Storage.set('source', 'tmdb');
+			}
+		} else {
+		setTimeout(function(){
+			if (localStorage.getItem('mySource')) {Lampa.Storage.set('source', Lampa.Storage.get('mySource'))}
+			localStorage.removeItem("mySource");
+		}, 1500)
+	}
+   }, false); 
+    
     var pluginArray = Lampa.Storage.get('plugins');
     var delplugin = pluginArray.filter(function(obj) {return obj.url !== 'http://cub.red/plugin/tmdb-proxy'});
     Lampa.Storage.set('plugins', delplugin);
