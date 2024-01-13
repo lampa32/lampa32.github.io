@@ -1365,7 +1365,7 @@ function langGet(name) {
 
 langAdd('default_playlist',
     {
-	ru: 'https://lampa32.github.io/free.m3u8',
+	ru: 'http://troya.one/pl/3/c9fgu3kszdf2e/playlist.m3u8',
 	uk: 'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8',
 	be: 'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8',
 	en: 'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8',
