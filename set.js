@@ -3,7 +3,7 @@
     Lampa.Platform.tv();
     Lampa.Storage.set('keyboard_type', 'integrate');
     Lampa.Storage.set('start_page', 'main');
-   // Lampa.Storage.set('source', 'tmdb');
+    Lampa.Storage.set('source', 'cub');
    // Lampa.Storage.set('protocol', 'http');
    // Lampa.Storage.set('parser_use', 'true');
    // Lampa.Storage.set('jackett_url', '');
