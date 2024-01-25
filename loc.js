@@ -23,7 +23,7 @@ Lampa.SettingsApi.addParam({
 				},
 				onChange: function (value) {
 					if (value) {
-            window.location.href = 'value'
+            window.location.href = value;
 					  //Filmix.checkPro(value, true);
 					 // Filmix.token = value;
 				//	} else {
