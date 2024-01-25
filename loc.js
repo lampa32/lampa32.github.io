@@ -2,6 +2,28 @@
 	'use strict';
 
 Lampa.Platform.tv();
+
+	function showReload(){
+Lampa.Modal.open({
+      title: '',
+      align: 'center',
+      zIndex: 300,
+      html: $('<div class="about">'Вы хотите вернуться на предыдущий сервер?'</div>'),
+      buttons: [{
+        name: 'Нет',
+        onSelect: function onSelect() {
+          Lampa.Modal.close();
+          $('.modal').remove();
+	  Lampa.Controller.toggle('settings_component');
+        }
+      }, {
+        name: 'Да',
+        onSelect: function onSelect() {
+          window.location.reload();
+        }
+      }]
+});
+}
   
   Lampa.SettingsApi.addComponent({
             component: 'location_redirect',
@@ -27,7 +49,7 @@ Lampa.SettingsApi.addParam({
 					  //Filmix.checkPro(value, true);
 					 // Filmix.token = value;
 					} else {
-						window.location.href = 'http://lampa.mx';
+						showReload();
 				//		Lampa.Storage.set("filmix_status", {});
 				//	  Filmix.token = value;
 					//	Filmix.showStatus();
