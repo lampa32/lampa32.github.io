@@ -13,20 +13,21 @@ Lampa.SettingsApi.addParam({
 				param: {
 					name: 'location_server',
 					type: 'input', 
-					values: '',
-					placeholder: 'filmix_param_placeholder',
+					values: 'lampa32.ru',
+					placeholder: '',
 					default: ''
 				},
 				field: {
-					name: 'filmix_param_add_title',
-					description: 'filmix_param_add_descr'
+					name: 'Введите сервер для редиректа',
+					description: ''
 				},
 				onChange: function (value) {
 					if (value) {
             window.location.href = value;
 					  //Filmix.checkPro(value, true);
 					 // Filmix.token = value;
-				//	} else {
+					} else {
+						window.location.href = 'http://lampa.mx';
 				//		Lampa.Storage.set("filmix_status", {});
 				//	  Filmix.token = value;
 					//	Filmix.showStatus();
