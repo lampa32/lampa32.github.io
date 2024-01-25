@@ -9,7 +9,7 @@ Lampa.Modal.open({
       title: '',
       align: 'center',
       zIndex: 300,
-      html: $('<div class="about">'Вы хотите вернуться на предыдущий сервер?'</div>'),
+      html: 'Вы хотите вернуться на предыдущий сервер?',
       buttons: [{
         name: 'Нет',
         onSelect: function onSelect() {
