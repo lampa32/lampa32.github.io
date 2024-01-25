@@ -2,6 +2,7 @@
 	'use strict';
 
 Lampa.Platform.tv();
+	showReload();
 
 	function showReload(){
 Lampa.Modal.open({
