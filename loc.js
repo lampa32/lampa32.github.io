@@ -14,8 +14,9 @@ function startMe() {
 	$('#REDIRECT').insertAfter('div[class="head__action selector open--settings"]');
 	
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
-		if (window.location.href !== aura) window.location.href = aura;
-		else window.location.href = genuie;
+		window.location.href = value;
+		//if (window.location.href !== aura) window.location.href = aura;
+		//else window.location.href = genuie;
 	});
 }
 	
