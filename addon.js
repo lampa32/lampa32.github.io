@@ -425,6 +425,7 @@ Lampa.SettingsApi.addComponent({
 						}, 100);
 					}
 		});
+	        Lampa.SettingsApi.addParam({
 	        			component: 'add_interface_plugin',
 					param: {
 						name: 'Weather',
