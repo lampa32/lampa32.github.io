@@ -54,8 +54,8 @@ Lampa.SettingsApi.addParam({
 				param: {
 					name: 'location_server',
 					type: 'input', 
-					values: 'lampa32.ru',
-					placeholder: '',
+					values: '',
+					placeholder: 'example',
 					default: ''
 				},
 				field: {
