@@ -78,4 +78,7 @@ Lampa.SettingsApi.addParam({
 			}
 		});
 	}
+	setTimeout(function(){
+     $('REDIRECT').remove()
+   }, 2000);
 })();
