@@ -15,7 +15,8 @@ function startMe() {
 	//if (Lampa.Storage.get('location_server')) {
 	if (window.location.href == '') {
 	 setTimeout(function(){
-           $('#REDIRECT').remove()
+          // $('#REDIRECT').remove()
+		 localStorage.removeItem("REDIRECT");
          }, 2000);
 	}
 	//}
