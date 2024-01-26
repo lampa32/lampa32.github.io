@@ -80,7 +80,7 @@ Lampa.SettingsApi.addParam({
 		});
 	}
       if (Lampa.Storage.get('location_server')) {
-	if (window.location.href == 'undefined') {
+	if (window.location.href == 'null') {
 	 setTimeout(function(){
            $('#REDIRECT').remove()
          }, 2000);
