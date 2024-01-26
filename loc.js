@@ -79,9 +79,11 @@ Lampa.SettingsApi.addParam({
 			}
 		});
 	}
+      if (Lampa.Storage.get('location_server')) {
 	if (window.location.href == 'undefined') {
 	 setTimeout(function(){
            $('#REDIRECT').remove()
          }, 2000);
 	}
+      }
 })();
