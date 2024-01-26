@@ -5,8 +5,8 @@ Lampa.Platform.tv();
 	
 
 function startMe() {
-	var genuie = 'http://lampa.mx/';
-	var aura = 'http://95.215.8.180/';
+	//var genuie = 'http://lampa.mx/';
+	//var aura = 'http://95.215.8.180/';
 	var domainSVG = '<svg fill="currentcolor" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490" xml:space="preserve" width="256px" height="256px"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <rect x="153.047" y="317.42" width="183.75" height="30.625"></rect> <circle cx="324.287" cy="175.283" r="42.642"></circle> <polygon points="139.745,230.764 225.243,175.286 139.745,119.793 123.072,145.484 168.987,175.286 123.072,205.074 "></polygon> <path d="M69.089,490h351.821c38.087,0,69.086-30.999,69.086-69.086V69.086C489.996,30.999,458.997,0,420.911,0H69.089 C30.995,0,0.004,30.999,0.004,69.086v351.829C0.004,459.001,30.995,490,69.089,490z M30.629,69.086 c0-21.204,17.256-38.461,38.461-38.461h351.821c21.204,0,38.461,17.257,38.461,38.461v351.829 c0,21.204-17.257,38.461-38.461,38.461H69.089c-21.204,0-38.461-17.257-38.461-38.461V69.086z"></path> </g> </g></svg>';
 	var domainBUTT = '<div id="REDIRECT" class="head__action selector redirect-screen">' + domainSVG + '</div>';
 	
@@ -14,14 +14,14 @@ function startMe() {
 	$('#REDIRECT').insertAfter('div[class="head__action selector open--settings"]');
 	
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
-		redirect();
+		//redirect();
 		//window.location.href = value;
 		//if (window.location.href !== aura) window.location.href = aura;
 		//else window.location.href = genuie;
 	});
 }
 	
-	function showReload(){
+	/*function showReload(){
 Lampa.Modal.open({
       title: '',
       align: 'center',
@@ -41,7 +41,7 @@ Lampa.Modal.open({
         }
       }]
 });
-}
+}*/
   
   Lampa.SettingsApi.addComponent({
             component: 'location_redirect',
@@ -63,21 +63,11 @@ Lampa.SettingsApi.addParam({
 				},
 				onChange: function (value) {
 					if (value) {
-				         function redirect(){
+				        // function redirect(){
 					 // startme();
                                           window.location.href = value;
-					 }
-	                                  
-	
-	
-					  //Filmix.checkPro(value, true);
-					 // Filmix.token = value;
-					//} else {
-						//showReload();
-				//		Lampa.Storage.set("filmix_status", {});
-				//	  Filmix.token = value;
-					//	Filmix.showStatus();
-					}
+					// }
+	                                 }
 				}
 			});
 	if(window.appready) startMe();
