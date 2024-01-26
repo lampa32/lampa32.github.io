@@ -41,7 +41,7 @@ Lampa.SettingsApi.addParam({
 				        if (value == '1') Lampa.Storage.set('torrserver_url_two', 'http://217.197.107.31:8090');
                                         if (value == '2') Lampa.Storage.set('torrserver_url_two', 'http://84.201.137.235:8090');
                                         if (value == '3') Lampa.Storage.set('torrserver_url_two', 'http://109.105.90.19:8090');
-                                        if (value == '4') Lampa.Storage.set('torrserver_url_two', 'http://zhilkin.org:80');
+                                        if (value == '4') Lampa.Storage.set('torrserver_url_two', 'http://lexa-sinyak.jactor.ru:8090');
                                         if (value == '5') Lampa.Storage.set('torrserver_url_two', 'http://91.210.26.33:8090');
                                         if (value == '6') Lampa.Storage.set('torrserver_url_two', 'http://84.201.189.105:8090');
                                         if (value == '7') Lampa.Storage.set('torrserver_url_two', 'http://85.113.39.177:8090');
