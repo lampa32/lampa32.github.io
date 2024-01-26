@@ -77,7 +77,7 @@ Lampa.SettingsApi.addParam({
 	                                 }
 				}
 			});
-	if(window.appready)&window.location.href = Lampa.Storage.get('location_server') startMe();
+	if(window.appready) startMe();
 	else {
 		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
