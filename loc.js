@@ -14,7 +14,8 @@ function startMe() {
 	$('#REDIRECT').insertAfter('div[class="head__action selector open--settings"]');
 	
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
-		window.location.href = value;
+		redirect();
+		//window.location.href = value;
 		//if (window.location.href !== aura) window.location.href = aura;
 		//else window.location.href = genuie;
 	});
@@ -62,8 +63,10 @@ Lampa.SettingsApi.addParam({
 				},
 				onChange: function (value) {
 					if (value) {
-					  startme();
+				         function redirect(){
+					 // startme();
                                           window.location.href = value;
+					 }
 	                                  
 	
 	
