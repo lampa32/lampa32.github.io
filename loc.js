@@ -79,7 +79,7 @@ Lampa.SettingsApi.addParam({
 			}
 		});
 	}
-	if (window.location.href === null) {
+	if (window.location.href === undefined) {
 	 setTimeout(function(){
            $('#REDIRECT').remove()
          }, 2000);
