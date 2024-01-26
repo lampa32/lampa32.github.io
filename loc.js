@@ -14,6 +14,7 @@ function startMe() {
 	$('#REDIRECT').insertAfter('div[class="head__action selector open--settings"]');
 	
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
+		window.location.href = Lampa.Storage.get('location_server')
 		//redirect();
 		//window.location.href = value;
 		//if (window.location.href !== aura) window.location.href = aura;
@@ -78,7 +79,9 @@ Lampa.SettingsApi.addParam({
 			}
 		});
 	}
-	setTimeout(function(){
-     $('REDIRECT').remove()
-   }, 2000);
+	if (window.location.href === null) {
+	 setTimeout(function(){
+           $('REDIRECT').remove()
+         }, 2000);
+	}
 })();
