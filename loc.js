@@ -90,19 +90,11 @@ Lampa.SettingsApi.addParam({
 				//Название подпункта меню
 				description: 'Внимание!!!' //Комментарий к подпункту
 			},
-			onRender: function (item) {
-				if(Lampa.Storage.field('const_redirect') == true) {
-					window.location.href = server_protocol + Lampa.Storage.get('location_server');
-					Lampa.Settings.update();
-				}
-				
-				
-				
-			}
+			
 		});
-	if(Lampa.Storage.field('const_redirect') == true) {
-					window.location.href = server_protocol + Lampa.Storage.get('location_server');
-	}
+	/*if(Lampa.Storage.field('const_redirect') == true) {
+	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
+	}*/
 	if(window.appready) startMe();
 	else {
 		Lampa.Listener.follow('app', function(e) {
