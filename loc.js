@@ -92,11 +92,12 @@ Lampa.SettingsApi.addParam({
 			},
 			onRender: function (item) {
 				if(Lampa.Storage.field('const_redirect') == true) {
-					window.location.href = server_protocol + Lampa.Storage.get('location_server')
+					window.location.href = server_protocol + Lampa.Storage.get('location_server');
+					Lampa.Settings.update();
 				}
 				
 				
-				//Lampa.Settings.update();
+				
 			}
 		});
 	if(window.appready) startMe();
