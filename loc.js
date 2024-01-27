@@ -2,7 +2,7 @@
 	'use strict';
 
 Lampa.Platform.tv();
-var proto = location.protocol === "https:" ? 'https://' : 'http://'	
+var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'	
 
 function startMe() {
 	//var genuie = 'http://lampa.mx/';
@@ -72,11 +72,33 @@ Lampa.SettingsApi.addParam({
 					if (value) {
 				        // function redirect(){
 					 // startme();
-                                          window.location.href = proto + value;
+                                          window.location.href = server_protocol + value;
 					// }
 	                                 }
 				}
 			});
+	Lampa.SettingsApi.addParam({
+			component: 'location_redirect',
+			param: {
+				name: 'const_redirect',
+				type: 'trigger',
+				//доступно select,input,trigger,title,static
+				default: false
+			},
+			field: {
+				name: 'Постоянный редирект',
+				//Название подпункта меню
+				description: 'Внимание!!!' //Комментарий к подпункту
+			},
+			onRender: function (item) {
+				if(Lampa.Storage.field('const_redirect') == true) {
+					window.location.href = Lampa.Storage.get('location_server')
+				}
+				
+				
+				//Lampa.Settings.update();
+			}
+		});
 	if(window.appready) startMe();
 	else {
 		Lampa.Listener.follow('app', function(e) {
