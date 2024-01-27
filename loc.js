@@ -20,7 +20,7 @@ function startMe() {
 	}
 	}
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
-		window.location.href = Lampa.Storage.get('location_server')
+		window.location.href = server_protocol + Lampa.Storage.get('location_server')
 		//redirect();
 		//window.location.href = value;
 		//if (window.location.href !== aura) window.location.href = aura;
@@ -92,7 +92,7 @@ Lampa.SettingsApi.addParam({
 			},
 			onRender: function (item) {
 				if(Lampa.Storage.field('const_redirect') == true) {
-					window.location.href = Lampa.Storage.get('location_server')
+					window.location.href = server_protocol + Lampa.Storage.get('location_server')
 				}
 				
 				
