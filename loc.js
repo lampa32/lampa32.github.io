@@ -2,7 +2,7 @@
 	'use strict';
 
 Lampa.Platform.tv();
-	
+var proto = location.protocol === "https:" ? 'https://' : 'http://'	
 
 function startMe() {
 	//var genuie = 'http://lampa.mx/';
@@ -72,7 +72,7 @@ Lampa.SettingsApi.addParam({
 					if (value) {
 				        // function redirect(){
 					 // startme();
-                                          window.location.href = value;
+                                          window.location.href = proto + value;
 					// }
 	                                 }
 				}
