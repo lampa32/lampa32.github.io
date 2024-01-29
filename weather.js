@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-
+    
     function WeatherInterface() {
         var html;
         var network = new Lampa.Reguest();
@@ -15,8 +15,8 @@
         this.getWeatherData = function (position) {
             var lat = position.coords.latitude;
             var lon = position.coords.longitude;
-            var API_KEY = "8a8a81fda9977409b7e63aeaed6e20d9";
-            var url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=' + API_KEY + '&lang=ru';
+            var API_KEY = "46a5d8546cc340f69d9123207242801";
+			var url = 'http://api.weatherapi.com/v1/current.json?key=46a5d8546cc340f69d9123207242801&q=' +  lat + ',' + lon + '&lang=ru&aqi=no';
 
             network.clear();
             network.timeout(5000);
@@ -24,9 +24,12 @@
         };
 
         function processWeatherData(result) {
-            var data = result.current;
-            var temp = Math.floor(data.temp - 273);
-            var condition = data.weather[0].description;
+            var data1 = result.location;
+            var data2 = result.current;
+            var temp = Math.floor(data2.temp_c); // Температура
+				console.log("Погода", "Температура: " + temp)
+            var condition = data2.condition.text;// Обстановка
+				console.log("Погода", "Обстановка: " + condition)
 
             $('#weather-temp').text(temp + '°');
             $('#weather-condition').text(condition).toggleClass('long-text', condition.length > 10);
@@ -38,7 +41,7 @@
 
         this.getWeatherByIP = function () {
             $.get("http://ip-api.com/json", function (locationData) {
-                console.log("Город: " + locationData.city);
+                console.log("Погода", "Город: " + locationData.city);
                 var coords = locationData.lat + ',' + locationData.lon;
                 var position = {
                     coords: {
@@ -46,7 +49,8 @@
                         longitude: parseFloat(locationData.lon)
                     }
                 };
-                this.getWeatherData(position);
+                console.log("Погода", "Долгота: " + position.coords.latitude + ", " + "Широта: " + position.coords.longitude)
+				this.getWeatherData(position);
             }
                 .bind(this));
         };
@@ -77,6 +81,7 @@
     var isTimeVisible = true;
 
     $(document).ready(function () {
+	setTimeout(function(){
         // Создаем интерфейс погоды
         weatherInterface.create();
         var weatherWidget = weatherInterface.render();
@@ -94,7 +99,7 @@
             isTimeVisible = !isTimeVisible;
         }
 
-        // Устанавливаем интервал для переключения между временем и погодой каждые 30 секунд
+        // Устанавливаем интервал для переключения между временем и погодой каждые 10 секунд
         setInterval(toggleDisplay, 10000);
 
         // Получаем начальные данные о погоде
@@ -102,11 +107,11 @@
 
         // Скрываем виджет погоды при загрузке страницы
         $('.weather-widget').hide();
-    });
-
-
-
-
-
-
+		var width_element = document.querySelector('.head__time');
+		console.log(width_element.offsetWidth);
+		$('.weather-widget').css('width', width_element.offsetWidth + 'px');
+		$('.head__time').css('width', width_element.offsetWidth + 'px');
+    },5000)
+	});
+	
 })();
