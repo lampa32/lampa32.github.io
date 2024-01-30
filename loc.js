@@ -78,9 +78,9 @@ var icon_server_redirect = '<svg width="256px" height="256px" viewBox="0 0 24 24
 	  });
 	
 	
-	if(Lampa.Storage.field('const_redirect') == true) {
+	/*if(Lampa.Storage.field('const_redirect') == true) {
 	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
-	}
+	}*/
 	/*if(window.appready) startMe();
 	else {
 		Lampa.Listener.follow('app', function(e) {
