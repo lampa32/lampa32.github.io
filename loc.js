@@ -13,7 +13,7 @@ function startMe() {
 	$('#app > div.head > div > div.head__actions').append(domainBUTT);
 	$('#REDIRECT').insertAfter('div[class="head__action selector open--settings"]');
         if (Lampa.Storage.get('location_server')) {
-		if (value == 'undefined') {
+		if (value == '') {
 	  //if (window.location.href == 'null') {
 	 setTimeout(function(){
            $('#REDIRECT').remove()
