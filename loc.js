@@ -68,7 +68,7 @@ function startMe() {
 	/*if(Lampa.Storage.field('const_redirect') == true) {
 	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
 	}*/
-	if(window.appready)&if(Lampa.Storage.get('location_server')) {
+	if((window.appready)&Lampa.Storage.get('location_server')) {
 		if (value !== 'undefined') {
 	  //if (window.location.href == 'null') {
 		}startMe();
