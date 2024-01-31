@@ -62,12 +62,7 @@ function startMe() {
 	                           }
 				}
 	  });
-	      if(!Lampa.Storage.get('location_server') {
-				setTimeout(function(){
-                                  $('#REDIRECT').remove()
-                                }, 10);
-		
-		}
+	      
 	
 	if(Lampa.Storage.field('const_redirect') == true) {
 	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
@@ -80,6 +75,12 @@ function startMe() {
 				startMe();
 			}
 		});
+	}
+	if(!Lampa.Storage.get('location_server') {
+				setTimeout(function(){
+                                  $('#REDIRECT').remove()
+                                }, 10);
+		
 	}
       
 })();
