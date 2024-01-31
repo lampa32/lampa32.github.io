@@ -77,22 +77,13 @@ function startMe() {
 	/*if(Lampa.Storage.field('const_redirect') == true) {
 	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
 	}*/
-	if((window.appready)&&Lampa.Storage.get('location_server')) {
-		if (value !== 'undefined') {
-	  //if (window.location.href == 'null') {
-		   Lampa.Listener.follow('app', function(e) {
+	if(window.appready) startMe();
+	else {
+		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
 				startMe();
 			}
 		});
-		}
-	}//startMe();
-	/*else {
-		//Lampa.Listener.follow('app', function(e) {
-			//if(e.type == 'ready') {
-			return	//startMe();
-			//}
-		//});
-	}*/
+	}
       
 })();
