@@ -20,6 +20,15 @@ function startMe() {
         // }, 2000);
 	//}
 	//}
+	if(Lampa.Storage.get('location_server')) {
+		if (value !== 'undefined') {
+		   Lampa.Listener.follow('app', function(e) {
+			if(e.type == 'ready') {
+				startMe();
+			}
+		});
+		}
+	}
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
 		window.location.href = server_protocol + Lampa.Storage.get('location_server')
 	});
