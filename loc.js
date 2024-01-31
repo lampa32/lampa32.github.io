@@ -61,13 +61,7 @@ function startMe() {
                                           window.location.href = server_protocol + value;
 	                           }
 				}
-			      onRender: function (item) {
-		               if(!Lampa.Storage.get('location_server') {
-				    setTimeout(function(){
-                                       $('#REDIRECT').remove()
-                                    }, 10);
-		               }
-	}
+			         
 	  });
 	      
 	
