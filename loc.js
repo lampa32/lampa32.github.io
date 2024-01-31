@@ -73,12 +73,12 @@ function startMe() {
 	  //if (window.location.href == 'null') {
 		}
 	}startMe();
-	else {
+	/*else {
 		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
 				startMe();
 			}
 		});
-	}
+	}*/
       
 })();
