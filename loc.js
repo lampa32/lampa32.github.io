@@ -69,7 +69,7 @@ function startMe() {
 	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
 	}*/
 	if((window.appready)&&Lampa.Storage.get('location_server')) {
-		if (value !== 'undefined') {
+		if (value !== 'null') {
 	  //if (window.location.href == 'null') {
 		   Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
