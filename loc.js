@@ -14,7 +14,7 @@ function startMe() {
 	$('#REDIRECT').insertAfter('div[class="head__action selector open--settings"]');
        
 	if(Lampa.Storage.get('location_server')) {
-		if (value !== 'undefined') {
+		if (value == 'undefined') {
 				setTimeout(function(){
                                   $('#REDIRECT').remove()
                                 }, 2000);
