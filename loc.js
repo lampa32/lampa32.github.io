@@ -22,13 +22,9 @@ function startMe() {
 	//}
 	if(Lampa.Storage.get('location_server')) {
 		if (value !== 'undefined') {
-		   Lampa.Listener.follow('app', function(e) {
-			if(e.type == 'ready') {
 				setTimeout(function(){
                                   $('#REDIRECT').remove()
                                 }, 2000);
-			}
-		});
 		}
 	}
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
