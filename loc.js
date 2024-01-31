@@ -56,13 +56,14 @@ function startMe() {
 					description: ''
 				},
 				onChange: function (value) {
-				   if (value) {
-					  if (Lampa.Storage.get('location_server' == '')) {
+				  if (Lampa.Storage.get('location_server' == '')) {
 				setTimeout(function(){
                                   $('#REDIRECT').remove()
                                 }, 10);
 		
-					   }
+				  }
+				   if (value) {
+					  
 
                                           window.location.href = server_protocol + value;
 	                           }
