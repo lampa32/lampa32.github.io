@@ -71,7 +71,11 @@ function startMe() {
 	if((window.appready)&&Lampa.Storage.get('location_server')) {
 		if (value !== 'undefined') {
 	  //if (window.location.href == 'null') {
-			startMe();
+		   Lampa.Listener.follow('app', function(e) {
+			if(e.type == 'ready') {
+				startMe();
+			}
+		});
 		}
 	}//startMe();
 	/*else {
