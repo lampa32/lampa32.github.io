@@ -62,7 +62,7 @@ function startMe() {
 	                           }
 				}
 	  });
-	      if(Lampa.Storage.field('location_server') == undefined {
+	      if(!Lampa.Storage.field('location_server') {
 				setTimeout(function(){
                                   $('#REDIRECT').remove()
                                 }, 10);
