@@ -12,14 +12,7 @@ function startMe() {
 	
 	$('#app > div.head > div > div.head__actions').append(domainBUTT);
 	$('#REDIRECT').insertAfter('div[class="head__action selector open--settings"]');
-       // if (Lampa.Storage.get('location_server')) {
-		//if (value == '') {
-	  //if (window.location.href == 'null') {
-	// setTimeout(function(){
-          // $('#REDIRECT').remove()
-        // }, 2000);
-	//}
-	//}
+       
 	if(Lampa.Storage.get('location_server')) {
 		if (value !== 'undefined') {
 				setTimeout(function(){
@@ -72,9 +65,10 @@ function startMe() {
 	  });
 	
 	
-	/*if(Lampa.Storage.field('const_redirect') == true) {
+	if(Lampa.Storage.field('const_redirect') == true) {
 	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
-	}*/
+	}
+	
 	if(window.appready) startMe();
 	else {
 		Lampa.Listener.follow('app', function(e) {
