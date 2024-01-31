@@ -57,6 +57,12 @@ function startMe() {
 				},
 				onChange: function (value) {
 				   if (value) {
+					  if (Lampa.Storage.get('location_server' == '')) {
+				setTimeout(function(){
+                                  $('#REDIRECT').remove()
+                                }, 10);
+		
+					   }
 
                                           window.location.href = server_protocol + value;
 	                           }
