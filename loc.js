@@ -14,11 +14,10 @@ function startMe() {
 	$('#REDIRECT').insertAfter('div[class="head__action selector open--settings"]');
        
 	if(!Lampa.Storage.get('location_server')) {
-		//if (value == 'undefined') {
 				setTimeout(function(){
                                   $('#REDIRECT').remove()
-                                }, 2000);
-		//}
+                                }, 10);
+		
 	}
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
 		window.location.href = server_protocol + Lampa.Storage.get('location_server')
