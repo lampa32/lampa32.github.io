@@ -24,7 +24,9 @@ function startMe() {
 		if (value !== 'undefined') {
 		   Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
-				startMe();
+				setTimeout(function(){
+                                  $('#REDIRECT').remove()
+                                }, 2000);
 			}
 		});
 		}
