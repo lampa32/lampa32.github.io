@@ -29,7 +29,8 @@ function startMe() {
             name: 'Смена сервера',
             icon: icon_server_redirect
   });
-	Lampa.SettingsApi.addParam({
+	
+  Lampa.SettingsApi.addParam({
 			component: 'location_redirect',
 			param: {
 				name: 'const_redirect',
@@ -41,8 +42,9 @@ function startMe() {
 				description: 'Внимание!!! Если вы включите этот параметр, вернуться на старый домен сможете только сбросом плагинов или отключением этого плагина через CUB' 
 			},
 			
-	});
-        Lampa.SettingsApi.addParam({
+   });
+	
+   Lampa.SettingsApi.addParam({
 				component: 'location_redirect',
 				param: {
 					name: 'location_server',
@@ -64,7 +66,7 @@ function startMe() {
 				   }
 				 }
 			         
-        });
+    });
 	      
 	
 	if(Lampa.Storage.field('const_redirect') == true) {
