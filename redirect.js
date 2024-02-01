@@ -64,6 +64,9 @@ function startMe() {
 				   if (value == '') {
 					   $('#REDIRECT').remove()
 				   }
+				   if (!value == '') {
+					      startMe();
+				   }
 				 }
 			         
     });
