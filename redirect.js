@@ -50,7 +50,7 @@ function startMe() {
 					name: 'location_server',
 					type: 'input', 
 					values: '',
-					placeholder: 'Например:  lampa32.ru',
+					placeholder: 'Например: lampa.surge.sh',
 					default: ''
 				},
 				field: {
