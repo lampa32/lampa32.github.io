@@ -58,9 +58,9 @@ function startMe() {
 					description: 'Нажмите для ввода'
 				},
 				onChange: function (value) {
-				   if (value) {
+				   /*if (value) {
 					  window.location.href = server_protocol + value;
-	                           }
+	                           }*/
 				   if (value == '') {
 					   $('#REDIRECT').remove()
 				   }
