@@ -73,9 +73,9 @@ function startMe() {
    });
 	 
 	
-	/*if(Lampa.Storage.field('const_redirect') == true) {
+	if(Lampa.Storage.field('const_redirect') == true) {
 	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
-	}*/
+	}
 	
 	if(window.appready) startMe();
 	else {
