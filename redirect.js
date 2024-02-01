@@ -17,8 +17,8 @@ function startMe() {
 				setTimeout(function(){
                                   $('#REDIRECT').remove()
                                 }, 10);
-		
 	}
+	
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
 		window.location.href = server_protocol + Lampa.Storage.get('location_server')
 	});
