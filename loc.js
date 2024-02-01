@@ -22,7 +22,7 @@ function startMe() {
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
 		window.location.href = server_protocol + Lampa.Storage.get('location_server')
 	});
-}
+  } 
   
   Lampa.SettingsApi.addComponent({
             component: 'location_redirect',
@@ -38,7 +38,7 @@ function startMe() {
 			},
 			field: {
 				name: 'Постоянный редирект',
-				description: 'Внимание!!!' 
+				description: 'Внимание!!! Если вы включите этот параметр, вернуться на старый домен сможете только сбросом плагинов или отключением этого плагина через CUB' 
 			},
 			
 	});
@@ -48,12 +48,12 @@ function startMe() {
 					name: 'location_server',
 					type: 'input', 
 					values: '',
-					placeholder: 'example',
+					placeholder: 'Например lampa.mx',
 					default: ''
 				},
 				field: {
 					name: 'Введите сервер для редиректа',
-					description: ''
+					description: 'Прооль'
 				},
 				onChange: function (value) {
 				   if (value) {
@@ -62,14 +62,14 @@ function startMe() {
 				   if (value == '') {
 					   $('#REDIRECT').remove()
 				   }
-				}
+				 }
 			         
-	  });
+        });
 	      
 	
-	/*if(Lampa.Storage.field('const_redirect') == true) {
+	if(Lampa.Storage.field('const_redirect') == true) {
 	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
-	}*/
+	}
 	
 	if(window.appready) startMe();
 	else {
