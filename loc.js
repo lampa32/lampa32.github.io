@@ -56,12 +56,6 @@ function startMe() {
 					description: ''
 				},
 				onChange: function (value) {
-				 /* if (Lampa.Storage.get('location_server' == '')) {
-				setTimeout(function(){
-                                  $('#REDIRECT').remove()
-                                }, 10);
-		
-				  }*/
 				   if (value) {
 					  window.location.href = server_protocol + value;
 	                           }
@@ -73,9 +67,9 @@ function startMe() {
 	  });
 	      
 	
-	if(Lampa.Storage.field('const_redirect') == true) {
+	/*if(Lampa.Storage.field('const_redirect') == true) {
 	   window.location.href = server_protocol + Lampa.Storage.get('location_server');
-	}
+	}*/
 	
 	if(window.appready) startMe();
 	else {
