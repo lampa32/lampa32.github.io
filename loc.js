@@ -48,12 +48,12 @@ function startMe() {
 					name: 'location_server',
 					type: 'input', 
 					values: '',
-					placeholder: 'Например lampa.mx',
+					placeholder: 'Например: lampa.mx',
 					default: ''
 				},
 				field: {
-					name: 'Введите сервер для редиректа',
-					description: 'Прооль'
+					name: 'Адрес сервера',
+					description: 'Нажмите для ввода'
 				},
 				onChange: function (value) {
 				   if (value) {
