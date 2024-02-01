@@ -35,7 +35,7 @@
 
     Lampa.TMDB.image = function (url) {
       var base = Lampa.Utils.protocol() + 'image.tmdb.org/' + url;
-      return Lampa.Storage.field('proxy_tmdb') ? 'http://imagetmdb.cub.red/' + Lampa.Utils.addUrlComponent(base) : base;
+      return Lampa.Storage.field('proxy_tmdb') ? 'https://imagetmdb.cub.red/' + Lampa.Utils.addUrlComponent(base) : base;
     };
 
     Lampa.TMDB.api = function (url) {
