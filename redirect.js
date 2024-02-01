@@ -50,7 +50,7 @@ function startMe() {
 					name: 'location_server',
 					type: 'input', 
 					values: '',
-					placeholder: 'Например: lampa.mx',
+					placeholder: 'Например:  lampa32.ru',
 					default: ''
 				},
 				field: {
