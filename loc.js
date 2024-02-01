@@ -13,12 +13,12 @@ function startMe() {
 	$('#app > div.head > div > div.head__actions').append(domainBUTT);
 	$('#REDIRECT').insertAfter('div[class="head__action selector open--settings"]');
        
-	/*if(!Lampa.Storage.get('location_server')) {
+	if(!Lampa.Storage.get('location_server')) {
 				setTimeout(function(){
                                   $('#REDIRECT').remove()
                                 }, 10);
 		
-	}*/
+	}
 	$('#REDIRECT').on('hover:enter hover:click hover:touch', function() {
 		window.location.href = server_protocol + Lampa.Storage.get('location_server')
 	});
