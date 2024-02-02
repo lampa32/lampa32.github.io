@@ -122,7 +122,7 @@ Lampa.SettingsApi.addParam({
 				}
 				if(Lampa.Storage.field('parser_use')) item.show()&$('.settings-param__name', item).css('color','f3d900')&$('div[data-name="jackett_url_two"]').insertAfter('div[data-children="parser"]');
 				else item.hide();
-			}, 0);
+			}, 20);
         }
    });
 	Lampa.Settings.listener.follow('open', function (e) {
