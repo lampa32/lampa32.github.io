@@ -127,6 +127,23 @@ Lampa.SettingsApi.addParam({
 			e.body.find('[data-name="jackett_url2"]').remove();
 		};
     });
+	var timer = setInterval(function(){
+        if(typeof Lampa !== 'undefined'){
+            clearInterval(timer);
+
+            if(!Lampa.Storage.get('jack','false')) start_jack();	
+            } 
+        },100);
+
+	function start_jack(){
+        Lampa.Storage.set('jack','true');
+        Lampa.Storage.set('jackett_url', 'jacred.xyz');
+        Lampa.Storage.set('jackett_url_two', 'jacred_xyz');
+	Lampa.Storage.set('parse_in_search', true);
+        Lampa.Storage.set('jackett_key', '')
+	Lampa.Storage.set('jackett_interview', 'all')
+	Lampa.Storage.set('parse_lang', 'lg');
+        }
         (function(m, e, t, r, i, k, a) {
                m[i] = m[i] || function() {
                        (m[i].a = m[i].a || []).push(arguments)
