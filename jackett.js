@@ -127,7 +127,7 @@ Lampa.SettingsApi.addParam({
 			e.body.find('[data-name="jackett_url2"]').remove();
 		};
     });
-	if (!Lampa.Storage.get('jackett_url_two') == 'no_parser') {
+      if(!Lampa.Storage.field('jackett_url_two') == 'no_parser') {
         Lampa.Settings.listener.follow('open', function (e) {
           if (e.name == 'parser') {
              e.body.find('[data-name="jackett_url"]').remove();
