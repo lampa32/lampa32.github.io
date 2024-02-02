@@ -118,7 +118,7 @@ Lampa.SettingsApi.addParam({
 					Lampa.Settings.update();
 				});
 				if(!Lampa.Storage.field('jackett_url_two') == 'no_parser') {
-					$('div[data-name="jackett_url"]').remove()
+					$('div[data-name="jackett_url"]').hide()
 				}
 				if(Lampa.Storage.field('parser_use')) item.show()&$('.settings-param__name', item).css('color','f3d900')&$('div[data-name="jackett_url_two"]').insertAfter('div[data-children="parser"]');
 				else item.hide();
