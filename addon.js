@@ -442,15 +442,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-						       itemON('https://scabrum.github.io/plugins/weather.js', 'Погода', '@lampishe', 'Weather');
+						       itemON('https://lampa32.github.io/weather.js', 'Погода', '@lampishe', 'Weather');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://scabrum.github.io/plugins/weather.js";
+							var pluginToRemoveUrl = "https://lampa32.github.io/weather.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 			                onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
-						var myResult = checkPlugin('https://scabrum.github.io/plugins/weather.js')
+						var myResult = checkPlugin('https://lampa32.github.io/weather.js')
 						setTimeout(function() {	
 							$('div[data-name="Weather"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
