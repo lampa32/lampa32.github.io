@@ -994,7 +994,7 @@ Lampa.SettingsApi.addComponent({
 		Lampa.SettingsApi.addParam({
 					component: 'add_online_plugin',
 					param: {
-                               			name: 'Онлайн',
+                               			name: 'Онлайн_BWA',
                    				type: 'select',
                    				values: {
 							1:	'Установить',
@@ -1003,12 +1003,12 @@ Lampa.SettingsApi.addComponent({
 					//default: '1',
                				},
 					field: {
-                                  		name: 'Онлайн',
-                                  		description: 'Плагин для просмотра фильмов и сериалов в онлайн от разработчика приложения Lampa'
+                                  		name: 'Онлайн BWA',
+                                  		description: 'Плагин для просмотра фильмов и сериалов в онлайн'
 					},
                            		onChange: function(value) {
 					if (value == '1') {
-						itemON('https://bwa.to/o', 'Онлайн', '@lampa', 'Онлайн');
+						itemON('https://bwa.to/o', 'Онлайн BWA', '@rik', 'Онлайн_BWA');
 					}
 					if (value == '2') {
 						var pluginToRemoveUrl = "https://bwa.to/o";
@@ -1018,17 +1018,17 @@ Lampa.SettingsApi.addComponent({
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
 						var myResult = checkPlugin('https://bwa.to/o')
 						setTimeout(function() {	
-							$('div[data-name="Онлайн"]').append('<div class="settings-param__status one"></div>')
+							$('div[data-name="Онлайн_BWA"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
-								$('div[data-name="Онлайн"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								$('div[data-name="Онлайн_BWA"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 							} else {
-								$('div[data-name="Онлайн"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								$('div[data-name="Онлайн_BWA"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);			  
 					}
 		});
          
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_online_plugin',
 					param: {
                                  		name: 'Ebuland',
@@ -1063,7 +1063,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);			  
 					}
-		});
+		});*/
 	       /* Lampa.SettingsApi.addParam({
                                   component: 'add_online_plugin',
                                   param: {
