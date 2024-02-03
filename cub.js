@@ -26,5 +26,5 @@
               $('.open--feed').remove();
               $('.open--premium').remove();
 	      $('.open--notice').remove();
-          }, 2000);
+          }, 20);
 })();
