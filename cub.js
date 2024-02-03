@@ -12,13 +12,13 @@
 				})
 				clearInterval(myCardInterval);
 			 }
-		}, 50);
+		}, 100);
 		var myTextBoxInterval = setInterval(function(){
 			if (document.querySelector('.card__textbox') !== null) {
 				$('.card__textbox').parent().parent().remove();
 				clearInterval(myTextBoxInterval);
 			}
-		}, 50);
+		}, 100);
 	}
 	
 function cub_off() {
@@ -62,6 +62,9 @@ function cub_off() {
 					$('.register:nth-child(7)').hide();
 					$('.register:nth-child(8)').hide();
 		       }
+		       setTimeout(function(){
+			hideIT();
+		       }, 200)
                 }
           });
 
