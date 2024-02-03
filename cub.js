@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+function cub_off() {
+
 	  Lampa.Listener.follow('full', function(e) {
                 if (e.type == 'complite') {
                    setTimeout(function(){
@@ -35,4 +37,15 @@
               $('.open--premium').remove();
 	      $('.open--notice').remove();
           }, 20);
+
+}	
+if(window.appready) cub_off();
+	else {
+		Lampa.Listener.follow('app', function(e) {
+			if(e.type == 'ready') {
+				cub_off();
+			}
+		});
+	}
+
 })();
