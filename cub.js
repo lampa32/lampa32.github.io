@@ -12,4 +12,10 @@
 		       }
                 }
           });
+
+	  setTimeout(function(){
+              $('.open--feed').remove();
+              $('.open--premium').remove();
+	      $('.open--notice').remove();
+          }, 2000);
 })();
