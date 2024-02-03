@@ -11,7 +11,7 @@
 
 	  Lampa.Settings.listener.follow('open', function (e) {
              if (e.name == 'account') {
-               e.body.find('[data-name="account_use"]').remove();
+               e.body.find('[data-name="settings_cub_sync_calendar"]').remove();
              }
           });
 	
