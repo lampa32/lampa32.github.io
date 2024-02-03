@@ -8,6 +8,12 @@
               $('.open--premium').remove();
 	      $('.open--notice').remove();
           }, 1000);
+
+	  Lampa.Settings.listener.follow('open', function (e) {
+             if (e.name == 'account') {
+               e.body.find('[data-name="account_use"]').remove();
+             }
+          });
 	
 	  Lampa.Listener.follow('full', function(e) {
                 if (e.type == 'complite') {
