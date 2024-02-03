@@ -8,17 +8,17 @@
 						setTimeout(function(){	
 							$('.selectbox-item__lock').parent().css('display', 'none');
 							$('.settings-param-title').last().css('display', 'none');
-						},50)
+						},500)
 				})
 				clearInterval(myCardInterval);
 			 }
-		}, 50);
+		}, 500);
 		var myTextBoxInterval = setInterval(function(){
 			if (document.querySelector('.card__textbox') !== null) {
 				$('.card__textbox').parent().parent().remove();
 				clearInterval(myTextBoxInterval);
 			}
-		}, 50);
+		}, 500);
 	}
 	
 function cub_off() {
@@ -70,9 +70,10 @@ if(window.appready) cub_off();
 	else {
 		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
+				cub_off(); hideIT();
 				$("[data-action=feed]").eq(0).remove();
                                 $("[data-action=subscribes]").eq(0).remove();
-				cub_off(); hideIT();
+				
 			}
 		});
 	}
