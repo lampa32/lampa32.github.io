@@ -1,27 +1,27 @@
 (function () {
     'use strict';
 
-//function cub_off() {
-
 	function hideIT(){
-		/* карточки */
-		$('.card').on('hover:long', function () {
-			setTimeout(function(){
-					$('.selectbox-item__lock').parent().css('display', 'none');
-					$('.settings-param-title').last().css('display', 'none');
-				}, 50
-			)
-		})
-		/* лента */
-			$('.head__action.open--feed').remove()
-		/* Текст_Бокс */
-			$('.card__textbox').parent().parent().remove();
+		var myCardInterval = setInterval(function(){
+			if (document.querySelector('.card') !== null) {
+				$('.card').on('hover:long', function () {
+						setTimeout(function(){	
+							$('.selectbox-item__lock').parent().css('display', 'none');
+							$('.settings-param-title').last().css('display', 'none');
+						},50)
+				})
+				clearInterval(myCardInterval);
+			 }
+		}, 50);
+		var myTextBoxInterval = setInterval(function(){
+			if (document.querySelector('.card__textbox') !== null) {
+				$('.card__textbox').parent().parent().remove();
+				clearInterval(myTextBoxInterval);
+			}
+		}, 50);
 	}
-
-        hideIT();
-	setTimeout(function(){
-					hideIT();
-				}, 200)
+	
+function cub_off() {
 
 	 setTimeout(function(){
               $('.open--feed').remove();
@@ -44,14 +44,14 @@
                 }
           })   
 	
-	  Lampa.Listener.follow('app', function (e) {
+	/*  Lampa.Listener.follow('app', function (e) {
               if (e.type == 'ready') {
                     setTimeout(function(){
                         $("[data-action=feed]").eq(0).remove();
                         $("[data-action=subscribes]").eq(0).remove();
                     },10);
                }
-          });
+          });*/
   
           Lampa.Storage.listener.follow('change', function (event) {
                if (event.name == 'activity') {
@@ -65,14 +65,16 @@
                 }
           });
 
-/*}	
+}	
 if(window.appready) cub_off();
 	else {
 		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
-				cub_off();
+				$("[data-action=feed]").eq(0).remove();
+                                $("[data-action=subscribes]").eq(0).remove();
+				cub_off(); hideIT();
 			}
 		});
 	}
-*/
+
 })();
