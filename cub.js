@@ -38,6 +38,12 @@ function cub_off() {
 	
 	  Lampa.Listener.follow('full', function(e) {
                 if (e.type == 'complite') {
+		  $('.button--book').on('hover:enter', function(){
+		    setTimeout(function(){	
+			$('.selectbox-item__lock').parent().css('display', 'none');
+			$('.settings-param-title').last().css('display', 'none');
+		    },50)
+		  });	  
                    setTimeout(function(){
 			$('.button--subscribe').remove();
 		   },10);
