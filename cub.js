@@ -3,6 +3,26 @@
 
 //function cub_off() {
 
+	function hideIT(){
+		/* карточки */
+		$('.card').on('hover:long', function () {
+			setTimeout(function(){
+					$('.selectbox-item__lock').parent().css('display', 'none');
+					$('.settings-param-title').last().css('display', 'none');
+				}, 50
+			)
+		})
+		/* лента */
+			$('.head__action.open--feed').remove()
+		/* Текст_Бокс */
+			$('.card__textbox').parent().parent().remove();
+	}
+
+        hideIT();
+	setTimeout(function(){
+					hideIT();
+				}, 100)
+
 	 setTimeout(function(){
               $('.open--feed').remove();
               $('.open--premium').remove();
