@@ -7,7 +7,7 @@
                 if (e.type == 'complite') {
                    setTimeout(function(){
 			$('.button--subscribe').remove();
-		   },20);
+		   },10);
                 }
           })   
 	
@@ -16,7 +16,7 @@
                     setTimeout(function(){
                         $("[data-action=feed]").eq(0).remove();
                         $("[data-action=subscribes]").eq(0).remove();
-                    },20);
+                    },10);
                }
           });
   
