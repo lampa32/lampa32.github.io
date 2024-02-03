@@ -41,6 +41,9 @@ function cub_off() {
                    setTimeout(function(){
 			$('.button--subscribe').remove();
 		   },10);
+		     setTimeout(function(){
+			hideIT();
+		     }, 200)
                 }
           })   
 	
