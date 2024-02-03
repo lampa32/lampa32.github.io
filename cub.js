@@ -7,7 +7,7 @@
               $('.open--feed').remove();
               $('.open--premium').remove();
 	      $('.open--notice').remove();
-          }, 20);
+          }, 1000);
 
 	  Lampa.Listener.follow('full', function(e) {
                 if (e.type == 'complite') {
