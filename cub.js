@@ -7,7 +7,7 @@ function cub_off() {
                 if (e.type == 'complite') {
                    setTimeout(function(){
 			$('.button--subscribe').remove();
-		   },10);
+		   },20);
                 }
           })   
 	
@@ -16,7 +16,7 @@ function cub_off() {
                     setTimeout(function(){
                         $("[data-action=feed]").eq(0).remove();
                         $("[data-action=subscribes]").eq(0).remove();
-                    },10);
+                    },20);
                }
           });
   
