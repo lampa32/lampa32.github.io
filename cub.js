@@ -3,6 +3,12 @@
 
 //function cub_off() {
 
+	 setTimeout(function(){
+              $('.open--feed').remove();
+              $('.open--premium').remove();
+	      $('.open--notice').remove();
+          }, 20);
+
 	  Lampa.Listener.follow('full', function(e) {
                 if (e.type == 'complite') {
                    setTimeout(function(){
@@ -31,12 +37,6 @@
 		       }
                 }
           });
-
-	  setTimeout(function(){
-              $('.open--feed').remove();
-              $('.open--premium').remove();
-	      $('.open--notice').remove();
-          }, 20);
 
 /*}	
 if(window.appready) cub_off();
