@@ -8,17 +8,17 @@
 						setTimeout(function(){	
 							$('.selectbox-item__lock').parent().css('display', 'none');
 							$('.settings-param-title').last().css('display', 'none');
-						},500)
+						},50)
 				})
 				clearInterval(myCardInterval);
 			 }
-		}, 500);
+		}, 50);
 		var myTextBoxInterval = setInterval(function(){
 			if (document.querySelector('.card__textbox') !== null) {
 				$('.card__textbox').parent().parent().remove();
 				clearInterval(myTextBoxInterval);
 			}
-		}, 500);
+		}, 50);
 	}
 	
 function cub_off() {
