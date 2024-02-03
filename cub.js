@@ -1,5 +1,14 @@
 (function () {
     'use strict';
+	
+	  Lampa.Listener.follow('app', function (e) {
+              if (e.type == 'ready') {
+                    setTimeout(function(){
+                        $("[data-action=feed]").eq(0).remove();
+                        $("[data-action=subscribes]").eq(0).remove();
+                    },10);
+               }
+          });
   
           Lampa.Storage.listener.follow('change', function (event) {
                if (event.name == 'activity') {
