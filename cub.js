@@ -1,5 +1,13 @@
 (function () {
     'use strict';
+
+	  Lampa.Listener.follow('full', function(e) {
+                if (e.type == 'complite') {
+                   setTimeout(function(){
+			$('.button--subscribe').remove();
+		   },10);
+                }
+          })   
 	
 	  Lampa.Listener.follow('app', function (e) {
               if (e.type == 'ready') {
