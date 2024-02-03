@@ -21,7 +21,7 @@
         hideIT();
 	setTimeout(function(){
 					hideIT();
-				}, 100)
+				}, 200)
 
 	 setTimeout(function(){
               $('.open--feed').remove();
