@@ -3,12 +3,15 @@
 
 //function cub_off() {
 
-	 setTimeout(function(){
+	/* setTimeout(function(){
               $('.open--feed').remove();
               $('.open--premium').remove();
 	      $('.open--notice').remove();
-          }, 1000);
-
+          }, 1000);*/
+	  $('.head__action.open--feed').remove();
+	  $('.head__action.open--premium').remove();
+	  $('.head__action.open--notice').remove();
+	
 	  Lampa.Listener.follow('full', function(e) {
                 if (e.type == 'complite') {
                    setTimeout(function(){
