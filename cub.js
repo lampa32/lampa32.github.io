@@ -11,6 +11,7 @@
 
 	  Lampa.Settings.listener.follow('open', function (e) {
              if (e.name == 'account') {
+		     $('.register:nth-child(1)').hide();
                e.body.find('[data-name="settings_cub_sync_calendar"]').remove();
              }
           });
