@@ -8,7 +8,7 @@
 						setTimeout(function(){	
 							$('.selectbox-item__lock').parent().css('display', 'none');
 							$('.settings-param-title').last().css('display', 'none');
-						},20)
+						},50)
 				})
 				clearInterval(myCardInterval);
 			 }
