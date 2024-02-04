@@ -2,6 +2,24 @@
     'use strict';
 
 	function hideIT(){
+
+                document.addEventListener('DOMSubtreeModified', function removeAD(event){
+		  var cardElements = document.getElementsByClassName('card');
+		  if(cardElements.length > 0){
+			if (initMarker == 0) {
+			  initMarker = 1 // Флаг
+			  setTimeout(function(){
+ 				  $('.selectbox-item__lock').parent().css('display', 'none');
+				  $('.settings-param-title').last().css('display', 'none');
+			  }, 50)
+			  setTimeout(function(){
+				  initMarker = 0 // Снимаем флаг
+			  }, 500)
+			//console.log('Карточка в поиске');
+			}
+		  }
+		}, false);
+		
 		var myCardInterval = setInterval(function(){
 			if (document.querySelector('.card') !== null) {
 				$('.card').on('hover:long', function () {
