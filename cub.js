@@ -51,8 +51,10 @@ function cub_off() {
 
 	  Lampa.Settings.listener.follow('open', function (e) {
              if (e.name == 'account') {
-		     $('.register:nth-child(1)').hide();
-               e.body.find('[data-name="settings_cub_sync_calendar"]').remove();
+	        setTimeout(function(){
+		    $('.settings--account-premium').remove()
+		    $('div > span:contains("CUB Premium")').remove()
+		},0);
              }
           });
 	
