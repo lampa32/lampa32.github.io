@@ -42,7 +42,7 @@ function cub_off() {
 		    setTimeout(function(){	
 			$('.selectbox-item__lock').parent().css('display', 'none');
 			$('.settings-param-title').last().css('display', 'none');
-		    },20)
+		    },10)
 		  });	  
                    setTimeout(function(){
 			$('.button--subscribe').remove();
