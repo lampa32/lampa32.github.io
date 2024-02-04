@@ -1,7 +1,9 @@
 (function () {
     'use strict';
-
-	function hideIT(){
+	
+        var initMarker = 0;
+	
+      function hideIT(){
 
                 document.addEventListener('DOMSubtreeModified', function removeAD(event){
 		  var cardElements = document.getElementsByClassName('card');
