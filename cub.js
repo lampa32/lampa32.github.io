@@ -8,7 +8,7 @@
 						setTimeout(function(){	
 							$('.selectbox-item__lock').parent().css('display', 'none');
 							$('.settings-param-title').last().css('display', 'none');
-						},50)
+						},20)
 				})
 				clearInterval(myCardInterval);
 			 }
@@ -42,7 +42,7 @@ function cub_off() {
 		    setTimeout(function(){	
 			$('.selectbox-item__lock').parent().css('display', 'none');
 			$('.settings-param-title').last().css('display', 'none');
-		    },50)
+		    },20)
 		  });	  
                    setTimeout(function(){
 			$('.button--subscribe').remove();
