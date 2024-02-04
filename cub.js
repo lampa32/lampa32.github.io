@@ -17,7 +17,6 @@
 			  setTimeout(function(){
 				  initMarker = 0 // Снимаем флаг
 			  }, 500)
-			//console.log('Карточка в поиске');
 			}
 		  }
 		}, false);
