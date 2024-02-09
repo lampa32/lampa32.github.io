@@ -117,10 +117,10 @@ Lampa.SettingsApi.addParam({
 				$('div[data-children="parser"]').on('hover:enter', function(){
 					Lampa.Settings.update();
 				});
-				if (localStorage.getItem('jackett_url_two') !== 'no_parser') {
+				/*if (localStorage.getItem('jackett_url_two') !== 'no_parser') {
                                    $('div[data-name="jackett_url"]').hide()
                                    $('div[data-name="jackett_key"]').hide()
-                                }
+                                }*/
 				if(Lampa.Storage.field('parser_use')) item.show()&$('.settings-param__name', item).css('color','f3d900')&$('div[data-name="jackett_url_two"]').insertAfter('div[data-children="parser"]');
 				else item.hide();
 			}, 20);
