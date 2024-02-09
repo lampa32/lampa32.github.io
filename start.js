@@ -49,11 +49,19 @@
       }
     });
 
-    var dcma_timer = setInterval(function(){
+      var dcma_timer = setInterval(function(){
+	  if(typeof window.lampa_settings != 'undefined' && (window.lampa_settings.fixdcma || window.lampa_settings.dcma)){
+		clearInterval(dcma_timer)
+		if (window.lampa_settings.dcma)
+			window.lampa_settings.dcma = false;
+	  }
+      },100);
+	
+    /*var dcma_timer = setInterval(function(){
       if(window.lampa_settings.dcma){
             clearInterval(dcma_timer)
             window.lampa_settings.dcma = false
       }
-    },1000)
+    },1000)*/
 
 })();
