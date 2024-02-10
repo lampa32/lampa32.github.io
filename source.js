@@ -1601,5 +1601,9 @@
     }
 
     if (!window.kp_source_plugin) startPlugin();
+    
    Lampa.Storage.set('pva_sources_kinovod', true);
+   Lampa.Storage.set('pva_sources_hdrezka', true);
+   Lampa.Storage.set('pva_sources_myshows', true);
+    
 })( 'http://freebie.tom.ru', '919', 'https://cf.freebie.tom.ru' );
