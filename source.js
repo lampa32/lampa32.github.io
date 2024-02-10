@@ -691,9 +691,9 @@
 
       function add() {
 
-      /*  Lampa.Plugins.loaded().forEach( function (plugin) { 
+        Lampa.Plugins.loaded().forEach( function (plugin) { 
           if (plugin.toLowerCase().indexOf(backendhost_cf.toLowerCase()) != -1 && plugin.toLowerCase().indexOf('/sources.') != -1) backendhost = backendhost_cf; 
-        })*/
+        })
 
         /*var kp = new SourceKP;
         Lampa.Api.sources.kp = kp;
