@@ -685,7 +685,7 @@
 
     }
 
-    function startPlugin() {
+    function stPlugin() {
       window.plugin_sources_ready = true;
      // if (Lampa.Storage.get('pva_sources', false) === false) return;
 
@@ -787,7 +787,7 @@
       }
     }
     
-    if (!window.plugin_sources_ready) startPlugin();
+    if (!window.plugin_sources_ready) stPlugin();
 
     var network = new Lampa.Reguest();
     var cache = {};
