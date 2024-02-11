@@ -51,10 +51,10 @@
         }, onerror, (data ? JSON.stringify(data) : undefined) );
       }
 
-       this.main = function () { }
-       this.menu = function () { }
+       //this.main = function () { }
+       //this.menu = function () { }
 
-       this.search = function () { }
+       //this.search = function () { }
 
       this.full =  function (params, oncomplite, onerror) {
         this.get('getSources', params, function (json) {
