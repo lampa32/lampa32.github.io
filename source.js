@@ -29,8 +29,8 @@
 
       this.get = function (method) {
         var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-        //var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
-        //var onerror = arguments.length > 3 ? arguments[3] : undefined;
+        var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
+        var onerror = arguments.length > 3 ? arguments[3] : undefined;
         var u = this.url(method, params);
         var data;
         if (this.source && this.source == 'myshows' && u.indexOf('type=') > 0) {
