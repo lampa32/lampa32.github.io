@@ -45,7 +45,7 @@
           else Lampa.Noty.show('Необходимо указать данные для авторизации!');
         }
         this.network.silent(u, function (json) {
-          if (json && json.error) { /*onerror();*/ Lampa.Noty.show(json.error); /*return;*/ }
+          if (json && json.error) { onerror(); Lampa.Noty.show(json.error); return; }
           json.url = method;
           oncomplite(json);
         }, onerror, (data ? JSON.stringify(data) : undefined) );
