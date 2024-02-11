@@ -11,7 +11,7 @@
 
       this.url = function (u) {
         var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-        //if (backendver) u = this.add(u, 'v=' + backendver);
+        if (backendver) u = this.add(u, 'v=' + backendver);
         if (this.source) u = this.add(u, 'source=' + this.source);
         if (params.id) u = this.add(u, 'id=' + params.id);
         if (params.genres) u = this.add(u, 'genre=' + params.genres);
