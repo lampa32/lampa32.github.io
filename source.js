@@ -27,7 +27,7 @@
         return this.baseurl + u;
       }
 
-      this.get = function (method) {
+      /*this.get = function (method) {
         var params = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
         var oncomplite = arguments.length > 2 ? arguments[2] : undefined;
         //var onerror = arguments.length > 3 ? arguments[3] : undefined;
@@ -49,7 +49,7 @@
           json.url = method;
           oncomplite(json);
         }, onerror, (data ? JSON.stringify(data) : undefined) );*/
-      }
+      }*/
 
       // this.main = function () { }
       // this.menu = function () { }
