@@ -109,7 +109,7 @@ document.getElementsByTagName ('head')[0].appendChild (script);   */
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/94674961" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
 
-var initMarker = 0;
+      var initMarker = 0;
 	
       function hideIT(){
 
@@ -148,7 +148,7 @@ var initMarker = 0;
 		}, 100);
 	}
 	
-function cub_off() {
+    function cub_off() {
 
 	 setTimeout(function(){
               $('.open--feed').remove();
@@ -163,6 +163,11 @@ function cub_off() {
 		    $('div > span:contains("CUB Premium")').remove()
 		},0);
              }
+	     if (e.name == 'main') {
+                setTimeout(function() {
+                  $('div[data-component="tmdb"]').remove();
+                }, 0)
+	     }
           });
 	
 	  Lampa.Listener.follow('full', function(e) {
@@ -175,6 +180,7 @@ function cub_off() {
 		  });	  
                    setTimeout(function(){
 			$('.button--subscribe').remove();
+			$(".view--online", Lampa.Activity.active().activity.render()).empty().append('<svg viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32"><path d="m17 14.5 4.2-4.5L4.9 1.2c-.1-.1-.3-.1-.6-.2L17 14.5zM23 21l5.9-3.2c.7-.4 1.1-1 1.1-1.8s-.4-1.5-1.1-1.8L23 11l-4.7 5 4.7 5zM2.4 1.9c-.3.3-.4.7-.4 1.1v26c0 .4.1.8.4 1.2L15.6 16 2.4 1.9zM17 17.5 4.3 31c.2 0 .4-.1.6-.2L21.2 22 17 17.5z" fill="currentColor" fill="#ffffff" class="fill-000000"></path></svg>Онлайн');
 		   },0);
                 }
           })   
@@ -202,7 +208,10 @@ if(window.appready) cub_off();
 				cub_off(); hideIT();
 				$("[data-action=feed]").eq(0).remove();
                                 $("[data-action=subscribes]").eq(0).remove();
-				
+				$("[data-action=anime]").eq(0).remove();
+                                $("[data-action=mytorrents]").eq(0).remove();
+                                $("[data-action=about]").eq(0).remove();
+                                $("[data-action=console]").eq(0).remove();
 			}
 		});
 	}
