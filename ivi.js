@@ -2,11 +2,11 @@
 	'use strict';
 
 Lampa.Platform.tv();
-import Reguest from '../reguest'
+/*import Reguest from '../reguest'
 import Arrays from '../arrays'
 import Status from '../status'
 import Favorite from '../../utils/favorite'
-import Lang from '../lang'
+import Lang from '../lang'*/
 
 let prox       = 'http://proxy.silanavoza.xyz/img/'
 let prox_api   = ''
