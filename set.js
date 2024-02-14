@@ -112,12 +112,12 @@
           }, 1000);
 
 	  Lampa.Settings.listener.follow('open', function (e) {
-             if (e.name == 'account') {
+             /*if (e.name == 'account') {
 	        setTimeout(function(){
 		    $('.settings--account-premium').remove()
 		    $('div > span:contains("CUB Premium")').remove()
 		},0);
-             }
+             }*/
 	     if (e.name == 'main') {
                 setTimeout(function() {
                   $('div[data-component="tmdb"]').remove();
