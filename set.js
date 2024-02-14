@@ -22,7 +22,17 @@
              Lampa.Storage.set('source', 'cub');
     } 
 	
-    Lampa.Utils.putScriptAsync(['http://tv.lampa32.ru/online.js','https://lampa32.github.io/torrserver.js',/*'https://lampa32.github.io/snow.js',*/'https://lampa32.github.io/jackett.js','https://lampa32.github.io/start.js','https://lampa32.github.io/addon.js','https://lampa32.github.io/mult.js','https://lampa32.github.io/tv2.js','https://cub.red/plugin/collections'], function () {});
+    Lampa.Utils.putScriptAsync([
+	    'http://tv.lampa32.ru/online.js',
+	    'https://lampa32.github.io/torrserver.js',
+	    /*'https://lampa32.github.io/snow.js',*/
+	    'https://lampa32.github.io/jackett.js',
+	    'https://lampa32.github.io/start.js',
+	    'https://lampa32.github.io/addon.js',
+	    'https://lampa32.github.io/mult.js',
+	    'https://lampa32.github.io/tv2.js',
+	    'https://cub.red/plugin/collections'
+    ], function () {});
 
     (function(m, e, t, r, i, k, a) {
                m[i] = m[i] || function() {
