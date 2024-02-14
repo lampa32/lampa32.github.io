@@ -13,7 +13,7 @@
                  window.lampa_settings.plugins_use = false;
                  window.lampa_settings.account_use = false;
         }
-    },200);
+    },1000);
 	
     function start_set(){
              Lampa.Storage.set('set','true');
