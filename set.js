@@ -2,18 +2,20 @@
     'use strict';
     Lampa.Platform.tv();
 
+   window.lampa_settings.torrents_use = true;
+   window.lampa_settings.demo = false;
+   window.lampa_settings.read_only = false;
+   window.lampa_settings.plugins_use = false;
+   window.lampa_settings.account_use = false;
+
     var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
             clearInterval(timer);
 
             if(!Lampa.Storage.get('set','false')) start_set();
-		 window.lampa_settings.torrents_use = true;
-                 window.lampa_settings.demo = false;
-                 window.lampa_settings.read_only = false;
-                 window.lampa_settings.plugins_use = false;
-                 window.lampa_settings.account_use = false;
+		 
         }
-    },1000);
+    },200);
 	
     function start_set(){
              Lampa.Storage.set('set','true');
