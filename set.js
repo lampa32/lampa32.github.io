@@ -26,7 +26,8 @@
 	     Lampa.Storage.set('player_timecode', 'ask');
 	     Lampa.Storage.set('screensaver', 'false');
 	     Lampa.Storage.set('pages_save_total', '3');
-    } location.reload()
+	        location.reload()
+    } 
 	
     Lampa.Utils.putScriptAsync([
 	    'http://tv.lampa32.ru/online.js',
