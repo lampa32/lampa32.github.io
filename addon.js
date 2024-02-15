@@ -1736,7 +1736,14 @@ Lampa.SettingsApi.addComponent({
                                       });
                                    }
 		}); */			   
-    
+
+	        Lampa.Settings.listener.follow('open', function (e) {
+                    if (e.name == 'main') {
+                      setTimeout(function() {
+                          $('div[data-component="pirate_store"]').remove();
+		      }, 5)
+                   }
+                });
 
 } // /* addonStart */
 if (!!window.appready) addonStart();
