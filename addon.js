@@ -139,6 +139,7 @@ Lampa.SettingsApi.addComponent({
 					$('div[data-component="add_tv_plugin"]').remove();
 					$('div[data-component="add_radio_plugin"]').remove();
 					$('div[data-component="add_sisi_plugin"]').remove();
+					$('div[data-component="pirate_store"]').remove();
 				}, 0);
 				$("#hideInstall").remove();
 				//$('body').append('<div id="hideInstall"><style>div.settings-param__value{opacity: 0%!important;display: none;}</style><div>')
@@ -1736,14 +1737,6 @@ Lampa.SettingsApi.addComponent({
                                       });
                                    }
 		}); */			   
-
-	        Lampa.Settings.listener.follow('open', function (e) {
-                    if (e.name == 'main') {
-                      setTimeout(function() {
-                          $('div[data-component="pirate_store"]').remove();
-		      }, 5)
-                   }
-                });
 
 } // /* addonStart */
 if (!!window.appready) addonStart();
