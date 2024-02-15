@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-var network = new Lampa.Reguest();
+ var network = new Lampa.Reguest();
     var cache = {};
     var total_cnt = 0;
     var proxy_cnt = 0;
@@ -17,7 +17,7 @@ var network = new Lampa.Reguest();
     function get(method, oncomplite, onerror) {
       var use_proxy = total_cnt >= 10 && good_cnt > total_cnt / 2;
       if (!use_proxy) total_cnt++;
-      var kp_prox = 'http://cors.lampa32.ru/proxy/';
+      var kp_prox = 'https://cors.kp556.workers.dev:8443/';
       var url = 'https://kinopoiskapiunofficial.tech/';
       url += method;
       network.timeout(15000);
@@ -34,13 +34,13 @@ var network = new Lampa.Reguest();
             oncomplite(json);
           }, onerror, false, {
             headers: {
-              'X-API-KEY': '14342b35-714b-449d-bf10-30d0d9ac22e6'
+              'X-API-KEY': '2a4a0808-81a3-40ae-b0d3-e11335ede616'
             }
           });
         } else onerror(a, c);
       }, false, {
         headers: {
-          'X-API-KEY': '14342b35-714b-449d-bf10-30d0d9ac22e6'
+          'X-API-KEY': '2a4a0808-81a3-40ae-b0d3-e11335ede616'
         }
       });
     }
@@ -133,14 +133,16 @@ var network = new Lampa.Reguest();
       var type = !elem.type || elem.type === 'FILM' || elem.type === 'VIDEO' ? 'movie' : 'tv';
       var kinopoisk_id = elem.kinopoiskId || elem.filmId || 0;
       var kp_rating = +elem.rating || +elem.ratingKinopoisk || 0;
+      var title = elem.nameRu || elem.nameEn || elem.nameOriginal || '';
+      var original_title = elem.nameOriginal || elem.nameEn || elem.nameRu || '';
       var adult = false;
       var result = {
         "source": SOURCE_NAME,
         "type": type,
         "adult": false,
         "id": SOURCE_NAME + '_' + kinopoisk_id,
-        "name": elem.nameRu || elem.nameEn || elem.nameOriginal || '',
-        "original_name": elem.nameOriginal || elem.nameEn || elem.nameRu || '',
+        "title": title,
+        "original_title": original_title,
         "overview": elem.description || elem.shortDescription || '',
         "img": elem.posterUrlPreview || elem.posterUrl || '',
         "background_image": elem.coverUrl || elem.posterUrl || elem.posterUrlPreview || '',
@@ -194,6 +196,8 @@ var network = new Lampa.Reguest();
       }
 
       if (type === 'tv') {
+        result.name = title;
+        result.original_name = original_title;
         result.first_air_date = first_air_date;
         if (last_air_date) result.last_air_date = last_air_date;
       } else {
@@ -285,7 +289,7 @@ var network = new Lampa.Reguest();
     }
 
     function normalizeTitle(str) {
-      return cleanTitle(str.toLowerCase().replace(/—/g, '-').replace(/ё/g, 'е'));
+      return cleanTitle(str.toLowerCase().replace(/[\-\u2010-\u2015\u2E3A\u2E3B\uFE58\uFE63\uFF0D]+/g, '-').replace(/ё/g, 'е'));
     }
 
     function containsTitle(str, title) {
@@ -555,7 +559,7 @@ var network = new Lampa.Reguest();
 
         if (data.query && data.query.results) {
           var tmp = data.query.results.filter(function (elem) {
-            return containsTitle(elem.name, title) || containsTitle(elem.original_name, title);
+            return containsTitle(elem.title, title) || containsTitle(elem.original_title, title);
           });
 
           if (tmp.length && tmp.length !== data.query.results.length) {
