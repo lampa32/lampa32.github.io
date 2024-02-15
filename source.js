@@ -17,7 +17,7 @@ var network = new Lampa.Reguest();
     function get(method, oncomplite, onerror) {
       var use_proxy = total_cnt >= 10 && good_cnt > total_cnt / 2;
       if (!use_proxy) total_cnt++;
-      var kp_prox = 'https://cors.lampa.stream/';
+      var kp_prox = 'http://cors.lampa32.ru/proxy/';
       var url = 'https://kinopoiskapiunofficial.tech/';
       url += method;
       network.timeout(15000);
