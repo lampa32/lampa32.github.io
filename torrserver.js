@@ -62,12 +62,12 @@ Lampa.SettingsApi.addParam({
 					Lampa.Settings.update();
 				},
 			  onRender: function (item) {
-			   Lampa.Settings.update();
 			    setTimeout(function() {
 			      if($('div[data-name="torrserv"]').length > 1) item.hide();
 			      //if(Lampa.Platform.is('android')) Lampa.Storage.set('internal_torrclient', true);
 				    $('.settings-param__name', item).css('color','f3d900');
 				    $('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
+				    Lampa.Settings.update();
 				  }, 0);
                    }
    });
