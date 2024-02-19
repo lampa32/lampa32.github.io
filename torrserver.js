@@ -38,10 +38,10 @@ Lampa.SettingsApi.addParam({
 				},
 				onChange: function (value) {
 					if (value == '0') Lampa.Storage.set('torrserver_url_two', '');
-				        if (value == '1') Lampa.Storage.set('torrserver_url_two', 'http://217.197.107.31:8090');
+				        if (value == '1') Lampa.Storage.set('torrserver_url_two', 'http://80.85.241.6:8090');
                                         if (value == '2') Lampa.Storage.set('torrserver_url_two', 'http://84.201.137.235:8090');
                                         if (value == '3') Lampa.Storage.set('torrserver_url_two', 'http://109.105.90.19:8090');
-                                        if (value == '4') Lampa.Storage.set('torrserver_url_two', 'http://lexa-sinyak.jactor.ru:8090');
+                                        if (value == '4') Lampa.Storage.set('torrserver_url_two', 'http://85.192.40.156:8090');
                                         if (value == '5') Lampa.Storage.set('torrserver_url_two', 'http://91.210.26.33:8090');
                                         if (value == '6') Lampa.Storage.set('torrserver_url_two', 'http://84.201.189.105:8090');
                                         if (value == '7') Lampa.Storage.set('torrserver_url_two', 'http://85.113.39.177:8090');
@@ -51,7 +51,7 @@ Lampa.SettingsApi.addParam({
                                         if (value == '11') Lampa.Storage.set('torrserver_url_two', 'http://5.130.142.32:8090');
 					if (value == '12') Lampa.Storage.set('torrserver_url_two', 'http://90.189.194.21:8090');
 					if (value == '13') Lampa.Storage.set('torrserver_url_two', 'http://91.122.45.192:8090');
-                                        if (value == '14') Lampa.Storage.set('torrserver_url_two', 'http://46.242.39.238:8090');
+                                        if (value == '14') Lampa.Storage.set('torrserver_url_two', 'http://94.228.163.57:8090');
                                         if (value == '15') Lampa.Storage.set('torrserver_url_two', 'http://91.122.34.101:8090');
                                         if (value == '16') Lampa.Storage.set('torrserver_url_two', 'http://78.36.198.165:8090');
                                         if (value == '17') Lampa.Storage.set('torrserver_url_two', 'http://5.252.118.175:8090');
