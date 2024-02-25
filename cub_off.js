@@ -39,6 +39,7 @@
 			}
 			if (document.querySelector('.ad-bot') !== null) {
 				$('.ad-bot__text').parent().parent().remove();
+				$('.ad-bot__title').parent().parent().remove();
 				clearInterval(myTextBoxInterval);
 			}
 		}, 100);
