@@ -38,8 +38,7 @@
 				clearInterval(myTextBoxInterval);
 			}
 			if (document.querySelector('.ad-bot') !== null) {
-				$('.ad-bot__text').parent().parent().remove();
-				$('.card__ad-bot').parent().parent().remove();
+				$('.ad-bot').remove();
 				clearInterval(myTextBoxInterval);
 			}
 		}, 100);
