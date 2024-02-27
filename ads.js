@@ -1,1 +1,0 @@
-  Lampa.Account.hasPremium = () => true
