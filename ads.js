@@ -1,4 +1,1 @@
-(function () {
-    'use strict';
-    Lampa.Account.checkPremium = () => true
-})();
+  Lampa.Account.hasPremium = () => true
