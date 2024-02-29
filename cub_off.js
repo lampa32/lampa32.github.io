@@ -46,6 +46,10 @@
 	
 function cub_off() {
 
+	 $(document).ready(function () {
+		localStorage.setItem("region", '{"code":"uk","time":1709208059332}')
+	 })
+
 	 setTimeout(function(){
               $('.open--feed').remove();
               $('.open--premium').remove();
