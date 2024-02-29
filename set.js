@@ -100,10 +100,18 @@
 				$('.card__textbox').parent().parent().remove();
 				clearInterval(myTextBoxInterval);
 			}
+			if (document.querySelector('.ad-bot') !== null) {
+				$('.ad-bot').remove();
+				clearInterval(myTextBoxInterval);
+			}
 		}, 100);
 	}
 	
     function cub_off() {
+
+	 $(document).ready(function () {
+		localStorage.setItem("region", '{"code":"uk","time":1709208059332}')
+	 })
 
 	 setTimeout(function(){
               $('.open--feed').remove();
