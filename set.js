@@ -110,7 +110,9 @@
     function cub_off() {
 
 	 $(document).ready(function () {
-		localStorage.setItem("region", '{"code":"uk","time":1709208059332}')
+		var date = new Date(),
+		time = date.getTime()
+		localStorage.setItem("region", '{"code":"uk","time":' + time + '}')
 	 })
 
 	 setTimeout(function(){
