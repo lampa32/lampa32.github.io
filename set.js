@@ -76,6 +76,7 @@
 			  setTimeout(function(){
  				  $('.selectbox-item__lock').parent().css('display', 'none');
 				   if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');
+				  //if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {return} else {if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');}
 			  }, 50)
 			  setTimeout(function(){
 				  initMarker = 0 // Снимаем флаг
@@ -90,6 +91,7 @@
 						setTimeout(function(){	
 							$('.selectbox-item__lock').parent().css('display', 'none');
 							 if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');
+							 //if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {return} else {if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');}
 						},50)
 				})
 				clearInterval(myCardInterval);
@@ -141,6 +143,7 @@
 		    setTimeout(function(){	
 			$('.selectbox-item__lock').parent().css('display', 'none');
 			 if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');
+			// if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {return} else {if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');}
 		    },0)
 		  });	  
                    setTimeout(function(){
