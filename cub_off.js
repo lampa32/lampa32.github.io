@@ -12,7 +12,7 @@
 			  initMarker = 1 // Флаг
 			  setTimeout(function(){
  				  $('.selectbox-item__lock').parent().css('display', 'none');
-				  $('.settings-param-title').last().css('display', 'none');
+				   if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');
 			  }, 50)
 			  setTimeout(function(){
 				  initMarker = 0 // Снимаем флаг
@@ -26,7 +26,7 @@
 				$('.card').on('hover:long', function () {
 						setTimeout(function(){	
 							$('.selectbox-item__lock').parent().css('display', 'none');
-							$('.settings-param-title').last().css('display', 'none');
+							 if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');
 						},50)
 				})
 				clearInterval(myCardInterval);
@@ -72,7 +72,7 @@ function cub_off() {
 		  $('.button--book').on('hover:enter', function(){
 		    setTimeout(function(){	
 			$('.selectbox-item__lock').parent().css('display', 'none');
-			$('.settings-param-title').last().css('display', 'none');
+			 if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');
 		    },0)
 		  });	  
                    setTimeout(function(){
