@@ -19,7 +19,6 @@
 								if (!$('.extensions__body').length) $('.settings-param-title').last().css('display', 'none');
 								}
 				   }
-				   Lampa.Settings.update();
 			  }, 50)
 			  setTimeout(function(){
 				  initMarker = 0 // Снимаем флаг
