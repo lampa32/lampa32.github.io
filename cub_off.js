@@ -117,6 +117,17 @@
 					$('div > span:contains("CUB Premium")').remove()
                 }, 0);
             }
+	    if (e.name == 'add_plugin') {
+                setTimeout(function() {
+                    // убираем артефакты после входа в Расширения, надпись "Редактировать" / "Ещё" / "История" / "Статус"
+					if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
+						$('div > span:contains("Еще")').parent().remove()
+						$('div > span:contains("Редактировать")').parent().remove()
+						$('div > span:contains("История")').parent().remove()
+						$('div > span:contains("Статус")').parent().remove()
+					}
+                }, 0);
+            }
         });
 		
 		// мы внутри карточки
@@ -151,7 +162,14 @@
                 }, 200)
             }
         });
-
+        Lampa.Controller.listener.follow('toggle', function(e) {
+          if (e.name == 'select') {
+             setTimeout(function() {
+               if($('.selectbox .selectbox-item__icon svg').length && Lampa.Activity.active().component == 'full') $('div.selectbox__body > div > div > div > div:contains("@modssmy_bot")').css('display', 'none');
+               if (Lampa.Activity.active().component === 'modss_online') $('.selectbox-item--icon').remove()
+             }, 10);
+          }
+        });
     }
     
 	if (window.appready) {cub_off(); hideIT();}
