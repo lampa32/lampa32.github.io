@@ -91,12 +91,12 @@
 					clearInterval(myTextBoxInterval);
 				}
 			}, 100);
-			/*var myTextBoxInterval2 = setInterval(function() {
+			var myTextBoxInterval2 = setInterval(function() {
 				if (document.querySelector('.card__textbox') !== null) {
 					$('.card__textbox').parent().parent().remove();
 					clearInterval(myTextBoxInterval2);
 				}
-			}, 100);*/
+			}, 100);
 		})
 		// убираем элементы в верхнем меню
         setTimeout(function() {
