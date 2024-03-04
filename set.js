@@ -180,7 +180,7 @@
 					$('div > span:contains("CUB Premium")').remove()
                 }, 0);
             }*/
-	    if (e.name == 'add_plugin') {
+	    /*if (e.name == 'add_plugin') {
                 setTimeout(function() {
                     // убираем артефакты после входа в Расширения, надпись "Редактировать" / "Ещё" / "История" / "Статус"
 					if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
@@ -190,7 +190,7 @@
 						$('div > span:contains("Статус")').parent().remove()
 					}
                 }, 0);
-            }
+            }*/
 	    if (e.name == 'main') {
                 setTimeout(function() {
                   $('div[data-component="tmdb"]').remove();
