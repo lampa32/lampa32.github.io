@@ -66,6 +66,17 @@
 
          var initMarker = 0;
 
+         function modssAd() {
+		Lampa.Controller.listener.follow('toggle', function(e) {
+			  if (e.name == 'select') {
+				setTimeout(function() {
+				  if($('.selectbox .selectbox-item__icon svg').length && Lampa.Activity.active().component == 'full') $('div.selectbox__body > div > div > div > div:contains("@modssmy_bot")').css('display', 'none');
+				  if (Lampa.Activity.active().component === 'modss_online') $('.selectbox-item--icon').remove()
+				}, 30);
+			  }
+		});
+	 }
+	
     // шаблонный метод очистки
 	function cleanCub(){
         setTimeout(function() {
@@ -108,33 +119,6 @@
                 }
             }
 
-
-        var myCardInterval = setInterval(function() {
-            // если карточка присутствует
-			if (document.querySelector('.card') !== null) {
-                // вешаем событие на долгое нажатие карточки
-				$('.card').on('hover:long', function() {
-                    // чистим пункты в подменю
-					cleanCub();
-                })
-                clearInterval(myCardInterval);
-            }
-        }, 10);
-/*		
-        var myTextBoxInterval = setInterval(function() {
-
-            if (document.querySelector('.card__textbox') !== null) {
-                $('.card__textbox').parent().parent().remove();
-                clearInterval(myTextBoxInterval);
-            }
-			
-            // удаляем рекламу в разделе Сериалов
-			if (document.querySelector('.ad-bot') !== null) {
-                $('.ad-bot').remove();
-                clearInterval(myTextBoxInterval);
-            }
-        }, 100);
-*/
         }, false);
     }
 
@@ -183,12 +167,14 @@
 	    if (e.name == 'add_plugin') {
                 setTimeout(function() {
                     // убираем артефакты после входа в Расширения, надпись "Редактировать" / "Ещё" / "История" / "Статус"
-					//if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
+			        if (document.querySelector("div > span > div > span")) {
+					if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
 						$('div > span:contains("Еще")').parent().remove()
 						$('div > span:contains("Редактировать")').parent().remove()
 						$('div > span:contains("История")').parent().remove()
 						$('div > span:contains("Статус")').parent().remove()
-					//}
+					}
+				}
                 }, 0);
             }
 	    if (e.name == 'main') {
@@ -235,7 +221,7 @@
         
     }
     
-	if (window.appready) {cub_off(); hideIT();}
+	if (window.appready) {cub_off(); hideIT(); modssAd();}
     else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
@@ -244,6 +230,8 @@
                 cub_off();
                 // вызываем hideIT()
                 hideIT();
+		// прячем рекламу MODSs
+		modssAd();
                 // удаляем раздел Лента с главного меню
                 $("[data-action=feed]").eq(0).remove();
                 // удаляем раздел Подписки с главного меню
