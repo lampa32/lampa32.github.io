@@ -4,7 +4,7 @@
     var initMarker = 0;
 
     // шаблонный метод очистки
-	function cleanCub(){
+/*	function cleanCub(){
         setTimeout(function() {
 		       // скрываем все строки с замочками 
 			$('.selectbox-item__lock').parent().css('display', 'none');
@@ -13,11 +13,11 @@
 			/* универсальный метод - сначал проверяем:
 				если элемент сушествует, 
 				проверяем его текст - если шильдик группы без цензуры - выходим из функции */
-				if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
-				      return
+				//if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
+				    //  return
 				/* в остальных случаях, проверяем:
 					если мы в НЕ в Расширениях - скрываем строку СТАТУС - без замочков она лишняя */
-				}
+				/*}
 			}
 			else {
 				setTimeout(function() {	
@@ -25,7 +25,7 @@
 				}, 10)
 			}
 		}, 10)
-    }
+    }*/
 
     function hideIT() {
 		// следим за поведением элементов в лампе, чтобы поймать момент появления карточки в ПОИСКЕ - через смену активности не определяется событие
@@ -37,7 +37,7 @@
 				if (initMarker == 0) {
                     initMarker = 1 // Флаг
                     // чистим
-					cleanCub();
+					//cleanCub();
                     // спустя полсекунды флаг снимаем
 					setTimeout(function() {
                         initMarker = 0
@@ -52,7 +52,7 @@
                 // вешаем событие на долгое нажатие карточки
 				$('.card').on('hover:long', function() {
                     // чистим пункты в подменю
-					cleanCub();
+					//cleanCub();
                 })
                 clearInterval(myCardInterval);
             }
@@ -76,7 +76,7 @@
     }
 
 	
-	/*function cub_off() {
+	function cub_off() {
 		// убираем рекламу перед включением плеера через смену региона (не языка)
           $(document).ready(function() {
             var date = new Date(),
@@ -136,7 +136,7 @@
                 // на кнопке закладок, долгое нажатие - вешаем событие
 				$('.button--book').on('hover:enter', function() {
                     // чистим пункты в подменю
-					cleanCub();
+					//cleanCub();
                 });
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 				setTimeout(function() {
@@ -170,15 +170,15 @@
              }, 10);
           }
         });*/
-    }*/
+    }
     
-	if (window.appready) /*{cub_off();*/ hideIT();
+	if (window.appready) {cub_off(); hideIT();}
     else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
             if (e.type == 'ready') {
                 // вызываем cub_off()
-                //cub_off();
+                cub_off();
                 // вызываем hideIT()
                 hideIT();
                 // удаляем раздел Лента с главного меню
