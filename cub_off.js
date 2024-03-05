@@ -6,24 +6,24 @@
     // шаблонный метод очистки
 	function cleanCub(){
         setTimeout(function() {
-			// скрываем все строки с замочками 
+		       // скрываем все строки с замочками 
 			$('.selectbox-item__lock').parent().css('display', 'none');
 			// скрываем строку Статус
-			//if (document.querySelector("div > span > div > span")) {
+			if (document.querySelector("div > span > div > span")) {
 			/* универсальный метод - сначал проверяем:
 				если элемент сушествует, 
 				проверяем его текст - если шильдик группы без цензуры - выходим из функции */
-				//if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
-				    //  return
+				if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
+				      return
 				/* в остальных случаях, проверяем:
 					если мы в НЕ в Расширениях - скрываем строку СТАТУС - без замочков она лишняя */
-				//}
-			//}
-			//else {
-				//setTimeout(function() {	
-					//if (!$('.extensions__body').length) $('div > span:contains("Статус")').parent().remove() //$('.settings-param-title').last().css('display', 'none'); 
-				//}, 10)
-			//}
+				}
+			}
+			else {
+				setTimeout(function() {	
+					if (!$('.extensions__body').length) $('div > span:contains("Статус")').parent().remove() //$('.settings-param-title').last().css('display', 'none'); 
+				}, 10)
+			}
 		}, 10)
     }
 
@@ -162,14 +162,14 @@
                 }, 200)
             }
         });
-        Lampa.Controller.listener.follow('toggle', function(e) {
+        /*Lampa.Controller.listener.follow('toggle', function(e) {
           if (e.name == 'select') {
              setTimeout(function() {
                if($('.selectbox .selectbox-item__icon svg').length && Lampa.Activity.active().component == 'full') $('div.selectbox__body > div > div > div > div:contains("@modssmy_bot")').css('display', 'none');
                if (Lampa.Activity.active().component === 'modss_online') $('.selectbox-item--icon').remove()
              }, 10);
           }
-        });
+        });*/
     }
     
 	if (window.appready) {cub_off(); hideIT();}
