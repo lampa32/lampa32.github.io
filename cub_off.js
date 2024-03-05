@@ -46,7 +46,7 @@
             }
 
 
-        var myCardInterval = setInterval(function() {
+       /* var myCardInterval = setInterval(function() {
             // если карточка присутствует
 			if (document.querySelector('.card') !== null) {
                 // вешаем событие на долгое нажатие карточки
@@ -56,7 +56,7 @@
                 })
                 clearInterval(myCardInterval);
             }
-        }, 10);
+        }, 10);*/
 /*		
         var myTextBoxInterval = setInterval(function() {
 
@@ -157,9 +157,9 @@
                     $('.register:nth-child(8)').hide();
                 }
                 // запускаем функцию сокрытия рекламы hideIT()
-                //setTimeout(function() {
-                   // hideIT();
-               // }, 200)
+                setTimeout(function() {
+                    hideIT();
+                }, 200)
             }
         });
         /*Lampa.Controller.listener.follow('toggle', function(e) {
@@ -172,7 +172,7 @@
         });*/
     }
     
-	if (window.appready) cub_off();
+	if (window.appready) {cub_off(); hideIT();}
     else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
@@ -180,7 +180,7 @@
                 // вызываем cub_off()
                 cub_off();
                 // вызываем hideIT()
-                //hideIT();
+                hideIT();
                 // удаляем раздел Лента с главного меню
                 $("[data-action=feed]").eq(0).remove();
                 // удаляем раздел Подписки с главного меню
