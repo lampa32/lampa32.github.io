@@ -172,7 +172,7 @@
         });*/
     }*/
     
-	if (window.appready) /*{cub_off();*/ hideIT();//}
+	if (window.appready) /*{cub_off();*/ hideIT();
     else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
