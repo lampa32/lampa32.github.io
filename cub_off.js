@@ -4,7 +4,7 @@
     var initMarker = 0;
 
     // шаблонный метод очистки
-/*	function cleanCub(){
+	function cleanCub(){
         setTimeout(function() {
 		       // скрываем все строки с замочками 
 			$('.selectbox-item__lock').parent().css('display', 'none');
@@ -13,11 +13,11 @@
 			/* универсальный метод - сначал проверяем:
 				если элемент сушествует, 
 				проверяем его текст - если шильдик группы без цензуры - выходим из функции */
-				//if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
-				    //  return
+				if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
+				      return
 				/* в остальных случаях, проверяем:
 					если мы в НЕ в Расширениях - скрываем строку СТАТУС - без замочков она лишняя */
-				/*}
+				}
 			}
 			else {
 				setTimeout(function() {	
@@ -25,7 +25,7 @@
 				}, 10)
 			}
 		}, 10)
-    }*/
+    }
 
     function hideIT() {
 		// следим за поведением элементов в лампе, чтобы поймать момент появления карточки в ПОИСКЕ - через смену активности не определяется событие
@@ -37,7 +37,7 @@
 				if (initMarker == 0) {
                     initMarker = 1 // Флаг
                     // чистим
-					//cleanCub();
+					cleanCub();
                     // спустя полсекунды флаг снимаем
 					setTimeout(function() {
                         initMarker = 0
@@ -52,7 +52,7 @@
                 // вешаем событие на долгое нажатие карточки
 				$('.card').on('hover:long', function() {
                     // чистим пункты в подменю
-					//cleanCub();
+					cleanCub();
                 })
                 clearInterval(myCardInterval);
             }
@@ -136,7 +136,7 @@
                 // на кнопке закладок, долгое нажатие - вешаем событие
 				$('.button--book').on('hover:enter', function() {
                     // чистим пункты в подменю
-					//cleanCub();
+					cleanCub();
                 });
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 				setTimeout(function() {
@@ -157,9 +157,9 @@
                     $('.register:nth-child(8)').hide();
                 }
                 // запускаем функцию сокрытия рекламы hideIT()
-                setTimeout(function() {
-                    hideIT();
-                }, 200)
+                //setTimeout(function() {
+                   // hideIT();
+               // }, 200)
             }
         });
         /*Lampa.Controller.listener.follow('toggle', function(e) {
@@ -172,7 +172,7 @@
         });*/
     }
     
-	if (window.appready) {cub_off(); hideIT();}
+	if (window.appready) cub_off();
     else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
@@ -180,7 +180,7 @@
                 // вызываем cub_off()
                 cub_off();
                 // вызываем hideIT()
-                hideIT();
+                //hideIT();
                 // удаляем раздел Лента с главного меню
                 $("[data-action=feed]").eq(0).remove();
                 // удаляем раздел Подписки с главного меню
