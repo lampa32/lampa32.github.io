@@ -78,11 +78,11 @@
 	
 	function cub_off() {
 		// убираем рекламу перед включением плеера через смену региона (не языка)
-        $(document).ready(function() {
+       /* $(document).ready(function() {
             var date = new Date(),
                 time = date.getTime()
             localStorage.setItem("region", '{"code":"uk","time":' + time + '}')
-        })
+        })*/
 		// удаляем рекламу в разделе Сериалов
 		$('[data-action="tv"]').on('hover:enter hover:click hover:touch', function() {
 			var myTextBoxInterval = setInterval(function() {
