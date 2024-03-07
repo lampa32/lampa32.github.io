@@ -88,12 +88,12 @@
 				если элемент сушествует, 
 				проверяем его текст - если шильдик группы без цензуры - выходим из функции */
 				//if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
-					//return
+					return
 				/* в остальных случаях, проверяем:
 					если мы в НЕ в Расширениях - скрываем строку СТАТУС - без замочков она лишняя */
 				//}
-			//}
-			//else {
+			}
+			else {
 				setTimeout(function() {	
 					if (!$('.extensions__body').length) $('div > span:contains("Статус")').parent().remove() //$('.settings-param-title').last().css('display', 'none'); 
 				}, 10)
