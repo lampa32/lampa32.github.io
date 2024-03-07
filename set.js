@@ -2,6 +2,8 @@
     'use strict';
     Lampa.Platform.tv();
 
+  function startPlugin() {
+
    window.lampa_settings.torrents_use = true;
    window.lampa_settings.demo = false;
    window.lampa_settings.read_only = false;
@@ -63,6 +65,7 @@
         });
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/94674961" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
+   }
 
          var initMarker = 0;
 
@@ -221,7 +224,7 @@
         
     }
     
-	if (window.appready) {cub_off(); hideIT(); modssAd();}
+	if (window.appready) {cub_off(); hideIT(); modssAd(); startPlugin();}
     else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
@@ -232,6 +235,8 @@
                 hideIT();
 		// прячем рекламу MODSs
 		modssAd();
+		// 
+		startPlugin();
                 // удаляем раздел Лента с главного меню
                 $("[data-action=feed]").eq(0).remove();
                 // удаляем раздел Подписки с главного меню
