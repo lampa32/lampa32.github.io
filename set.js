@@ -8,7 +8,7 @@
    window.lampa_settings.plugins_use = false;
    window.lampa_settings.account_use = false;
 	
-  function startPlugin() {
+  function mainSet() {
 
     var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
@@ -224,7 +224,7 @@
         
     }
     
-	if (window.appready) {cub_off(); hideIT(); modssAd(); startPlugin();}
+	if (window.appready) {cub_off(); hideIT(); modssAd(); mainSet();}
     else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
@@ -235,8 +235,8 @@
                 hideIT();
 		// прячем рекламу MODSs
 		modssAd();
-		// 
-		startPlugin();
+		// вызываем основные настройки
+		mainSet();
                 // удаляем раздел Лента с главного меню
                 $("[data-action=feed]").eq(0).remove();
                 // удаляем раздел Подписки с главного меню
