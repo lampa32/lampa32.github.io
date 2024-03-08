@@ -7,15 +7,8 @@
    window.lampa_settings.read_only = false;
 
    Lampa.Utils.putScriptAsync([
-	    'http://tv.lampa32.ru/online.js',
-	    'https://lampa32.github.io/torrserver.js',
-	    //'https://lampa32.github.io/snow.js',
-	    'https://lampa32.github.io/jackett.js',
-	    'https://lampa32.github.io/start.js',
-	    'https://lampa32.github.io/addon.js',
-	    'https://lampa32.github.io/mult.js',
-	    'https://lampa32.github.io/tv2.js',
-	    'https://cub.red/plugin/collections'
+	    'http://77.91.122.72:9118/online.js'
+	    
     ], function () {});
 
    document.addEventListener("DOMSubtreeModified", function(event) {
