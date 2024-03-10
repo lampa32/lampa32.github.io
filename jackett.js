@@ -121,7 +121,7 @@ Lampa.SettingsApi.addParam({
 				if (localStorage.getItem('jackett_urltwo') !== 'no_parser') {
                                    $('div[data-name="jackett_url"]').hide()
                                    $('div[data-name="jackett_key"]').hide()
-				    Lampa.Controller.toggle('jackett_urltwo');
+				    Lampa.Controller.toggle('settings_component');
                                 }
 				if(Lampa.Storage.field('parser_use')) item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 				else item.hide();
