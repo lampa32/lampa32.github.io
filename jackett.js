@@ -134,8 +134,8 @@ Lampa.SettingsApi.addParam({
 		}
     });
 	Lampa.Storage.listener.follow('change', function (e) {
-		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_url_two"]').hide();
-		else $('[data-name="jackett_url_two"]').show();
+		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_urltwo"]').hide();
+		else $('[data-name="jackett_urltwo"]').show();
 	});
 	var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
