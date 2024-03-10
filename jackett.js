@@ -131,11 +131,12 @@ Lampa.SettingsApi.addParam({
 		if (e.name == 'parser') {
 			e.body.find('[data-name="jackett_url2"]').remove();
 			e.body.find('[data-name="jackett_url_two"]').remove();
-		};
+		}
+    });
+	Lampa.Storage.listener.follow('change', function (e) {
 		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_url_two"]').hide();
 		else $('[data-name="jackett_url_two"]').show();
-    });
-      
+	});
 	var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
             clearInterval(timer);
