@@ -126,7 +126,7 @@ Lampa.SettingsApi.addParam({
                                    $('div[data-name="jackett_urltwo"]').hide()
                                 }*/
 				if((Lampa.Storage.field('parser_torrent_type') == 'jackett')&(Lampa.Storage.field('parser_use'))) item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
-				else item.hide();
+				else $('div[data-name="jackett_urltwo"]').hide()//item.hide();
 			}, 20);
         }
    });
