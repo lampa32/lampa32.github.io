@@ -122,10 +122,7 @@ Lampa.SettingsApi.addParam({
                                    $('div[data-name="jackett_url"]').hide()
                                    $('div[data-name="jackett_key"]').hide()
                                 }
-				/*if (localStorage.getItem('parser_torrent_type') !== 'jackett') {
-                                   $('div[data-name="jackett_urltwo"]').hide()
-                                }*/
-				if((Lampa.Storage.field('parser_torrent_type') == 'jackett')&(Lampa.Storage.field('parser_use'))) item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
+				if(Lampa.Storage.field('parser_use')) item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 				else item.hide();
 				Lampa.Settings.update();
 			}, 20);
@@ -136,6 +133,8 @@ Lampa.SettingsApi.addParam({
 			e.body.find('[data-name="jackett_url2"]').remove();
 			e.body.find('[data-name="jackett_url_two"]').remove();
 		};
+		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_url_two"]').hide();
+		else $('[data-name="jackett_url_two"]').show();
     });
       
 	var timer = setInterval(function(){
