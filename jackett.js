@@ -13,7 +13,7 @@ var parserBase = [
 	'jacred.viewbox.dev',
 	'spawn.pp.ua:59118',
 	'spawn.pp.ua:59117',
-	'188.119.113.252:9117'
+	'api.prisma.ws:443'
 ]
 
 var parserName = [
@@ -24,7 +24,7 @@ var parserName = [
 	'Viewbox',
 	'Spawn Jackett',
 	'Spawn Jacred',
-	'Unknown'
+	'Prisma'
 ]
 
 function myRequest(i){
@@ -80,7 +80,7 @@ function changeParser() {
      if (Lampa.Storage.get('jackett_urltwo') == 'jacred_xyz') 	        Lampa.Storage.set('jackett_url', 'jacred.xyz')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'spawn_jackett') 	Lampa.Storage.set('jackett_url', 'spawn.pp.ua:59117')&Lampa.Storage.set('jackett_key', '2')&Lampa.Storage.set('jackett_interview', 'healthy')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'df');
      if (Lampa.Storage.get('jackett_urltwo') == 'jacred_ru') 		Lampa.Storage.set('jackett_url', 'jacred.ru')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
-     if (Lampa.Storage.get('jackett_urltwo') == 'unknown') 		Lampa.Storage.set('jackett_url', '188.119.113.252:9117')&Lampa.Storage.set('jackett_key', '1')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
+     if (Lampa.Storage.get('jackett_urltwo') == 'prisma') 		Lampa.Storage.set('jackett_url', 'api.prisma.ws:443')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'jacred_my_to') 	Lampa.Storage.set('jackett_url', 'jacred.my.to')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'jacred_viewbox_dev') 	Lampa.Storage.set('jackett_url', 'jacred.viewbox.dev')&Lampa.Storage.set('jackett_key', 'viewbox')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'df_lg');
 	 return;
@@ -100,7 +100,7 @@ Lampa.SettingsApi.addParam({
 	jacred_viewbox_dev: 'Viewbox',
         spawn_jackett:      'Spawn Jackett',
         spawn_jacred:       'Spawn Jacred',
-        unknown:            'Unknown',
+        prisma:             'Prisma',
      },
      default: 'jacred_xyz'
     },
@@ -133,7 +133,7 @@ Lampa.SettingsApi.addParam({
 			e.body.find('[data-name="jackett_url2"]').remove();
 			e.body.find('[data-name="jackett_url_two"]').remove();
 		}
-    });
+        });
 	Lampa.Storage.listener.follow('change', function (e) {
 		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_urltwo"]').hide();
 		else $('[data-name="jackett_urltwo"]').show();
