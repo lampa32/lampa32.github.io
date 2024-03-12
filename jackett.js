@@ -1,5 +1,44 @@
 (function() {
 	'use strict';
+	Lampa.Settings.listener.follow('open', function (e) {
+      if (e.name == 'main') {
+        Lampa.Settings.main().update();
+        Lampa.Settings.main().render().find('');
+      }
+      if (e.name == 'main') {
+        $('.settings__title').text("Настройки");
+      }
+      if (e.name == 'lampapro_settings') {
+        $('.settings__title').text("LAMPA PRO");
+      }
+      if (e.name == 'account') {
+        $('.settings__title').text("Синхронизация");
+      }
+      if (e.name == 'interface') {
+        $('.settings__title').text("Интерфейс");
+      }
+      if (e.name == 'player') {
+        $('.settings__title').text("Плеер");
+      }
+      if (e.name == 'parser') {
+        $('.settings__title').text("Онлайн и торренты");
+      }
+      if (e.name == 'server') {
+        $('.settings__title').text("TorrServer");
+      }
+      if (e.name == 'tmdb') {
+        $('.settings__title').text("TMDB");
+      }
+      if (e.name == 'more') {
+        $('.settings__title').text("Остальное");
+      }
+      if (e.name == 'parental_control') {
+        $('.settings__title').text("Родительский контроль");
+      }
+      if (e.name == 'updater') {
+        $('.settings__title').text("Обновление");
+      }
+    });
 
 Lampa.Platform.tv();
 Lampa.Storage.set('parser_use', true)
