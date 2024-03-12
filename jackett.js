@@ -1,44 +1,5 @@
 (function() {
 	'use strict';
-	Lampa.Settings.listener.follow('open', function (e) {
-      if (e.name == 'main') {
-        Lampa.Settings.main().update();
-        Lampa.Settings.main().render().find('');
-      }
-      if (e.name == 'main') {
-        $('.settings__title').text("Настройки");
-      }
-      if (e.name == 'lampapro_settings') {
-        $('.settings__title').text("LAMPA PRO");
-      }
-      if (e.name == 'account') {
-        $('.settings__title').text("Синхронизация");
-      }
-      if (e.name == 'interface') {
-        $('.settings__title').text("Интерфейс");
-      }
-      if (e.name == 'player') {
-        $('.settings__title').text("Плеер");
-      }
-      if (e.name == 'parser') {
-        $('.settings__title').text("Онлайн и торренты");
-      }
-      if (e.name == 'server') {
-        $('.settings__title').text("TorrServer");
-      }
-      if (e.name == 'tmdb') {
-        $('.settings__title').text("TMDB");
-      }
-      if (e.name == 'more') {
-        $('.settings__title').text("Остальное");
-      }
-      if (e.name == 'parental_control') {
-        $('.settings__title').text("Родительский контроль");
-      }
-      if (e.name == 'updater') {
-        $('.settings__title').text("Обновление");
-      }
-    });
 
 Lampa.Platform.tv();
 Lampa.Storage.set('parser_use', true)
@@ -162,7 +123,8 @@ Lampa.SettingsApi.addParam({
 				if (localStorage.getItem('jackett_urltwo') !== 'no_parser') {
                                    $('div[data-name="jackett_url"]').hide()
                                    $('div[data-name="jackett_key"]').hide()
-				    Lampa.Controller.toggle('settings_component');
+				  //  Lampa.Controller.toggle('settings_component');
+					Lampa.Controller.toggle('content');
                                 }
 				if(Lampa.Storage.field('parser_use')) item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 				else item.hide();
