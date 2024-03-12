@@ -71,7 +71,7 @@ function lampishecol() {
       var manifest = {
         type: 'video',
         version: '1.1.1',
-        name: 'РљРѕР»Р»РµРєС†РёРё',
+        name: 'Коллекции',
         description: '',
         component: 'lampishe_collections'
       };
