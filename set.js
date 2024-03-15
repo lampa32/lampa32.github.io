@@ -24,6 +24,7 @@
              Lampa.Storage.set('keyboard_type', 'integrate');
              Lampa.Storage.set('start_page', 'main');
              Lampa.Storage.set('source', 'cub');
+	     Lampa.Storage.set('background', 'false');
 	     Lampa.Storage.set('animation', 'false');
 	     Lampa.Storage.set('mask', 'false');
 	     Lampa.Storage.set('player_normalization', 'true');
