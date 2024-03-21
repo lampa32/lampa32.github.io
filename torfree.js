@@ -133,6 +133,10 @@ function searchRandom(need, number){
 						   $('div[data-name="torrserver_url"]').hide()
 				                   Lampa.Controller.toggle('settings_component');
                                                 }
+						if (localStorage.getItem('torrserv') == '0') {
+						   $('div[data-name="torrserver_url"]').hide()
+				                   Lampa.Controller.toggle('settings_component');
+						}
 					}, 0);
                 }
    });
