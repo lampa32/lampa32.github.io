@@ -43,7 +43,7 @@ Lampa.SettingsApi.addParam({
                                         if (value == '3') Lampa.Storage.set('torrserver_url_two', 'http://109.105.90.19:8090');
                                         if (value == '4') Lampa.Storage.set('torrserver_url_two', 'http://85.192.40.156:8090');
                                         if (value == '5') Lampa.Storage.set('torrserver_url_two', 'http://91.210.26.33:8090');
-                                        if (value == '6') Lampa.Storage.set('torrserver_url_two', 'http://84.201.189.105:8090');
+                                        if (value == '6') Lampa.Storage.set('torrserver_url_two', 'http://5.42.74.45:8090');
                                         if (value == '7') Lampa.Storage.set('torrserver_url_two', 'http://85.113.39.177:8090');
                                         if (value == '8') Lampa.Storage.set('torrserver_url_two', 'http://93.179.79.127:8090');
                                         if (value == '9') Lampa.Storage.set('torrserver_url_two', 'http://93.81.254.232:8090');
@@ -51,10 +51,10 @@ Lampa.SettingsApi.addParam({
                                         if (value == '11') Lampa.Storage.set('torrserver_url_two', 'http://5.130.142.32:8090');
 					if (value == '12') Lampa.Storage.set('torrserver_url_two', 'http://90.189.194.21:8090');
 					if (value == '13') Lampa.Storage.set('torrserver_url_two', 'http://91.122.45.192:8090');
-                                        if (value == '14') Lampa.Storage.set('torrserver_url_two', 'http://94.228.163.57:8090');
+                                        if (value == '14') Lampa.Storage.set('torrserver_url_two', 'http://5.42.76.26:8090');
                                         if (value == '15') Lampa.Storage.set('torrserver_url_two', 'http://91.122.34.101:8090');
                                         if (value == '16') Lampa.Storage.set('torrserver_url_two', 'http://78.36.198.165:8090');
-                                        if (value == '17') Lampa.Storage.set('torrserver_url_two', 'http://5.252.118.175:8090');
+                                        if (value == '17') Lampa.Storage.set('torrserver_url_two', 'http://5.42.77.176:8090');
                                         if (value == '18') Lampa.Storage.set('torrserver_url_two', 'http://85.175.194.89:8090');
                                         if (value == '19') Lampa.Storage.set('torrserver_url_two', 'http://62.76.93.19:8090');
                                         if (value == '20') Lampa.Storage.set('torrserver_url_two', 'http://91.203.66.152:8090');
