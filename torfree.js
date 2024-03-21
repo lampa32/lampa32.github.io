@@ -106,6 +106,7 @@ function searchRandom(need, number){
 					if (value == '0') {
                                                 Lampa.Storage.set('torrserver_use_link', 'one');                                               
                                                 Lampa.Storage.set('torrserver_url_two', ''); 
+						$('div[data-name="torrserver_url_two"]').hide()
                                                 Lampa.Settings.update();
                                                 return;
                                         }
@@ -113,9 +114,9 @@ function searchRandom(need, number){
 					if (value == '1') {
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
-						Lampa.Settings.update();
 						$('div[data-name="torrserver_url_two"]').hide()
 						$('div[data-name="torrserver_url"]').hide()
+						Lampa.Settings.update();
 						return;
 					}
 					/* Если  выбран любой сервер */
