@@ -121,8 +121,8 @@ function searchRandom(need, number){
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom(true, value) + ':8090');
 						Lampa.Settings.update();
-					};
-				},*/
+					};*/
+				},
 				onRender: function (item) {
 					setTimeout(function() {
 						if($('div[data-name="torrserv"]').length > 1) item.hide();
