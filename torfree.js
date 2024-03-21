@@ -84,9 +84,9 @@ function searchRandom(need, number){
 					name: 'torrserv',
 					type: 'select',
 					values: {
-					                                 0: 'Свой вариант',
+					   0: 'Свой вариант',
                                            1: 'Автовыбор',
-					                                /* 2: 'Torrserver 1',
+					/* 2: 'Torrserver 1',
                                            3: 'Torrserver 2',
                                            4: 'Torrserver 3',
                                            5: 'Torrserver 4',
@@ -134,7 +134,7 @@ function searchRandom(need, number){
 				                   Lampa.Controller.toggle('settings_component');
                                                 }
 						if (localStorage.getItem('torrserv') == '0') {
-						   $('div[data-name="torrserver_url"]').hide()
+						   $('div[data-name="torrserver_url_two"]').hide()
 				                   Lampa.Controller.toggle('settings_component');
 						}
 					}, 0);
