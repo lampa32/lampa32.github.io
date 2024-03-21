@@ -84,7 +84,7 @@ function searchRandom(need, number){
 					name: 'torrserv',
 					type: 'select',
 					values: {
-					                                 //0: 'Не выбран',
+					                                 0: 'Свой вариант',
                                            1: 'Автовыбор',
 					                                /* 2: 'Torrserver 1',
                                            3: 'Torrserver 2',
@@ -103,17 +103,19 @@ function searchRandom(need, number){
 				},
 				onChange: function (value) {
                     /* Если  Не выбран */
-				/*	if (value == '0') {
+					if (value == '0') {
                                                 Lampa.Storage.set('torrserver_use_link', 'one');                                               
                                                 Lampa.Storage.set('torrserver_url_two', ''); 
                                                 Lampa.Settings.update();
                                                 return;
-                                        }*/
+                                        }
 					/* Если  Автовыбор */
 					if (value == '1') {
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
 						Lampa.Settings.update();
+						$('div[data-name="torrserver_url_two"]').hide()
+						$('div[data-name="torrserver_url"]').hide()
 						return;
 					}
 					/* Если  выбран любой сервер */
@@ -128,10 +130,10 @@ function searchRandom(need, number){
 						if($('div[data-name="torrserv"]').length > 1) item.hide();
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
-						if (localStorage.getItem('jackett_urltwo') !== 'no_parser') {
+						/*if (localStorage.getItem('jackett_urltwo') !== 'no_parser') {
                                                    $('div[data-name="torrserver_url_two"]').hide()
 				                   Lampa.Controller.toggle('settings_component');
-                                                }
+                                                }*/
 					}, 0);
                 }
    });
