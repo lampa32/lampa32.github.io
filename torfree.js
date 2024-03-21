@@ -10,7 +10,7 @@
 	*/
 function searchRandom(need, number){
 	var options = [
-	      '77.91.84.212', 
+	'77.91.84.212', 
         '217.196.103.204',
         '212.113.106.25',
         '193.233.233.212',
@@ -35,7 +35,7 @@ function searchRandom(need, number){
         '80.85.241.6',
         '80.85.241.245',
         '79.137.207.228',
-	      '185.80.91.160',
+	'185.80.91.160',
         '5.42.77.194',
         '5.42.78.151',
         '5.42.79.63',
@@ -128,6 +128,10 @@ function searchRandom(need, number){
 						if($('div[data-name="torrserv"]').length > 1) item.hide();
 						$('.settings-param__name', item).css('color','f3d900');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
+						if (localStorage.getItem('jackett_urltwo') !== 'no_parser') {
+                                                   $('div[data-name="torrserver_url_two"]').hide()
+				                   Lampa.Controller.toggle('settings_component');
+                                                }
 					}, 0);
                 }
    });
