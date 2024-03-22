@@ -134,7 +134,7 @@ function searchRandom(need, number){
 						   $('div[data-name="torrserver_url"]').hide()
 						   $('div[data-name="torrserver_use_link"]').hide()
 						   $('div > span:contains("Ссылки")').remove()
-				                   Lampa.Controller.toggle('settings_component');
+				                   Lampa.Controller.toggle('torrserv');
                                                 }
 						if (localStorage.getItem('torrserv') == '0') {
 						   $('div[data-name="torrserver_url_two"]').hide()
