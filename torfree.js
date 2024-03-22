@@ -131,11 +131,13 @@ function searchRandom(need, number){
 						if (localStorage.getItem('torrserv') == '1') {
                                                    $('div[data-name="torrserver_url_two"]').hide()
 						   $('div[data-name="torrserver_url"]').hide()
+						   $('div[data-name="torrserver_use_link"]').hide()
 						   $('div > span:contains("Ссылки")').remove()
 				                   Lampa.Controller.toggle('settings_component');
                                                 }
 						if (localStorage.getItem('torrserv') == '0') {
 						   $('div[data-name="torrserver_url_two"]').hide()
+						   $('div[data-name="torrserver_use_link"]').hide()
 				                   Lampa.Controller.toggle('settings_component');
 						}
 					}, 0);
