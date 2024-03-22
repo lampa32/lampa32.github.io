@@ -128,7 +128,7 @@ function searchRandom(need, number){
 						if($('div[data-name="torrserv"]').length > 1) item.hide();
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
-						Lampa.Controller.toggle('settings_component');
+						Lampa.Controller.toggle('component');
 						if (localStorage.getItem('torrserv') == '1') {
                                                    $('div[data-name="torrserver_url_two"]').hide()
 						   $('div[data-name="torrserver_url"]').hide()
