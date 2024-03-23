@@ -150,8 +150,8 @@
 		if (Lampa.Activity.active().component ='actor') {
 			//if ($('.button--subscribe'))
 			    setTimeout(function() {
-				$('.button--subscribe').remove()
-			    }, 200)
+				$('.button--subscribe').hide();
+			    }, 300)
 		}
                 // запускаем функцию сокрытия рекламы hideIT()
                 setTimeout(function() {
