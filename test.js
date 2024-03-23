@@ -127,7 +127,9 @@ function searchRandom(need, number){
 	//$('#RELOAD').insertAfter('div[class="head__action selector open--settings"]');
 	
 	$('#RELOAD').on('hover:enter hover:click hover:touch', function() {
-		location.reload();
+		Lampa.Storage.set('torrserver_use_link', 'two');
+						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom(true, value) + ':8090');
+						Lampa.Settings.update();
 	});
   } 
   if(window.appready) reload();
