@@ -148,11 +148,11 @@
                     $('.register:nth-child(8)').hide();
                 }
 		if (Lampa.Activity.active().component ='actor') {
-			if ($('.button--subscribe'))
+			//if ($('.button--subscribe'))
 			    setTimeout(function() {
-				$('.button--subscribe').hide()
-			    }, 200)
-			}
+				$('.button--subscribe').remove()
+			    }, 0)
+		}
                 // запускаем функцию сокрытия рекламы hideIT()
                 setTimeout(function() {
                     hideIT();
