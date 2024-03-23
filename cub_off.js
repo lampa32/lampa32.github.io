@@ -128,11 +128,6 @@
 		    setTimeout(function() {
                       $('.button--subscribe').remove();
                     }, 0);
-		   /* $('.full-person--loaded').on('hover:enter', function() {
-			setTimeout(function() {
-			    $('.button--subscribe').remove();
-			}, 200);
-		    });*/
             }
         })
 
@@ -147,11 +142,12 @@
                     $('.register:nth-child(7)').hide();
                     $('.register:nth-child(8)').hide();
                 }
+		// скрываем кнопку подписаться в карточке Актёра 
 		if (Lampa.Activity.active().component ='actor') {
 			if ($('.button--subscribe'))
 			    setTimeout(function() {
 				$('.button--subscribe').hide();
-			    }, 300)
+			    }, 500)
 		}
                 // запускаем функцию сокрытия рекламы hideIT()
                 setTimeout(function() {
