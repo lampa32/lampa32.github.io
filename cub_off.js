@@ -128,11 +128,11 @@
 		    setTimeout(function() {
                       $('.button--subscribe').remove();
                     }, 0);
-		    $('.full-person--loaded').on('hover:enter', function() {
+		  /*  $('.full-person--loaded').on('hover:enter', function() {
 			setTimeout(function() {
 			    $('.button--subscribe').remove();
 			}, 200);
-		    });
+		    });*/
             }
         })
 
@@ -147,12 +147,12 @@
                     $('.register:nth-child(7)').hide();
                     $('.register:nth-child(8)').hide();
                 }
-		/*if (Lampa.Activity.active().component ='actor') {
+		if (Lampa.Activity.active().component ='actor') {
 			if ($('.button--subscribe'))
 			    setTimeout(function() {
 				$('.button--subscribe').hide()
 			    }, 200)
-			}*/
+			}
                 // запускаем функцию сокрытия рекламы hideIT()
                 setTimeout(function() {
                     hideIT();
