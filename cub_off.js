@@ -128,11 +128,11 @@
 		    setTimeout(function() {
                       $('.button--subscribe').remove();
                     }, 0);
-		    $('.full-person--loaded').on('hover:enter', function() {
+		   /* $('.full-person--loaded').on('hover:enter', function() {
 			setTimeout(function() {
 			    $('.button--subscribe').remove();
 			}, 200);
-		    });
+		    });*/
             }
         })
 
