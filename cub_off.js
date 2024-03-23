@@ -143,6 +143,7 @@
                     $('.register:nth-child(8)').hide();
                 }
 		if (Lampa.Activity.active().component === 'actor') {
+			if ($('.button--subscribe'))
 			    setTimeout(function() {
 				$('.button--subscribe').hide()
 			    }, 200)
