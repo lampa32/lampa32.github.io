@@ -142,7 +142,7 @@
                     $('.register:nth-child(7)').hide();
                     $('.register:nth-child(8)').hide();
                 }
-		if (Lampa.Activity.active().component === 'person') {
+		if (Lampa.Activity.active().component === 'actor') {
 				$('.button--subscribe').hide()
 		}
                 // запускаем функцию сокрытия рекламы hideIT()
