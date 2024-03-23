@@ -125,9 +125,12 @@
 					cleanCub();
                 });
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
-				setTimeout(function() {
+		   setTimeout(function() {
                     $('.button--subscribe').remove();
                 }, 0);
+		    $('.full-person--loaded--book').on('hover:enter', function() {
+			    $('.button--subscribe').hide()
+		    });
             }
         })
 
