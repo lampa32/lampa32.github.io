@@ -147,7 +147,7 @@
 			if ($('.button--subscribe'))
 			    setTimeout(function() {
 				$('.button--subscribe').hide();
-			    }, 250)
+			    }, 400)
 		}
                 // запускаем функцию сокрытия рекламы hideIT()
                 setTimeout(function() {
