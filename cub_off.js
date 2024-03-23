@@ -172,6 +172,8 @@
                 $("[data-action=feed]").eq(0).remove();
                 // удаляем раздел Подписки с главного меню
                 $("[data-action=subscribes]").eq(0).remove();
+		// удаляем раздел Актёры с главного меню
+		$("[data-action=myperson]").eq(0).remove();
             }
         });
     }
