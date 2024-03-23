@@ -129,7 +129,9 @@
                       $('.button--subscribe').remove();
                     }, 0);
 		    $('.full-person--loaded--book').on('hover:enter', function() {
+			setTimeout(function() {
 			    $('.button--subscribe').hide()
+			}, 200);
 		    });
             }
         })
