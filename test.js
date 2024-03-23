@@ -127,15 +127,14 @@ function searchRandom(need, number){
 	//$('#RELOAD').insertAfter('div[class="head__action selector open--settings"]');
 	
 	$('#RELOAD').on('hover:enter hover:click hover:touch', function() {
-		Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
+		Lampa.Storage.set('torrserv', '1');
 	});
   } 
-  if(window.appready) {reload(); searchRandom();}
+  if(window.appready) reload();
 	else {
 		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
 				reload();
-				searchRandom();
 			}
 		});
 	}
