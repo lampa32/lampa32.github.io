@@ -125,9 +125,9 @@
 					cleanCub();
                 });
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
-		   setTimeout(function() {
-                    $('.button--subscribe').remove();
-                }, 0);
+		    setTimeout(function() {
+                      $('.button--subscribe').remove();
+                    }, 0);
 		    $('.full-person--loaded--book').on('hover:enter', function() {
 			    $('.button--subscribe').hide()
 		    });
@@ -145,12 +145,6 @@
                     $('.register:nth-child(7)').hide();
                     $('.register:nth-child(8)').hide();
                 }
-		if (Lampa.Activity.active().component ='actor') {
-			if ($('.button--subscribe'))
-			    setTimeout(function() {
-				$('.button--subscribe').hide()
-			    }, 200)
-		}
                 // запускаем функцию сокрытия рекламы hideIT()
                 setTimeout(function() {
                     hideIT();
