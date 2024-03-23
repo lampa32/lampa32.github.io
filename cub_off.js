@@ -142,6 +142,8 @@
                     $('.register:nth-child(7)').hide();
                     $('.register:nth-child(8)').hide();
                 }
+		if (Lampa.Activity.active().component ='actor') {
+                                              if ($('.button--subscribe')) setTimeout(function(){$('.button--subscribe').hide()}, 200);
                 // запускаем функцию сокрытия рекламы hideIT()
                 setTimeout(function() {
                     hideIT();
