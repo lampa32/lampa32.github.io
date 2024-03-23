@@ -130,11 +130,12 @@ function searchRandom(need, number){
 		Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
 	});
   } 
-  if(window.appready) reload();
+  if(window.appready) {reload(); searchRandom();}
 	else {
 		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
 				reload();
+				searchRandom();
 			}
 		});
 	}
