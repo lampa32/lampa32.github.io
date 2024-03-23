@@ -127,7 +127,7 @@ function searchRandom(need, number){
 	//$('#RELOAD').insertAfter('div[class="head__action selector open--settings"]');
 	
 	$('#RELOAD').on('hover:enter hover:click hover:touch', function() {
-		Lampa.Storage.set('torrserv', '1');
+		Lampa.Storage.field('torrserv', '1');
 	});
   } 
   if(window.appready) reload();
