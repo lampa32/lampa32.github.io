@@ -104,13 +104,16 @@ function searchRandom(need, number){
 		/* Если параметр не существует в localStorage или Автовыбор, выставляем случайный сервер в Дополнительную ссылку*/
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
 			Lampa.Storage.set('torrserver_use_link', 'two');
-			$('div[data-name="torrserver_url_two"]').hide()
-						   $('div[data-name="torrserver_url_two"]').hide()
+			var myResult = searchRandom();
+			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
+			if (localStorage.getItem('torrserv') == '1') {
+                                                   $('div[data-name="torrserver_url_two"]').hide()
 						   $('div[data-name="torrserver_url"]').hide()
 						  // $('div[data-name="torrserver_use_link"]').hide()
 						   $('div > span:contains("Ссылки")').remove()
-			var myResult = searchRandom();
-			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
+						  // Lampa.Controller.toggle(enabled);
+				                   //Lampa.Controller.focus(document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(3)"))
+                                                }
 		}
 	}
 
