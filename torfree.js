@@ -78,6 +78,7 @@ function checkAlive(){
 			myRequest(i)
 		}
 }
+	checkAlive();
 	
    var tor_timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
