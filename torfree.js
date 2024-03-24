@@ -81,7 +81,7 @@ function searchRandom(need, number){
 						//if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','1aff00')
 					//}
 					if (xhr.status == 401) {
-						console.log ('Playlist', diesel_playlist);
+						console.log ('Playlist', options);
 						//if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36')
 					}
 				}
