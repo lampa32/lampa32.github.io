@@ -164,6 +164,7 @@ function searchRandom(need, number){
 						   $('div[data-name="torrserver_url"]').hide()
 						  // $('div[data-name="torrserver_use_link"]').hide()
 						   $('div > span:contains("Ссылки")').remove()
+						   Lampa.Settings.update();
 						  // Lampa.Controller.toggle(enabled);
 				                   //Lampa.Controller.focus(document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(3)"))
                                                 }
