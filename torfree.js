@@ -61,9 +61,6 @@ function searchRandom(need, number){
 }
    function myRequest(i){
 			setTimeout(function(){
-			
-				var mySelector = 'body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child('+ k +') > div';
-				if ($('body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child(1) > div').text() !== 'Свой вариант') return;
 				var myLink = proto + options[i] + ':8090';
 				var xhr = new XMLHttpRequest();
 				xhr.timeout = 3000;
