@@ -11,6 +11,7 @@
 	*/
 function searchRandom(need, number){
 	var options = [
+	'77.77.56.13',
 	'77.91.84.212', 
         '217.196.103.204',
         '212.113.106.25',
@@ -63,7 +64,7 @@ function searchRandom(need, number){
 			
 				var mySelector = 'body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child('+ k +') > div';
 				if ($('body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child(1) > div').text() !== 'Свой вариант') return;
-				var myLink = proto + options[i];
+				var myLink = proto + options[i] + ':8090';
 				var xhr = new XMLHttpRequest();
 				xhr.timeout = 3000;
 				xhr.open("GET", myLink, true);
