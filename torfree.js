@@ -87,6 +87,11 @@ function searchRandom(need, number){
 				}
 			}, 1000)
 }
+function checkAlive(){
+		for (var i = 0; i <= parserBase.length - 1; i++) {	
+			myRequest(i)
+		}
+}
 	
    var tor_timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
@@ -103,13 +108,17 @@ function searchRandom(need, number){
 	function start_free(){
 		/* Если параметр не существует в localStorage или Автовыбор, выставляем случайный сервер в Дополнительную ссылку*/
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
-			$('div[data-name="torrserver_url_two"]').hide()
-			$('div[data-name="torrserver_url"]').hide()
-			// $('div[data-name="torrserver_use_link"]').hide()
-			$('div > span:contains("Ссылки")').remove()
 			Lampa.Storage.set('torrserver_use_link', 'two');
 			var myResult = searchRandom();
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
+			
+			Lampa.Settings.listener.follow('open', function (e) {
+		          if (e.name == 'server') {
+			     e.body.find('[data-name="torrserver_url"]').remove();
+			     e.body.find('[data-name="torrserver_url_two"]').remove();
+			     $('div > span:contains("Ссылки")').remove()
+		          }
+                         });
 		}
 	}
 
