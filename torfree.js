@@ -77,7 +77,7 @@ function searchRandom(need, number){
 			}, 1000)
 }
 function checkAlive(){
-		for (var i = 0; i <= parserBase.length - 1; i++) {	
+		for (var i = 0; i <= options.length - 1; i++) {	
 			myRequest(i)
 		}
 }
