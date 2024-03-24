@@ -69,20 +69,9 @@ function searchRandom(need, number){
 				xhr.timeout = 3000;
 				xhr.open("GET", myLink, true);
 				xhr.send();
-				/*xhr.ontimeout = function() {
-					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
-				}
-				
-				xhr.onerror = function() {
-					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
-				}*/
 				xhr.ontimeout = function() {
-					//if (xhr.status == 200) {
-						//if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','1aff00')
-					//}
 					if (xhr.status == 401) {
-						console.log ('Playlist', options);
-						//if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36')
+						console.log ('TorrFree', options[i]);
 					}
 				}
 			}, 1000)
@@ -111,14 +100,6 @@ function checkAlive(){
 			Lampa.Storage.set('torrserver_use_link', 'two');
 			var myResult = searchRandom();
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-			
-			Lampa.Settings.listener.follow('open', function (e) {
-		          if (e.name == 'server') {
-			     e.body.find('[data-name="torrserver_url"]').remove();
-			     e.body.find('[data-name="torrserver_url_two"]').remove();
-			     $('div > span:contains("Ссылки")').remove()
-		          }
-                         });
 		}
 	}
 
