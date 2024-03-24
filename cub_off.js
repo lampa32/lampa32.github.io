@@ -142,12 +142,12 @@
                     $('.register:nth-child(7)').hide();
                     $('.register:nth-child(8)').hide();
                 }
-		// скрываем кнопку подписаться в карточке Актёра 
+		// скрываем кнопку Подписаться в карточке актёра 
 		if (Lampa.Activity.active().component ='actor') {
 			if ($('.button--subscribe'))
 			    setTimeout(function() {
 				$('.button--subscribe').hide();
-			    }, 500)
+			    }, 200)
 		}
                 // запускаем функцию сокрытия рекламы hideIT()
                 setTimeout(function() {
