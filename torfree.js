@@ -1,5 +1,6 @@
 (function() {
 	'use strict';
+	 var proto = location.protocol === "https:" ? 'https://' : 'http://'
 /* Функция подбора сервера
 		> задаём массив options с серверами
 		> проверяем, передан ли функции извне параметр need (если true - возвращаем сервер под номером number)
@@ -57,6 +58,34 @@ function searchRandom(need, number){
 	var randomOption = options[randomIndex];
 	return randomOption
 }
+   function myRequest(i){
+			setTimeout(function(){
+			
+				var mySelector = 'body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child('+ k +') > div';
+				if ($('body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child(1) > div').text() !== 'Свой вариант') return;
+				var myLink = proto + options[i];
+				var xhr = new XMLHttpRequest();
+				xhr.timeout = 3000;
+				xhr.open("GET", myLink, true);
+				xhr.send();
+				xhr.ontimeout = function() {
+					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
+				}
+				
+				xhr.onerror = function() {
+					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
+				}
+				xhr.onload = function() {
+					if (xhr.status == 200) {
+						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','1aff00')
+					}
+					if (xhr.status == 401) {
+						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36')
+					}
+				}
+			}, 1000)
+}
+	
    var tor_timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
             clearInterval(tor_timer);
