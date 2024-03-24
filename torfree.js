@@ -68,19 +68,20 @@ function searchRandom(need, number){
 				xhr.timeout = 3000;
 				xhr.open("GET", myLink, true);
 				xhr.send();
-				xhr.ontimeout = function() {
+				/*xhr.ontimeout = function() {
 					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
 				}
 				
 				xhr.onerror = function() {
 					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
-				}
-				xhr.onload = function() {
-					if (xhr.status == 200) {
-						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','1aff00')
-					}
+				}*/
+				xhr.ontimeout = function() {
+					//if (xhr.status == 200) {
+						//if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','1aff00')
+					//}
 					if (xhr.status == 401) {
-						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36')
+						console.log ('Playlist', diesel_playlist);
+						//if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36')
 					}
 				}
 			}, 1000)
