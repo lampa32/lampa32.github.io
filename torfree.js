@@ -92,11 +92,11 @@ function checkAlive(){
 	$('#app > div.head > div > div.head__actions').append(domainBUTT);
 	$('#SWITCH_SERVER').insertAfter('div[class="head__action selector open--settings"]');
        
-	if(Lampa.Storage.get('switch_server_button') == false)
+	/*if(Lampa.Storage.get('switch_server_button') == false)
 				setTimeout(function(){
                                   $('#SWITCH_SERVER').remove()
                                 }, 10);
-	}
+	}*/
 	
 	$('#SWITCH_SERVER').on('hover:enter hover:click hover:touch', function() {
 		searchRandom();
