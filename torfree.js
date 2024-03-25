@@ -209,7 +209,7 @@ function checkAlive(){
 			},
 	                onRender: function (item) {
 					setTimeout(function() {
-	                                  $('div[data-name="switch_server_button"]').insertAfter('div[data-name="torrserv"]');
+	                                  $('div[data-name="switch_server_button"]').insertAfter('div[data-name="torrserver_url"]');
 			                 }, 0);
 			}
    });
