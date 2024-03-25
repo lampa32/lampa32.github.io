@@ -201,7 +201,7 @@ function checkAlive(){
 				description: 'Параметр включает отображение кнопки в верхнем баре для быстрой смены сервера' 
 			},
 	                onChange: function (value) {
-				   
+				   $('div[data-name="switch_server_button"]').insertAfter('div[data-name="torrserv"]');
 				   if(Lampa.Storage.field('switch_server_button') == false) $('#SWITCH_SERVER').remove();
 				   if(Lampa.Storage.field('switch_server_button') == true) switch_server();
 				   
