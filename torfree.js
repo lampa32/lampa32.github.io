@@ -99,6 +99,10 @@ function checkAlive(){
 			var myResult = searchRandom();
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
 		}
+		if(Lampa.Storage.field('torrserv') == '1') {
+	   $('div[data-name="torrserver_url_two"]').hide()
+	   $('div[data-name="torrserver_url"]').hide()
+		}
 	}
 
 	Lampa.SettingsApi.addParam({
@@ -167,11 +171,6 @@ function checkAlive(){
 					}, 0);
                 }
    });
-	
-   if(Lampa.Storage.field('torrserv') == '1') {
-	   $('div[data-name="torrserver_url_two"]').hide()
-	   $('div[data-name="torrserver_url"]').hide()
-   }
        
   
 })();
