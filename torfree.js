@@ -151,8 +151,10 @@ function checkAlive(){
 						if($('div[data-name="torrserv"]').length > 1) item.hide();
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
+						if(Lampa.Storage.field('torrserv') == '1') {
 						$('div[data-name="torrserver_url_two"]').hide()
 	                                        $('div[data-name="torrserver_url"]').hide()
+						}
 						if (localStorage.getItem('torrserv') == '1') {
                                                    $('div[data-name="torrserver_url_two"]').hide()
 						   $('div[data-name="torrserver_url"]').hide()
