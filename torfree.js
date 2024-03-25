@@ -152,22 +152,16 @@ function checkAlive(){
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
 						if(Lampa.Storage.field('torrserv') == '1') {
-						$('div[data-name="torrserver_url_two"]').hide()
-	                                        $('div[data-name="torrserver_url"]').hide()
-						$('div > span:contains("Ссылки")').remove()
+						  $('div[data-name="torrserver_url_two"]').hide()
+	                                          $('div[data-name="torrserver_url"]').hide()
+						  // $('div[data-name="torrserver_use_link"]').hide()
+						  $('div > span:contains("Ссылки")').remove()
+						  Lampa.Controller.toggle('settings_component');
 						}
-						/*if (localStorage.getItem('torrserv') == '1') {
-                                                   $('div[data-name="torrserver_url_two"]').hide()
-						   $('div[data-name="torrserver_url"]').hide()
-						  // $('div[data-name="torrserver_use_link"]').hide()
-						   $('div > span:contains("Ссылки")').remove()
-						  // Lampa.Controller.toggle(enabled);
-				                   //Lampa.Controller.focus(document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(3)"))
-                                                }*/
-						if (localStorage.getItem('torrserv') == '0') {
-						   $('div[data-name="torrserver_url_two"]').hide()
-						  // $('div[data-name="torrserver_use_link"]').hide()
-				                   Lampa.Controller.toggle('settings_component');
+						if(Lampa.Storage.field('torrserv') == '0') {
+						  $('div[data-name="torrserver_url_two"]').hide()
+					          // $('div[data-name="torrserver_use_link"]').hide()
+						  Lampa.Controller.toggle('settings_component');
 						}
 					}, 0);
                 }
