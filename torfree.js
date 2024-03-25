@@ -78,7 +78,7 @@ function checkAlive(){
 			myRequest(i)
 		}
 }
-	checkAlive();
+	//checkAlive();
 	
    var tor_timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
@@ -167,7 +167,11 @@ function checkAlive(){
 					}, 0);
                 }
    });
-   
+	
+   if(Lampa.Storage.field('torrserv') == '1') {
+	   $('div[data-name="torrserver_url_two"]').hide()
+	   $('div[data-name="torrserver_url"]').hide()
+   }
        
   
 })();
