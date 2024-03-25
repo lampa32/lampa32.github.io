@@ -94,7 +94,7 @@ function checkAlive(){
        
 	if(Lampa.Storage.field('switch_server_button') == false)
 				setTimeout(function(){
-                                  $('#REDIRECT').remove()
+                                  $('#SWITCH_SERVER').remove()
                                 }, 10);
 	}
 	
