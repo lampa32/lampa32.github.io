@@ -216,7 +216,7 @@ function checkAlive(){
 				setTimeout(function(){
                                   $('#SWITCH_SERVER').remove()
                                 }, 10);
-}
+
    if(window.appready) switch_server();
 	else {
 		Lampa.Listener.follow('app', function(e) {
