@@ -212,6 +212,11 @@ function checkAlive(){
 			                 }, 0);
 			}
    });
+	if(Lampa.Storage.get('switch_server_button') == false)
+				setTimeout(function(){
+                                  $('#SWITCH_SERVER').remove()
+                                }, 10);
+}
    if(window.appready) switch_server();
 	else {
 		Lampa.Listener.follow('app', function(e) {
