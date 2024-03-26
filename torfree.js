@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	 var proto = location.protocol === "https:" ? 'https://' : 'http://'
+	 
 /* Функция подбора сервера
 		> задаём массив options с серверами
 		> проверяем, передан ли функции извне параметр need (если true - возвращаем сервер под номером number)
