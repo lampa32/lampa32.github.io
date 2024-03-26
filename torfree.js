@@ -67,7 +67,7 @@ function myRequest(i) {
 	setTimeout(function() {
 		var myLink = 'http://' + options[i] + ':8090';
 		var xhr = new XMLHttpRequest();
-		xhr.timeout = 3000;
+		xhr.timeout = 2000;
 		xhr.open("GET", myLink, true);
 		xhr.send();
 		xhr.onload = function() {
@@ -133,7 +133,7 @@ function checkAlive() {
 			Lampa.Storage.set('torrserver_use_link', 'two');
 			var myResult = searchRandom();
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-		    }, 7000)
+		    }, 5000)
 		}
 	}
 
