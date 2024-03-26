@@ -58,8 +58,8 @@
 
 function searchRandom(need, number) {
 	if (need) return options[number];
-	var randomIndex = Math.floor(Math.random() * options.length);
-	var randomOption = options[randomIndex];
+	var randomIndex = Math.floor(Math.random() * optionsNEW.length);
+	var randomOption = optionsNEW[randomIndex];
 	return randomOption
 }
 
