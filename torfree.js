@@ -88,6 +88,9 @@ function myRequest(i) {
 		xhr.ontimeout = function() {
 				console.log('Сервер ' + options[i] + ' не ответил');
 		}
+		xhr.onerror = function() {
+                                console.log('Сервер ' + options[i] + ' отверг соединение или не существует');
+		}
 	}, 1000)
 }
 
