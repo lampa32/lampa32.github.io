@@ -9,7 +9,6 @@
 		> возвращаем randomOption (случайно выбранный сервер)
 
 	*/
-function searchRandom(need, number){
 	 var optionsNEW = [];
 	 var options = [
 		'77.77.56.13',
@@ -56,7 +55,6 @@ function searchRandom(need, number){
 		'5.42.86.187'
 	];
 
-}
 function searchRandom(need, number) {
 	if (need) return options[number];
 	var randomIndex = Math.floor(Math.random() * options.length);
