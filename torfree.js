@@ -57,12 +57,10 @@
 	];
 
 function searchRandom(need, number) {
-    setTimeout(function() {
 	if (need) return options[number];
 	var randomIndex = Math.floor(Math.random() * optionsNEW.length);
 	var randomOption = optionsNEW[randomIndex];
 	return randomOption
-    }, 5000)
 }
 
 function myRequest(i) {
