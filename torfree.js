@@ -133,7 +133,7 @@ function checkAlive() {
 			Lampa.Storage.set('torrserver_use_link', 'two');
 			var myResult = searchRandom();
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-		    }, 3000)
+		    }, 2000)
 		}
 	}
 
