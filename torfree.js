@@ -121,7 +121,7 @@ function checkAlive() {
 	
 	$('#SWITCH_SERVER').on('hover:enter hover:click hover:touch', function() {
 		//start_free();
-		Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
+		Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
 		Lampa.Noty.show("Torrserver изменён")
 	});
    } 
