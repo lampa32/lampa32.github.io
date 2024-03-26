@@ -10,77 +10,93 @@
 
 	*/
 function searchRandom(need, number){
-	var options = [
-	'77.77.56.13',
-	'77.91.84.212', 
-        '217.196.103.204',
-        '212.113.106.25',
-        '193.233.233.212',
-        '193.233.233.154',
-        '185.229.65.212',
-        '185.229.65.121',
-        '185.229.65.64',
-        '176.124.198.211',
-        '176.124.198.44',
-        '94.228.165.242',
-        '94.228.164.140',
-        '94.228.163.64',
-        '91.103.253.2',
-        '89.208.107.216', 
-        '89.208.106.193',
-        '91.103.252.89',
-        '89.208.106.136',
-        '89.208.104.178',
-        '89.208.104.187',
-        '85.192.41.41',
-        '85.192.40.156',
-        '80.85.241.6',
-        '80.85.241.245',
-        '79.137.207.228',
-	'185.80.91.160',
-        '5.42.77.194',
-        '5.42.78.151',
-        '5.42.79.63',
-        '5.42.79.208',
-        '5.42.80.21',
-        '5.42.80.13',
-        '5.42.80.209',
-        '5.42.80.172',
-        '5.42.82.10',
-        '5.42.80.184',
-        '5.42.80.204',
-        '5.42.83.56',
-        '5.42.83.90',
-        '5.42.83.150',
-        '5.42.86.187'
+	 var optionsNEW = [];
+	 var options = [
+		'77.77.56.13',
+		'77.91.84.212',
+		'217.196.103.204',
+		'212.113.106.25',
+		'193.233.233.212',
+		'193.233.233.154',
+		'185.229.65.212',
+		'185.229.65.121',
+		'185.229.65.64',
+		'176.124.198.211',
+		'176.124.198.44',
+		'94.228.165.242',
+		'94.228.164.140',
+		'94.228.163.64',
+		'91.103.253.2',
+		'89.208.107.216',
+		'89.208.106.193',
+		'91.103.252.89',
+		'89.208.106.136',
+		'89.208.104.178',
+		'89.208.104.187',
+		'85.192.41.41',
+		'85.192.40.156',
+		'80.85.241.6',
+		'80.85.241.245',
+		'79.137.207.228',
+		'185.80.91.160',
+		'5.42.77.194',
+		'5.42.78.151',
+		'5.42.79.63',
+		'5.42.79.208',
+		'5.42.80.21',
+		'5.42.80.13',
+		'5.42.80.209',
+		'5.42.80.172',
+		'5.42.82.10',
+		'5.42.80.184',
+		'5.42.80.204',
+		'5.42.83.56',
+		'5.42.83.90',
+		'5.42.83.150',
+		'5.42.86.187'
 	];
+
+}
+function searchRandom(need, number) {
 	if (need) return options[number];
 	var randomIndex = Math.floor(Math.random() * options.length);
 	var randomOption = options[randomIndex];
 	return randomOption
 }
-   function myRequest(i){
-			setTimeout(function(){
-				var myLink = proto + options[i] + ':8090';
-				var xhr = new XMLHttpRequest();
-				xhr.timeout = 3000;
-				xhr.open("GET", myLink, true);
-				xhr.send();
-				xhr.ontimeout = function() {
-					if (xhr.status == 401) {
-						console.log ('TorrFree', options[i]);
-					}
-				}
-			}, 1000)
-}
-function checkAlive(){
-		for (var i = 0; i <= options.length - 1; i++) {	
-			myRequest(i)
-		}
-}
-	//checkAlive();
 
- var icon_switch_server = '<svg fill="currentColor" width="256px" height="256px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style> .cls-1 { fill: currentColor; } </style> </defs> <polygon points="22 23 13.83 23 16.41 20.41 15 19 10 24 15 29 16.41 27.59 13.83 25 22 25 22 23"></polygon> <polygon points="11 13 19.17 13 16.59 10.41 18 9 23 14 18 19 16.59 17.59 19.17 15 11 15 11 13"></polygon> <path d="M24.5,25H24V23h.5a5.4961,5.4961,0,0,0,.377-10.9795l-.8365-.0566-.09-.834a7.9979,7.9979,0,0,0-15.9014,0l-.09.834-.8365.0566A5.4961,5.4961,0,0,0,7.5,23H8v2H7.5A7.4964,7.4964,0,0,1,6.1782,10.124a9.9992,9.9992,0,0,1,19.6436,0A7.4964,7.4964,0,0,1,24.5,25Z" transform="translate(0 0)"></path> <rect id="_Transparent_Rectangle_" data-name="<Transparent Rectangle>" class="cls-1" width="32" height="32"></rect> </g></svg>'
+function myRequest(i) {
+	setTimeout(function() {
+		var myLink = 'http://' + options[i] + ':8090';
+		var xhr = new XMLHttpRequest();
+		xhr.timeout = 3000;
+		xhr.open("GET", myLink, true);
+		xhr.send();
+		xhr.onload = function() {
+			if (xhr.status == 200) {
+				optionsNEW.push(options[i]);
+			}
+			if (xhr.status == 404) {
+				console.log('Сервер ' + options[i] + ' умер');
+			}
+			if (xhr.status == 401) {
+				console.log('Сервер ' + options[i] + ' запаролен');
+			}
+		}
+		xhr.ontimeout = function() {
+				console.log('Сервер ' + options[i] + ' не ответил');
+		}
+	}, 1000)
+}
+
+function checkAlive() {
+	for (var i = 0; i <= options.length - 1; i++) {
+		myRequest(i)
+	}
+}
+
+checkAlive();
+
+ var icon_switch_server = '<svg fill="currentColor" width="256px" height="256px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style> .cls-1 { fill: none; } </style> </defs> <polygon points="22 23 13.83 23 16.41 20.41 15 19 10 24 15 29 16.41 27.59 13.83 25 22 25 22 23"></polygon> <polygon points="11 13 19.17 13 16.59 10.41 18 9 23 14 18 19 16.59 17.59 19.17 15 11 15 11 13"></polygon> <path d="M24.5,25H24V23h.5a5.4961,5.4961,0,0,0,.377-10.9795l-.8365-.0566-.09-.834a7.9979,7.9979,0,0,0-15.9014,0l-.09.834-.8365.0566A5.4961,5.4961,0,0,0,7.5,23H8v2H7.5A7.4964,7.4964,0,0,1,6.1782,10.124a9.9992,9.9992,0,0,1,19.6436,0A7.4964,7.4964,0,0,1,24.5,25Z" transform="translate(0 0)"></path> <rect id="_Transparent_Rectangle_" data-name="<Transparent Rectangle>" class="cls-1" width="32" height="32"></rect> </g></svg>'
  function switch_server() {
 	
 	//$('#SWITCH_SERVER').remove()
