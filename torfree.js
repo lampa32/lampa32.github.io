@@ -82,7 +82,7 @@ function myRequest(i) {
 			}
 		}
 		xhr.ontimeout = function() {
-				console.log('FreeTorr', 'Сервер ' + options[i] + ' не ответил');
+				console.log("FreeTorr", 'Сервер ' + options[i] + ' не ответил');
 		}
 	}, 1000)
 }
