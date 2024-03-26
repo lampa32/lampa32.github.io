@@ -71,7 +71,7 @@ function myRequest(i) {
 	setTimeout(function() {
 		var myLink = 'http://' + options[i] + ':8090';
 		var xhr = new XMLHttpRequest();
-		xhr.timeout = 2000;
+		xhr.timeout = 2000; //тут сомневаюсь
 		xhr.open("GET", myLink, true);
 		xhr.send();
 		xhr.onload = function() {
@@ -79,19 +79,19 @@ function myRequest(i) {
 				optionsNEW.push(options[i]);  //формируем новый массив
 			}
 			if (xhr.status == 404) {
-				console.log('Сервер ' + options[i] + ' умер');
+				console.log("FreeTorr", 'Сервер ' + options[i] + ' умер');
 			}
 			if (xhr.status == 401) {
-				console.log('Сервер ' + options[i] + ' запаролен');
+				console.log("FreeTorr", 'Сервер ' + options[i] + ' запаролен');
 			}
 		}
 		xhr.ontimeout = function() {
-				console.log('Сервер ' + options[i] + ' не ответил');
+				console.log("FreeTorr", 'Сервер ' + options[i] + ' не ответил');
 		}
 		xhr.onerror = function() {
-                                console.log('Сервер ' + options[i] + ' отверг соединение или не существует');
+                                console.log("FreeTorr", 'Сервер ' + options[i] + ' отверг соединение или не существует');
 		}
-	}, 1000)
+	}, 1000) // тут тоже, если будет много серверов, достаточно будет?
 }
 
 /* Функция чека каждого сервера через опрос на наличие доступности */
@@ -120,7 +120,7 @@ function checkAlive() {
 	
 	
 	$('#SWITCH_SERVER').on('hover:enter hover:click hover:touch', function() {
-		//start_free();
+		//start_free(); // если делать через функцию, будет тайм-аут
 		Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
 		Lampa.Noty.show("Torrserver изменён")
 	});
@@ -201,10 +201,11 @@ function checkAlive() {
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
 						if(Lampa.Storage.field('torrserv') == '1') {
-						//  $('div[data-name="torrserver_url_two"]').hide()
+						  $('div[data-name="torrserver_url_two"]').hide()
 	                                          $('div[data-name="torrserver_url"]').hide()
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
+						/* Нужен фокус на 'torrserv' после удаления строк*/
 						 // document.getElementById("torrserv").focus();
 						  //$('div[data-name="torrserv"]').focus()
 						  //Lampa.Controller.toggle(enabled);
@@ -213,7 +214,8 @@ function checkAlive() {
 						if(Lampa.Storage.field('torrserv') == '0') {
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
-						  Lampa.Controller.toggle('settings_component');
+						/* Так же нужен фокус, только на 'torrserver_url' */
+						  //Lampa.Controller.toggle('settings_component');
 						}
 					}, 0);
                 }
