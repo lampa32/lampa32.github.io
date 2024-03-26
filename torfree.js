@@ -180,8 +180,8 @@ function checkAlive(){
 	                                          $('div[data-name="torrserver_url"]').hide()
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
-						  //Lampa.Controller.toggle('settings_component');
-						  Navigator.focused(last);
+						  Lampa.Controller.toggle(enabled);
+						  //Navigator.focused(last);
 						}
 						if(Lampa.Storage.field('torrserv') == '0') {
 						  $('div[data-name="torrserver_url_two"]').hide()
