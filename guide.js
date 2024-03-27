@@ -61,7 +61,7 @@ function guide() {
 			Lampa.Modal.open({
 				title: 'Гайд по использованию',
 				html: temp,
-				size: 'medium',
+				size: 'small',
 				mask: true
 			});
 }
