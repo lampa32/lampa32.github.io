@@ -201,7 +201,7 @@ function checkAlive() {
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
 						if(Lampa.Storage.field('torrserv') == '1') {
-						var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
+						 var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
                                                   Lampa.Controller.focus(M)
                                                   Lampa.Controller.toggle('settings_component')
 						  $('div[data-name="torrserver_url_two"]').hide()
@@ -217,6 +217,9 @@ function checkAlive() {
 						  //Navigator.focused(last);
 						}
 						if(Lampa.Storage.field('torrserv') == '0') {
+						 var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(4)")
+                                                  Lampa.Controller.focus(M)
+                                                  Lampa.Controller.toggle('settings_component')
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
 						/* Так же нужен фокус, только на 'torrserver_url' */
