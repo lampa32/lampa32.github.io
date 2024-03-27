@@ -121,7 +121,7 @@ Lampa.SettingsApi.addParam({
 					Lampa.Settings.update();
 				});
 				if (localStorage.getItem('jackett_urltwo') !== 'no_parser') {
-				  var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2) > div:nth-child(2)")
+				  var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(2) > div:nth-child(2)")
                                    Lampa.Controller.focus(M)
                                    Lampa.Controller.toggle('settings_component')
                                    $('div[data-name="jackett_url"]').hide()
