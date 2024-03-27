@@ -201,13 +201,16 @@ function checkAlive() {
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
 						if(Lampa.Storage.field('torrserv') == '1') {
+						var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
+                                                  Lampa.Controller.focus(M)
+                                                  Lampa.Controller.toggle('settings_component')
 						  $('div[data-name="torrserver_url_two"]').hide()
 	                                          $('div[data-name="torrserver_url"]').hide()
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
 						/* Нужен фокус на 'torrserv' после удаления строк*/
-						  Lampa.Controller.focus(document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)"))
-						  Lampa.Controller.toggle(settings_component);
+						 // Lampa.Controller.focus(document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)"))
+						  ///Lampa.Controller.toggle(settings_component);
 						 // document.getElementById("torrserv").focus();
 						  //$('div[data-name="torrserv"]').focus()
 						  //Lampa.Controller.toggle(enabled);
