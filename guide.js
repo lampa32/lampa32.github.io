@@ -65,5 +65,5 @@ function guide() {
 				mask: true
 			});
 }
-  //guide();
+  guide();
 })();
