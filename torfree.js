@@ -206,6 +206,9 @@ function checkAlive() {
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
 						/* Нужен фокус на 'torrserv' после удаления строк*/
+							function setFocusToTextBox(){
+                                                         document.getElementById("torrserv").focus();
+							}
 						 // document.getElementById("torrserv").focus();
 						  //$('div[data-name="torrserv"]').focus()
 						  //Lampa.Controller.toggle(enabled);
