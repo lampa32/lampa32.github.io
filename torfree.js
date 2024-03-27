@@ -206,9 +206,7 @@ function checkAlive() {
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
 						/* Нужен фокус на 'torrserv' после удаления строк*/
-							function setFocusToTextBox(){
-                                                         document.getElementById("torrserv").focus();
-							}
+						  Lampa.Controller.focus(document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)"))
 						 // document.getElementById("torrserv").focus();
 						  //$('div[data-name="torrserv"]').focus()
 						  //Lampa.Controller.toggle(enabled);
