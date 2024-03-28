@@ -139,6 +139,7 @@ function searchRandom(need, number){
 		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
 				reload();
+				$('#RELOAD').remove();
 			}
 		});
 	}
@@ -146,12 +147,9 @@ function searchRandom(need, number){
 	Lampa.Listener.follow('full', function(e) {
                    if (e.type == 'complite') {
 		     $('.view--torrent').on('hover:enter', function() {
-			$('#RELOAD').hide();
+			$('#RELOAD').show();
 		     });
 		   }
-		   if (e.type == 'complite') {
-			$('#RELOAD').show();
-	         }
 	       });	
 })();
 
