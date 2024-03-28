@@ -133,7 +133,7 @@ function searchRandom(need, number){
 	});
 	
   } 
-/*  if(window.appready) reload();
+  if(window.appready) reload();
 	
 	else {
 		Lampa.Listener.follow('app', function(e) {
@@ -141,12 +141,12 @@ function searchRandom(need, number){
 				reload();
 			}
 		});
-	}*/
+	}
 			
 	Lampa.Listener.follow('full', function(e) {
                    if (e.type == 'complite') {
 		     $('.view--torrent').on('hover:enter', function() {
-			$('#RELOAD').show();
+			$('#RELOAD').remove();
 			      
 		   
 		      });
