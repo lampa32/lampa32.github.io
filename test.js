@@ -138,19 +138,26 @@ function searchRandom(need, number){
 			      
 		   
 		      });
-			   setTimeout(function(){
+			   var intervalSettings = setInterval(function() {
+  			var elementSettings = $('#app > div.settings > div.settings__content.layer--height > div.settings__body > div');
+  			if (!elementSettings.length > 0){
+    				clearInterval(intervalSettings);
+				$('#RELOAD').hide();
+  			}
+		}, 1000)
+			  // setTimeout(function(){
 		    //$('#RELOAD').hide();
-			   }, 1000)
+			  // }, 1000)
 		      
 	         }
-		else {
+		/*else {
 			setTimeout(function(){
 			$('#RELOAD').hide();
 			}, 1000)
-			}
+			}*/
 	       });
   } 
-  if(window.appready) reload();
+/*  if(window.appready) reload();
 	
 	else {
 		Lampa.Listener.follow('app', function(e) {
@@ -158,7 +165,7 @@ function searchRandom(need, number){
 				reload();
 			}
 		});
-	}
+	}*/
 			
 		
 })();
