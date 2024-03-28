@@ -123,21 +123,6 @@ function searchRandom(need, number){
 	$('#RELOAD').hide();
    }, 1000)
 
-        Lampa.Listener.follow('full', function(e) {
-            if (e.type == 'complite') {
-		    $('.view--torrent').on('hover:enter', function() {
-			setTimeout(function() {
-                          $('#RELOAD').show();
-                        }, 0);
-		    })
-            }
-	    
-	   else {
-		setTimeout(function() {
-	          $('#RELOAD').hide();
-                }, 1000)
-	    }
-        })    
 	  
 	var reloadSVG = icon_server_reload
 	var reloadBUTT = '<div id="RELOAD" class="head__action selector redirect-screen">' + reloadSVG + '</div>';
@@ -151,12 +136,31 @@ function searchRandom(need, number){
 	});
 	
   } 
-  if(window.appready) reload();
+  function hideBut() {
+  Lampa.Listener.follow('full', function(e) {
+            if (e.type == 'complite') {
+		    $('.view--torrent').on('hover:enter', function() {
+			setTimeout(function() {
+                          $('#RELOAD').show();
+                        }, 0);
+		    })
+            }
+	    
+	   else {
+		setTimeout(function() {
+	          $('#RELOAD').hide();
+                }, 1000)
+	    }
+        })   
+  }
+	
+  if(window.appready) {reload(); hideBut();}
 	
 	else {
 	Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
 				reload();
+				hideBut();
 			}
 		});
 	}
