@@ -138,7 +138,13 @@ function searchRandom(need, number){
                 }, 1000)
 	    }
         })    
-	
+	Lampa.Storage.listener.follow('change', function(event) {
+            if (event.name == 'activity') {
+                if (Lampa.Activity.active().component === 'full') {
+                    $('#RELOAD').hide();
+		}
+	    }
+        });
 	  
 	var reloadSVG = icon_server_reload
 	var reloadBUTT = '<div id="RELOAD" class="head__action selector redirect-screen">' + reloadSVG + '</div>';
