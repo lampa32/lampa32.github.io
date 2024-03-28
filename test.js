@@ -133,13 +133,20 @@ function searchRandom(need, number){
             }
 	    
 	   else {
-		   return;
-		/*setTimeout(function() {
+		setTimeout(function() {
 	          $('#RELOAD').hide();
-                }, 1000)*/
+                }, 1000)
 	    }
         })    
-		    
+	Lampa.Listener.follow('full', function(e) {
+            if (e.type == 'complite') {
+		   // $('.view--torrent').on('hover:enter', function() {
+			setTimeout(function() {
+                          $('#RELOAD').hide();
+                        }, 0);
+		   // })
+	    }
+	});
 	  
 	var reloadSVG = icon_server_reload
 	var reloadBUTT = '<div id="RELOAD" class="head__action selector redirect-screen">' + reloadSVG + '</div>';
