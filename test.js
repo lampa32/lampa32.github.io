@@ -132,11 +132,16 @@ function searchRandom(need, number){
   } 
   if(window.appready) reload();
 	else {
-		Lampa.Listener.follow('app', function(e) {
+		/*Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
 				reload();
 			}
-		});
+		});*/
+		Lampa.Settings.listener.follow('open', function (e) {
+		if (e.name == 'parser') {
+			reload();
+		}
+        });
 	}
 })();
 
