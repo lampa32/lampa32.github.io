@@ -125,7 +125,7 @@ function searchRandom(need, number){
 
         Lampa.Listener.follow('full', function(e) {
             if (e.type == 'complite') {
-		    $('.view--torrent').on('hover:enter', function() {
+		    if $('.view--torrent').on('hover:enter', function() {
 			setTimeout(function() {
                           $('#RELOAD').show();
                         }, 0);
@@ -133,20 +133,13 @@ function searchRandom(need, number){
             }
 	    
 	   else {
+	       if ($('.view--torrent'))
 		setTimeout(function() {
 	          $('#RELOAD').hide();
                 }, 1000)
 	    }
         })    
-	Lampa.Listener.follow('full', function(e) {
-            if (e.type == 'complite') {
-		   // $('.view--torrent').on('hover:enter', function() {
-			setTimeout(function() {
-                          $('#RELOAD').hide();
-                        }, 0);
-		   // })
-	    }
-	});
+	
 	  
 	var reloadSVG = icon_server_reload
 	var reloadBUTT = '<div id="RELOAD" class="head__action selector redirect-screen">' + reloadSVG + '</div>';
