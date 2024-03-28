@@ -129,7 +129,7 @@ function searchRandom(need, number){
 		start_free();
 		Lampa.Noty.show("Torrserver изменён")
 	});
-	/*Lampa.Listener.follow('full', function(e) {
+	Lampa.Listener.follow('full', function(e) {
                    if (e.type == 'complite') {
 		      $('.view--torrent').on('hover:enter', function() {
 			reload();
@@ -137,7 +137,7 @@ function searchRandom(need, number){
 		      });
 		    
 	         }
-	       });*/
+	       });
   } 
   if(window.appready) reload();
 	
