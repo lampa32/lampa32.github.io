@@ -137,7 +137,7 @@ function searchRandom(need, number){
 			$('#RELOAD').show();
 			      
 		   
-		      });
+		      //});
 			   setTimeout(function(){
 		    $('#RELOAD').hide();
 			   }, 1000)
