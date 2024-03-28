@@ -138,10 +138,7 @@ function searchRandom(need, number){
                 }, 1000)
 	    }
         })    
-	  if (window.history.back());
-	     setTimeout(function() {
-	          $('#RELOAD').hide();
-             }, 1000)
+	  
 	var reloadSVG = icon_server_reload
 	var reloadBUTT = '<div id="RELOAD" class="head__action selector redirect-screen">' + reloadSVG + '</div>';
 	
