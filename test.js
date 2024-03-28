@@ -124,7 +124,7 @@ function searchRandom(need, number){
    }, 1000)
 
         Lampa.Listener.follow('full', function(e) {
-            if (e.type == 'complite') {
+            if (e.type !== 'complite') {
 		    $('.view--torrent').on('hover:enter', function() {
 			setTimeout(function() {
                           $('#RELOAD').show();
