@@ -141,7 +141,7 @@ function searchRandom(need, number){
 	Lampa.Storage.listener.follow('change', function(event) {
             if (event.name == 'activity') {
                 if (Lampa.Activity.active().component === 'full') {
-                    $('#RELOAD').hide();
+                   // $('#RELOAD').hide();
 		}
 	    }
         });
