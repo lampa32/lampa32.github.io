@@ -136,11 +136,7 @@ function searchRandom(need, number){
 	          $('#RELOAD').hide();
                 }, 1000)
 	    }
-	    onBack: function onBack() {
-		    setTimeout(function() {
-	               $('#RELOAD').hide();
-                    }, 1000)
-	    }
+	    return;
         })    
 		    
 	  
