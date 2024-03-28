@@ -141,11 +141,12 @@ function searchRandom(need, number){
                    if (e.type == 'complite') {
 		      $('.view--torrent').on('hover:enter', function() {
 			reload();
-		        });
+		        
 		   }
 		else {
 			$('#RELOAD').remove()
 		}
+		});
         });
 	}
 })();
