@@ -129,14 +129,15 @@ function searchRandom(need, number){
 			setTimeout(function() {
                           $('#RELOAD').show();
                         }, 0);
+		    return;
 		    })
             }
-	    else {
+	    
+	   /* else {
 		setTimeout(function() {
 	          $('#RELOAD').hide();
                 }, 1000)
-	    }
-	    return;
+	    }*/
         })    
 		    
 	  
