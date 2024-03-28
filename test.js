@@ -138,7 +138,9 @@ function searchRandom(need, number){
 			      
 		   
 		      });
+			   setTimeout(function(){
 		    $('#RELOAD').hide();
+			   }, 1000)
 		      
 	         }
 		else {$('#RELOAD').hide();}
