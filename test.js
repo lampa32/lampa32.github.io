@@ -139,8 +139,8 @@ function searchRandom(need, number){
 		    
 		      
 	         }
+		else {reload()}
 	       });
-	  $('#RELOAD').hide();
   } 
   if(window.appready) reload();
 	
