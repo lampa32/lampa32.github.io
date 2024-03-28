@@ -131,31 +131,7 @@ function searchRandom(need, number){
 		start_free();
 		Lampa.Noty.show("Torrserver изменён")
 	});
-	Lampa.Listener.follow('full', function(e) {
-                   if (e.type == 'complite') {
-		     $('.view--torrent').on('hover:enter', function() {
-			$('#RELOAD').show();
-			      
-		   
-		      });
-			   var intervalSettings = setInterval(function() {
-  			var elementSettings = $('#app > div.settings > div.settings__content.layer--height > div.settings__body > div');
-  			if (!elementSettings.length > 0){
-    				clearInterval(intervalSettings);
-				$('#RELOAD').hide();
-  			}
-		}, 1000)
-			  // setTimeout(function(){
-		    //$('#RELOAD').hide();
-			  // }, 1000)
-		      
-	         }
-		/*else {
-			setTimeout(function(){
-			$('#RELOAD').hide();
-			}, 1000)
-			}*/
-	       });
+	
   } 
 /*  if(window.appready) reload();
 	
@@ -167,6 +143,14 @@ function searchRandom(need, number){
 		});
 	}*/
 			
-		
+	Lampa.Listener.follow('full', function(e) {
+                   if (e.type == 'complite') {
+		     $('.view--torrent').on('hover:enter', function() {
+			$('#RELOAD').show();
+			      
+		   
+		      });
+	         }
+	       });	
 })();
 
