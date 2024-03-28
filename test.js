@@ -133,8 +133,12 @@ function searchRandom(need, number){
                    if (e.type == 'complite') {
 		      $('.view--torrent').on('hover:enter', function() {
 			$('#RELOAD').hide();
+			      else {
+			$('#RELOAD').show();  
+			      }
 		   
 		      });
+		    
 		    
 	         }
 	       });
