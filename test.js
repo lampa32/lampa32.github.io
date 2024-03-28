@@ -131,6 +131,9 @@ function searchRandom(need, number){
                         }, 0);
 		    })
             }
+	    else {
+		reload();
+	    }
         })    
 		    
 	  
