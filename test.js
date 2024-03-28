@@ -120,7 +120,7 @@ function searchRandom(need, number){
   function reload() {
 
 	
-	$('#RELOAD').remove();
+	$('#RELOAD').hide();
 	var reloadSVG = icon_server_reload
 	var reloadBUTT = '<div id="RELOAD" class="head__action selector redirect-screen">' + reloadSVG + '</div>';
 	
