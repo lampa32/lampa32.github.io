@@ -144,5 +144,6 @@ function searchRandom(need, number){
 		     });
 		   }
 	       });	
+	}
 })();
 
