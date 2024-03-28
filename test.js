@@ -147,10 +147,9 @@ function searchRandom(need, number){
             }
 	    
 	   else {
-		   reload();
-		/*setTimeout(function() {
+		setTimeout(function() {
 	          $('#RELOAD').hide();
-                }, 1000)*/
+                }, 1000)
 	    }
         })   
   }
