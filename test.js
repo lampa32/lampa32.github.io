@@ -130,13 +130,13 @@ function searchRandom(need, number){
                           $('#RELOAD').show();
                         }, 0);
 		    })
-		    return;
             }
 	    
 	   else {
-		setTimeout(function() {
+		   return;
+		/*setTimeout(function() {
 	          $('#RELOAD').hide();
-                }, 1000)
+                }, 1000)*/
 	    }
         })    
 		    
