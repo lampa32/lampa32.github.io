@@ -133,7 +133,7 @@ function searchRandom(need, number){
 	});
 	Lampa.Listener.follow('full', function(e) {
                    if (e.type == 'complite') {
-		      $('.view--torrent').on('hover:enter', function() {
+		     // $('.view--torrent').on('hover:enter', function() {
 			$('#RELOAD').show();
 			      
 		   
@@ -143,7 +143,11 @@ function searchRandom(need, number){
 			   }, 1000)
 		      
 	         }
-		else {$('#RELOAD').hide();}
+		else {
+			setTimeout(function(){
+			$('#RELOAD').hide();
+			}, 1000)
+			}
 	       });
   } 
   if(window.appready) reload();
