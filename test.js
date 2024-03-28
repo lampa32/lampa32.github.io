@@ -133,11 +133,11 @@ function searchRandom(need, number){
 		    return;
             }
 	    
-	   /* else {
+	   else {
 		setTimeout(function() {
 	          $('#RELOAD').hide();
                 }, 1000)
-	    }*/
+	    }
         })    
 		    
 	  
