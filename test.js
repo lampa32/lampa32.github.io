@@ -129,8 +129,8 @@ function searchRandom(need, number){
 			setTimeout(function() {
                           $('#RELOAD').show();
                         }, 0);
-		    return;
 		    })
+		    return;
             }
 	    
 	   /* else {
