@@ -139,7 +139,7 @@ function searchRandom(need, number){
 		   
 		      //});
 			   setTimeout(function(){
-		    $('#RELOAD').hide();
+		    //$('#RELOAD').hide();
 			   }, 1000)
 		      
 	         }
