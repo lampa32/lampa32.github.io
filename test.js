@@ -129,25 +129,26 @@ function searchRandom(need, number){
 		start_free();
 		Lampa.Noty.show("Torrserver изменён")
 	});
-	Lampa.Listener.follow('full', function(e) {
+	/*Lampa.Listener.follow('full', function(e) {
                    if (e.type == 'complite') {
 		      $('.view--torrent').on('hover:enter', function() {
 			reload();
-		   else {
-			$('#RELOAD').remove()
-		   }
+		   
 		      });
 		    
 	         }
-	       });
+	       });*/
   } 
   if(window.appready) reload();
 	
-		/*Lampa.Listener.follow('app', function(e) {
+	else {
+		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
 				reload();
 			}
-		});*/
+		});
+	}
+			
 		
 })();
 
