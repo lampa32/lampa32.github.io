@@ -141,6 +141,9 @@ function searchRandom(need, number){
 		if (e.name == 'parser') {
 			reload();
 		}
+		else {
+			$('#RELOAD').remove()
+		}
         });
 	}
 })();
