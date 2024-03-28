@@ -137,10 +137,12 @@ function searchRandom(need, number){
 				reload();
 			}
 		});*/
-		Lampa.Settings.listener.follow('open', function (e) {
-		if (e.name == 'parser') {
+		Lampa.Listener.follow('full', function(e) {
+                   if (e.type == 'complite') {
+			if $('.view--torrent').on('hover:enter', function() {
 			reload();
-		}
+		        });
+		   }
 		else {
 			$('#RELOAD').remove()
 		}
