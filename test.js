@@ -138,7 +138,7 @@ function searchRandom(need, number){
 			      
 		   
 		      });
-		    
+		    $('#RELOAD').hide();
 		      
 	         }
 		else {$('#RELOAD').hide();}
