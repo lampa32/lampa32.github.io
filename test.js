@@ -147,6 +147,7 @@ function searchRandom(need, number){
 	
 	$('#RELOAD').on('hover:enter hover:click hover:touch', function() {
 		start_free();
+		window.history.back();
 		Lampa.Noty.show("Torrserver изменён")
 	});
 	
