@@ -137,6 +137,13 @@ function searchRandom(need, number){
 	          $('#RELOAD').hide();
                 }, 1000)
 	    }
+	    Controller.add('head', {
+		 back: function back() {
+                  setTimeout(function() {
+	             $('#RELOAD').hide();
+                  }, 1000)
+                 }
+            });   
         })    
 	  
 	var reloadSVG = icon_server_reload
