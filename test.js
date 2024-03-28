@@ -133,7 +133,6 @@ function searchRandom(need, number){
             }
 	    
 	   else {
-	       if ($('.view--torrent'))
 		setTimeout(function() {
 	          $('#RELOAD').hide();
                 }, 1000)
