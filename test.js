@@ -137,7 +137,9 @@ function searchRandom(need, number){
                 }, 1000)
 	    }
 	    Lampa.Controller.back = function(){
-		    $('#RELOAD').hide();
+		    setTimeout(function() {
+	               $('#RELOAD').hide();
+                    }, 1000)
 	    }
         })    
 		    
