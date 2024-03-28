@@ -146,10 +146,11 @@ function searchRandom(need, number){
 	Lampa.Listener.follow('full', function(e) {
                    if (e.type == 'complite') {
 		     $('.view--torrent').on('hover:enter', function() {
-			$('#RELOAD').remove();
-			      
-		   
-		      });
+			$('#RELOAD').hide();
+		     });
+		   }
+		   if (e.type == 'complite') {
+			$('#RELOAD').show();
 	         }
 	       });	
 })();
