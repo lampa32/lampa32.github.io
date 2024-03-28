@@ -130,12 +130,10 @@ function searchRandom(need, number){
 		Lampa.Noty.show("Torrserver изменён")
 	});
 	Lampa.Listener.follow('full', function(e) {
-                   if (e.type == 'complite') {
+                   if (e.type !== 'complite') {
 		      $('.view--torrent').on('hover:enter', function() {
 			$('#RELOAD').hide();
-			      else {
-			$('#RELOAD').show();  
-			      }
+			      
 		   
 		      });
 		    
