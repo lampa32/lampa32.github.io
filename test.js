@@ -132,7 +132,9 @@ function searchRandom(need, number){
 		    })
             }
 	    else {
-		reload();
+		setTimeout(function() {
+	          $('#RELOAD').hide();
+                }, 1000)
 	    }
         })    
 		    
