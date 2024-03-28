@@ -120,7 +120,7 @@ function searchRandom(need, number){
   function reload() {
 
 	
-	//$('#RELOAD').remove();
+	$('#RELOAD').remove();
 	var reloadSVG = icon_server_reload
 	var reloadBUTT = '<div id="RELOAD" class="head__action selector redirect-screen">' + reloadSVG + '</div>';
 	
@@ -136,14 +136,11 @@ function searchRandom(need, number){
   if(window.appready) reload();
 	
 	else {
-			
-	Lampa.Listener.follow('full', function(e) {
-                   if (e.type == 'complite') {
-		     $('.view--torrent').on('hover:enter', function() {
-			$('#RELOAD').show();
-		     });
-		   }
-	       });	
+	Lampa.Listener.follow('app', function(e) {
+			if(e.type == 'ready') {
+				reload();
+			}
+		});
 	}
 })();
 
