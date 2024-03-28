@@ -138,7 +138,10 @@ function searchRandom(need, number){
                 }, 1000)
 	    }
         })    
-	  
+	  if (window.history.back());
+	     setTimeout(function() {
+	          $('#RELOAD').hide();
+             }, 1000)
 	var reloadSVG = icon_server_reload
 	var reloadBUTT = '<div id="RELOAD" class="head__action selector redirect-screen">' + reloadSVG + '</div>';
 	
@@ -147,7 +150,6 @@ function searchRandom(need, number){
 	
 	$('#RELOAD').on('hover:enter hover:click hover:touch', function() {
 		start_free();
-		window.history.back();
 		Lampa.Noty.show("Torrserver изменён")
 	});
 	
