@@ -225,17 +225,29 @@ function checkAlive() {
 			component: 'server',
 			param: {
 				name: 'switch_server_button',
-				type: 'trigger',
-				default: false
-			},
+				type: 'select',
+				values: {
+							1:	'Не показывать',
+							2:	'Показывать только в торрентах',
+					                3:      'Показывать всегда',
+						},
+                                   default: '1',
+                                   },
 			field: {
 				name: 'Кнопка для смены сервера',
 				description: 'Параметр включает отображение кнопки в верхнем баре для быстрой смены сервера' 
 			},
 	                onChange: function (value) {
 
-				   if(Lampa.Storage.field('switch_server_button') == false) $('#SWITCH_SERVER').remove();
-				   if(Lampa.Storage.field('switch_server_button') == true) switch_server();
+			     if (value == '1') {
+                                $('#SWITCH_SERVER').hide();
+                              }
+                              if (value == '2') {
+                                $('#SWITCH_SERVER').remove();
+			      }
+			      if (value == '3') {
+                                $('#SWITCH_SERVER').show();
+			      }
 				   
 			},
 	                onRender: function (item) {
