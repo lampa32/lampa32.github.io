@@ -185,10 +185,10 @@ function checkAlive() {
 					if (value == '1') {
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
-						$('div[data-name="torrserver_url_two"]').hide()
-	                                        $('div[data-name="torrserver_url"]').hide()
 						Lampa.Settings.update();
 						return;
+						$('div[data-name="torrserver_url_two"]').hide()
+	                                        $('div[data-name="torrserver_url"]').hide()
 					}
 					/* Если  выбран любой сервер */
 					/*if (value > 1) {
