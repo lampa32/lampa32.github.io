@@ -125,6 +125,40 @@ function checkAlive() {
 		Lampa.Noty.show("Torrserver изменён")
 	});
    } 
+
+  function hideBut() {
+      Lampa.Listener.follow('full', function(e) {
+            if (e.type == 'complite') {
+		    $('.view--torrent').on('hover:enter', function() {
+			//setTimeout(function() {
+                          $('#RELOAD').show();
+                      //  }, 0);
+		    })
+            }
+	    
+	  // else {
+		//setTimeout(function() {
+	          $('#RELOAD').hide();
+                //}, 1000)
+	   // }
+        })   
+  Lampa.Storage.listener.follow('change', function (event) {
+    if (event.name == 'activity') {
+      // условие = раздел Фильмы
+      if (Lampa.Activity.active().component === 'full') {
+        // твои действия
+	      $('#RELOAD').hide();
+      }
+      // условие = любой раздел который не Фильмы
+      //if (Lampa.Activity.active().component !=== 'category') {
+        // твои действия
+      //}
+    }
+  })
+
+  }
+
+   
 	
    var tor_timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
@@ -243,7 +277,7 @@ function checkAlive() {
                                 $('#SWITCH_SERVER').hide();
                               }
                               if (value == '2') {
-                                $('#SWITCH_SERVER').remove();
+                                hideBut();
 			      }
 			      if (value == '3') {
                                 $('#SWITCH_SERVER').show();
