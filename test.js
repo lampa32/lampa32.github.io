@@ -140,17 +140,17 @@ function searchRandom(need, number){
   Lampa.Listener.follow('full', function(e) {
             if (e.type == 'complite') {
 		    $('.view--torrent').on('hover:enter', function() {
-			setTimeout(function() {
+			//setTimeout(function() {
                           $('#RELOAD').show();
-                        }, 0);
+                      //  }, 0);
 		    })
             }
 	    
-	   else {
-		setTimeout(function() {
+	  // else {
+		//setTimeout(function() {
 	          $('#RELOAD').hide();
-                }, 1000)
-	    }
+                //}, 1000)
+	   // }
         })   
   Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
