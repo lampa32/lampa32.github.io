@@ -152,6 +152,20 @@ function searchRandom(need, number){
                 }, 1000)
 	    }
         })   
+  Lampa.Storage.listener.follow('change', function (event) {
+    if (event.name == 'activity') {
+      // условие = раздел Фильмы
+      if (Lampa.Activity.active().component === 'full') {
+        // твои действия
+	      $('#RELOAD').hide();
+      }
+      // условие = любой раздел который не Фильмы
+      //if (Lampa.Activity.active().component !=== 'category') {
+        // твои действия
+      //}
+    }
+  })
+
   }
 	
   if(window.appready) {reload(); hideBut();}
