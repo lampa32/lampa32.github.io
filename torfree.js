@@ -185,6 +185,8 @@ function checkAlive() {
 					if (value == '1') {
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
+						$('div[data-name="torrserver_url_two"]').hide()
+	                                        $('div[data-name="torrserver_url"]').hide()
 						Lampa.Settings.update();
 						return;
 					}
@@ -204,8 +206,8 @@ function checkAlive() {
 						 var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
                                                   Lampa.Controller.focus(M)
                                                   Lampa.Controller.toggle('settings_component')
-						  $('div[data-name="torrserver_url_two"]').hide()
-	                                          $('div[data-name="torrserver_url"]').hide()
+						 // $('div[data-name="torrserver_url_two"]').hide()
+	                                         // $('div[data-name="torrserver_url"]').hide()
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
 						}
