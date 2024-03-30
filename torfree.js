@@ -111,7 +111,7 @@ function checkAlive() {
 		setTimeout(function(){
                                   $('#SWITCH_SERVER').remove()
                                 }, 1000);
-	if(Lampa.Storage.field('switch_server_button') == 2) $('#SWITCH_SERVER').hide()
+	if(Lampa.Storage.field('switch_server_button') == 2) hideBut()
 	if(Lampa.Storage.field('switch_server_button') == 3) $('#SWITCH_SERVER').hide()
 	
 	var switch_serverSVG = icon_switch_server
@@ -138,7 +138,7 @@ function checkAlive() {
             if (e.type == 'complite') {
 		    $('.view--torrent').on('hover:enter', function() {
 			//setTimeout(function() {
-                          $('#RELOAD').show();
+                          $('#SWITCH_SERVER').show();
                       //  }, 0);
 		    })
             }
@@ -154,7 +154,7 @@ function checkAlive() {
       // условие = раздел Фильмы
       if (Lampa.Activity.active().component === 'full') {
         // твои действия
-	      $('#RELOAD').hide();
+	      $('#SWITCH_SERVER').hide();
       }
       // условие = любой раздел который не Фильмы
       //if (Lampa.Activity.active().component !=== 'category') {
