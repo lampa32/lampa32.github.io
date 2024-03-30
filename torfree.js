@@ -110,10 +110,10 @@ function checkAlive() {
 
         if(Lampa.Storage.get('switch_server_button') == 1) 
 		setTimeout(function(){
-                                  $('#SWITCH_SERVER').remove()
+                                  $('#SWITCH_SERVER').hide()
                                 }, 1000);
 	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
-	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').hide()
+	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
 	
 	var switch_serverSVG = icon_switch_server
 	var switch_serverBUTT = '<div id="SWITCH_SERVER" class="head__action selector switch-screen">' + switch_serverSVG + '</div>';
@@ -136,9 +136,7 @@ function checkAlive() {
 
   function hideBut() {
 	  
-	  setTimeout(function(){
-                                  $('#SWITCH_SERVER').remove()
-                                }, 10);
+
 	  
       Lampa.Listener.follow('full', function(e) {
             if (e.type == 'complite') {
