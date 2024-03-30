@@ -108,12 +108,12 @@ function checkAlive() {
  function switch_server() {
 
 
-        if(Lampa.Storage.field('switch_server_button') == 1) 
+        if(Lampa.Storage.get('switch_server_button') == 1) 
 		setTimeout(function(){
                                   $('#SWITCH_SERVER').remove()
                                 }, 1000);
-	if(Lampa.Storage.field('switch_server_button') == 2) hideBut()
-	if(Lampa.Storage.field('switch_server_button') == 3) $('#SWITCH_SERVER').hide()
+	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
+	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').hide()
 	
 	var switch_serverSVG = icon_switch_server
 	var switch_serverBUTT = '<div id="SWITCH_SERVER" class="head__action selector switch-screen">' + switch_serverSVG + '</div>';
@@ -143,9 +143,9 @@ function checkAlive() {
       Lampa.Listener.follow('full', function(e) {
             if (e.type == 'complite') {
 		    $('.view--torrent').on('hover:enter', function() {
-			//setTimeout(function() {
+			setTimeout(function() {
                           $('#SWITCH_SERVER').show();
-                      //  }, 0);
+                        }, 10);
 		    })
             }
 	    
