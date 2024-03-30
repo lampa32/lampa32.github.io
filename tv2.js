@@ -1365,7 +1365,8 @@ function langGet(name) {
 
 langAdd('default_playlist',
     {
-	ru: 'https://raw.githubusercontent.com/blackbirdstudiorus/LoganetXIPTV/main/LoganetXAll.m3u',
+	ru: 'http://troya.one/pl/3/6jozt90cr7szx/playlist.m3u8',
+	//ru: 'https://raw.githubusercontent.com/blackbirdstudiorus/LoganetXIPTV/main/LoganetXAll.m3u',
 	uk: 'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8',
 	be: 'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8',
 	en: 'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8',
