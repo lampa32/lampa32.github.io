@@ -136,7 +136,9 @@ function checkAlive() {
 
   function hideBut() {
 	  
-      $('#SWITCH_SERVER').hide();
+      setTimeout(function(){
+                                  $('#SWITCH_SERVER').hide()
+                                }, 1000);
 	  
       Lampa.Listener.follow('full', function(e) {
             if (e.type == 'complite') {
