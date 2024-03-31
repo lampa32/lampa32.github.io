@@ -1,5 +1,7 @@
 (function() {
 	'use strict';
+
+	localStorage.removeItem('optionsNEW'); //обнуляем метку при каждом входе
 	 
 /* Функция подбора сервера
 		> задаём массив options с серверами
@@ -57,12 +59,13 @@
 	];
 
 /*  Функция рандомного выбора */
-	
-function searchRandom(need, number) {
+if(Lampa.Storage.get('optionsNEW') == true) {	//проверяем наличие метки о создании нового списка
+  function searchRandom(need, number) {
 	if (need) return options[number];
 	var randomIndex = Math.floor(Math.random() * optionsNEW.length);
 	var randomOption = optionsNEW[randomIndex];
 	return randomOption
+  }
 }
 
 /* Функция опроса серверов */
@@ -77,6 +80,7 @@ function myRequest(i) {
 		xhr.onload = function() {
 			if (xhr.status == 200) {
 				optionsNEW.push(options[i]);  //формируем новый массив
+				Lampa.Storage.set('optionsNEW', true); //ставим метку после создания нового списка
 			}
 			if (xhr.status == 404) {
 				console.log("FreeTorr", 'Сервер ' + options[i] + ' умер');
@@ -129,39 +133,23 @@ function checkAlive() {
 	});
    } 
 
+  /* Функция для отображения кнопки только в торрентах */
+
   function hideBut() {
 	  
       setTimeout(function(){
-                                  $('#SWITCH_SERVER').hide()
-                                }, 1000);
+         $('#SWITCH_SERVER').hide()
+      }, 1000);
 	  
-     /* Lampa.Listener.follow('full', function(e) {
-            if (e.type == 'complite') {
-		    $('.view--torrent').on('hover:enter', function() {
-			setTimeout(function() {
-                          $('#SWITCH_SERVER').show();
-                        }, 10);
-		    })
-            }*/
-	    
-	  // else {
-		//setTimeout(function() {
-	         // $('#RELOAD').hide();
-                //}, 1000)
-	   // }
-    //})   
+     
   Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
-      // условие = раздел Фильмы
       if (Lampa.Activity.active().component !== 'torrents') {
-        // твои действия
 	      setTimeout(function(){
 	      $('#SWITCH_SERVER').hide();
-		      }, 1000)
+		      }, 100)
       }
-      // условие = любой раздел который не Фильмы
       if (Lampa.Activity.active().component === 'torrents') {
-        // твои действия
 	      $('#SWITCH_SERVER').show();
       }
     }
