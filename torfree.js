@@ -153,7 +153,7 @@ function checkAlive() {
   Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
       // условие = раздел Фильмы
-      if (Lampa.Activity.active().component !=== 'torrents') {
+      if (Lampa.Activity.active().component !== 'torrents') {
         // твои действия
 	      setTimeout(function(){
 	      $('#SWITCH_SERVER').hide();
