@@ -190,6 +190,7 @@ function checkAlive() {
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
 		    }, 3000) // без тайм-аута при старте приложения не успевает сформироваться новый массив
 		}
+		Lampa.Storage.set('switch_server_button', '1');
 	}
 
 /* Создаем параметр для выбора сервера */
