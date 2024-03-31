@@ -114,10 +114,12 @@ function checkAlive() {
 	$('#app > div.head > div > div.head__actions').append(switch_serverBUTT);
 	$('#SWITCH_SERVER').insertAfter('div[class="head__action selector open--settings"]');
        
-	if(Lampa.Storage.get('switch_server_button') == false)
-				setTimeout(function(){
-                                  $('#SWITCH_SERVER').remove()
-                                }, 10);
+	if(Lampa.Storage.get('switch_server_button') == 1) 
+		setTimeout(function(){
+                                  $('#SWITCH_SERVER').hide()
+                                }, 1000);
+	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
+	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
 	
 	
 	$('#SWITCH_SERVER').on('hover:enter hover:click hover:touch', function() {
@@ -133,14 +135,14 @@ function checkAlive() {
                                   $('#SWITCH_SERVER').hide()
                                 }, 1000);
 	  
-      Lampa.Listener.follow('full', function(e) {
+     /* Lampa.Listener.follow('full', function(e) {
             if (e.type == 'complite') {
 		    $('.view--torrent').on('hover:enter', function() {
 			setTimeout(function() {
                           $('#SWITCH_SERVER').show();
                         }, 10);
 		    })
-            }
+            }*/
 	    
 	  // else {
 		//setTimeout(function() {
@@ -151,27 +153,21 @@ function checkAlive() {
   Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
       // условие = раздел Фильмы
-      if (Lampa.Activity.active().component === 'full') {
+      if (Lampa.Activity.active().component !=== 'torrents') {
         // твои действия
 	      setTimeout(function(){
 	      $('#SWITCH_SERVER').hide();
 		      }, 1000)
       }
       // условие = любой раздел который не Фильмы
-      //if (Lampa.Activity.active().component !=== 'category') {
+      if (Lampa.Activity.active().component === 'torrents') {
         // твои действия
-      //}
+	      $('#SWITCH_SERVER').hide();
+      }
     }
   })
 
   }
-
-   if(Lampa.Storage.get('switch_server_button') == 1) 
-		setTimeout(function(){
-                                  $('#SWITCH_SERVER').hide()
-                                }, 1000);
-	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
-	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
 	
    var tor_timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
