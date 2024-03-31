@@ -153,7 +153,9 @@ function checkAlive() {
       // условие = раздел Фильмы
       if (Lampa.Activity.active().component === 'full') {
         // твои действия
+	      setTimeout(function(){
 	      $('#SWITCH_SERVER').hide();
+		      }, 1000)
       }
       // условие = любой раздел который не Фильмы
       //if (Lampa.Activity.active().component !=== 'category') {
