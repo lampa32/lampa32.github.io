@@ -162,7 +162,7 @@ function checkAlive() {
       // условие = любой раздел который не Фильмы
       if (Lampa.Activity.active().component === 'torrents') {
         // твои действия
-	      $('#SWITCH_SERVER').hide();
+	      $('#SWITCH_SERVER').show();
       }
     }
   })
