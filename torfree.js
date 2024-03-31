@@ -59,14 +59,14 @@
 	];
 
 /*  Функция рандомного выбора */
-if(Lampa.Storage.get('optionsNEW') == true) {	//проверяем наличие метки о создании нового списка
+//if(Lampa.Storage.get('optionsNEW') == true) {	//проверяем наличие метки о создании нового списка
   function searchRandom(need, number) {
 	if (need) return options[number];
 	var randomIndex = Math.floor(Math.random() * optionsNEW.length);
 	var randomOption = optionsNEW[randomIndex];
 	return randomOption
   }
-}
+//}
 
 /* Функция опроса серверов */
 	
