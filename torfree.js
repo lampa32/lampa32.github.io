@@ -149,7 +149,7 @@ function checkAlive() {
 	         // $('#RELOAD').hide();
                 //}, 1000)
 	   // }
-        })   
+    //})   
   Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
       // условие = раздел Фильмы
