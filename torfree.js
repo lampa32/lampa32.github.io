@@ -287,8 +287,9 @@ function checkAlive() {
                                 $('#SWITCH_SERVER').hide();
                               }
                               if (value == '2') {
-                                //hideBut();
-				      Lampa.Storage.listener.follow('change', function (event) {
+                                hideBut();
+				      return;
+				     /* Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
       if (Lampa.Activity.active().component !== 'torrents') {
 	      setTimeout(function(){
@@ -300,7 +301,7 @@ function checkAlive() {
 	      $('#SWITCH_SERVER').show();
       }
     }
-  })
+  })*/
 			      }
 			      if (value == '3') {
                                 $('#SWITCH_SERVER').show();
@@ -317,8 +318,9 @@ function checkAlive() {
 		setTimeout(function(){
                    $('#SWITCH_SERVER').hide()
                 }, 1000);
-	if(Lampa.Storage.field('switch_server_button') == 2) //hideBut()
-		Lampa.Storage.listener.follow('change', function (event) {
+	if(Lampa.Storage.field('switch_server_button') == 2) hideBut()
+	return;
+		/*Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
       if (Lampa.Activity.active().component !== 'torrents') {
 	      setTimeout(function(){
@@ -330,7 +332,7 @@ function checkAlive() {
 	      $('#SWITCH_SERVER').show();
       }
     }
-  })
+  })*/
 	if(Lampa.Storage.field('switch_server_button') == 3) $('#SWITCH_SERVER').show()
 
    if(window.appready) {switch_server(); checkAlive();}
