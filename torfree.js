@@ -300,12 +300,12 @@ function checkAlive() {
 			                 }, 0);
 			}
    });
-	if(Lampa.Storage.get('switch_server_button') == 1) 
+	if(Lampa.Storage.field('switch_server_button') == 1) 
 		setTimeout(function(){
                    $('#SWITCH_SERVER').hide()
                 }, 1000);
-	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
-	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
+	if(Lampa.Storage.field('switch_server_button') == 2) hideBut()
+	if(Lampa.Storage.field('switch_server_button') == 3) $('#SWITCH_SERVER').show()
 
    if(window.appready) {switch_server(); checkAlive();}
 	else {
