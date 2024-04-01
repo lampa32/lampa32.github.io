@@ -292,14 +292,14 @@ function checkAlive() {
                                 setTimeout(function() {  
 		       $('#SWITCH_SERVER').hide();
 		      }, 1000)
-				    /* Lampa.Storage.listener.follow('change', function (event) {
+				     Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
 	    //скрываем кнопку если зашли в торренты
       if (Lampa.Activity.active().component === 'torrents') {
 	      $('#SWITCH_SERVER').hide();
       }
     }
-  })*/
+  })
                               }
                               if (value == '2') {
                                 hideBut();
