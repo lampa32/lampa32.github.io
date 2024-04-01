@@ -120,8 +120,8 @@ function checkAlive() {
        
 	if(Lampa.Storage.get('switch_server_button') == 1) 
 		setTimeout(function(){
-                                  $('#SWITCH_SERVER').hide()
-                                }, 1000);
+                   $('#SWITCH_SERVER').hide()
+                }, 1000);
 	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
 	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
 	
@@ -136,12 +136,12 @@ function checkAlive() {
   /* Функция для отображения кнопки только в торрентах */
 
   function hideBut() {
-	  
+	 //прячем кнопку при старте приложения 
       setTimeout(function(){
          $('#SWITCH_SERVER').hide()
       }, 1000);
 	  
-     
+           //прячем кнопку если мы не в торрентах
   Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
       if (Lampa.Activity.active().component !== 'torrents') {
@@ -149,6 +149,7 @@ function checkAlive() {
 	      $('#SWITCH_SERVER').hide();
 		      }, 100)
       }
+	    //показываем кнопку если зашли в торренты
       if (Lampa.Activity.active().component === 'torrents') {
 	      $('#SWITCH_SERVER').show();
       }
@@ -156,7 +157,7 @@ function checkAlive() {
   })
 
   }
-	
+	   //запускаем функцию start_free при первой установке плагина
    var tor_timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
             clearInterval(tor_timer);
@@ -176,8 +177,10 @@ function checkAlive() {
 			Lampa.Storage.set('torrserver_use_link', 'two');
 			var myResult = searchRandom();
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-		    }, 3000) // без тайм-аута при старте приложения не успевает сформироваться новый массив
+		    }, 3000) /* без тайм-аута при старте приложения не успевает сформироваться новый массив, если заработают метки на 
+			      созданиенового массива, возможно он и не нужен */
 		}
+		      //прячем кнопку по дефолту, так как у нас стоит пункт 'не показывать'
 		if (localStorage.getItem('switch_server_button') === null) {
 		    setTimeout(function() {  
 		       $('#SWITCH_SERVER').hide();
@@ -197,7 +200,7 @@ function checkAlive() {
 					/* 2: 'Torrserver 1',
                                            3: 'Torrserver 2',
                                            4: 'Torrserver 3',
-                                           5: 'Torrserver 4',
+                                           5: 'Torrserver 4',  
                                            6: 'Torrserver 5',
                                            7: 'Torrserver 6',
                                            8: 'Torrserver 7',
@@ -237,6 +240,7 @@ function checkAlive() {
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
 						if(Lampa.Storage.field('torrserv') == '1') {
+							//прячем лишние пункты и переносим фокус
 						 var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
                                                   Lampa.Controller.focus(M)
                                                   Lampa.Controller.toggle('settings_component')
