@@ -127,7 +127,12 @@ function checkAlive() {
 	$('#app > div.head > div > div.head__actions').append(switch_serverBUTT);
 	$('#SWITCH_SERVER').insertAfter('div[class="head__action selector open--settings"]');
        
-	
+	if(Lampa.Storage.get('switch_server_button') == 1) 
+		setTimeout(function(){
+                   $('#SWITCH_SERVER').hide()
+                }, 1000);
+	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
+	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
 	
 	
 	$('#SWITCH_SERVER').on('hover:enter hover:click hover:touch', function() {
@@ -285,23 +290,18 @@ function checkAlive() {
 
 			     if (value == '1') {
                                 $('#SWITCH_SERVER').hide();
+				     Lampa.Storage.listener.follow('change', function (event) {
+    if (event.name == 'activity') {
+	    //скрываем кнопку если зашли в торренты
+      if (Lampa.Activity.active().component === 'torrents') {
+	      $('#SWITCH_SERVER').hide();
+      }
+    }
+  })
                               }
                               if (value == '2') {
                                 hideBut();
-				      return;
-				     /* Lampa.Storage.listener.follow('change', function (event) {
-    if (event.name == 'activity') {
-      if (Lampa.Activity.active().component !== 'torrents') {
-	      setTimeout(function(){
-	      $('#SWITCH_SERVER').hide();
-		      }, 100)
-      }
-	    //показываем кнопку если зашли в торренты
-      if (Lampa.Activity.active().component === 'torrents') {
-	      $('#SWITCH_SERVER').show();
-      }
-    }
-  })*/
+			
 			      }
 			      if (value == '3') {
                                 $('#SWITCH_SERVER').show();
@@ -314,26 +314,7 @@ function checkAlive() {
 			                 }, 0);
 			}
    });
-	if(Lampa.Storage.field('switch_server_button') == 1) 
-		setTimeout(function(){
-                   $('#SWITCH_SERVER').hide()
-                }, 1000);
-	if(Lampa.Storage.field('switch_server_button') == 2) hideBut()
-	return;
-		/*Lampa.Storage.listener.follow('change', function (event) {
-    if (event.name == 'activity') {
-      if (Lampa.Activity.active().component !== 'torrents') {
-	      setTimeout(function(){
-	      $('#SWITCH_SERVER').hide();
-		      }, 100)
-      }
-	    //показываем кнопку если зашли в торренты
-      if (Lampa.Activity.active().component === 'torrents') {
-	      $('#SWITCH_SERVER').show();
-      }
-    }
-  })*/
-	if(Lampa.Storage.field('switch_server_button') == 3) $('#SWITCH_SERVER').show()
+
 
    if(window.appready) {switch_server(); checkAlive();}
 	else {
