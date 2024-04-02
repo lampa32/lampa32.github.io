@@ -1,3 +1,4 @@
+
 (function() {
 	'use strict';
 
@@ -72,7 +73,7 @@
 /* Функция опроса серверов */
 	
 function myRequest(i) {
-	localStorage.removeItem('optionsNEW'); //обнуляем метку при каждом входе
+	Lampa.Storage.set('optionsNEW', '{}'); //обнуляем метку при каждом входе
 	setTimeout(function() {
 		var myLink = 'http://' + options[i] + ':8090';
 		var xhr = new XMLHttpRequest();
