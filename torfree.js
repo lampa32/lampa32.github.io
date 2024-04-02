@@ -136,7 +136,7 @@ function checkAlive() {
   /* Функция для отображения кнопки только в торрентах */
 
   function hideBut() {
-if (localStorage.getItem('switch_server_button') === 2) {
+if(Lampa.Storage.field('switch_server_button') == 2) {
 	 //прячем кнопку при старте приложения 
       setTimeout(function(){
          $('#SWITCH_SERVER').hide()
