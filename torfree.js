@@ -13,16 +13,7 @@
 	*/
 	 var optionsNEW = [];  //новый массив из серверов, которые ответили
 	 var options = [       //первоначальный массив
-	        '195.2.75.196',
-		'195.2.75.50',
-		'195.2.74.165',
-		'195.2.73.194',
-		'195.2.71.99',
-		'195.2.71.70',
-		'95.142.45.170',
-		'94.103.89.144',
-		'94.103.84.253',
-		'77.85.90.90',
+	        '77.85.90.90',
 		'77.77.56.13',
 		'77.91.84.212',
 		'217.196.103.204',
@@ -288,36 +279,18 @@ function checkAlive() {
 			},
 	                onChange: function (value) {
 
-			     if (value == '1') {
-	                       setTimeout(function() {  
-		                 $('#SWITCH_SERVER').hide();
-		               }, 1000)
-                            }
+			      if (value == '1') {
+                                setTimeout(function() {  
+		                   $('#SWITCH_SERVER').hide();
+		                }, 1000)
+                              }
                               if (value == '2') {
-                                //hideBut();
-				      setTimeout(function(){
-         $('#SWITCH_SERVER').hide()
-      }, 1000);
-	  
-           //прячем кнопку если мы не в торрентах
-  Lampa.Storage.listener.follow('change', function (event) {
-    if (event.name == 'activity') {
-      if (Lampa.Activity.active().component !== 'torrents') {
-	      setTimeout(function(){
-	      $('#SWITCH_SERVER').hide();
-		      }, 100)
-      }
-	    //показываем кнопку если зашли в торренты
-      if (Lampa.Activity.active().component === 'torrents') {
-	      $('#SWITCH_SERVER').show();
-      }
-    }
-  })
-
+                                hideBut();
 			      }
 			      if (value == '3') {
-	                              $('#SWITCH_SERVER').show();
-                              }
+                                $('#SWITCH_SERVER').show();
+			      }
+				   
 			},
 	                onRender: function (item) {
 					setTimeout(function() {
@@ -325,7 +298,6 @@ function checkAlive() {
 			                 }, 0);
 			}
    });
-
 
    if(window.appready) {switch_server(); checkAlive();}
 	else {
