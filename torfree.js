@@ -301,6 +301,16 @@ function checkAlive() {
 			      }
 			      if (value == '3') {
                                 $('#SWITCH_SERVER').show();
+				      Lampa.Storage.listener.follow('change', function (event) {
+    if (event.name == 'activity') {
+      if (Lampa.Activity.active().component !== 'torrents') {
+	      setTimeout(function(){
+	      $('#SWITCH_SERVER').show();
+		      }, 100)
+      }
+	    //показываем кнопку если зашли в торренты
+    }
+  })
 			      }
 				   
 			},
