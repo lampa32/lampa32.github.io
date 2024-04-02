@@ -181,11 +181,11 @@ function checkAlive() {
 		  }
 		}
 		      //прячем кнопку по дефолту, так как у нас стоит пункт 'не показывать'
-		if (localStorage.getItem('switch_server_button') === null) {
+		/*if (localStorage.getItem('switch_server_button') === null) {
 		    setTimeout(function() {  
 		       $('#SWITCH_SERVER').hide();
 		      }, 1000)
-		}
+		}*/
 		if(Lampa.Platform.is('android')) Lampa.Storage.set('internal_torrclient', true);
 	}
 
