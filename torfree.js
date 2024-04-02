@@ -305,6 +305,9 @@ function checkAlive() {
                                 hideBut();
 			
 			      }
+			      else {
+			      return; 
+			      }
 			      if (value == '3') {
                                 $('#SWITCH_SERVER').show();
 			     // }
