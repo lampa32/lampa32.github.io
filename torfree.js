@@ -156,10 +156,6 @@ function checkAlive() {
       }
     }
   })
-
-	if(Lampa.Storage.field('switch_server_button') !== 2) {
-        break;
-	}
 }
 	   //запускаем функцию start_free при первой установке плагина
    var tor_timer = setInterval(function(){
