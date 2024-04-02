@@ -285,10 +285,19 @@ function checkAlive() {
 		                }, 1000)
                               }
                               if (value == '2') {
-                                hideBut();
-				      if(Lampa.Storage.field('switch_server_button') !== 2) {
-				      return;
-				      }
+                                Lampa.Storage.listener.follow('change', function (event) {
+    if (event.name == 'activity') {
+      if (Lampa.Activity.active().component !== 'torrents') {
+	      setTimeout(function(){
+	      $('#SWITCH_SERVER').hide();
+		      }, 100)
+      }
+	    //показываем кнопку если зашли в торренты
+      if (Lampa.Activity.active().component === 'torrents') {
+	      $('#SWITCH_SERVER').show();
+      }
+    }
+  })
 			      }
 			      if (value == '3') {
                                 $('#SWITCH_SERVER').show();
