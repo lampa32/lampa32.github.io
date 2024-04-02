@@ -146,9 +146,9 @@ function checkAlive() {
 
   function hideBut() {
 	 //прячем кнопку при старте приложения 
-     /* setTimeout(function(){
+      setTimeout(function(){
          $('#SWITCH_SERVER').hide()
-      }, 1000);*/
+      }, 1000);
 	  
            //прячем кнопку если мы не в торрентах
   Lampa.Storage.listener.follow('change', function (event) {
