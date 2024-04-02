@@ -146,9 +146,9 @@ function checkAlive() {
 
   function hideBut() {
 	 //прячем кнопку при старте приложения 
-      setTimeout(function(){
+     /* setTimeout(function(){
          $('#SWITCH_SERVER').hide()
-      }, 1000);
+      }, 1000);*/
 	  
            //прячем кнопку если мы не в торрентах
   Lampa.Storage.listener.follow('change', function (event) {
@@ -308,15 +308,15 @@ function checkAlive() {
 			      if (value == '3') {
                                 $('#SWITCH_SERVER').show();
 			     // }
-				Lampa.Storage.listener.follow('change', function (event) {
-    if (event.name == 'activity') {
-	    //скрываем кнопку если зашли в торренты
-      //if (Lampa.Activity.active().component !== 'torrents') {
-	      $('#SWITCH_SERVER').show();
-      //}
-    }
-  })
-			      }
+				//Lampa.Storage.listener.follow('change', function (event) {
+                                 // if (event.name == 'activity') {
+	                            //скрываем кнопку если зашли в торренты
+                                    //if (Lampa.Activity.active().component !== 'torrents') {
+	                              //$('#SWITCH_SERVER').show();
+                                 //}
+                                 // }
+                                //})
+			     }
 				   
 			},
 	                onRender: function (item) {
