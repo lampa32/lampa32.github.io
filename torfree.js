@@ -303,22 +303,18 @@ function checkAlive() {
                               }
                               if (value == '2') {
                                 hideBut();
-			
-			      }
-			      else {
-			      return; 
 			      }
 			      if (value == '3') {
-                                $('#SWITCH_SERVER').show();
+                                //$('#SWITCH_SERVER').show();
 			     // }
-				//Lampa.Storage.listener.follow('change', function (event) {
-                                 // if (event.name == 'activity') {
+				Lampa.Storage.listener.follow('change', function (event) {
+                                  if (event.name == 'activity') {
 	                            //скрываем кнопку если зашли в торренты
-                                    //if (Lampa.Activity.active().component !== 'torrents') {
-	                              //$('#SWITCH_SERVER').show();
-                                 //}
-                                 // }
-                                //})
+                                    if (Lampa.Activity.active().component !== 'torrents') {
+	                              $('#SWITCH_SERVER').show();
+                                 }
+                                  }
+                                })
 			     }
 				   
 			},
@@ -326,9 +322,6 @@ function checkAlive() {
 					setTimeout(function() {
 	                                  $('div[data-name="switch_server_button"]').insertAfter('div[data-name="torrserver_url"]');
 			                 }, 0);
-				if (localStorage.getItem('switch_server_button') === 3) {
-                                $('#SWITCH_SERVER').show();
-				}
 			}
    });
 
