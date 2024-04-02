@@ -313,10 +313,14 @@ function checkAlive() {
                                  Lampa.Storage.listener.follow('change', function (event) {
                                     if (event.name == 'activity') {
                                       if (Lampa.Activity.active().component !== 'torrents') {
-	                                $('#SWITCH_SERVER').show();  
+	                                setTimeout(function(){
+	                                  $('#SWITCH_SERVER').show();
+		                        }, 100)
                                       }
                                      if (Lampa.Activity.active().component === 'torrents') {
-	                                $('#SWITCH_SERVER').show();
+	                                setTimeout(function(){
+	                                  $('#SWITCH_SERVER').show();
+		                        }, 100)
                                      }
                                    }
                                 })
