@@ -286,6 +286,9 @@ function checkAlive() {
                               }
                               if (value == '2') {
                                 hideBut();
+				      if(Lampa.Storage.field('switch_server_button') !== 2) {
+				      return;
+				      }
 			      }
 			      if (value == '3') {
                                 $('#SWITCH_SERVER').show();
