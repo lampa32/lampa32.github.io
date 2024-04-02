@@ -281,6 +281,9 @@ function checkAlive() {
 	                onChange: function (value) {
 
 			      if (value == '1') {
+				      setTimeout(function(){
+	                                  $('#SWITCH_SERVER').hide();
+		                        }, 100)
                                 Lampa.Storage.listener.follow('change', function (event) {
                                     if (event.name == 'activity') {
                                       if (Lampa.Activity.active().component !== 'torrents') {  
@@ -311,6 +314,9 @@ function checkAlive() {
                                 })
 			      }
 			      if (value == '3') {
+				      setTimeout(function(){
+	                                  $('#SWITCH_SERVER').show();
+		                        }, 100)
                                  Lampa.Storage.listener.follow('change', function (event) {
                                     if (event.name == 'activity') {
                                       if (Lampa.Activity.active().component !== 'torrents') {
