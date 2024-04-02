@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	localStorage.removeItem('optionsNEW'); //обнуляем метку при каждом входе
+	
 	 
 /* Функция подбора сервера
 		> задаём массив options с серверами
@@ -72,6 +72,7 @@
 /* Функция опроса серверов */
 	
 function myRequest(i) {
+	localStorage.removeItem('optionsNEW'); //обнуляем метку при каждом входе
 	setTimeout(function() {
 		var myLink = 'http://' + options[i] + ':8090';
 		var xhr = new XMLHttpRequest();
