@@ -289,14 +289,14 @@ function checkAlive() {
 	                onChange: function (value) {
 
 			     if (value == '1') {
-                                setTimeout(function() {  
-		       $('#SWITCH_SERVER').hide();
-		      }, 1000)
+                                
 				     Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
 	    //скрываем кнопку если зашли в торренты
       if (Lampa.Activity.active().component === 'torrents') {
-	      $('#SWITCH_SERVER').hide();
+	      setTimeout(function() {  
+		       $('#SWITCH_SERVER').hide();
+		      }, 1000)
       }
     }
   })
