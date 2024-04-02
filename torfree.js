@@ -158,7 +158,7 @@ function checkAlive() {
   })
 
 	if(Lampa.Storage.field('switch_server_button') !== 2) {
-        return;
+        break;
 	}
 }
 	   //запускаем функцию start_free при первой установке плагина
