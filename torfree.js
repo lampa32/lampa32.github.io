@@ -174,12 +174,12 @@ function checkAlive() {
 	function start_free(){
 		/* Если параметр не существует в localStorage или Автовыбор, выставляем случайный сервер в Дополнительную ссылку*/
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
-		    setTimeout(function() {  
+		   // setTimeout(function() {  
 			Lampa.Storage.set('torrserver_use_link', 'two');
 			var myResult = searchRandom();
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-		    }, 3000) /* без тайм-аута при старте приложения не успевает сформироваться новый массив, если заработают метки на 
-			      созданиенового массива, возможно он и не нужен */
+		   // }, 3000) /* без тайм-аута при старте приложения не успевает сформироваться новый массив, если заработают метки на 
+			     // созданиенового массива, возможно он и не нужен */
 		}
 		      //прячем кнопку по дефолту, так как у нас стоит пункт 'не показывать'
 		if (localStorage.getItem('switch_server_button') === null) {
