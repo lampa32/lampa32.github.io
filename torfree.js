@@ -326,6 +326,9 @@ function checkAlive() {
 					setTimeout(function() {
 	                                  $('div[data-name="switch_server_button"]').insertAfter('div[data-name="torrserver_url"]');
 			                 }, 0);
+				if (localStorage.getItem('switch_server_button') === 3) {
+                                $('#SWITCH_SERVER').show();
+				}
 			}
    });
 
