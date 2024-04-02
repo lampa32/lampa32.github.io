@@ -301,7 +301,8 @@ function checkAlive() {
                                 })
                               }
                               if (value == '2') {
-				      setTimeout(function(){
+				      hideBut();
+				     /* setTimeout(function(){
 	                                  $('#SWITCH_SERVER').hide();
 		                        }, 100)
                                   Lampa.Storage.listener.follow('change', function (event) {
@@ -315,7 +316,7 @@ function checkAlive() {
 	                                $('#SWITCH_SERVER').show();
                                      }
                                    }
-                                })
+                                })*/
 			      }
 			      if (value == '3') {
 				      setTimeout(function(){
