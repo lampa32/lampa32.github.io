@@ -136,6 +136,7 @@ function checkAlive() {
   /* Функция для отображения кнопки только в торрентах */
 
   function hideBut() {
+if (localStorage.getItem('switch_server_button') === 2) {
 	 //прячем кнопку при старте приложения 
       setTimeout(function(){
          $('#SWITCH_SERVER').hide()
@@ -155,8 +156,8 @@ function checkAlive() {
       }
     }
   })
-
-  }
+ }
+}
 	   //запускаем функцию start_free при первой установке плагина
    var tor_timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
