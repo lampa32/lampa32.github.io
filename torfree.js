@@ -1,6 +1,11 @@
 (function() {
 	'use strict';
-	 
+
+Lampa.Storage.set('optionsNEW', '{}'); //обнуляем метку при каждом входе
+	setTimeout(function() {
+	   if(!Lampa.Storage.get('optionsNEW','false')) searchRandom(); 
+	}, 3000)
+	
 /* Функция подбора сервера
 		> задаём массив options с серверами
 		> проверяем, передан ли функции извне параметр need (если true - возвращаем сервер под номером number)
@@ -57,7 +62,7 @@
 	];
 
 /*  Функция рандомного выбора */
-if(!Lampa.Storage.get('optionsNEW','false')) searchRandom();
+
   function searchRandom(need, number) {
 	if (need) return options[number];
 	var randomIndex = Math.floor(Math.random() * optionsNEW.length);
@@ -68,7 +73,7 @@ if(!Lampa.Storage.get('optionsNEW','false')) searchRandom();
 /* Функция опроса серверов */
 	
 function myRequest(i) {
-	Lampa.Storage.set('optionsNEW', '{}'); //обнуляем метку при каждом входе
+	
 	setTimeout(function() {
 		var myLink = 'http://' + options[i] + ':8090';
 		var xhr = new XMLHttpRequest();
@@ -171,14 +176,12 @@ function checkAlive() {
 	function start_free(){
 		/* Если параметр не существует в localStorage или Автовыбор, выставляем случайный сервер в Дополнительную ссылку*/
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
-		 // if(Lampa.Storage.get('optionsNEW') == true) {	//проверяем наличие метки о создании нового списка
-		    setTimeout(function() {  
+		   // setTimeout(function() {  
 			Lampa.Storage.set('torrserver_use_link', 'two');
 			var myResult = searchRandom();
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-		    }, 3000) /* без тайм-аута при старте приложения не успевает сформироваться новый массив, если заработают метки на 
+		    //}, 3000) /* без тайм-аута при старте приложения не успевает сформироваться новый массив, если заработают метки на 
 			      созданиенового массива, возможно он и не нужен */
-		  //}
 		}
 		      //прячем кнопку по дефолту, так как у нас стоит пункт 'не показывать'
 		if (localStorage.getItem('switch_server_button') === null) {
