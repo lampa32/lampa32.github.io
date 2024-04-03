@@ -4,7 +4,7 @@
 Lampa.Storage.set('optionsNEW', '{}'); //обнуляем метку при каждом входе
 	setTimeout(function() {
 	   if(!Lampa.Storage.get('optionsNEW','false')) searchRandom(); 
-	}, 3000)
+	}, 10000)
 	
 /* Функция подбора сервера
 		> задаём массив options с серверами
