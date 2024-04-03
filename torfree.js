@@ -177,6 +177,7 @@ function checkAlive() {
 		/* Если параметр не существует в localStorage или Автовыбор, выставляем случайный сервер в Дополнительную ссылку*/
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
 		   var iWait = setInterval(function(){  
+		   var myResult = searchRandom();
   if (myResult !== 'undefined') {
     Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
     clearInterval(iWait);
