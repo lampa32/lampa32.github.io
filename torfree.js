@@ -1,10 +1,5 @@
 (function() {
 	'use strict';
-
-Lampa.Storage.set('optionsNEW', '{}'); //обнуляем метку при каждом входе
-	setTimeout(function() {
-	   if(!Lampa.Storage.get('optionsNEW','false')) searchRandom(); 
-	}, 10000)
 	
 /* Функция подбора сервера
 		> задаём массив options с серверами
@@ -77,13 +72,12 @@ function myRequest(i) {
 	setTimeout(function() {
 		var myLink = 'http://' + options[i] + ':8090';
 		var xhr = new XMLHttpRequest();
-		xhr.timeout = 2000; //тут сомневаюсь
+		xhr.timeout = 2000; 
 		xhr.open("GET", myLink, true);
 		xhr.send();
 		xhr.onload = function() {
 			if (xhr.status == 200) {
 				optionsNEW.push(options[i]);  //формируем новый массив
-				Lampa.Storage.set('optionsNEW', true); //ставим метку после создания нового списка
 			}
 			if (xhr.status == 404) {
 				console.log("FreeTorr", 'Сервер ' + options[i] + ' умер');
@@ -98,7 +92,7 @@ function myRequest(i) {
 		xhr.onerror = function() {
                                 console.log("FreeTorr", 'Сервер ' + options[i] + ' отверг соединение или не существует');
 		}
-	}, 1000) // тут тоже, если будет много серверов, достаточно будет?
+	}, 1000) 
 }
 
 /* Функция чека каждого сервера через опрос на наличие доступности */
@@ -160,13 +154,13 @@ function checkAlive() {
     }
   })
 }
-	   //запускаем функцию start_free при первой установке плагина
+	   //запускаем функцию start_free если Lampa запустилась
    var tor_timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
             clearInterval(tor_timer);
             start_free();
         }
-    },100);
+    },200);
 
 /* Видимо так
 	> ставим метку tor_free - автовыбор сервера активен или нет?
@@ -176,13 +170,11 @@ function checkAlive() {
 	function start_free(){
 		/* Если параметр не существует в localStorage или Автовыбор, выставляем случайный сервер в Дополнительную ссылку*/
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
-		   var iWait = setInterval(function(){  
-		   var myResult = searchRandom();
-  if (myResult !== 'undefined') {
-    Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-    clearInterval(iWait);
-  }
-},500)
+		   setTimeout(function() {  
+			Lampa.Storage.set('torrserver_use_link', 'two');
+			var myResult = searchRandom();
+			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
+		    }, 3000) //без таймаута undefined
 		}
 		      //прячем кнопку по дефолту, так как у нас стоит пункт 'не показывать'
 		if (localStorage.getItem('switch_server_button') === null) {
@@ -285,23 +277,23 @@ function checkAlive() {
 	                onChange: function (value) {
 
 			      if (value == '1') {
-				      setTimeout(function(){
-	                                  $('#SWITCH_SERVER').hide();
-		                        }, 100)
-                                Lampa.Storage.listener.follow('change', function (event) {
-                                    if (event.name == 'activity') {
-                                      if (Lampa.Activity.active().component !== 'torrents') {  
-	                                setTimeout(function(){
-	                                  $('#SWITCH_SERVER').hide();
-		                        }, 100)  
-                                      }
-                                     if (Lampa.Activity.active().component === 'torrents') {
-	                                setTimeout(function(){
-	                                  $('#SWITCH_SERVER').hide();
-		                        }, 100)
-                                     }
-                                   }
-                                })
+				     setTimeout(function(){
+	                               $('#SWITCH_SERVER').hide();
+		                      }, 100)
+                                      Lampa.Storage.listener.follow('change', function (event) {
+                                          if (event.name == 'activity') {
+                                             if (Lampa.Activity.active().component !== 'torrents') {  
+	                                        setTimeout(function(){
+	                                           $('#SWITCH_SERVER').hide();
+		                                }, 100)  
+                                             }
+                                             if (Lampa.Activity.active().component === 'torrents') {
+	                                        setTimeout(function(){
+	                                           $('#SWITCH_SERVER').hide();
+		                                }, 100)
+                                             }
+                                           }
+                                       })
                               }
                               if (value == '2') {
 				      hideBut();
@@ -310,20 +302,20 @@ function checkAlive() {
 				      setTimeout(function(){
 	                                  $('#SWITCH_SERVER').show();
 		                        }, 100)
-                                 Lampa.Storage.listener.follow('change', function (event) {
-                                    if (event.name == 'activity') {
-                                      if (Lampa.Activity.active().component !== 'torrents') {
-	                                setTimeout(function(){
-	                                  $('#SWITCH_SERVER').show();
-		                        }, 100)
-                                      }
-                                     if (Lampa.Activity.active().component === 'torrents') {
-	                                setTimeout(function(){
-	                                  $('#SWITCH_SERVER').show();
-		                        }, 100)
-                                     }
-                                   }
-                                })
+                                        Lampa.Storage.listener.follow('change', function (event) {
+                                            if (event.name == 'activity') {
+                                                if (Lampa.Activity.active().component !== 'torrents') {
+	                                          setTimeout(function(){
+	                                             $('#SWITCH_SERVER').show();
+		                                  }, 100)
+                                                }
+                                                if (Lampa.Activity.active().component === 'torrents') {
+	                                           setTimeout(function(){
+	                                              $('#SWITCH_SERVER').show();
+		                                   }, 100)
+                                                }
+                                             }
+                                         })
                               }
 				   
 			},
