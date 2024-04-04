@@ -246,6 +246,8 @@
                 $("[data-action=mytorrents]").eq(0).remove();
                 $("[data-action=about]").eq(0).remove();
                 $("[data-action=console]").eq(0).remove();
+		// удаляем раздел Актёры с главного меню
+		$("[data-action=myperson]").eq(0).remove();
             }
         });
     }
