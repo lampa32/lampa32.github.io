@@ -80,17 +80,17 @@ function myRequest(i) {
 				optionsNEW.push(options[i]);  //формируем новый массив
 			}
 			if (xhr.status == 404) {
-				//console.log("FreeTorr", 'Сервер ' + options[i] + ' умер');
+				console.log("FreeTorr", 'Сервер ' + options[i] + ' умер');
 			}
 			if (xhr.status == 401) {
-				//console.log("FreeTorr", 'Сервер ' + options[i] + ' запаролен');
+				console.log("FreeTorr", 'Сервер ' + options[i] + ' запаролен');
 			}
 		}
 		xhr.ontimeout = function() {
-				//console.log("FreeTorr", 'Сервер ' + options[i] + ' не ответил');
+				console.log("FreeTorr", 'Сервер ' + options[i] + ' не ответил');
 		}
 		xhr.onerror = function() {
-                                //console.log("FreeTorr", 'Сервер ' + options[i] + ' отверг соединение или не существует');
+                                console.log("FreeTorr", 'Сервер ' + options[i] + ' отверг соединение или не существует');
 		}
 	}, 1000) 
 }
