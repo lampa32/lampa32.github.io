@@ -126,7 +126,7 @@ function checkAlive() {
 	$('#SWITCH_SERVER').on('hover:enter hover:click hover:touch', function() {
 		//start_free(); // если делать через функцию, будет тайм-аут
 		Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
-		Lampa.Noty.show("TorrServer изменён")
+		Lampa.Noty.show("TorrServer изменён");
 	});
    } 
 
@@ -219,6 +219,7 @@ Lampa.SettingsApi.addParam({
                                         }
 					/* Если  Автовыбор */
 					if (value == '1') {
+						Lampa.Noty.show("TorrServer изменён");
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
 						Lampa.Settings.update();
