@@ -145,7 +145,7 @@ function checkAlive() {
                if (Lampa.Activity.active().component !== 'torrents') {
 	          setTimeout(function(){
 	              $('#SWITCH_SERVER').hide();
-		  }, 100)
+		  }, 10)
                }
 	    //показываем кнопку если зашли в торренты
                if (Lampa.Activity.active().component === 'torrents') {
@@ -279,18 +279,18 @@ Lampa.SettingsApi.addParam({
 			      if (value == '1') {
 				     setTimeout(function(){
 	                               $('#SWITCH_SERVER').hide();
-		                      }, 100)
+		                      }, 10)
                                       Lampa.Storage.listener.follow('change', function (event) {
                                           if (event.name == 'activity') {
                                              if (Lampa.Activity.active().component !== 'torrents') {  
 	                                        setTimeout(function(){
 	                                           $('#SWITCH_SERVER').hide();
-		                                }, 100)  
+		                                }, 10)  
                                              }
                                              if (Lampa.Activity.active().component === 'torrents') {
 	                                        setTimeout(function(){
 	                                           $('#SWITCH_SERVER').hide();
-		                                }, 100)
+		                                }, 10)
                                              }
                                            }
                                        })
@@ -301,18 +301,18 @@ Lampa.SettingsApi.addParam({
 			      if (value == '3') {
 				      setTimeout(function(){
 	                                  $('#SWITCH_SERVER').show();
-		                        }, 100)
+		                        }, 10)
                                         Lampa.Storage.listener.follow('change', function (event) {
                                             if (event.name == 'activity') {
                                                 if (Lampa.Activity.active().component !== 'torrents') {
 	                                          setTimeout(function(){
 	                                             $('#SWITCH_SERVER').show();
-		                                  }, 100)
+		                                  }, 10)
                                                 }
                                                 if (Lampa.Activity.active().component === 'torrents') {
 	                                           setTimeout(function(){
 	                                              $('#SWITCH_SERVER').show();
-		                                   }, 100)
+		                                   }, 10)
                                                 }
                                              }
                                          })
