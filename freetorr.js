@@ -80,17 +80,17 @@ function myRequest(i) {
 				optionsNEW.push(options[i]);  //формируем новый массив
 			}
 			if (xhr.status == 404) {
-				console.log("FreeTorr", 'Сервер ' + options[i] + ' умер');
+				//console.log("FreeTorr", 'Сервер ' + options[i] + ' умер');
 			}
 			if (xhr.status == 401) {
-				console.log("FreeTorr", 'Сервер ' + options[i] + ' запаролен');
+				//console.log("FreeTorr", 'Сервер ' + options[i] + ' запаролен');
 			}
 		}
 		xhr.ontimeout = function() {
-				console.log("FreeTorr", 'Сервер ' + options[i] + ' не ответил');
+				//console.log("FreeTorr", 'Сервер ' + options[i] + ' не ответил');
 		}
 		xhr.onerror = function() {
-                                console.log("FreeTorr", 'Сервер ' + options[i] + ' отверг соединение или не существует');
+                                //console.log("FreeTorr", 'Сервер ' + options[i] + ' отверг соединение или не существует');
 		}
 	}, 1000) 
 }
@@ -135,32 +135,32 @@ function checkAlive() {
   function hideBut() {
 
 	 //прячем кнопку при старте приложения 
-      setTimeout(function(){
-         $('#SWITCH_SERVER').hide()
-      }, 1000);
+              setTimeout(function(){
+                $('#SWITCH_SERVER').hide()
+              }, 1000);
 	  
            //прячем кнопку если мы не в торрентах
-  Lampa.Storage.listener.follow('change', function (event) {
-    if (event.name == 'activity') {
-      if (Lampa.Activity.active().component !== 'torrents') {
-	      setTimeout(function(){
-	      $('#SWITCH_SERVER').hide();
-		      }, 100)
-      }
+       Lampa.Storage.listener.follow('change', function (event) {
+            if (event.name == 'activity') {
+               if (Lampa.Activity.active().component !== 'torrents') {
+	          setTimeout(function(){
+	              $('#SWITCH_SERVER').hide();
+		  }, 100)
+               }
 	    //показываем кнопку если зашли в торренты
-      if (Lampa.Activity.active().component === 'torrents') {
-	      $('#SWITCH_SERVER').show();
-      }
-    }
-  })
-}
+               if (Lampa.Activity.active().component === 'torrents') {
+	          $('#SWITCH_SERVER').show();
+               }
+            }
+        })
+  }
 	   //запускаем функцию start_free если Lampa запустилась
-   var tor_timer = setInterval(function(){
-        if(typeof Lampa !== 'undefined'){
-            clearInterval(tor_timer);
-            start_free();
-        }
-    },200);
+           var tor_timer = setInterval(function(){
+              if(typeof Lampa !== 'undefined'){
+                  clearInterval(tor_timer);
+                  start_free();
+              }
+           },200);
 
 /* Видимо так
 	> ставим метку tor_free - автовыбор сервера активен или нет?
@@ -180,13 +180,13 @@ function checkAlive() {
 		if (localStorage.getItem('switch_server_button') === null) {
 		    setTimeout(function() {  
 		       $('#SWITCH_SERVER').hide();
-		      }, 1000)
+		    }, 1000)
 		}
 		if(Lampa.Platform.is('android')) Lampa.Storage.set('internal_torrclient', true);
 	}
 
 /* Создаем параметр для выбора сервера */
-     Lampa.SettingsApi.addParam({
+Lampa.SettingsApi.addParam({
 				component: 'server',
 				param: {
 					name: 'torrserv',
@@ -233,10 +233,10 @@ function checkAlive() {
 				},
 				onRender: function (item) {
 					setTimeout(function() {
-						if($('div[data-name="torrserv"]').length > 1) item.hide();
+					   if($('div[data-name="torrserv"]').length > 1) item.hide();
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
-						if(Lampa.Storage.field('torrserv') == '1') {
+					   if(Lampa.Storage.field('torrserv') == '1') {
 							//прячем лишние пункты и переносим фокус
 						 var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
                                                   Lampa.Controller.focus(M)
@@ -245,16 +245,16 @@ function checkAlive() {
 	                                          $('div[data-name="torrserver_url"]').hide()
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
-						}
-						if(Lampa.Storage.field('torrserv') == '0') {
+					    }
+					    if(Lampa.Storage.field('torrserv') == '0') {
 						 var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
                                                   Lampa.Controller.focus(M)
                                                   Lampa.Controller.toggle('settings_component')
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
-						}
-					}, 0);
-                }
+					    }
+					 }, 0);
+                               }
    });
 
 /* Создаем параметр для отображения кнопки смены сервера*/
@@ -267,9 +267,9 @@ function checkAlive() {
 							1:	'Не показывать',
 							2:	'Показывать только в торрентах',
 					                3:      'Показывать всегда',
-						},
-                                   default: '1',
-                                   },
+					},
+                                        default: '1',
+                                },
 			field: {
 				name: 'Кнопка для смены сервера',
 				description: 'Параметр включает отображение кнопки в верхнем баре для быстрой смены сервера' 
@@ -297,6 +297,7 @@ function checkAlive() {
                               }
                               if (value == '2') {
 				      hideBut();
+			      }
 			      if (value == '3') {
 				      setTimeout(function(){
 	                                  $('#SWITCH_SERVER').show();
