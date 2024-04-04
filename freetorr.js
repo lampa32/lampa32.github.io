@@ -296,24 +296,7 @@ function checkAlive() {
                                        })
                               }
                               if (value == '2') {
-				      setTimeout(function(){
-	                               $('#SWITCH_SERVER').hide();
-		                      }, 100)
-                                      Lampa.Storage.listener.follow('change', function (event) {
-                                          if (event.name == 'activity') {
-                                             if (Lampa.Activity.active().component !== 'torrents') {  
-	                                        setTimeout(function(){
-	                                           $('#SWITCH_SERVER').hide();
-		                                }, 100)  
-                                             }
-                                             if (Lampa.Activity.active().component === 'torrents') {
-	                                        setTimeout(function(){
-	                                           $('#SWITCH_SERVER').show();
-		                                }, 100)
-                                             }
-                                           }
-                                       })
-			      }
+				      hideBut();
 			      if (value == '3') {
 				      setTimeout(function(){
 	                                  $('#SWITCH_SERVER').show();
