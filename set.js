@@ -1,6 +1,8 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
+
+	Lampa.Storage.set('switch_server_button', '2');
 	
    window.lampa_settings.torrents_use = true;
    window.lampa_settings.demo = false;
