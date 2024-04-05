@@ -264,6 +264,7 @@ function myMenu(){
 			eLoop = 0
 			//Lampa.Noty.show('Интервал очищен по условию')
 			myMenu();
+			    checkAlive();
 			$('.empty__title').remove();
 			clearInterval(myInterval);
 		    }
