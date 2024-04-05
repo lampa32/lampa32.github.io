@@ -237,7 +237,6 @@ function myMenu(){
 	items: menu,
 	onBack: function onBack() {
 	    Lampa.Controller.toggle(enabled);
-		checkAlive();
 	},
 	onSelect: function onSelect(a) {
 	    Lampa.Storage.set('jackett_url', a.url)&Lampa.Storage.set('jackett_key', a.jac_key)&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
