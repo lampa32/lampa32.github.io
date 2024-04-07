@@ -149,11 +149,9 @@ function checkAlive() {
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
 		    }, 3500) //без таймаута undefined
 		}
-		      //прячем кнопку по дефолту, так как у нас стоит пункт 'не показывать'
+		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию hideBut
 		if (localStorage.getItem('switch_server_button') === null) {
-		    setTimeout(function() {  
-		       $('#SWITCH_SERVER').hide();
-		    }, 1000)
+		    hideBut();
 		}
 		if(Lampa.Platform.is('android')) Lampa.Storage.set('internal_torrclient', true);
 	}
@@ -242,7 +240,7 @@ Lampa.SettingsApi.addParam({
 							2:	'Показывать только в торрентах',
 					                3:      'Показывать всегда',
 					},
-                                        default: '1',
+                                        default: '2',
                                 },
 			field: {
 				name: 'Кнопка для смены сервера',
