@@ -1,4 +1,4 @@
-/*(function() {
+(function() {
 	'use strict';
 Lampa.Keypad.listener.follow('keydown', function (e) {
   		var next = e.code === 427 || e.code === 33;
