@@ -91,7 +91,7 @@ function checkAlive() {
 	if(Lampa.Storage.get('switch_server_button') == 1) 
 		setTimeout(function(){
                    $('#SWITCH_SERVER').hide()
-                }, 1000);
+                }, 500);
 	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
 	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
 	
@@ -110,7 +110,7 @@ function checkAlive() {
 	 //прячем кнопку при старте приложения 
               setTimeout(function(){
                 $('#SWITCH_SERVER').hide()
-              }, 1000);
+              }, 500);
 	  
            //прячем кнопку если мы не в торрентах
        Lampa.Storage.listener.follow('change', function (event) {
