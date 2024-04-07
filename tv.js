@@ -250,36 +250,5 @@ Lampa.Keypad.listener.follow('keydown', function (e) {
         });
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/94675067" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
-/* Lampa.Listener.follow('app', function (e) {
-     if (e.type == 'ready') {
-             setTimeout(function(){
-                        $("[data-action=about]").eq(0).remove();
-                        $("[data-action=console]").eq(0).remove();
-                        $("[data-action=settings]").eq(0).remove();
-             },10);
-     }
-  });
-	window.lampa_settings.plugins_use = false;
-        window.lampa_settings.account_use = false;
-  setTimeout(function(){
-     $('.open--settings').remove();
-   }, 1000)
-Lampa.Settings.listener.follow('open', function (e) { 
- if (e.name == 'main') {
-   setTimeout(function() {
-     $('div[data-component="more"]').remove();
-   }, 5)
- }
-});*/
-var userAgent = navigator.userAgent;
-var agentFilter = userAgent.match(/VIDAA/i); //вводим юзер агент из консоли'Android'
-var result = Lampa.Platform.is('android') //вводим результат что платформа 'android'
-if (!result) {
- if (agentFilter == 'VIDAA') // делаем условие что если платформа не 'android', а юзер агент 'Android'
- {
- localStorage.clear();
- window.location.reload();
- }
-} 	    
+	
 })();
-*/
