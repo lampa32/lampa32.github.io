@@ -142,6 +142,7 @@ function checkAlive() {
 	*/
 	function start_free(){
 		/* Если параметр не существует в localStorage или Автовыбор, выставляем случайный сервер в Дополнительную ссылку*/
+	      if(typeof Lampa !== 'undefined') {
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
 		   setTimeout(function() {  
 			Lampa.Storage.set('torrserver_use_link', 'two');
@@ -149,6 +150,7 @@ function checkAlive() {
 			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
 		    }, 3500) //без таймаута undefined
 		}
+	      }
 		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию hideBut
 		if (localStorage.getItem('switch_server_button') === null) {
 		    hideBut();
