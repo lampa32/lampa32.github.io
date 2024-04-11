@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-    Activity$1.listener.follow('backward', function (event) {
+    Lampa.Listener.follow('backward', function (event) {
       if (!start_time) start_time = Date.now();
       if (event.count == 1 && Date.now() > start_time + 1000 * 2) {
         var enabled = Controller.enabled();
