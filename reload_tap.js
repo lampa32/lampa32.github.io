@@ -3,7 +3,7 @@
     Lampa.Platform.tv();
     Lampa.Listener.follow('backward', function (event) {
      // if (!start_time) start_time = Date.now();
-   //   if (event.count == 1 && Date.now() > start_time + 1000 * 2) {
+    //  if (event.count == 1 && Date.now() > start_time + 1000 * 2) {
      //   var enabled = Controller.enabled();
         Select.show({
           title: Lang.translate('title_out'),
@@ -33,6 +33,6 @@
             Controller.toggle(enabled.name);
           }
         });
-      }
+     // }
     });
 })();
