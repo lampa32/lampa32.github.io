@@ -8,7 +8,7 @@
 	    if (e.type == 'complite') {
 		setTimeout(function(){
 		    if ($('.view--torrent').length > 1) $('.view--torrent')[1].remove();
-		    $('.view--torrent').insertBefore($('.view--trailer'))
+		    $('.view--torrent').insertBefore($('.play--button'))
 		},50)
 	    }
 	})
