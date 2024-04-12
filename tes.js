@@ -4,7 +4,7 @@
 
     function start() {
 
-	  Lampa.Controller.listener.follow('toggle', function(e) {
+Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') {
       setTimeout(function() {
         if (document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
