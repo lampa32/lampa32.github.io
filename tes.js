@@ -3,6 +3,19 @@
     Lampa.Platform.tv();
 
     function start() {
+
+	  Lampa.Controller.listener.follow('toggle', function(e) {
+    if(e.name == 'select') {
+      setTimeout(function() {
+        if (document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
+          document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child(3) > div").text('Перезагрузить')
+          $('.selectbox-item')[1].on('hover:enter hover:click hover:touch', function() {
+            location.reload();
+          });
+        }
+      }, 100);
+    }
+  });
 	
 	Lampa.Listener.follow('full', function(e) {
 	    if (e.type == 'complite') {
