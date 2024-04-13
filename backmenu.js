@@ -13,8 +13,7 @@ function showServerInput() {
           value: '',
           free: true,
 	  onBack: function onBack() {
-      stay = 0;
-      //Lampa.Controller.toggle(enabled);
+      Lampa.Controller.toggle(enabled);
     },
       }, function (value) {
         // здесь редирект;
