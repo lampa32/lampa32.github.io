@@ -12,7 +12,7 @@ function showTextInput() {
       value: '',
       layout: 'nums',
       keyboard: 'lampa'
-    }, call);
+    });
 }	
 
        var stay = 0
