@@ -53,7 +53,7 @@ function showMeExitMenu() {
     if(e.name == 'select' && stay !== 1 && document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
       setTimeout(function() {
         stay = 1
-        //window.history.back();
+        window.history.back();
         showMeExitMenu()
       },10);
     };
