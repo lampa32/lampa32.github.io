@@ -5,13 +5,14 @@
 function start() {
 
 function showTextInput() {
-    Lampa.Input.Edit({
-      free: true,
-      title: '',
-      nosave: false,
-      value: '',
-      keyboard: 'lampa'
-    });
+          Lampa.Input.edit({
+          title: "Укажите Сервер",
+          value: '',
+          free: true
+      }), function (value) {
+        // здесь редирект;
+        if (value == '')  return;
+          }
 }	
 
        var stay = 0
