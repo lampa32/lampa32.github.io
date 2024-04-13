@@ -8,7 +8,7 @@ var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
 function showServerInput() {
-	/*  stay = 1;
+	  stay = 1;
       Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
@@ -17,44 +17,7 @@ function showServerInput() {
         // здесь редирект;
 	window.location.href = server_protocol + value;
         if (value == '') return;
-      })*/
-	var inputValue = ''; // Переменная для хранения введенного значения
-
-    // Создание диалогового окна
-    var dialog = document.createElement('div');
-    dialog.classList.add('dialog');
-
-    // Создание поля ввода
-    var input = document.createElement('input');
-    input.setAttribute('type', 'text');
-    input.setAttribute('placeholder', 'Введите значение');
-    dialog.appendChild(input);
-
-    // Создание кнопки "Ок"
-    var okButton = document.createElement('button');
-    okButton.textContent = 'Ок';
-    okButton.addEventListener('click', function() {
-        inputValue = input.value;
-        // Выполнение действий с введенным значением
-        // Например, редирект или другая обработка
-        console.log('Введенное значение:', inputValue);
-        // Закрытие диалогового окна
-        dialog.remove();
-    });
-    dialog.appendChild(okButton);
-
-    // Создание кнопки "Отмена"
-    var cancelButton = document.createElement('button');
-    cancelButton.textContent = 'Отмена';
-    cancelButton.addEventListener('click', function() {
-        // Закрытие диалогового окна без выполнения действий
-        console.log('Действие отменено');
-        dialog.remove();
-    });
-    dialog.appendChild(cancelButton);
-
-    // Добавление диалогового окна на страницу
-    document.body.appendChild(dialog);
+      })
 }	
 
 function closeApp() {
