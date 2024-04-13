@@ -4,7 +4,7 @@
 
 function start() {
 
-       var stay = 1
+       var stay = 0
 
 function closeApp() {
    Lampa.Activity.out();
