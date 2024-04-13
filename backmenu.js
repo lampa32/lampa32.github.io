@@ -8,15 +8,15 @@ var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
 function showServerInput() {
 	  stay = 1;
-          Lampa.Input.edit({
+      Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
           free: true,
       }, function (value) {
         // здесь редирект;
 	window.location.href = server_protocol + value;
-       // if (value == '')  return;
-          })
+        if (value == '')  stay = 0;
+      })
 }	
 
        var stay = 0
