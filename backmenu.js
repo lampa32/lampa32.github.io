@@ -6,8 +6,8 @@ function start() {
 
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
-function showTextInput() {
-	  Lampa.Select.close();
+function showServerInput() {
+	  onBack();
           Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
@@ -65,7 +65,7 @@ function showMeExitMenu() {
       if (a.title == 'Выход') closeApp();
       if (a.title == 'Перезагрузить') location.reload();
       if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
-      if (a.title == 'Сменить адрес') showTextInput();
+      if (a.title == 'Сменить адрес') showServerInput();
 	    
       Lampa.Controller.toggle(enabled);
     }
