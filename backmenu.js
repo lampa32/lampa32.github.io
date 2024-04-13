@@ -4,6 +4,8 @@
 
 function start() {
 
+var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
+
 function showTextInput() {
           Lampa.Input.edit({
           title: "Укажите Сервер",
@@ -11,6 +13,7 @@ function showTextInput() {
           free: true
       }, function (value) {
         // здесь редирект;
+	window.location.href = server_protocol + value;
         if (value == '')  return;
           })
 }	
