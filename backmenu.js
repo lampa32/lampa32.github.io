@@ -9,10 +9,10 @@ function showTextInput() {
           title: "Укажите Сервер",
           value: '',
           free: true
-      }), function (value) {
+      }, function (value) {
         // здесь редирект;
         if (value == '')  return;
-          }
+          })
 }	
 
        var stay = 0
