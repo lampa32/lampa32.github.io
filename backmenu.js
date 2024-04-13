@@ -13,6 +13,7 @@ function showTextInput() {
           free: true
       }, function (value) {
         // здесь редирект;
+		  window.history.back();
 	window.location.href = server_protocol + value;
         if (value == '')  return;
           })
