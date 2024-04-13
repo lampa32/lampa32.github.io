@@ -5,7 +5,14 @@
 function start() {
 
 function showTextInput() {
-    Lampa.Input.Edit();
+    Lampa.Input.Edit({
+      free: true,
+      title: title,
+      nosave: true,
+      value: '',
+      layout: 'nums',
+      keyboard: 'lampa'
+    }, call);
 }	
 
        var stay = 0
