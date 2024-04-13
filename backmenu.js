@@ -6,9 +6,6 @@ function start() {
 
 function showTextInput() {
     input = $('<input type="text" id="orsay-keyboard" class="simple-keyboard-input selector" placeholder="' + '..." />');
-        var time_blur = 0;
-        var time_focus = 0;
-        var stated, ended;
 }	
 
        var stay = 0
