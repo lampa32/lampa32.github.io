@@ -7,13 +7,13 @@ function start() {
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
 function showTextInput() {
+	  showMeExitMenu.close();
           Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
           free: true
       }, function (value) {
         // здесь редирект;
-		  window.history.back();
 	window.location.href = server_protocol + value;
         if (value == '')  return;
           })
