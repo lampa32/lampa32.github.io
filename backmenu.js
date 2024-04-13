@@ -5,15 +5,10 @@
 function start() {
 
 function showTextInput() {
-    var userInput = prompt("Сменить адрес:");
-    if (userInput !== null) {
-        // Пользователь ввел текст и нажал "ОК"
-        // Здесь вы можете обработать введенный пользователем текст
-        console.log("Пользователь ввел: " + userInput);
-    } else {
-        // Пользователь отменил ввод текста
-        console.log("Пользователь отменил ввод текста");
-    }
+    input = $('<input type="text" id="orsay-keyboard" class="simple-keyboard-input selector" placeholder="' + '..." />');
+        var time_blur = 0;
+        var time_focus = 0;
+        var stated, ended;
 }	
 
        var stay = 0
