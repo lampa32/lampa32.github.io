@@ -17,7 +17,7 @@ function showServerInput() {
         // здесь редирект;
 	window.location.href = server_protocol + value;
         if (value == '') {
-	   back();
+	   Lampa.back();
 	}
       })
 }	
