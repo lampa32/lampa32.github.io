@@ -5,7 +5,7 @@
 function start() {
 
 function showTextInput() {
-    input = $('<input type="text" id="orsay-keyboard" class="simple-keyboard-input selector" placeholder="' + '..." />');
+    Lampa.Input.Edit();
 }	
 
        var stay = 0
