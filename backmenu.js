@@ -11,7 +11,7 @@ function closeApp() {
     if (Lampa.Platform.is('apple_tv')) window.location.assign('exit://exit');
     if (Lampa.Platform.is('tizen')) tizen.application.getCurrentApplication().exit();
     if (Lampa.Platform.is('webos') && typeof window.close == 'function') window.close();
-    if (Lampa.Platform.is('android')) Android.exit();
+    if (Lampa.Platform.is('android')) Lampa.Android.exit();
     if (Lampa.Platform.is('orsay')) Orsay.exit();
     if (Lampa.Platform.is('netcast')) window.NetCastBack();
     if (Lampa.Platform.is('browser')) window.close();
