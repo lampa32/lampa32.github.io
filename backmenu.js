@@ -4,6 +4,7 @@
 
 function start() {
 
+var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
 function showServerInput() {
@@ -18,8 +19,6 @@ function showServerInput() {
         if (value == '')  stay = 0;
       })
 }	
-
-       var stay = 0
 
 function closeApp() {
    Lampa.Activity.out();
