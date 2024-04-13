@@ -15,7 +15,7 @@ function showServerInput() {
       }, function (value) {
         // здесь редирект;
 	window.location.href = server_protocol + value;
-        if (value == '')  return;
+        if (value == '')  stay = 0;
           })
 }	
 
