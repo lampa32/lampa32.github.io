@@ -7,7 +7,6 @@ function start() {
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
 function showServerInput() {
-	  onBack();
           Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
