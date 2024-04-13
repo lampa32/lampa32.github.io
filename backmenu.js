@@ -44,7 +44,7 @@ function showMeExitMenu() {
       if (a.title == 'Выход') closeApp();
       if (a.title == 'Перезагрузить') location.reload();
       if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
-      //Lampa.Controller.toggle(enabled);
+      Lampa.Controller.toggle(enabled);
     }
     })
 }
