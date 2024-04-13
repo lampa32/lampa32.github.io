@@ -12,13 +12,10 @@ function showServerInput() {
           title: "Укажите Сервер",
           value: '',
           free: true,
-	  onBack: function onBack() {
-      Lampa.Controller.toggle(enabled);
-    },
       }, function (value) {
         // здесь редирект;
 	window.location.href = server_protocol + value;
-        if (value == '')  return;
+       // if (value == '')  return;
           })
 }	
 
