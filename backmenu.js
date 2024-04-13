@@ -7,10 +7,9 @@ function start() {
 function showTextInput() {
     Lampa.Input.Edit({
       free: true,
-      title: title,
-      nosave: true,
+      title: '',
+      nosave: false,
       value: '',
-      layout: 'nums',
       keyboard: 'lampa'
     });
 }	
