@@ -7,11 +7,15 @@ function start() {
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
 function showServerInput() {
-	  //stay = 1;
+	  stay = 1;
           Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
-          free: true
+          free: true,
+	  onBack: function onBack() {
+      stay = 0;
+      //Lampa.Controller.toggle(enabled);
+    },
       }, function (value) {
         // здесь редирект;
 	window.location.href = server_protocol + value;
