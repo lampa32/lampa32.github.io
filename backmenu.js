@@ -4,6 +4,18 @@
 
 function start() {
 
+function showTextInput() {
+    var userInput = prompt("Сменить адрес:");
+    if (userInput !== null) {
+        // Пользователь ввел текст и нажал "ОК"
+        // Здесь вы можете обработать введенный пользователем текст
+        console.log("Пользователь ввел: " + userInput);
+    } else {
+        // Пользователь отменил ввод текста
+        console.log("Пользователь отменил ввод текста");
+    }
+}	
+
        var stay = 0
 
 function closeApp() {
@@ -34,6 +46,10 @@ function showMeExitMenu() {
   title:  'YouTube'
     });
 
+    menu.push({
+  title:  'Сменить адрес'
+    });
+
     Lampa.Select.show({
     title: 'Выход',
     items: menu,
@@ -46,6 +62,8 @@ function showMeExitMenu() {
       if (a.title == 'Выход') closeApp();
       if (a.title == 'Перезагрузить') location.reload();
       if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
+      if (a.title == 'Сменить адрес') showTextInput();
+	    
       Lampa.Controller.toggle(enabled);
     }
     })
