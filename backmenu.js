@@ -14,6 +14,8 @@ function closeApp() {
       if (Lampa.Platform.is("android")) Lampa.Android.exit();
       if (Lampa.Platform.is("orsay")) Lampa.Orsay.exit();
       if (Lampa.Platform.is("nw")) nw.Window.get().close();
+      if (Lampa.Platform.is('netcast')) window.NetCastBack();
+      if (Lampa.Platform.is('browser')) window.close();
 }
 
 function showMeExitMenu() {
