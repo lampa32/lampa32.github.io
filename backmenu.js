@@ -13,6 +13,9 @@ function showServerInput() {
           title: "Укажите Сервер",
           value: '',
           free: true,
+	  onBack: function onBack() {
+                  Lampa.Controller.toggle('content');
+                }                  
       }, function (value) {
         // здесь редирект;
 	window.location.href = server_protocol + value;
