@@ -4,7 +4,7 @@
 
 function start() {
 
-       var stay = 0
+       var stay = 1
 
 function closeApp() {
    Lampa.Activity.out();
@@ -38,7 +38,7 @@ function showMeExitMenu() {
     title: 'Выход',
     items: menu,
     onBack: function onBack() {
-      stay = 1;
+      stay = 0;
       //Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
