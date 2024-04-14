@@ -14,14 +14,14 @@ function showServerInput() {
           value: '',
           free: true,
 	  backButton: true
-	      onBack: function() {
-            stay = 0;
-            Lampa.Activity.out();
-      }
+	      
       }, function (value) {
 	 if (value !== '') {
-        // здесь редирект;
 	window.location.href = server_protocol + value;
+	}
+	onBack: function() {
+            stay = 0;
+            Lampa.Activity.out();
 	}
       })
 }	
