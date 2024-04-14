@@ -19,9 +19,9 @@ function showServerInput() {
       }, function (value) {
         // здесь редирект;
 	window.location.href = server_protocol + value;
-        /*if (value == '') {
+        if (value == '') {
 	   return;
-	}*/
+	}
       })
 }	
 
