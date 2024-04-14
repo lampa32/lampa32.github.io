@@ -12,9 +12,7 @@ function showServerInput() {
       Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
-          free: true,
-	  backButton: true
-	      
+          free: true     
       }, function (value) {
 	 if (value !== '') {
 	window.location.href = server_protocol + value;
@@ -65,8 +63,7 @@ function showMeExitMenu() {
     onBack: function onBack() {
       Lampa.Activity.out();
 	    stay = 0;
-		    showMeExitMenu()
-      Lampa.Controller.toggle(enabled);
+      //Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
       stay = 0;
