@@ -37,6 +37,9 @@ function showMeExitMenu() {
   var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
+   var separator = { type: 'separator' };
+    menu.push(separator);
+	
     menu.push({
   subtitle:  'Общие',
   isSelectable: false
