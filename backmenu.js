@@ -17,6 +17,7 @@ function showServerInput() {
 	 if (value !== '') {
 	window.location.href = server_protocol + value;
 	}
+	else {showMeExitMenu();}
       })
 }
 
