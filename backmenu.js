@@ -61,7 +61,7 @@ function showMeExitMenu() {
     title: 'Выход',
     items: menu,
     onBack: function onBack() {
-      Lampa.Activity.out();
+    //  Lampa.Activity.out();
 	    stay = 0;
       Lampa.Controller.toggle(enabled);
     },
