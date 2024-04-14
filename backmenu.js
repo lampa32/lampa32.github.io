@@ -19,10 +19,6 @@ function showServerInput() {
 	 if (value !== '') {
 	window.location.href = server_protocol + value;
 	}
-	onBack: function() {
-            stay = 0;
-            Lampa.Activity.out();
-	}
       })
 }	
 
@@ -68,6 +64,7 @@ function showMeExitMenu() {
     items: menu,
     onBack: function onBack() {
       stay = 0;
+	    Lampa.Activity.out();
       //Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
