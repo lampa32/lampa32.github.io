@@ -74,6 +74,13 @@ function showMeExitMenu() {
       if (a.title == 'Сменить адрес') showServerInput();    
      // Lampa.Controller.toggle(enabled);
     }
+	    onBeforeSelect: function(item) {
+            // Предотвращаем выбор подзаголовков
+            if (item.subtitle) {
+                return false;
+            }
+            return true;
+}
     })
 }
   
