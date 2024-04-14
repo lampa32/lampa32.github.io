@@ -63,7 +63,7 @@ function showMeExitMenu() {
     items: menu,
     onBack: function onBack() {
       stay = 0;
-	    showMeExitMenu()
+	    window.history.back()
       //Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
