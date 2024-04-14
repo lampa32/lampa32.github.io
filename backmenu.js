@@ -71,7 +71,7 @@ function showMeExitMenu() {
       if (a.title == 'Перезагрузить') location.reload();
       if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
       if (a.title == 'Сменить адрес') showServerInput();    
-     // Lampa.Controller.toggle(enabled);
+      Lampa.Controller.toggle(enabled);
     }
     })
 }
@@ -79,7 +79,7 @@ function showMeExitMenu() {
   Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select' && stay !== 1 && document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
       setTimeout(function() {
-        stay = 0
+        stay = 1
         //window.history.back();
         showMeExitMenu()
       },10);
