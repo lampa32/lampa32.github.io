@@ -35,12 +35,12 @@ function closeApp() {
 
 function showMeExitMenu() {
   var enabled = Lampa.Controller.enabled().name;
-   /* var menu = [];
+    var menu = [];
 
-    menu.push({
+   // menu.push({
   subtitle:  'Общие',
   isSelectable: false
-    });
+   // });
 	
     menu.push({
   title:  'Выход'
@@ -56,26 +56,7 @@ function showMeExitMenu() {
 
     menu.push({
   title:  'Сменить адрес'
-    });*/
-	var menu = [];
-
-    // Добавляем подзаголовок как статический элемент
-    var subtitle = {
-        title: 'Общие',
-        isSelectable: false
-    };
-    menu.push(subtitle);
-
-    // Добавляем остальные пункты меню
-    var items = [
-        { title: 'Выход' },
-        { title: 'Перезагрузить' },
-        { title: 'YouTube' },
-        { title: 'Сменить адрес' }
-    ];
-
-    // Добавляем пункты меню
-    menu = menu.concat(items);
+    });
 
     Lampa.Select.show({
     title: 'Выход',
