@@ -12,7 +12,12 @@ function showServerInput() {
       Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
-          free: true
+          free: true,
+	  backButton: true
+	      onBack: function() {
+            stay = 0;
+            Lampa.Activity.out();
+      }
       }, function (value) {
 	 if (value !== '') {
         // здесь редирект;
@@ -58,10 +63,6 @@ function showMeExitMenu() {
   title:  'Сменить адрес'
     });
 
-    menu.push({
-        title: 'Назад'
-    });
-
     Lampa.Select.show({
     title: 'Выход',
     items: menu,
@@ -74,8 +75,7 @@ function showMeExitMenu() {
       if (a.title == 'Выход') closeApp();
       if (a.title == 'Перезагрузить') location.reload();
       if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
-      if (a.title == 'Сменить адрес') showServerInput();
-      if (a.title == 'Назад') showServerInput();    
+      if (a.title == 'Сменить адрес') showServerInput();    
       Lampa.Controller.toggle(enabled);
     }
     })
