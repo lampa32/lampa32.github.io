@@ -7,7 +7,7 @@ function start() {
 var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
-function showServerInput() {
+/*function showServerInput() {
 	  stay = 1;
       Lampa.Input.edit({
           title: "Укажите Сервер",
@@ -20,7 +20,24 @@ function showServerInput() {
 	window.location.href = server_protocol + value;
 	}
       })
-}	
+}	*/
+	function showServerInput() {
+    stay = 1;
+    Lampa.Input.edit({
+        title: "Укажите Сервер",
+        value: '',
+        free: true,
+        backButton: true,
+        onBack: function() {
+            stay = 0;
+            Lampa.Activity.out(); // Закрыть интерфейс ввода адреса без сохранения изменений
+        }
+    }, function (value) {
+        if (value !== '') {
+            window.location.href = server_protocol + value;
+        }
+    });
+} 
 
 function closeApp() {
    Lampa.Activity.out();
@@ -62,7 +79,8 @@ function showMeExitMenu() {
     Lampa.Select.show({
     title: 'Выход',
     items: menu,
-    onBack: function onBack() {
+    //onBack: function onBack() {
+	    onBack: function() {
       stay = 0;
 	    Lampa.Activity.out();
       //Lampa.Controller.toggle(enabled);
