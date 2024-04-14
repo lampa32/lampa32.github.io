@@ -37,10 +37,10 @@ function showMeExitMenu() {
   var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
-   // menu.push({
+    menu.push({
   subtitle:  'Общие',
   isSelectable: false
-   // });
+    });
 	
     menu.push({
   title:  'Выход'
