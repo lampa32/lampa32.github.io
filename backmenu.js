@@ -13,7 +13,10 @@ function showServerInput() {
           title: "Укажите Сервер",
           value: '',
           free: true,
-	  backButton: true
+	  onBack: function onBack() {
+            showMeExitMenu();
+      //Lampa.Controller.toggle(enabled);
+    },
       }, function (value) {
 	 if (value !== '') {
         // здесь редирект;
@@ -64,7 +67,6 @@ function showMeExitMenu() {
     items: menu,
     onBack: function onBack() {
       stay = 0;
-       showMeExitMenu();
       //Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
