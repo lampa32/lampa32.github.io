@@ -58,12 +58,15 @@ function showMeExitMenu() {
   title:  'Сменить адрес'
     });
 
+    menu.push({
+        title: 'Назад'
+    });
+
     Lampa.Select.show({
     title: 'Выход',
     items: menu,
     onBack: function onBack() {
       stay = 0;
-	    window.history.back()
       //Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
@@ -72,7 +75,7 @@ function showMeExitMenu() {
       if (a.title == 'Перезагрузить') location.reload();
       if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
       if (a.title == 'Сменить адрес') showServerInput();
-	    
+      if (a.title == 'Назад') showServerInput();    
       Lampa.Controller.toggle(enabled);
     }
     })
