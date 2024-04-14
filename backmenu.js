@@ -38,7 +38,7 @@ function showMeExitMenu() {
     var menu = [];
 
     menu.push({
-  title:  'Общие',
+  subtitle:  'Общие',
   isSelectable: false
     });
 	
