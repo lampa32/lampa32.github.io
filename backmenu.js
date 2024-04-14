@@ -8,21 +8,42 @@ var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
 function showServerInput() {
-	  stay = 1;
+	/*  stay = 1;
       Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
           free: true,
-	  onBack: function onBack() {
-                  Lampa.Controller.toggle('content');
-                }                  
       }, function (value) {
         // здесь редирект;
 	window.location.href = server_protocol + value;
         if (value == '') {
 	   return;
 	}
-      })
+      })*/
+	stay = 1;
+
+    // Создание диалогового окна ввода
+    Lampa.Input.edit({
+        title: "Укажите Сервер",
+        value: '',
+        free: true,
+        buttons: ["Отмена"], // Добавление кнопки "Отмена"
+        onBack: function onBack() {
+            Lampa.Controller.toggle('content');
+        }
+    }, function (value, index) {
+        // Обработка нажатия кнопки "Отмена"
+        if (index === -1) {
+            stay = 0; // Установка stay в 0, если нажата кнопка "Отмена"
+            return; // Возврат из функции
+        }
+
+        // Обработка ввода и редирект
+        if (value !== '') {
+            var server_protocol = 'http://'; // или 'https://' в зависимости от протокола
+            window.location.href = server_protocol + value;
+        }
+    });
 }	
 
 function closeApp() {
