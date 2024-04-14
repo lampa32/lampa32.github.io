@@ -13,6 +13,7 @@ function showServerInput() {
           title: "Укажите Сервер",
           value: '',
           free: true,
+	  backButton: true
       }, function (value) {
 	 if (value !== '') {
         // здесь редирект;
