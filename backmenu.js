@@ -38,6 +38,10 @@ function showMeExitMenu() {
     var menu = [];
 
     menu.push({
+  subtitle:  'Общие'
+    });
+	
+    menu.push({
   title:  'Выход'
     });
 
