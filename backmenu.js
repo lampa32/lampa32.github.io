@@ -6,7 +6,6 @@ function start() {
 
 var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
-var enabled = Controller.enabled()
 	
 function showServerInput() {
 	  //stay = 0;
