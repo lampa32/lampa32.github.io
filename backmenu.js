@@ -61,8 +61,8 @@ function showMeExitMenu() {
     items: menu,
     onBack: function onBack() {
 	    stay = 0;
-     Lampa.Controller.toggle(content);
-	    document.querySelector('.open--premium').focus();
+    // Lampa.Controller.toggle(content);
+	    window.history.back();
     },
     onSelect: function onSelect(a) {
       stay = 0;
