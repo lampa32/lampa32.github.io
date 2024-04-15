@@ -74,7 +74,10 @@ function closeApp() {
     }
     })
 }*/
-	function showMeExitMenu() {
+
+    var enabled = var lastSelectedMenuItem = null; // Глобальная переменная для хранения последнего выбранного пункта меню
+
+function showMeExitMenu() {
     var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
@@ -89,7 +92,7 @@ function closeApp() {
         title: 'Выход',
         items: menu,
         onBack: function onBack() {
-            stay = 0;
+            stay = 1;
             Lampa.Controller.toggle(enabled);
         },
         onSelect: function onSelect(a) {
@@ -101,10 +104,13 @@ function closeApp() {
         },
         onShow: function () {
             // Устанавливаем фокус на последний выбранный пункт меню перед закрытием меню
-            var selectedItem = document.querySelector('.selectbox-item.selected');
-            if (selectedItem) {
-                selectedItem.focus();
+            if (lastSelectedMenuItem) {
+                lastSelectedMenuItem.classList.add('selected');
             }
+        },
+        onHide: function () {
+            // Сохраняем последний выбранный пункт меню перед его закрытием
+            lastSelectedMenuItem = document.querySelector('.selectbox-item.selected');
         }
     });
 }
