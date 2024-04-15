@@ -75,7 +75,6 @@ function closeApp() {
     })
 }*/
 
-    let lastSelectedMenuItem = null; // Глобальная переменная для хранения последнего выбранного пункта меню
 let lastSelectedMenuItem = null;
 
 function showMeExitMenu() {
