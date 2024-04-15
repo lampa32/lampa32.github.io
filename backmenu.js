@@ -75,7 +75,7 @@ function closeApp() {
     })
 }*/
 
-    var enabled = var lastSelectedMenuItem = null; // Глобальная переменная для хранения последнего выбранного пункта меню
+    var lastSelectedMenuItem = null; // Глобальная переменная для хранения последнего выбранного пункта меню
 
 function showMeExitMenu() {
     var enabled = Lampa.Controller.enabled().name;
