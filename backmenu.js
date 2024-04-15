@@ -2,6 +2,13 @@
     'use strict';
     Lampa.Platform.tv();
 
+	document.addEventListener('keydown', function(event) {
+    if (event.key === 'Backspace' || event.keyCode === 8) {
+        // Действие при нажатии на кнопку "назад"
+        showMeExitMenu()
+    }
+});
+
 function start() {
 
 var stay = 0
