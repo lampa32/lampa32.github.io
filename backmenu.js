@@ -33,7 +33,8 @@ function closeApp() {
       if (Lampa.Platform.is('browser')) window.close();
 }
 
-/*function showMeExitMenu() {
+function showMeExitMenu() {
+	stay = 1;
   var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 	
@@ -73,44 +74,6 @@ function closeApp() {
      // Lampa.Controller.toggle(enabled);
     }
     })
-}*/
-
-let lastSelectedMenuItem = null;
-
-function showMeExitMenu() {
-    const enabled = Lampa.Controller.enabled().name;
-    const menu = [];
-
-    menu.push({ title: 'Выход' });
-    menu.push({ title: 'Перезагрузить' });
-    const separator = { type: 'separator' };
-    menu.push(separator);
-    menu.push({ title: 'YouTube' });
-    menu.push({ title: 'Сменить адрес' });
-
-    Lampa.Select.show({
-        title: 'Выход',
-        items: menu,
-        onBack: function onBack() {
-            stay = 1;
-            Lampa.Controller.toggle(enabled);
-        },
-        onSelect: function onSelect(a) {
-            stay = 0;
-            if (a.title == 'Выход') closeApp();
-            if (a.title == 'Перезагрузить') location.reload();
-            if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
-            if (a.title == 'Сменить адрес') showServerInput();
-        },
-        onShow: function () {
-            if (lastSelectedMenuItem) {
-                lastSelectedMenuItem.classList.add('selected');
-            }
-        },
-        onHide: function () {
-            lastSelectedMenuItem = document.querySelector('.selectbox-item.selected');
-        }
-    });
 }
   
   Lampa.Controller.listener.follow('toggle', function(e) {
