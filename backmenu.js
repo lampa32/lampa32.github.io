@@ -62,7 +62,13 @@ menu.push(disabledItem);
   title:  'Перезагрузить'
     });
 
-    menu.push({
+	var separator = { type: 'separator' };
+    menu.push(separator);
+	
+var separator = { type: 'separator' };
+    menu.push(separator);
+   
+	menu.push({
   title:  'YouTube'
     });
 
