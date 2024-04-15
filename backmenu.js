@@ -33,7 +33,7 @@ function closeApp() {
       if (Lampa.Platform.is('browser')) window.close();
 }
 
-function showMeExitMenu() {
+/*function showMeExitMenu() {
   var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 	
@@ -73,6 +73,40 @@ function showMeExitMenu() {
      // Lampa.Controller.toggle(enabled);
     }
     })
+}*/
+	function showMeExitMenu() {
+    var enabled = Lampa.Controller.enabled().name;
+    var menu = [];
+
+    menu.push({ title: 'Выход' });
+    menu.push({ title: 'Перезагрузить' });
+    var separator = { type: 'separator' };
+    menu.push(separator);
+    menu.push({ title: 'YouTube' });
+    menu.push({ title: 'Сменить адрес' });
+
+    Lampa.Select.show({
+        title: 'Выход',
+        items: menu,
+        onBack: function onBack() {
+            stay = 1;
+            Lampa.Controller.toggle(enabled);
+        },
+        onSelect: function onSelect(a) {
+            stay = 0;
+            if (a.title == 'Выход') closeApp();
+            if (a.title == 'Перезагрузить') location.reload();
+            if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
+            if (a.title == 'Сменить адрес') showServerInput();
+        },
+        onShow: function () {
+            // Устанавливаем фокус на последний выбранный пункт меню перед закрытием меню
+            var selectedItem = document.querySelector('.selectbox-item.selected');
+            if (selectedItem) {
+                selectedItem.focus();
+            }
+        }
+    });
 }
   
   Lampa.Controller.listener.follow('toggle', function(e) {
