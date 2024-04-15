@@ -39,6 +39,7 @@ function showMeExitMenu() {
 
 	var subtitle = {
         subtitle: 'Общие',
+		type: 'static',
         isStatic: true // Указываем, что элемент статический
     };
     menu.push(subtitle);
