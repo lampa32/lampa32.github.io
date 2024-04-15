@@ -42,6 +42,9 @@ function showMeExitMenu() {
 	
     var subtitle = { title: 'Общие' };
 menu.push(subtitle);
+
+	var disabledItem = { title: 'Неактивный пункт', disabled: true };
+menu.push(disabledItem);
 	
     menu.push({
   title:  'Выход'
