@@ -40,10 +40,8 @@ function showMeExitMenu() {
    var separator = { type: 'separator' };
     menu.push(separator);
 	
-    menu.push({
-  subtitle:  'Общие',
-  isSelectable: false
-    });
+    var subtitle = { title: 'Общие' };
+menu.push(subtitle);
 	
     menu.push({
   title:  'Выход'
