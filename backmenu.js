@@ -92,7 +92,7 @@ function showMeExitMenu() {
         title: 'Выход',
         items: menu,
         onBack: function onBack() {
-            stay = 0;
+            stay = 1;
             Lampa.Controller.toggle(enabled);
         },
         onSelect: function onSelect(a) {
