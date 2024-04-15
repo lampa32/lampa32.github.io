@@ -6,7 +6,8 @@ function start() {
 
 var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
-
+var enabled = Controller.enabled()
+	
 function showServerInput() {
 	  //stay = 0;
       Lampa.Input.edit({
@@ -62,7 +63,7 @@ function showMeExitMenu() {
     onBack: function onBack() {
 	    stay = 0;
     // Lampa.Controller.toggle(content);
-	    window.history.back();
+	    Lampa.Controller.toggle(enabled.name);
     },
     onSelect: function onSelect(a) {
       stay = 0;
