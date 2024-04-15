@@ -34,7 +34,7 @@ function closeApp() {
 }
 
 function showMeExitMenu() {
-	stay = 1;
+	stay = 0;
   var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 	
@@ -61,7 +61,7 @@ function showMeExitMenu() {
     title: 'Выход',
     items: menu,
     onBack: function onBack() {
-	    stay = 0;
+	    stay = 1;
     // Lampa.Controller.toggle(content);
 	    Lampa.Controller.toggle(enabled);
     },
