@@ -62,7 +62,7 @@ function showMeExitMenu() {
     onBack: function onBack() {
       //Lampa.Activity.out();
 	    stay = 0;
-      Lampa.Controller.toggle(settings);
+      Lampa.Controller.toggle(head);
     },
     onSelect: function onSelect(a) {
       stay = 0;
