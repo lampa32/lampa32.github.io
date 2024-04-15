@@ -37,6 +37,12 @@ function showMeExitMenu() {
   var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
+	var subtitle = {
+        title: 'Общие',
+        isStatic: true // Указываем, что элемент статический
+    };
+    menu.push(subtitle);
+
    var separator = { type: 'separator' };
     menu.push(separator);
 	
