@@ -4,7 +4,7 @@
 
 function start() {
 
-var stay = 1
+var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 
 function showServerInput() {
