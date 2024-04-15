@@ -76,14 +76,15 @@ function closeApp() {
 }*/
 
     let lastSelectedMenuItem = null; // Глобальная переменная для хранения последнего выбранного пункта меню
+let lastSelectedMenuItem = null;
 
 function showMeExitMenu() {
-    var enabled = Lampa.Controller.enabled().name;
-    var menu = [];
+    const enabled = Lampa.Controller.enabled().name;
+    const menu = [];
 
     menu.push({ title: 'Выход' });
     menu.push({ title: 'Перезагрузить' });
-    var separator = { type: 'separator' };
+    const separator = { type: 'separator' };
     menu.push(separator);
     menu.push({ title: 'YouTube' });
     menu.push({ title: 'Сменить адрес' });
@@ -103,13 +104,11 @@ function showMeExitMenu() {
             if (a.title == 'Сменить адрес') showServerInput();
         },
         onShow: function () {
-            // Устанавливаем фокус на последний выбранный пункт меню перед закрытием меню
             if (lastSelectedMenuItem) {
                 lastSelectedMenuItem.classList.add('selected');
             }
         },
         onHide: function () {
-            // Сохраняем последний выбранный пункт меню перед его закрытием
             lastSelectedMenuItem = document.querySelector('.selectbox-item.selected');
         }
     });
