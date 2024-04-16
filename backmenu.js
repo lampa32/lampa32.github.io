@@ -54,15 +54,16 @@ function showMeExitMenu() {
     menu.push({
   title:  'Сменить адрес'
     });
-
-    Lampa.Select.show({
+var selectBox = Lampa.Select.show({
+   // Lampa.Select.show({
     title: 'Выход',
     items: menu,
     onBack: function onBack() {
 	    return;
+	    selectBox.hide(); 
 	   // stay = 0;
     // Lampa.Controller.toggle(content);
-	    Lampa.Controller.toggle(enabled);
+	   // Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
       stay = 0;
