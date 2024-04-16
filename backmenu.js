@@ -54,12 +54,10 @@ function showMeExitMenu() {
     menu.push({
   title:  'Сменить адрес'
     });
-var selectBox = Lampa.Select.show({
-   // Lampa.Select.show({
+    Lampa.Select.show({
     title: 'Выход',
     items: menu,
     onBack: function onBack() {
-	    selectBox.hide(); 
 	    document.activeElement.blur(); 
 	   // stay = 0;
     // Lampa.Controller.toggle(content);
