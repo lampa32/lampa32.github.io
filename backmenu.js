@@ -59,8 +59,8 @@ var selectBox = Lampa.Select.show({
     title: 'Выход',
     items: menu,
     onBack: function onBack() {
-	    return;
 	    selectBox.hide(); 
+	    Lampa.Platform.tv().focus();
 	   // stay = 0;
     // Lampa.Controller.toggle(content);
 	   // Lampa.Controller.toggle(enabled);
