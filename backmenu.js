@@ -60,9 +60,9 @@ function showMeExitMenu() {
     items: menu,
     onBack: function onBack() {
 	    return;
-	    //stay = 0;
+	    stay = 1;
     // Lampa.Controller.toggle(content);
-	    //Lampa.Controller.toggle(enabled);
+	    Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
       stay = 0;
@@ -76,8 +76,7 @@ function showMeExitMenu() {
 }
   
   Lampa.Controller.listener.follow('toggle', function(e) {
-	  if(e.name == 'select' && document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
-   // if(e.name == 'select' && stay !== 1 && document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
+    if(e.name == 'select' && stay !== 1 && document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
       setTimeout(function() {
         stay = 1
         //window.history.back();
