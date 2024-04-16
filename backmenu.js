@@ -59,6 +59,7 @@ function showMeExitMenu() {
     title: 'Выход',
     items: menu,
     onBack: function onBack() {
+	    stay = 1;
     // Lampa.Controller.toggle(content);
 	    //Lampa.Controller.toggle(enabled);
     },
