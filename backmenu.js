@@ -2,7 +2,7 @@
     'use strict';
     Lampa.Platform.tv();
 
-function start() {
+/*function start() {
 
 var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
@@ -83,7 +83,39 @@ function showMeExitMenu() {
         showMeExitMenu()
       },10);
     };
-  })
+  })*/
+	Lampa.listener.follow('backward', function (event) {
+    if (!start_time) start_time = Date.now();
+
+    if (event.count == 1 && Date.now() > start_time + 1000 * 2) {
+        var enabled = Controller.enabled();
+        
+        // Ваше собственное меню
+        var customMenuItems = [
+            {
+                title: 'Мой пункт 1',
+                action: function() {
+                    // Действия для пункта меню 1
+                }
+            },
+            {
+                title: 'Мой пункт 2',
+                action: function() {
+                    // Действия для пункта меню 2
+                }
+            },
+            // Добавьте столько пунктов, сколько вам нужно
+        ];
+
+        Select.show({
+            title: 'Мое собственное меню',
+            items: customMenuItems,
+            onBack: function onBack() {
+                Controller.toggle(enabled.name);
+            }
+        });
+    }
+});
 
 	
 /*     Вместо пункта отмена, добавляем пункт
