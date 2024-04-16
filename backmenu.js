@@ -8,7 +8,6 @@ var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 	
 function showServerInput() {
-	  //stay = 0;
       Lampa.Input.edit({
           title: "Укажите Сервер",
           value: '',
@@ -60,7 +59,6 @@ function showMeExitMenu() {
     title: 'Выход',
     items: menu,
     onBack: function onBack() {
-	    stay = 0;
     // Lampa.Controller.toggle(content);
 	    //Lampa.Controller.toggle(enabled);
     },
