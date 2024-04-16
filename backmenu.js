@@ -60,7 +60,7 @@ var selectBox = Lampa.Select.show({
     items: menu,
     onBack: function onBack() {
 	    selectBox.hide(); 
-	    Lampa.Platform.tv().refresh();
+	    document.activeElement.blur(); 
 	   // stay = 0;
     // Lampa.Controller.toggle(content);
 	   // Lampa.Controller.toggle(enabled);
