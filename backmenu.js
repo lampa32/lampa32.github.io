@@ -57,11 +57,10 @@ function showMeExitMenu() {
     Lampa.Select.show({
     title: 'Выход',
     items: menu,
-    onBack: function onBack() {
-	    document.activeElement.blur(); 
+    onBack: function onBack() { 
 	   // stay = 0;
     // Lampa.Controller.toggle(content);
-	   // Lampa.Controller.toggle(enabled);
+	    Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
       stay = 0;
