@@ -58,10 +58,7 @@ function showMeExitMenu() {
     title: 'Выход',
     items: menu,
     onBack: function onBack() { 
-	   // return;
 	    //stay = 0;
-	   // window.history.back();
-    // Lampa.Controller.toggle(content);
 	    Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
@@ -70,32 +67,19 @@ function showMeExitMenu() {
       if (a.title == 'Перезагрузить') location.reload();
       if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
       if (a.title == 'Сменить адрес') showServerInput();    
-     // Lampa.Controller.toggle(enabled);
+      Lampa.Controller.toggle(enabled);
     }
     })
 }
   
- /* Lampa.Controller.listener.follow('toggle', function(e) {
+  Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select' && stay !== 1 && document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
       setTimeout(function() {
        // stay = 1
-        //window.history.back();
         showMeExitMenu()
       },10);
     };
-  })*/
-	Lampa.Controller.listener.follow('toggle', function (e) {
-            if (e.name == 'select') {
-               if (Lampa.Activity.active().component == 'main') {
-		 if (document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
-	          setTimeout(function(){
-	              showMeExitMenu();
-		  }, 10)
-		 }
-		 else {stay = 1;}
-	       }
-	    }
-	})
+  })
 
 	
 /*     Вместо пункта отмена, добавляем пункт
