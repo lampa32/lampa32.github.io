@@ -84,8 +84,8 @@ function showMeExitMenu() {
       },10);
     };
   })*/
-	Lampa.Storage.listener.follow('toggle', function (event) {
-            if (event.name == 'activity') {
+	Lampa.Controller.listener.follow('toggle', function (e) {
+            if (e.name == 'select') {
                if (Lampa.Activity.active().component == 'main') {
 		 if (document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
 	          setTimeout(function(){
