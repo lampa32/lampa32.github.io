@@ -4,7 +4,7 @@
 
 function start() {
 
-var stay = 0
+//var stay = 0
 var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
 	
 function showServerInput() {
@@ -75,7 +75,7 @@ function showMeExitMenu() {
     })
 }
   
-  Lampa.Controller.listener.follow('toggle', function(e) {
+ /* Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select' && stay !== 1 && document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
       setTimeout(function() {
        // stay = 1
@@ -83,7 +83,18 @@ function showMeExitMenu() {
         showMeExitMenu()
       },10);
     };
-  })
+  })*/
+	Lampa.Storage.listener.follow('change', function (event) {
+            if (event.name == 'activity') {
+               if (Lampa.Activity.active().component == 'main') {
+		 if (document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
+	          setTimeout(function(){
+	              showMeExitMenu();
+		  }, 10)
+		 }
+	       }
+	    }
+	})
 
 	
 /*     Вместо пункта отмена, добавляем пункт
