@@ -92,6 +92,7 @@ function showMeExitMenu() {
 	              showMeExitMenu();
 		  }, 10)
 		 }
+		 else {return;}
 	       }
 	    }
 	})
