@@ -58,11 +58,11 @@ function showMeExitMenu() {
     title: 'Выход',
     items: menu,
     onBack: function onBack() { 
-	    //stay = 0;
+	    stay = 0;
 	    Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
-      //stay = 0;
+      stay = 0;
       if (a.title == 'Выход') closeApp();
       if (a.title == 'Перезагрузить') location.reload();
       if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
