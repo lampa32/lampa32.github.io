@@ -59,13 +59,13 @@ function showMeExitMenu() {
     items: menu,
     onBack: function onBack() { 
 	   // return;
-	    stay = 0;
+	    //stay = 0;
 	   // window.history.back();
     // Lampa.Controller.toggle(content);
 	    Lampa.Controller.toggle(enabled);
     },
     onSelect: function onSelect(a) {
-      stay = 0;
+      //stay = 0;
       if (a.title == 'Выход') closeApp();
       if (a.title == 'Перезагрузить') location.reload();
       if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
@@ -78,7 +78,7 @@ function showMeExitMenu() {
   Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select' && stay !== 1 && document.querySelector("body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__head > div").innerText == Lampa.Lang.translate('title_out')) {
       setTimeout(function() {
-        stay = 1
+       // stay = 1
         //window.history.back();
         showMeExitMenu()
       },10);
