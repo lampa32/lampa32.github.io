@@ -11,21 +11,16 @@
 	*/
 	 var optionsNEW = [];  //новый массив из серверов, которые ответили
 	 var options = [       //первоначальный массив
-		'77.221.159.150',
-		'lexa-sinyak.jactor.ru',
-		'95.165.134.227',
-		'5.42.82.10',
-		'79.137.202.223',
-	        '5.42.82.10',
-		'5.42.87.152',
-		'5.42.95.8',
-	        '5.42.95.136',
-	        '77.91.86.193',
-	        '77.105.146.29',
-	        '77.232.142.88',
-	        '77.232.142.220',
-	        '79.137.194.66',
-	        '79.137.198.67'
+		'tor1.bylampa.fun',
+		'tor2.bylampa.fun',
+		'tor3.bylampa.fun',
+		'tor4.bylampa.fun',
+		'tor5.bylampa.fun',
+	        'tor6.bylampa.fun',
+		'tor7.bylampa.fun',
+		'tor8.bylampa.fun',
+	        'tor9.bylampa.fun',
+	        'tor10.bylampa.fun'
 	];
 
 /*  Функция рандомного выбора */
@@ -42,7 +37,7 @@
 function myRequest(i) {
 	
 	setTimeout(function() {
-		var myLink = 'http://' + options[i] + ':8090';
+		var myLink = 'http://' + options[i];
 		var xhr = new XMLHttpRequest();
 		xhr.timeout = 2000; 
 		xhr.open("GET", myLink, true);
@@ -97,7 +92,7 @@ function checkAlive() {
 	
 	$('#SWITCH_SERVER').on('hover:enter hover:click hover:touch', function() {
 		//start_free(); // если делать через функцию, будет тайм-аут
-		Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
+		Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom());
 		Lampa.Noty.show("TorrServer изменён");
 	});
    } 
@@ -146,7 +141,7 @@ function checkAlive() {
 		   setTimeout(function() {  
 			Lampa.Storage.set('torrserver_use_link', 'two');
 			var myResult = searchRandom();
-			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
+			if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult);
 		    }, 3500) //без таймаута undefined
 		}
 		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию hideBut
@@ -192,7 +187,7 @@ Lampa.SettingsApi.addParam({
 					if (value == '1') {
 						Lampa.Noty.show("TorrServer изменён");
 						Lampa.Storage.set('torrserver_use_link', 'two');
-						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
+						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom());
 						Lampa.Settings.update();
 						return;
 					}
