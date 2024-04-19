@@ -114,6 +114,11 @@
 				}
                 }, 0);
             }
+	    if (e.name == 'server') {
+		setTimeout(function() {
+			$('.ad-server').remove();
+		}, 10);
+	    }
         });
 		
 		// мы внутри карточки
