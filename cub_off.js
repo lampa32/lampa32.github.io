@@ -115,9 +115,15 @@
                 }, 0);
             }
 	    if (e.name == 'server') {
-		setTimeout(function() {
+		/*setTimeout(function() {
 			$('.ad-server').remove();
-		}, 0);
+		}, 0);*/
+		    var myTextBoxInterval = setInterval(function() {
+				if (document.querySelector('.ad-server') !== null) {
+					$('.ad-server').remove();
+					clearInterval(myTextBoxInterval);
+				}
+			}, 100);
 	    }
         });
 		
