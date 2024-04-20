@@ -118,12 +118,12 @@
 		/*setTimeout(function() {
 			$('.ad-server').remove();
 		}, 0);*/
-		    var myTextBoxInterval = setInterval(function() {
+		   // var myTextBoxInterval = setInterval(function() {
 				if (document.querySelector('.ad-server') !== null) {
 					$('.ad-server').remove();
-					clearInterval(myTextBoxInterval);
+					//clearInterval(myTextBoxInterval);
 				}
-			}, 100);
+			//}, 100);
 	    }
         });
 		
