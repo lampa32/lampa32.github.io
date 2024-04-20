@@ -115,15 +115,10 @@
                 }, 0);
             }
 	    if (e.name == 'server') {
-		/*setTimeout(function() {
-			$('.ad-server').remove();
-		}, 0);*/
-		   // var myTextBoxInterval = setInterval(function() {
+		// убираем рекламу в настройках torrserver
 				if (document.querySelector('.ad-server') !== null) {
 					$('.ad-server').remove();
-					//clearInterval(myTextBoxInterval);
 				}
-			//}, 100);
 	    }
         });
 		
