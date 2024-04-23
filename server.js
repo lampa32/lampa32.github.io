@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-const PLUGIN_URL = 'http://lampa.run.place/full.js'; // Замените на ваш URL плагина
+const PLUGIN_URL = 'http://79.137.205.41/full.js'; // Замените на ваш URL плагина
 
 // Middleware для модификации исходного кода плагина
 app.use('/full.js', async (req, res, next) => {
