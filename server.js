@@ -1,28 +1,29 @@
-const express = require('express');
 const axios = require('axios');
+const express = require('express');
 
 const app = express();
+const PORT = 3000;
 
-const PLUGIN_URL = 'http://lampa.run.place/full.js'; // Замените на URL вашего плагина
+const PLUGIN_URL = 'http://lampa.run.place/full.js'; // Замените на ваш URL плагина
 
-// Маршрут для обработки запросов к плагину
-app.get('/full.js', async (req, res) => {
+// Middleware для модификации исходного кода плагина
+app.use('/full.js', async (req, res, next) => {
     try {
         // Получаем исходный код плагина
         const { data } = await axios.get(PLUGIN_URL);
 
-        // Вместо исходного кода плагина можно вставить любой другой код
-        const modifiedCode = `console.log('Plugin code is hidden!');`;
+        // Создаем заглушку
+        const placeholderMessage = "console.log('Plugin code is hidden!');";
 
-        // Отправляем измененный код клиенту
-        res.type('text/javascript').send(modifiedCode);
+        // Отправляем заглушку клиенту, но загружаем исходный код плагина на клиенте
+        res.type('text/javascript').send(placeholderMessage);
     } catch (error) {
-        console.error('Error fetching plugin code:', error.message);
+        console.error('Error sending placeholder message:', error.message);
         res.status(500).send('Internal Server Error');
     }
 });
 
-const PORT = process.env.PORT || 3000;
+// Запускаем сервер
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
