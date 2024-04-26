@@ -181,7 +181,6 @@ Lampa.SettingsApi.addParam({
 
 
 function myMenu(){
-	checkAlive();
     var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
@@ -265,6 +264,7 @@ function myMenu(){
 			eLoop = 0
 			//Lampa.Noty.show('Интервал очищен по условию')
 			myMenu();
+			    checkAlive();
 			$('.empty__title').remove();
 			clearInterval(myInterval);
 		    }
