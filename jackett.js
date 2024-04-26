@@ -181,6 +181,7 @@ Lampa.SettingsApi.addParam({
 
 
 function myMenu(){
+	checkAlive();
     var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
