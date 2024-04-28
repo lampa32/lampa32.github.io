@@ -41,6 +41,7 @@
       });
     }
   });
+    }
 
     if (window.appready) addStore();
     else {
