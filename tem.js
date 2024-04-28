@@ -40,7 +40,10 @@
         name: 'Color_interface',
         type: 'select',
         values: {
-          header: '--- Цветовые схемы ---', // Добавление заголовка
+          header: {
+            value: '--- Цветовые схемы ---',
+            disabled: true
+          },
           no: 'Стандартная',
           red_stroke: 'С красной обводкой',
           pink_stroke: 'С розовой обводкой',
@@ -88,17 +91,4 @@
       }
     });
   }
-
-  // Добавление обработчика события для блокировки выбора заголовка
-  document.addEventListener('DOMContentLoaded', function() {
-    var selectElement = document.querySelector('select[data-name="Color_interface"]');
-    if (selectElement) {
-      selectElement.addEventListener('click', function(event) {
-        var target = event.target;
-        if (target.dataset.header === 'true') {
-          event.preventDefault(); // Предотвратить выбор элемента заголовка
-        }
-      });
-    }
-  });
 })();
