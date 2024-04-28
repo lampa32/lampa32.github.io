@@ -32,7 +32,7 @@
                 //}
                               });
 			      setTimeout(function() {
-    var $addManagementPlugin = $('div[data-component="add_management_plugin"]');
+    var $addManagementPlugin = $('div[data-name="add_management_plugin"]');
     var $interfaceSize = $('div[data-name="interface_size"]');
 
     console.log('$addManagementPlugin length:', $addManagementPlugin.length);
