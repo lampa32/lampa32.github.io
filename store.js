@@ -26,7 +26,7 @@
                               item.on('hover:enter', function () {
                                  Lampa.Settings.create('add_management_plugin');
                                  Lampa.Controller.enabled().controller.back = function(){
-                     Lampa.Settings.create('add_plugin');
+                     Lampa.Settings.create('interface');
                 }
                               });
                         }
