@@ -35,10 +35,17 @@
                         }
        });
 	setTimeout(function() {
-        var $addManagementPlugin = $('div[data-name="add_management_plugin"]');
-        var $interfaceSize = $('div[data-name="interface_size"]');
+    var $addManagementPlugin = $('div[data-name="add_management_plugin"]');
+    var $interfaceSize = $('div[data-name="interface_size"]');
 
+    console.log('$addManagementPlugin length:', $addManagementPlugin.length);
+    console.log('$interfaceSize length:', $interfaceSize.length);
+
+    if ($addManagementPlugin.length && $interfaceSize.length) {
         $interfaceSize.before($addManagementPlugin);
-    }, 100);
+    } else {
+        console.log('Элементы не найдены');
+    }
+}, 100);
        
 })();
