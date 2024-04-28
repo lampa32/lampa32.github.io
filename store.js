@@ -34,6 +34,8 @@
 			       
                         }
        });
+	Lampa.Settings.listener.follow('open', function (e) {
+      if (e.name == 'interface') {
 	setTimeout(function() {
     var $addManagementPlugin = $('div[data-name="add_management_plugin"]');
     var $interfaceSize = $('div[data-name="interface_size"]');
@@ -47,5 +49,7 @@
         console.log('Элементы не найдены');
     }
 }, 100);
+}
+    });
        
 })();
