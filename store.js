@@ -24,6 +24,7 @@
                         },
                         onRender: function(item) {
                               item.on('hover:enter', function () {
+                                  Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json' });
                                  Lampa.Settings.create('add_management_plugin');
                                  Lampa.Controller.enabled().controller.back = function(){
                      Lampa.Settings.create('interface');
