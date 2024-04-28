@@ -14,7 +14,7 @@
                    Lampa.Settings.main().render().find('[data-component="add_management_plugin"]').addClass('hide');
        });*/
                Lampa.SettingsApi.addParam({
-                        component: 'interface',
+                        component: 'plugins',
                         param: {
                                 name: 'add_management_plugin',
                                 type: 'static',
