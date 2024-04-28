@@ -31,16 +31,10 @@
                      Lampa.Settings.create('interface');
                 }
                               });
+			       setTimeout(function() {
 				$('div[data-name="add_management_plugin"]').insertBefore('div[data-name="interface_size"]');
+				}, 100);
                         }
        });
-       Lampa.Settings.listener.follow('open', function (e) {
-                   
-		   if (e.name == 'interface') {
-			   setTimeout(function() {
-					  $('div[data-component="add_management_plugin"]').insertBefore('div[data-name="interface_size"]');
-					}, 30)
-		   }
-                   
-       });
+       
 })();
