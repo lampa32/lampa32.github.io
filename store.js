@@ -16,7 +16,7 @@
                Lampa.SettingsApi.addParam({
                         component: 'interface',
                         param: {
-                                name: 'add_management_plugin',
+                                name: 'col',
                                 type: 'static',
                                 default: true
                         },
@@ -32,7 +32,7 @@
                 //}
                               });
 			      setTimeout(function() {
-    var $addManagementPlugin = $('div[data-name="add_management_plugin"]');
+    var $addManagementPlugin = $('div[data-name="col"]');
     var $interfaceSize = $('div[data-name="interface_size"]');
 
     console.log('$addManagementPlugin length:', $addManagementPlugin.length);
