@@ -31,6 +31,7 @@
                      Lampa.Settings.create('interface');
                 }
                               });
+				$('div[data-name="add_management_plugin"]').insertBefore('div[data-name="interface_size"]');
                         }
        });
        Lampa.Settings.listener.follow('open', function (e) {
