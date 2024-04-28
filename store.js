@@ -37,7 +37,7 @@
                    
 		   if (e.name == 'interface') {
 			   setTimeout(function() {
-					  $('div[data-name="add_management_plugin"]').before('div[data-name="interface_size"]');
+					  $('div[data-component="add_management_plugin"]').before('div[data-name="interface_size"]');
 					}, 30)
 		   }
                    
