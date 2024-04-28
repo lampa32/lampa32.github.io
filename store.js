@@ -25,7 +25,7 @@
                         onRender: function(item) {
                               item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json' });
-                                 Lampa.Settings.create('add_management_plugin');
+                                // Lampa.Settings.create('add_management_plugin');
                                  Lampa.Controller.enabled().controller.back = function(){
                      Lampa.Settings.create('interface');
                 }
@@ -33,21 +33,5 @@
                         }
        });
 
-    function addStore() {
-
-    Lampa.Settings.listener.follow('open', function (e) {
-    if (e.name == 'interface') {
-      e.body.find('[data-component="add_management_plugin"]').on('hover:enter', function () {
-        Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json' });
-      });
-    }
-  });
-    }
-
-    if (window.appready) addStore();
-    else {
-        Lampa.Listener.follow('app', function (e) {
-            if (e.type == 'ready') addStore();
-        });
-    }
+    
 })();
