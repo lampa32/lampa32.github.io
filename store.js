@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    Lampa.Storage.listener.follow('change', function (e) {});
+  /*  Lampa.Storage.listener.follow('change', function (e) {});
                 Lampa.Settings.listener.follow('open', function (e) {
                    if (e.name == 'main') {
                      Lampa.SettingsApi.addComponent({
@@ -12,7 +12,7 @@
 		   
                    Lampa.Settings.main().update();
                    Lampa.Settings.main().render().find('[data-component="add_management_plugin"]').addClass('hide');
-       });
+       });*/
                Lampa.SettingsApi.addParam({
                         component: 'interface',
                         param: {
@@ -27,8 +27,8 @@
                               item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json' });
                                 // Lampa.Settings.create('add_management_plugin');
-                                 Lampa.Controller.enabled().controller.back = function(){
-                     Lampa.Settings.create('interface');
+                                 //Lampa.Controller.enabled().controller.back = function(){
+                    // Lampa.Settings.create('interface');
                 }
                               });
 			      setTimeout(function() {
