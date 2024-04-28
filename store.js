@@ -8,10 +8,12 @@
                         component: 'add_management_plugin',
                         name: 'Management'
                      });
-                     setTimeout(function() {
+                   }
+		   if (e.name == 'interface') {
+			   setTimeout(function() {
 					  $('div[data-name="Management"]').insertAfter('div[data-name="interface_size"]');
 					}, 30)
-                   }
+		   }
                    Lampa.Settings.main().update();
                    Lampa.Settings.main().render().find('[data-component="add_management_plugin"]').addClass('hide');
        });
