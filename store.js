@@ -29,7 +29,7 @@
                                 // Lampa.Settings.create('add_management_plugin');
                                  //Lampa.Controller.enabled().controller.back = function(){
                     // Lampa.Settings.create('interface');
-                }
+                //}
                               });
 			      setTimeout(function() {
     var $addManagementPlugin = $('div[data-component="add_management_plugin"]');
