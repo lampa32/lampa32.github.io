@@ -32,7 +32,7 @@
                 }
                               });
 			       setTimeout(function() {
-				$('div[data-name="add_management_plugin"]').insertBefore('div[data-name="interface_size"]');
+				$('div[data-component="add_management_plugin"]').insertBefore('div[data-name="interface_size"]');
 				}, 100);
                         }
        });
