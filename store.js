@@ -9,11 +9,7 @@
                         name: 'Management'
                      });
                    }
-		   if (e.name == 'interface') {
-			   setTimeout(function() {
-					  $('div[data-name="add_management_plugin"]').insertAfter('div[data-name="interface_size"]');
-					}, 30)
-		   }
+		   
                    Lampa.Settings.main().update();
                    Lampa.Settings.main().render().find('[data-component="add_management_plugin"]').addClass('hide');
        });
@@ -37,6 +33,13 @@
                               });
                         }
        });
-
-    
+       Lampa.Settings.listener.follow('open', function (e) {
+                   
+		   if (e.name == 'interface') {
+			   setTimeout(function() {
+					  $('div[data-name="add_management_plugin"]').insertAfter('div[data-name="interface_size"]');
+					}, 30)
+		   }
+                   
+       });
 })();
