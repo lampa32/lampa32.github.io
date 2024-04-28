@@ -31,10 +31,14 @@
                      Lampa.Settings.create('interface');
                 }
                               });
-			       setTimeout(function() {
-				$('div[data-children="add_management_plugin"]').insertBefore('div[data-name="interface_size"]');
-				}, 100);
+			       
                         }
        });
+	setTimeout(function() {
+        var $addManagementPlugin = $('div[data-name="add_management_plugin"]');
+        var $interfaceSize = $('div[data-name="interface_size"]');
+
+        $interfaceSize.before($addManagementPlugin);
+    }, 100);
        
 })();
