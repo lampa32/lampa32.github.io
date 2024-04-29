@@ -29,7 +29,7 @@
 				$('div[data-name="interface_size"]').after($('.settings-param__title', item));
 			     }, 100);
                               item.on('hover:enter', function () {
-                                  Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json' });
+                                  Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json',with_installed: true });
                                 // Lampa.Settings.create('add_management_plugin');
                                  //Lampa.Controller.enabled().controller.back = function(){
                     // Lampa.Settings.create('interface');
