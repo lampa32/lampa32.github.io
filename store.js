@@ -16,7 +16,7 @@ Lampa.SettingsApi.addParam({
               }, 100);
                             item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ 
-					store: 'http://api.lampishe.cc/extensions.json',
+					store: 'https://lampa32.github.io/extensions.json',
 					with_installed: true
 				  });
                              });
