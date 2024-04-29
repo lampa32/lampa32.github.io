@@ -17,7 +17,7 @@
                         component: 'interface',
                         param: {
                                 name: 'col',
-                                type: 'select',
+                                type: 'title',
                                 //default: true
                         },
                         field: {
