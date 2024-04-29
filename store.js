@@ -11,7 +11,6 @@ Lampa.SettingsApi.addParam({
                                 name: '123'
                         },
                         onRender: function(item) {
-                           function(item) {
               setTimeout(function() {
                 $('.settings-param > div:contains("123")').parent().insertAfter($('div[data-name="interface_size"]'))
               }, 100);
