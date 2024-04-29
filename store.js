@@ -12,7 +12,7 @@ Lampa.SettingsApi.addParam({
                         },
                         onRender: function(item) {
                            setTimeout(function() {
-                               $('.settings-param__name', item).insertAfter($('div[data-name="interface_size"]'));
+                               $('.settings-param__name', item).insertAfter('<div class="settings-param__name">Размер интерфейса</div>');
                             }, 100);
                             item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ 
