@@ -17,7 +17,7 @@
                         component: 'interface',
                         param: {
                                 name: 'col',
-                                type: 'checkbox',
+                                type: 'static',
                                 default: true
                         },
                         field: {
