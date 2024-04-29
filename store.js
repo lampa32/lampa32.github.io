@@ -24,9 +24,12 @@
                                 name: '123'
 			},
                         onRender: function(item) {
-			    // setTimeout(function() {
-				   //$('.settings-param__name', item).insertAfter($('div[data-name="interface_size"]'));
-			    // }, 100);
+			    setTimeout(function() {
+        const targetElement = $('div[data-name="interface_size"]');
+        if (targetElement.length) {
+            $('.settings-param__name', item).insertAfter(targetElement);
+        }
+    }, 100);
                               item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json',with_installed: true });
                                 // Lampa.Settings.create('add_management_plugin');
