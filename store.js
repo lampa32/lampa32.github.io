@@ -39,7 +39,7 @@
     console.log('$interfaceSize length:', $interfaceSize.length);
 
     if ($addManagementPlugin.length && $interfaceSize.length) {
-        $interfaceSize.insertAfter($addManagementPlugin);
+        $interfaceSize.insertBefore($addManagementPlugin);
     } else {
         console.log('Элементы не найдены');
     }
