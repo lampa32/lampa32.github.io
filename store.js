@@ -25,7 +25,7 @@
                         },
                         onRender: function(item) {
 			     setTimeout(function() {
-				$('.settings-param-name').insertAfter($('.settings-param').first())
+				$('.settings-param-name').after($('.settings-param').first());
 			     }, 100);
                               item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json' });
