@@ -25,7 +25,7 @@
                         },
                         onRender: function(item) {
 			     setTimeout(function() {
-				$('.settings-param__name', item).insertAfter($('div[data-name="interface_size"]'));
+				$('.settings-param__name').insertAfter($('div[data-name="interface_size"]'));
 			     }, 100);
                               item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json' });
@@ -37,21 +37,5 @@
 			      
                         }
        });
-Lampa.Settings.listener.follow('open', function (e) {
-                   if (e.name == 'interface') {	
-       setTimeout(function() {
-    var $addManagementPlugin = $('div[data-name="col"]');
-    var $interfaceSize = $('div[data-name="interface_size"]');
 
-    console.log('$addManagementPlugin length:', $addManagementPlugin.length);
-    console.log('$interfaceSize length:', $interfaceSize.length);
-
-    if ($addManagementPlugin.length && $interfaceSize.length) {
-        $interfaceSize.insertBefore($addManagementPlugin);
-    } else {
-        console.log('Элементы не найдены');
-    }
-}, 100); 
-		   }
-})
 })();
