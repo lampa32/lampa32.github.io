@@ -27,7 +27,7 @@
 			     setTimeout(function() {
 				   //  item.show();
 				$('div[data-name="interface_size"]').parent().append($('div[data-name="col"]'));
-			     }, 100);
+			     }, 3000);
                               item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json' });
                                 // Lampa.Settings.create('add_management_plugin');
