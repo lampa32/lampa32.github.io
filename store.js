@@ -18,14 +18,14 @@
                         param: {
                                 name: 'col',
                                 type: 'static',
-                                default: true
+                                //default: true
                         },
                         field: {
                                 name: '123'
 			},
                         onRender: function(item) {
 			    // setTimeout(function() {
-				 //  $('.settings-param__name', item).insertAfter($('div[data-name="interface_size"]'));
+				   //$('.settings-param__name', item).insertAfter($('div[data-name="interface_size"]'));
 			    // }, 100);
                               item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json',with_installed: true });
