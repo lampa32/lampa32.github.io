@@ -1,4 +1,4 @@
-const themesData = {
+const themesJSON = {
 	"secuses": true,
 	"results": [
 		{
