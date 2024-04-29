@@ -25,6 +25,7 @@
                         },
                         onRender: function(item) {
 			     setTimeout(function() {
+				     item.show();
 				$('.settings-param__name', item).before('<div class="settings-param__interface_size"></div>');
 			     }, 100);
                               item.on('hover:enter', function () {
