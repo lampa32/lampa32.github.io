@@ -1,25 +1,25 @@
 (function () {
     'use strict';
-      fetch('https://lampa32.github.io/extensions.json')
+               
+fetch('https://lampa32.github.io/extensions.json')
   .then(response => response.json())
-  .then(themesData => {
-    function applyTheme(themeLink) {
+  .then(data => {
+    const themesData = data.themes;
+
+    function applyTheme(themeData) {
       const head = document.getElementsByTagName('head')[0];
       const link = document.createElement('link');
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = themeLink;
+      link.href = themeData.link;
       head.appendChild(link);
-    }
-
-    function onThemeEnable(themeData) {
-      applyTheme(themeData.link);
       console.log(`Тема "${themeData.name}" успешно установлена.`);
     }
 
-    // Пример вызова при включении темы "Copenhagen"
-    const copenhagenTheme = themesData.results[0].results[0];
-    onThemeEnable(copenhagenTheme);
+    // Применение всех тем из JSON-данных
+    themesData.forEach(themeData => {
+      applyTheme(themeData);
+    });
 
     // Ваш код
     Lampa.SettingsApi.addParam({
@@ -44,6 +44,5 @@
       }
     });
   })
-  .catch(error => console.error('Ошибка при загрузке JSON:', error));         
-
+  .catch(error => console.error('Ошибка при загрузке JSON:', error));
 })();
