@@ -17,7 +17,7 @@
                         component: 'interface',
                         param: {
                                 name: 'col',
-                                type: 'title',
+                                type: 'static',
                                 //default: true
                         },
                         field: {
