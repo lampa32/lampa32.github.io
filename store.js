@@ -16,7 +16,7 @@ Lampa.SettingsApi.addParam({
               }, 100);
                             item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ 
-					store: 'http://skaztv.online/js/extensions.json',
+					store: 'http://api.lampishe.cc/extensions.json',
 					with_installed: true
 				  });
                              });
