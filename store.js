@@ -25,8 +25,8 @@
                         },
                         onRender: function(item) {
 			     setTimeout(function() {
-				   //  item.show();
-				$('div[data-name="interface_size"]').after($('.settings-param__title', item));
+				   Lampa.Settings.interface().render().find('[data-name="col"]').after($('[data-name="interface_size"]'));
+		   Lampa.Settings.interface().update();
 			     }, 100);
                               item.on('hover:enter', function () {
                                   Lampa.Extensions.show({ store: 'http://skaztv.online/js/extensions.json',with_installed: true });
