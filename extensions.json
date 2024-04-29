@@ -1,0 +1,101 @@
+{
+	"secuses": true,
+	"results": [
+		{
+			"title": "Темы",
+			"results": [
+			  {
+				"id": 200,
+				"cid": 1,
+				"name": "Copenhagen",
+				"author": "@lampishe, @pingvi",
+				"link": "http://lampa.run.place/copenhagen.css",
+				"descr": "",
+				"instruction": "",
+				"comment": "",
+				"premium": 0,
+				"image": "https://api.lampishe.cc/themes/img/200.png",
+				"platform": "",
+				"recomend": 0,
+				"hpu": "theme",
+				"subtype": "theme",
+				"available_lampa": 1,
+				"available_cube": 1
+			  },
+			  {
+				 "id": 204,
+				 "cid": 1,
+				 "name": "Розовая",
+				 "author": "@lampishe, @pingvi",
+				 "link": "",
+				 "descr": "",
+				 "instruction": "",
+				 "comment": "",
+				 "premium": 0,
+				 "image": "https://api.lampishe.cc/themes/img/204.png",
+				 "platform": "",
+				 "recomend": 0,
+				 "hpu": "theme",
+				 "subtype": "theme",
+				 "available_lampa": 1,
+				 "available_cube": 1
+			   },
+			 {
+				"id": 201,
+				"cid": 1,
+				"name": "Циановая",
+				"author": "@lampishe, @pingvi",
+				"link": "",
+				"descr": "",
+				"instruction": "",
+				"comment": "",
+				"premium": 0,
+				"image": "https://api.lampishe.cc/themes/img/201.png",
+				"platform": "",
+				"recomend": 0,
+				"hpu": "theme",
+				"subtype": "theme",
+				"available_lampa": 1,
+				"available_cube": 1
+			  },
+			 {
+				"id": 202,
+				"cid": 1,
+				"name": "Оранжевая",
+				"author": "@lampishe, @pingvi",
+				"link": "",
+				"descr": "",
+				"instruction": "",
+				"comment": "",
+				"premium": 0,
+				"image": "https://api.lampishe.cc/themes/img/202.png",
+				"platform": "",
+				"recomend": 0,
+				"hpu": "theme",
+				"subtype": "theme",
+				"available_lampa": 1,
+				"available_cube": 1
+			  },
+			 {
+				"id": 203,
+				"cid": 1,
+				"name": "Морская",
+				"author": "@lampishe, @pingvi",
+				"link": "",
+				"descr": "",
+				"instruction": "",
+				"comment": "",
+				"premium": 0,
+				"image": "https://api.lampishe.cc/themes/img/203.png",
+				"platform": "",
+				"recomend": 0,
+				"hpu": "theme",
+				"subtype": "theme",
+				"available_lampa": 1,
+				"available_cube": 1
+			  }
+			],
+			"hpu": "theme"
+		}
+	]
+}
