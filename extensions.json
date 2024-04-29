@@ -99,21 +99,3 @@ const themes = {
 		}
 	]
 }
-
-function applyTheme(themeLink) {
-  const head = document.getElementsByTagName('head')[0];
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = themeLink;
-  head.appendChild(link);
-}
-
-function onThemeEnable(themeData) {
-  applyTheme(themeData.link);
-  console.log(`Тема "${themeData.name}" успешно установлена.`);
-}
-
-// Пример вызова при включении темы "Copenhagen"
-const copenhagenTheme = themes.results[0].results[0];
-onThemeEnable(copenhagenTheme);
