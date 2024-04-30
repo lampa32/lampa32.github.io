@@ -17,7 +17,7 @@
 				"image": "https://api.lampishe.cc/themes/img/200.png",
 				"platform": "",
 				"recomend": 0,
-				"hpu": "themes",
+				"hpu": "theme",
 				"subtype": "",
 				"available_lampa": 1,
 				"available_cube": 1
@@ -95,7 +95,7 @@
 				"available_cube": 1
 			  }
 			],
-			"hpu": "themes"
+			"hpu": "theme"
 		}
 	]
 }
