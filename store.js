@@ -1,26 +1,31 @@
 (function () {
     'use strict'
     
-    // Добавление нового параметра настроек
     Lampa.SettingsApi.addParam({
-      component: 'interface',
-      param: {
+    component: 'interface',
+    param: {
         name: 'col',
         type: 'static',
-      },
-      field: {
+    },
+    field: {
         name: '123'
-      },
-      onRender: function(item) {
+    },
+    onRender: function(item) {
         setTimeout(function() {
-          $('.settings-param > div:contains("123")').parent().insertAfter($('div[data-name="interface_size"]'))
+            $('.settings-param > div:contains("123")').parent().insertAfter($('div[data-name="interface_size"]'));
+            
+            // Добавляем ссылку на стилевой файл
+            var link = $('<link rel="stylesheet" href="https://lampa32.github.io/extensions.json" id="cub-theme">');
+            $('body').append(link);
         }, 100);
+
         item.on('hover:enter', function() {
-          Lampa.Extensions.show({
-            store: 'https://lampa32.github.io/extensions.json',
-            with_installed: true
-          });
+            Lampa.Extensions.show({
+                store: 'https://lampa32.github.io/extensions.json',
+                with_installed: true
+            });
         });
-      }
-    });
+    }
+});
+    
 })();
