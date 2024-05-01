@@ -13,10 +13,18 @@
     onRender: function(item) {
         setTimeout(function() {
             $('.settings-param > div:contains("123")').parent().insertAfter($('div[data-name="interface_size"]'));
-            
-            // Добавляем ссылку на стилевой файл
-            var link = $('<link rel="stylesheet" href="https://lampa32.github.io/extensions.json" id="cub-theme">');
-            $('body').append(link);
+
+            // Получаем идентификатор выбранной темы
+            var themeId = Lampa.Storage.get('theme_id', '');
+
+            // Удаляем ранее загруженные CSS-файлы тем
+            $('link[rel="stylesheet"][id^="theme-"]').remove();
+
+            // Загружаем CSS-файл для выбранной темы
+            if (themeId) {
+                var link = $('<link rel="stylesheet" href="http://lampa.run.place/themes/' + themeId + '.css" id="theme-' + themeId + '">');
+                $('body').append(link);
+            }
         }, 100);
 
         item.on('hover:enter', function() {
