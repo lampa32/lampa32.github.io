@@ -1,19 +1,22 @@
 (function () {
     'use strict'
 
-// Находим объект, в котором определена функция checkPremium
-var obj = window;
-var propertyName = 'checkPremium';
-while (!obj.hasOwnProperty(propertyName) && obj !== null) {
-  obj = Object.getPrototypeOf(obj);
-}
-
-// Если функция найдена, заменяем ее новой функцией
-if (obj && obj.hasOwnProperty(propertyName)) {
-  obj[propertyName] = function() {
-    return 1;
+// Создаем прокси для глобального объекта
+const handler = {
+  apply: function(target, thisArg, argumentsList) {
+    // Если вызываемая функция имеет имя 'checkPremium', возвращаем 1
+    if (target.name === 'checkPremium') {
+      return 1;
+    }
+    // Иначе вызываем оригинальную функцию
+    return Reflect.apply(target, thisArg, argumentsList);
   }
-}
+};
+
+const globalProxy = new Proxy(window, handler);
+
+// Заменяем глобальный объект на прокси
+window.__proto__ = globalProxy;
    
 // URL файла CSS для темы "Copenhagen" (предположим, что ее id равен 200)
 var copenhagenThemeId = "200";
