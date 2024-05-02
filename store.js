@@ -1,32 +1,24 @@
 (function () {
     'use strict'
    
-// URL файла CSS для темы "Copenhagen"
-var cssFile = "http://lampa.run.place/copenhagen.css";
+// URL файла CSS для темы "Copenhagen" (предположим, что ее id равен 200)
+var copenhagenThemeId = "200";
+var copenhagenCssFile = "http://lampa.run.place/copenhagen.css";
 
-// Функция для применения стилей
-function applyCopenhagenTheme(extensionId) {
-    if (extensionId === "200") {
+// Переопределяем метод toggle класса Theme
+var originalToggle = Theme.prototype.toggle;
+Theme.prototype.toggle = function(link) {
+    if (this.data.id === copenhagenThemeId && link === this.link) {
         // Создаем новый элемент <link> для подключения CSS-файла
-        var css = $('<link rel="stylesheet" href="' + cssFile + '">');
+        var css = $('<link rel="stylesheet" href="' + copenhagenCssFile + '">');
 
         // Добавляем элемент <link> в <body>
         $('body').append(css);
     }
+
+    // Вызываем оригинальный метод toggle
+    originalToggle.call(this, link);
 }
-
-// Настраиваем мутационное наблюдение
-var observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-        if (mutation.type === 'childList') {
-            var extensionId = $(mutation.target).closest('.selectbox-item').data('id');
-            applyCopenhagenTheme(extensionId);
-        }
-    });
-});
-
-// Начинаем наблюдение за изменениями в body
-observer.observe(document.body, { childList: true, subtree: true });
 
     
 Lampa.SettingsApi.addParam({
