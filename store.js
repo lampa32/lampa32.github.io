@@ -36,8 +36,7 @@
     }
   });*/
 
-(function() {
-	'use strict';
+
 function mainSet() {
     var CSS_FILES = {
     red_stroke: 'http://lampa.run.place/red_stroke.css',
