@@ -1,7 +1,7 @@
 (function () {
     'use strict'
     
-    Lampa.SettingsApi.addParam({
+   /* Lampa.SettingsApi.addParam({
     component: 'interface',
     param: {
         name: 'col',
@@ -33,7 +33,11 @@
                 with_installed: true
             });
         });
-    }
+    }*/
+    var link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'http://lampa.run.place/copenhagen.css';
+document.head.appendChild(link);
 });
     
 })();
