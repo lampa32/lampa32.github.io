@@ -1,6 +1,19 @@
 (function () {
     'use strict'
-   
+   // Функция, которая будет вызвана при установке расширения
+Lampa.Extensions.onInstall = function(extension) {
+    // Проверяем, что устанавливается расширение с id 200 (предположительно, тема "Copenhagen")
+    if (extension.id === "200") {
+        // URL файла CSS для темы "Copenhagen"
+        var cssFile = "http://lampa.run.place/copenhagen.css";
+
+        // Создаем новый элемент <link> для подключения CSS-файла
+        var css = $('<link rel="stylesheet" href="' + cssFile + '">');
+
+        // Добавляем элемент <link> в <body>
+        $('body').append(css);
+    }
+};
 
 Lampa.SettingsApi.addParam({
     component: 'interface',
