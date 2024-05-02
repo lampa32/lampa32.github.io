@@ -34,10 +34,8 @@
             });
         });
     }*/
-    var link = document.createElement('link');
-link.rel = 'stylesheet';
-link.href = 'http://lampa.run.place/copenhagen.css';
-document.head.appendChild(link);
+    var css = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
+        $('body').append(css);
 //});
     
 })();
