@@ -5,20 +5,36 @@
 var copenhagenThemeId = "200";
 var copenhagenCssFile = "http://lampa.run.place/copenhagen.css";
 
-// Переопределяем метод toggle класса Theme
-var originalToggle = Theme.prototype.toggle;
-Theme.prototype.toggle = function(link) {
-    if (this.data.id === copenhagenThemeId && link === this.link) {
-        // Создаем новый элемент <link> для подключения CSS-файла
-        var css = $('<link rel="stylesheet" href="' + copenhagenCssFile + '">');
+// Ссылка на элемент <link>, который будет добавлен в <body>
+var copenhagenCssLink = null;
 
-        // Добавляем элемент <link> в <body>
-        $('body').append(css);
+// Функция для применения стилей темы "Copenhagen"
+function applyCopenhagenTheme() {
+    if (!copenhagenCssLink) {
+        copenhagenCssLink = $('<link rel="stylesheet" href="' + copenhagenCssFile + '">');
+        $('body').append(copenhagenCssLink);
     }
-
-    // Вызываем оригинальный метод toggle
-    originalToggle.call(this, link);
 }
+
+// Функция для удаления стилей темы "Copenhagen"
+function removeCopenhagenTheme() {
+    if (copenhagenCssLink) {
+        copenhagenCssLink.remove();
+        copenhagenCssLink = null;
+    }
+}
+
+// Подписываемся на событие установки или удаления темы
+Lampa.Listener.follow('theme', function(e) {
+    var theme = e.object;
+    if (theme.data.id === copenhagenThemeId) {
+        if (theme.active()) {
+            applyCopenhagenTheme();
+        } else {
+            removeCopenhagenTheme();
+        }
+    }
+});
 
     
 Lampa.SettingsApi.addParam({
