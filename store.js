@@ -35,7 +35,7 @@
         });
     }
   });*/
-        function mainSet() {
+
     var CSS_FILES = {
     red_stroke: 'http://lampa.run.place/red_stroke.css',
     pink_stroke: 'http://lampa.run.place/pink_stroke.css',
@@ -110,15 +110,5 @@ Lampa.SettingsApi.addParam({
         }, 0);
     }
 });
-}
-if (window.appready) {
-    mainSet();
-} else {
-    Lampa.Listener.follow('app', function(e) {
-        // если приложение прогрузилось
-        if (e.type == 'ready') {
-            mainSet();
-        }
-    });
-}
+
 });
