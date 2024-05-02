@@ -34,19 +34,9 @@
             });
         });
     }*/
-  var observer = new MutationObserver(function(mutations) {
-  mutations.forEach(function(mutation) {
-    if (mutation.type === 'childList') {
-      // CSS-файл добавлен, применяем стили
-      // ...
-    }
-  });
-});
-
-observer.observe(document.head, { childList: true });
-
-var linkElement = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
-$('head').append(linkElement);
+  
+var css = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
+        $('body').append(css);
 //});
     
 })();
