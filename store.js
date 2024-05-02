@@ -1,22 +1,18 @@
 (function () {
     'use strict'
 
-    // Находим объект, в котором определена функция checkPremium
+// Находим объект, в котором определена функция checkPremium
 var obj = window;
 var propertyName = 'checkPremium';
 while (!obj.hasOwnProperty(propertyName) && obj !== null) {
   obj = Object.getPrototypeOf(obj);
 }
 
-// Если функция найдена, перехватываем ее вызовы
+// Если функция найдена, заменяем ее новой функцией
 if (obj && obj.hasOwnProperty(propertyName)) {
-  Object.defineProperty(obj, propertyName, {
-    get: function() {
-      return function() {
-        return 1; // Возвращаем 1 вместо оригинального вызова
-      }
-    }
-  });
+  obj[propertyName] = function() {
+    return 1;
+  }
 }
    
 // URL файла CSS для темы "Copenhagen" (предположим, что ее id равен 200)
