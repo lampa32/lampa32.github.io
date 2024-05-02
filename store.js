@@ -48,18 +48,25 @@
 };
 
 function changeInterfaceColor(cssFile) {
+    console.log('Changing interface color...');
+
     // Удаляем наши CSS-файлы, кроме стандартного
-    $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+    var linksRemoved = $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+    console.log('Removed', linksRemoved.length, 'CSS links');
 
     // Добавляем новый CSS-файл, если он задан
     if (cssFile) {
+        console.log('Adding CSS file:', cssFile);
         var css = $('<link rel="stylesheet" href="' + cssFile + '">');
         $('body').append(css);
+    } else {
+        console.log('No CSS file specified');
     }
 }
-
+function mainSet() {
 // Получение ранее сохраненного значения из хранилища
 var savedColor = localStorage.getItem('interfaceColor') || 'no';
+console.log('Saved interface color:', savedColor);
 
 // Применяем сохраненный цвет интерфейса сразу после загрузки приложения
 changeInterfaceColor(savedColor !== 'no' ? CSS_FILES[savedColor] : null);
@@ -88,6 +95,8 @@ Lampa.SettingsApi.addParam({
         description: 'Нажмите для выбора'
     },
     onChange: function(value) {
+        console.log('Interface color changed to:', value);
+
         // Сохранение выбранного цвета в хранилище
         localStorage.setItem('interfaceColor', value);
 
@@ -100,6 +109,15 @@ Lampa.SettingsApi.addParam({
         }, 0);
     }
 });
-
-
-})();
+}
+if (window.appready) {
+    mainSet();
+} else {
+    Lampa.Listener.follow('app', function(e) {
+        // если приложение прогрузилось
+        if (e.type == 'ready') {
+            mainSet();
+        }
+    });
+}
+});
