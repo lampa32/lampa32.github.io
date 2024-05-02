@@ -34,7 +34,7 @@
             });
         });
     }
-  });*/
+  });*/function mainSet() {
     var CSS_FILES = {
     red_stroke: 'http://lampa.run.place/red_stroke.css',
     pink_stroke: 'http://lampa.run.place/pink_stroke.css',
@@ -63,7 +63,7 @@ function changeInterfaceColor(cssFile) {
         console.log('No CSS file specified');
     }
 }
-function mainSet() {
+
 // Получение ранее сохраненного значения из хранилища
 var savedColor = localStorage.getItem('interfaceColor') || 'no';
 console.log('Saved interface color:', savedColor);
