@@ -1,7 +1,26 @@
 (function () {
     'use strict'
     
-   /* Lampa.SettingsApi.addParam({
+   function onInstall(extension) {
+    if (extension.type === 'theme') {
+        // Создаем объект темы
+        var themeData = {
+            id: extension.id
+        };
+        var theme = new Theme(themeData);
+
+        // Удаляем ранее загруженные CSS-файлы тем
+        $('link[rel="stylesheet"][id^="theme-"]').remove();
+
+        // Загружаем CSS-файл для выбранной темы
+        if (theme.link) {
+            var link = $('<link rel="stylesheet" href="' + theme.link + '" id="theme-' + theme.data.id + '">');
+            $('body').append(link);
+        }
+    }
+}
+
+Lampa.SettingsApi.addParam({
     component: 'interface',
     param: {
         name: 'col',
@@ -14,30 +33,19 @@
         setTimeout(function() {
             $('.settings-param > div:contains("123")').parent().insertAfter($('div[data-name="interface_size"]'));
 
-            // Получаем идентификатор выбранной темы
-            var themeId = Lampa.Storage.get('theme_id', '');
-
-            // Удаляем ранее загруженные CSS-файлы тем
-            $('link[rel="stylesheet"][id^="theme-"]').remove();
-
-            // Загружаем CSS-файл для выбранной темы
-            if (themeId) {
-                var link = $('<link rel="stylesheet" href="http://lampa.run.place/themes/' + themeId + '.css" id="theme-' + themeId + '">');
-                $('body').append(link);
-            }
-        }, 100);
-
-        item.on('hover:enter', function() {
-            Lampa.Extensions.show({
-                store: 'https://lampa32.github.io/extensions.json',
-                with_installed: true
+            item.on('hover:enter', function() {
+                Lampa.Extensions.show({
+                    store: 'https://lampa32.github.io/extensions.json',
+                    with_installed: true,
+                    onInstall: onInstall
+                });
             });
-        });
+        }, 100);
     }
-  });*/
+});
 
 
-function mainSet() {
+/*function mainSet() {
 var CSS_FILES = {
     red_stroke: 'http://lampa.run.place/red_stroke.css',
     pink_stroke: 'http://lampa.run.place/pink_stroke.css',
@@ -115,5 +123,5 @@ if (window.appready) {
             mainSet();
         }
     });
-}
+}*/
 })();
