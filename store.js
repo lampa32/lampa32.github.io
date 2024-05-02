@@ -35,8 +35,7 @@
         });
     }
   });*/
-
-    var CSS_FILES = {
+var CSS_FILES = {
     red_stroke: 'http://lampa.run.place/red_stroke.css',
     pink_stroke: 'http://lampa.run.place/pink_stroke.css',
     orange_stroke: 'http://lampa.run.place/orange_stroke.css',
@@ -49,25 +48,18 @@
 };
 
 function changeInterfaceColor(cssFile) {
-    console.log('Changing interface color...');
-
     // Удаляем наши CSS-файлы, кроме стандартного
-    var linksRemoved = $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
-    console.log('Removed', linksRemoved.length, 'CSS links');
+    $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
 
     // Добавляем новый CSS-файл, если он задан
     if (cssFile) {
-        console.log('Adding CSS file:', cssFile);
         var css = $('<link rel="stylesheet" href="' + cssFile + '">');
         $('body').append(css);
-    } else {
-        console.log('No CSS file specified');
     }
 }
 
 // Получение ранее сохраненного значения из хранилища
 var savedColor = localStorage.getItem('interfaceColor') || 'no';
-console.log('Saved interface color:', savedColor);
 
 // Применяем сохраненный цвет интерфейса сразу после загрузки приложения
 changeInterfaceColor(savedColor !== 'no' ? CSS_FILES[savedColor] : null);
@@ -96,8 +88,6 @@ Lampa.SettingsApi.addParam({
         description: 'Нажмите для выбора'
     },
     onChange: function(value) {
-        console.log('Interface color changed to:', value);
-
         // Сохранение выбранного цвета в хранилище
         localStorage.setItem('interfaceColor', value);
 
@@ -111,4 +101,5 @@ Lampa.SettingsApi.addParam({
     }
 });
 
+    
 });
