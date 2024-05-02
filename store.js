@@ -1,24 +1,6 @@
 (function () {
     'use strict'
-    
-   function onInstall(extension) {
-    if (extension.type === 'theme') {
-        // Создаем объект темы
-        var themeData = {
-            id: extension.id
-        };
-        var theme = new Theme(themeData);
-
-        // Удаляем ранее загруженные CSS-файлы тем
-        $('link[rel="stylesheet"][id^="theme-"]').remove();
-
-        // Загружаем CSS-файл для выбранной темы
-        if (theme.link) {
-            var link = $('<link rel="stylesheet" href="' + theme.link + '" id="theme-' + theme.data.id + '">');
-            $('body').append(link);
-        }
-    }
-}
+   
 
 Lampa.SettingsApi.addParam({
     component: 'interface',
@@ -37,10 +19,9 @@ Lampa.SettingsApi.addParam({
                 Lampa.Extensions.show({
                     store: 'https://lampa32.github.io/extensions.json',
                     with_installed: true,
-                    onInstall: onInstall
                 });
             });
-        }, 100);
+        }, 10);
     }
 });
 
