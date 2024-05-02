@@ -38,6 +38,6 @@
 link.rel = 'stylesheet';
 link.href = 'http://lampa.run.place/copenhagen.css';
 document.head.appendChild(link);
-});
+//});
     
 })();
