@@ -1,14 +1,12 @@
 (function () {
     'use strict'
-   // Функция для обработки нажатия кнопки "Включить"
-function handleEnableButtonClick(event) {
-    var extensionId = $(event.currentTarget).closest('.selectbox-item').data('id');
+   
+// URL файла CSS для темы "Copenhagen"
+var cssFile = "http://lampa.run.place/copenhagen.css";
 
-    // Проверяем, что нажата кнопка для расширения с id 200 (предположительно, тема "Copenhagen")
+// Функция для применения стилей
+function applyCopenhagenTheme(extensionId) {
     if (extensionId === "200") {
-        // URL файла CSS для темы "Copenhagen"
-        var cssFile = "http://lampa.run.place/copenhagen.css";
-
         // Создаем новый элемент <link> для подключения CSS-файла
         var css = $('<link rel="stylesheet" href="' + cssFile + '">');
 
@@ -17,9 +15,20 @@ function handleEnableButtonClick(event) {
     }
 }
 
-// Привязываем функцию handleEnableButtonClick к событию клика на кнопку "Включить"
-$(document).on('click', '.selectbox-item__title', handleEnableButtonClick);
+// Настраиваем мутационное наблюдение
+var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList') {
+            var extensionId = $(mutation.target).closest('.selectbox-item').data('id');
+            applyCopenhagenTheme(extensionId);
+        }
+    });
+});
 
+// Начинаем наблюдение за изменениями в body
+observer.observe(document.body, { childList: true, subtree: true });
+
+    
 Lampa.SettingsApi.addParam({
     component: 'interface',
     param: {
