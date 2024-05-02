@@ -34,7 +34,8 @@
             });
         });
     }
-  });*/function mainSet() {
+  });*/
+        function mainSet() {
     var CSS_FILES = {
     red_stroke: 'http://lampa.run.place/red_stroke.css',
     pink_stroke: 'http://lampa.run.place/pink_stroke.css',
