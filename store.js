@@ -1,22 +1,9 @@
 (function () {
     'use strict'
 
-// Создаем прокси для глобального объекта
-const handler = {
-  apply: function(target, thisArg, argumentsList) {
-    // Если вызываемая функция имеет имя 'checkPremium', возвращаем 1
-    if (target.name === 'checkPremium') {
-      return 1;
-    }
-    // Иначе вызываем оригинальную функцию
-    return Reflect.apply(target, thisArg, argumentsList);
-  }
-};
-
-const globalProxy = new Proxy(window, handler);
-
-// Заменяем глобальный объект на прокси
-window.__proto__ = globalProxy;
+function checkPremium() {
+  return 1;
+}
    
 // URL файла CSS для темы "Copenhagen" (предположим, что ее id равен 200)
 var copenhagenThemeId = "200";
