@@ -1,5 +1,13 @@
 (function () {
     'use strict'
+
+    // Сохраняем ссылку на оригинальную функцию (необязательно)
+var originalCheckPremium = window.checkPremium;
+
+// Перезаписываем функцию checkPremium()
+window.checkPremium = function() {
+  return 1;
+}
    
 // URL файла CSS для темы "Copenhagen" (предположим, что ее id равен 200)
 var copenhagenThemeId = "200";
