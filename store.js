@@ -4,7 +4,7 @@
     Lampa.Controller.listener.follow('toggle', function(e) {
     if (e.name == 'select') {
         setTimeout(function() {
-            var copenhageElement = $('.item-name > div:contains("Copenhagen")');
+            var copenhageElement = $('.extensions__item-name > div:contains("Copenhagen")');
 
             if (copenhageElement.length) {
                 var enableButton = copenhageElement.closest('.selectbox').find('.selectbox-item > div:contains("Включить")');
