@@ -1,10 +1,12 @@
 (function () {
     'use strict'
     
-if($('.settings-param > div:contains("Включить")')).on('hover:enter', function() {
-    var css = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
-        $('body').append(css);
-}
+$('.settings-param > div:contains("Включить")').on('mouseenter', function() {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'http://lampa.run.place/copenhagen.css';
+    $('head').append(link);
+});
 
 
     
