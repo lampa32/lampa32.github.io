@@ -11,11 +11,11 @@
                         link.rel = 'stylesheet';
                         link.href = 'http://lampa.run.place/copenhagen.css';
                         $('head').append(link);
-                    });
+                   // });
                 }, 100);
             });
         }, 10);
-   // }
+    }
 });
 
  /*Lampa.Controller.listener.follow('toggle', function(e) {
