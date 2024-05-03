@@ -6,12 +6,12 @@
         setTimeout(function() {
             $('.extensions__item-name > div:contains("Copenhagen")').click(function() {
                 setTimeout(function() {
-                    $('.selectbox-item > div:contains("Включить")').click(function() {
+                   // $('.selectbox-item > div:contains("Включить")').click(function() {
                         var link = document.createElement('link');
                         link.rel = 'stylesheet';
                         link.href = 'http://lampa.run.place/copenhagen.css';
                         $('head').append(link);
-                    });
+                   // });
                 }, 100);
             });
         }, 10);
