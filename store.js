@@ -2,35 +2,21 @@
     'use strict'
 
     Lampa.Controller.listener.follow('toggle', function(e) {
-    if (e.name === 'select') {
-        setTimeout(function() {
-            const itemNames = document.querySelectorAll('.extensions__item-name');
-            let shouldApplyCSS = false;
-
-            itemNames.forEach(function(item) {
-                const itemText = item.textContent.trim();
-
-                if (itemText.includes('Copenhagen')) {
-                    shouldApplyCSS = true;
-                } else {
-                    shouldApplyCSS = false;
-                    return; // Выходим из цикла, если условие не выполнено
-                }
+    if(e.name == 'select') { 
+     setTimeout(function() {
+         const itemNames = document.querySelectorAll('.extensions__item-name');
+          itemNames.forEach(function(item) {
+              const itemText = item.textContent.trim();
+              if ((itemText.includes('White'))&&$('.selectbox-item > div:contains("Включить")')).on('click', function() {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'http://lampa.run.place/copenhagen.css';
+              $('head').append(link);
             });
-
-            if (shouldApplyCSS) {
-                setTimeout(function() {
-                    $('.selectbox-item > div:contains("Включить")').click(function() {
-                        var link = document.createElement('link');
-                        link.rel = 'stylesheet';
-                        link.href = 'http://lampa.run.place/copenhagen.css';
-                        $('head').append(link);
-                    });
-                }, 100);
-            }
-        }, 10);
+          });
+         }, 10);  
     }
-});
+ });
 
  /*Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') { 
