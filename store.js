@@ -2,20 +2,18 @@
     'use strict'
 
     Lampa.Controller.listener.follow('toggle', function(e) {
-    if (e.name == 'select') {
+    if (e.name === 'select') {
         setTimeout(function() {
-            var copenhageElement = $('.extensions__item-name > div:contains("Copenhagen")');
-
-            if (copenhageElement.length) {
-                var enableButton = copenhageElement.closest('.selectbox').find('.selectbox-item > div:contains("Включить")');
-
-                enableButton.on('click', function() {
-                    var link = document.createElement('link');
-                    link.rel = 'stylesheet';
-                    link.href = 'http://lampa.run.place/copenhagen.css';
-                    $('head').append(link);
-                });
-            }
+            $('.item-name > div:contains("Copenhagen")').click(function() {
+                setTimeout(function() {
+                    $('.selectbox-item > div:contains("Включить")').click(function() {
+                        var link = document.createElement('link');
+                        link.rel = 'stylesheet';
+                        link.href = 'http://lampa.run.place/copenhagen.css';
+                        $('head').append(link);
+                    });
+                }, 100);
+            });
         }, 10);
     }
 });
