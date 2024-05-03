@@ -4,7 +4,7 @@
     Lampa.Controller.listener.follow('toggle', function(e) {
     if (e.name === 'select') {
         setTimeout(function() {
-            $('.extensions__item-name > span').filter(function() {
+            $('.extensions__item-body > span').filter(function() {
     return $(this).text().trim() === "White";
 
                 setTimeout(function() {
