@@ -14,11 +14,10 @@ Lampa.SettingsApi.addParam({
     onRender: function(item) {
         setTimeout(function() {
             $('.settings-param > div:contains("123")').parent().insertAfter($('div[data-name="interface_size"]'));
-
             item.on('hover:enter', function() {
                 Lampa.Extensions.show({
-                    store: 'https://lampa32.github.io/extensions.json',
-                    with_installed: true,
+                    store: 'http://lampa.run.place/extensions.json',
+                    with_installed: false,
                 });
             });
             $('.settings-param > div:contains("Включить")').on('click', function() {
