@@ -1,44 +1,11 @@
 (function () {
     'use strict'
-
-function checkPremium() {
-  return 1;
-}
-   
-// URL файла CSS для темы "Copenhagen" (предположим, что ее id равен 200)
-var copenhagenThemeId = "200";
-var copenhagenCssFile = "http://lampa.run.place/copenhagen.css";
-
-// Ссылка на элемент <link>, который будет добавлен в <body>
-var copenhagenCssLink = null;
-
-// Функция для применения стилей темы "Copenhagen"
-function applyCopenhagenTheme() {
-    if (!copenhagenCssLink) {
-        copenhagenCssLink = $('<link rel="stylesheet" href="' + copenhagenCssFile + '">');
-        $('body').append(copenhagenCssLink);
-    }
+    
+if($('.settings-param > div:contains("Включить")')).on('hover:enter', function() {
+    var css = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
+        $('body').append(css);
 }
 
-// Функция для удаления стилей темы "Copenhagen"
-function removeCopenhagenTheme() {
-    if (copenhagenCssLink) {
-        copenhagenCssLink.remove();
-        copenhagenCssLink = null;
-    }
-}
-
-// Подписываемся на событие установки или удаления темы
-Lampa.Listener.follow('theme', function(e) {
-    var theme = e.object;
-    if (theme.data.id === copenhagenThemeId) {
-        if (theme.active()) {
-            applyCopenhagenTheme();
-        } else {
-            removeCopenhagenTheme();
-        }
-    }
-});
 
     
 Lampa.SettingsApi.addParam({
