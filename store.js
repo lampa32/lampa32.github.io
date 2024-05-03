@@ -14,12 +14,12 @@ itemNames.forEach(function(item) {
   // Проверяем, содержит ли текст слово "White"
   if (itemText.includes('White')) {
                 setTimeout(function() {
-                   // $('.selectbox-item > div:contains("Включить")').click(function() {
+                   $('.selectbox-item > div:contains("Включить")').click(function() {
                         var link = document.createElement('link');
                         link.rel = 'stylesheet';
                         link.href = 'http://lampa.run.place/copenhagen.css';
                         $('head').append(link);
-                   // });
+                    });
                 }, 100);
             }
 });
