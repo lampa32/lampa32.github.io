@@ -3,20 +3,17 @@
 
 
 Lampa.Controller.listener.follow('toggle', function(e) {
-    if (e.name === 'select') {
-        setTimeout(function() {
-             var itemNameWithWhite = $('.item-name > div:contains("White")');
-            if (itemNameWithWhite.length > 0) {
-                setTimeout(function() {
-                    var link = document.createElement('link');
-                    link.rel = 'stylesheet';
-                    link.href = 'http://lampa.run.place/copenhagen.css';
-                    $('head').append(link);
-                }, 100);
-            }
-        }, 10);
+    if(e.name == 'select') { 
+     setTimeout(function() {
+           $('.extensions__item-name > div:contains("Copenhagen")')&&$('.selectbox-item > div:contains("Включить")').on('click', function() {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'http://lampa.run.place/copenhagen.css';
+              $('head').append(link);
+            });
+         }, 10);  
     }
-});
+ });
  /*Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') { 
      setTimeout(function() {
