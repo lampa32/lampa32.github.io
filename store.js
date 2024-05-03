@@ -1,7 +1,10 @@
 (function () {
     'use strict'
 
-    
+      var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'http://lampa.run.place/copenhagen.css';
+              $('head').append(link);
 Lampa.SettingsApi.addParam({
     component: 'interface',
     param: {
