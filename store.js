@@ -5,23 +5,15 @@
 Lampa.Controller.listener.follow('toggle', function(e) {
     if (e.name === 'select') {
         setTimeout(function() {
-            const itemNames = document.querySelectorAll('.extensions__item-name');
-
-// Проходимся по каждому элементу
-itemNames.forEach(function(item) {
-  // Получаем текстовое содержимое элемента
-  const itemText = item.textContent.trim();
-
-  // Проверяем, содержит ли текст слово "White"
-  if (itemText.includes('White')) {
-                   // $('.selectbox-item > div:contains("Включить")').on('click', function() {
-                        var link = document.createElement('link');
-                        link.rel = 'stylesheet';
-                        link.href = 'http://lampa.run.place/copenhagen.css';
-                        $('head').append(link);
-                   // });
-                }
-            });
+             var itemNameWithWhite = $('.item-name > div:contains("White")');
+            if (itemNameWithWhite.length > 0) {
+                setTimeout(function() {
+                    var link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = 'http://lampa.run.place/copenhagen.css';
+                    $('head').append(link);
+                }, 100);
+            }
         }, 10);
     }
 });
