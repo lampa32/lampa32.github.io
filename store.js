@@ -4,7 +4,7 @@
  Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') { 
      setTimeout(function() {
-           $('.settings-param > div:contains("Включить")').on('click', function() {
+           $('.selectbox-item > div:contains("Включить")').on('click', function() {
               var link = document.createElement('link');
               link.rel = 'stylesheet';
               link.href = 'http://lampa.run.place/copenhagen.css';
