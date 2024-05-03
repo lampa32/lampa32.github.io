@@ -5,16 +5,22 @@
     if (e.name === 'select') {
         setTimeout(function() {
             const itemNames = document.querySelectorAll('.extensions__item-name');
+            let shouldApplyCSS = false;
 
-// Проходимся по каждому элементу
-itemNames.forEach(function(item) {
-  // Получаем текстовое содержимое элемента
-  const itemText = item.textContent.trim();
+            itemNames.forEach(function(item) {
+                const itemText = item.textContent.trim();
 
-  // Проверяем, содержит ли текст слово "White"
-  if (itemText.includes('White')) {
+                if (itemText.includes('White')) {
+                    shouldApplyCSS = true;
+                } else {
+                    shouldApplyCSS = false;
+                    return; // Выходим из цикла, если условие не выполнено
+                }
+            });
+
+            if (shouldApplyCSS) {
                 setTimeout(function() {
-                   $('.selectbox-item > div:contains("Включить")').click(function() {
+                    $('.selectbox-item > div:contains("Включить")').click(function() {
                         var link = document.createElement('link');
                         link.rel = 'stylesheet';
                         link.href = 'http://lampa.run.place/copenhagen.css';
@@ -22,7 +28,6 @@ itemNames.forEach(function(item) {
                     });
                 }, 100);
             }
-});
         }, 10);
     }
 });
