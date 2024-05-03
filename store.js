@@ -4,9 +4,7 @@
     Lampa.Controller.listener.follow('toggle', function(e) {
     if (e.name === 'select') {
         setTimeout(function() {
-            $('.extensions__item-body > span').filter(function() {
-    return $(this).text().trim() === "White";
-
+            $('.item-name > div:contains("White")')
                 setTimeout(function() {
                    // $('.selectbox-item > div:contains("Включить")').click(function() {
                         var link = document.createElement('link');
@@ -15,7 +13,6 @@
                         $('head').append(link);
                    // });
                 }, 100);
-            });
         }, 10);
     }
 });
