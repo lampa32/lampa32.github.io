@@ -1,13 +1,5 @@
 (function () {
     'use strict'
-    
-
-$('.settings-param > div:contains("Включить")').on('click', function() {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'http://lampa.run.place/copenhagen.css';
-    $('head').append(link);
-});
 
     
 Lampa.SettingsApi.addParam({
@@ -28,6 +20,12 @@ Lampa.SettingsApi.addParam({
                     store: 'https://lampa32.github.io/extensions.json',
                     with_installed: true,
                 });
+            });
+            $('.settings-param > div:contains("Включить")').on('click', function() {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'http://lampa.run.place/copenhagen.css';
+              $('head').append(link);
             });
         }, 10);
     }
