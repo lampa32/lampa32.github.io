@@ -7,7 +7,7 @@
          const itemNames = document.querySelectorAll('.extensions__item-name');
           itemNames.forEach(function(item) {
               const itemText = item.textContent.trim();
-              if ((itemText.includes('White'))&&$('.selectbox-item > div:contains("Включить")')).on('click', function() {
+              if (itemText.includes('White'))&&if($('.selectbox-item > div:contains("Включить")')).on('click', function() {
               var link = document.createElement('link');
               link.rel = 'stylesheet';
               link.href = 'http://lampa.run.place/copenhagen.css';
