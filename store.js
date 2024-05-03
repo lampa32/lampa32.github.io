@@ -1,6 +1,16 @@
 (function () {
     'use strict'
 
+ Lampa.Controller.listener.follow('toggle', function(e) {
+       setTimeout(function() {
+           $('.settings-param > div:contains("Включить")').on('click', function() {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'http://lampa.run.place/copenhagen.css';
+              $('head').append(link);
+            });
+         }, 10);  
+ });
       
 Lampa.SettingsApi.addParam({
     component: 'interface',
@@ -19,12 +29,6 @@ Lampa.SettingsApi.addParam({
                     store: 'http://lampa.run.place/extensions.json',
                     with_installed: false,
                 });
-            });
-            $('.settings-param > div:contains("Включить")').on('click', function() {
-              var link = document.createElement('link');
-              link.rel = 'stylesheet';
-              link.href = 'http://lampa.run.place/copenhagen.css';
-              $('head').append(link);
             });
         }, 10);
     }
