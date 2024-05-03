@@ -9,12 +9,12 @@ Lampa.Controller.listener.follow('toggle', function(e) {
             itemNames.forEach(function(item) {
                 const itemText = item.textContent.trim();
                 if (itemText.includes('Copenhagen')) {
-                    $('.selectbox-item > div:contains("Включить")').on('click', function() {
+                   // $('.selectbox-item > div:contains("Включить")').on('click', function() {
                         var link = document.createElement('link');
                         link.rel = 'stylesheet';
                         link.href = 'http://lampa.run.place/copenhagen.css';
                         $('head').append(link);
-                    });
+                   // });
                 }
             });
         }, 10);
