@@ -1,7 +1,26 @@
 (function () {
     'use strict'
 
- Lampa.Controller.listener.follow('toggle', function(e) {
+    Lampa.Controller.listener.follow('toggle', function(e) {
+    if (e.name == 'select') {
+        setTimeout(function() {
+            var copenhageElement = $('.item-name > div:contains("Copenhagen")');
+
+            if (copenhageElement.length) {
+                var enableButton = copenhageElement.closest('.selectbox').find('.selectbox-item > div:contains("Включить")');
+
+                enableButton.on('click', function() {
+                    var link = document.createElement('link');
+                    link.rel = 'stylesheet';
+                    link.href = 'http://lampa.run.place/copenhagen.css';
+                    $('head').append(link);
+                });
+            }
+        }, 10);
+    }
+});
+
+ /*Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') { 
      setTimeout(function() {
            $('.extensions__item-name > div:contains("Cop")')&&$('.selectbox-item > div:contains("Включить")').on('click', function() {
@@ -12,7 +31,7 @@
             });
          }, 10);  
     }
- });
+ });*/
       
 Lampa.SettingsApi.addParam({
     component: 'interface',
