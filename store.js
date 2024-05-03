@@ -2,7 +2,7 @@
     'use strict'
 
     Lampa.Controller.listener.follow('toggle', function(e) {
-    if (e.name === 'select') {
+    //if (e.name === 'select') {
         setTimeout(function() {
             $('.item-name > div:contains("Copenhagen")').click(function() {
                 setTimeout(function() {
@@ -15,7 +15,7 @@
                 }, 100);
             });
         }, 10);
-    }
+   // }
 });
 
  /*Lampa.Controller.listener.follow('toggle', function(e) {
