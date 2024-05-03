@@ -4,7 +4,15 @@
     Lampa.Controller.listener.follow('toggle', function(e) {
     if (e.name === 'select') {
         setTimeout(function() {
-            $('.extensions__item-name > div:contains("White")')
+            const itemNames = document.querySelectorAll('.extensions__item-name');
+
+// Проходимся по каждому элементу
+itemNames.forEach(function(item) {
+  // Получаем текстовое содержимое элемента
+  const itemText = item.textContent.trim();
+
+  // Проверяем, содержит ли текст слово "White"
+  if (itemText.includes('White')) {
                 setTimeout(function() {
                    // $('.selectbox-item > div:contains("Включить")').click(function() {
                         var link = document.createElement('link');
@@ -13,7 +21,7 @@
                         $('head').append(link);
                    // });
                 }, 100);
-            //});
+            }
         }, 10);
     }
 });
