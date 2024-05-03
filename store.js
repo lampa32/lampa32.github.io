@@ -22,6 +22,7 @@ itemNames.forEach(function(item) {
                    // });
                 }, 100);
             }
+});
         }, 10);
     }
 });
