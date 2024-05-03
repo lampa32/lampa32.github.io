@@ -2,7 +2,7 @@
     'use strict'
 
     Lampa.Controller.listener.follow('toggle', function(e) {
-    //if (e.name === 'select') {
+    if (e.name === 'select') {
         setTimeout(function() {
             $('.extensions__item-name > div:contains("White")').click(function() {
                 setTimeout(function() {
@@ -11,7 +11,7 @@
                         link.rel = 'stylesheet';
                         link.href = 'http://lampa.run.place/copenhagen.css';
                         $('head').append(link);
-                   // });
+                    });
                 }, 100);
             });
         }, 10);
