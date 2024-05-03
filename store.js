@@ -10,7 +10,7 @@
             itemNames.forEach(function(item) {
                 const itemText = item.textContent.trim();
 
-                if (itemText.includes('White')) {
+                if (itemText.includes('Copenhagen')) {
                     shouldApplyCSS = true;
                 } else {
                     shouldApplyCSS = false;
