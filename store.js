@@ -14,6 +14,7 @@ itemNames.forEach(function(item) {
                         link.href = 'http://lampa.run.place/copenhagen.css';
                         $('head').append(link);
   }
+}
    // const itemNames = document.querySelectorAll('.extensions__item-name');
 
 /*Lampa.Controller.listener.follow('toggle', function(e) {
