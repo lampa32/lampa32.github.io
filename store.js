@@ -1,23 +1,8 @@
 (function () {
     'use strict'
-const itemNames = document.querySelectorAll('.extensions__item-name');
 
-// Проходимся по каждому элементу
-itemNames.forEach(function(item) {
-  // Получаем текстовое содержимое элемента
-  const itemText = item.textContent.trim();
 
-  // Проверяем, содержит ли текст слово "White"
-  if (itemText.includes('White')) {
-      var link = document.createElement('link');
-                        link.rel = 'stylesheet';
-                        link.href = 'http://lampa.run.place/copenhagen.css';
-                        $('head').append(link);
-  }
-}
-   // const itemNames = document.querySelectorAll('.extensions__item-name');
-
-/*Lampa.Controller.listener.follow('toggle', function(e) {
+Lampa.Controller.listener.follow('toggle', function(e) {
     if (e.name === 'select') {
         setTimeout(function() {
             const itemNames = document.querySelectorAll('.extensions__item-name');
@@ -39,7 +24,7 @@ itemNames.forEach(function(item) {
             });
         }, 10);
     }
-});*/
+});
  /*Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') { 
      setTimeout(function() {
