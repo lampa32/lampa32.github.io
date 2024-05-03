@@ -4,7 +4,7 @@
     Lampa.Controller.listener.follow('toggle', function(e) {
     if (e.name === 'select') {
         setTimeout(function() {
-            $('.extensions__item-body > div:contains("White")')
+            $('.extensions__item-name > span:contains("White")')
                 setTimeout(function() {
                    // $('.selectbox-item > div:contains("Включить")').click(function() {
                         var link = document.createElement('link');
