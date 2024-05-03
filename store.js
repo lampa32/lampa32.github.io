@@ -1,14 +1,20 @@
 (function () {
     'use strict'
 
-    const itemNames = document.querySelectorAll('.extensions__item-name');
+   // const itemNames = document.querySelectorAll('.extensions__item-name');
 
 Lampa.Controller.listener.follow('toggle', function(e) {
     if (e.name === 'select') {
         setTimeout(function() {
-            itemNames.forEach(function(item) {
-                const itemText = item.textContent.trim();
-                if (itemText.includes('Copenhagen')) {
+            const itemNames = document.querySelectorAll('.extensions__item-name');
+
+// Проходимся по каждому элементу
+itemNames.forEach(function(item) {
+  // Получаем текстовое содержимое элемента
+  const itemText = item.textContent.trim();
+
+  // Проверяем, содержит ли текст слово "White"
+  if (itemText.includes('White')) {
                    // $('.selectbox-item > div:contains("Включить")').on('click', function() {
                         var link = document.createElement('link');
                         link.rel = 'stylesheet';
