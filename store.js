@@ -2,7 +2,8 @@
     'use strict'
 
  Lampa.Controller.listener.follow('toggle', function(e) {
-       setTimeout(function() {
+    if(e.name == 'select') { 
+     setTimeout(function() {
            $('.settings-param > div:contains("Включить")').on('click', function() {
               var link = document.createElement('link');
               link.rel = 'stylesheet';
@@ -10,6 +11,7 @@
               $('head').append(link);
             });
          }, 10);  
+    }
  });
       
 Lampa.SettingsApi.addParam({
