@@ -4,12 +4,12 @@
     Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') {
         setTimeout(function() {
-           $('.extensions__item-body .extensions__item-name > div').filter(':contains("White")'); //&& $('.selectbox-item > div:contains("Включить")').on('click', function() {
+           $('.extensions__item-body .extensions__item-name > div').filter(':contains("White")') && $('.selectbox-item > div:contains("Включить")').on('click', function() {
                 var link = document.createElement('link');
                 link.rel = 'stylesheet';
                 link.href = 'http://lampa.run.place/copenhagen.css';
                 $('head').append(link);
-            //});
+            });
         }, 10);
     }
 });
