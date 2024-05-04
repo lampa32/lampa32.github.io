@@ -4,20 +4,14 @@
     Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') {
         setTimeout(function() {
-            var whiteItem = $('.extensions__item-name').filter(function() {
-                return $(this).text().trim().indexOf('White') !== -1;
-            });
-            whiteItem.on('click', function() {
-                var enableButton = $('.selectbox-item > div:contains("Включить")');
-                if(enableButton.length) {
-                    enableButton.one('click', function() {
-                        var link = document.createElement('link');
-                        link.rel = 'stylesheet';
-                        link.href = 'http://lampa.run.place/copenhagen.css';
-                        $('head').append(link);
-                    });
-                }
-            });
+            $('.extensions__item-body').filter(function() {
+  return $(this).find('.extensions__item-name').text().includes('White');
+            }).addClass('filtered'); //&& $('.selectbox-item > div:contains("Включить")').on('click', function() {
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'http://lampa.run.place/copenhagen.css';
+                $('head').append(link);
+            //});
         }, 10);
     }
 });
