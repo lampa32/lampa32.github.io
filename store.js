@@ -10,7 +10,7 @@
             whiteItem.on('click', function() {
                 var enableButton = $('.selectbox-item > div:contains("Включить")');
                 if(enableButton.length) {
-                    enableButton.on('click', function() {
+                    enableButton.one('click', function() {
                         var link = document.createElement('link');
                         link.rel = 'stylesheet';
                         link.href = 'http://lampa.run.place/copenhagen.css';
