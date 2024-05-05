@@ -1,14 +1,47 @@
 (function () {
     'use strict'
 
-    Lampa.Controller.listener.follow('toggle', function(e) {
+Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') {
         setTimeout(function() {
-           $('.extensions__item-body .extensions__item-name > div').filter(':contains("White")') && $('.selectbox-item > div:contains("Включить")').on('click', function() {
-                var link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = 'http://lampa.run.place/copenhagen.css';
-                $('head').append(link);
+      if (localStorage.getItem('myTheme') == 'Розовая') {
+        $('.selectbox-item > div:contains("Включить")').on('click', function() {
+          Lampa.Noty.show('Розовая');
+          $('.selectbox-item > div:contains("Включить")').onclick = null;
+        });
+      };
+      if (localStorage.getItem('myTheme') == 'Циановая') {
+        $('.selectbox-item > div:contains("Включить")').on('click', function() {
+          Lampa.Noty.show('Циановая');
+          $('.selectbox-item > div:contains("Включить")').onclick = null;
+        });
+      };
+        }, 100);
+    }
+});
+
+Lampa.SettingsApi.addParam({
+    component: 'interface',
+    param: {
+        name: 'col',
+        type: 'static',
+    },
+    field: {
+        name: '123'
+    },
+    onRender: function(item) {
+        setTimeout(function() {
+            $('.settings-param > div:contains("123")').parent().insertAfter($('div[data-name="interface_size"]'));
+            item.on('hover:enter', function() {
+                Lampa.Extensions.show({
+                    store: 'http://lampa.run.place/extensions.json',
+                    with_installed: false,
+                });
+        setTimeout(function() {
+          $('.extensions__item--theme').on('hover:enter', function() {
+              localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
+            });
+        }, 1000)
             });
         }, 10);
     }
