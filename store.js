@@ -4,9 +4,10 @@
 Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') {
         setTimeout(function() {
-      if (localStorage.getItem('myTheme') == 'Розовая') {
+      if (localStorage.getItem('myTheme') == 'Copenhagen') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-          Lampa.Noty.show('Розовая');
+          var css = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
+             $('body').append(css);
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       };
@@ -73,7 +74,7 @@ Lampa.SettingsApi.addParam({
     }
  });*/
       
-Lampa.SettingsApi.addParam({
+/*Lampa.SettingsApi.addParam({
     component: 'interface',
     param: {
         name: 'col',
@@ -93,7 +94,7 @@ Lampa.SettingsApi.addParam({
             });
         }, 10);
     }
-});
+});*/
 
 
 /*function mainSet() {
