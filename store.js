@@ -8,12 +8,21 @@ function loadThemeCSS(themeName) {
 }
 
 // Проверка сохраненной темы при запуске приложения
-$(document).ready(function() {
+/*$(document).ready(function() {
   var savedTheme = localStorage.getItem('myTheme');
   if (savedTheme && savedTheme !== 'Disabled') {
     loadThemeCSS(savedTheme.toLowerCase().replace(/\s+/g, '_'));
   } else {
     $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+  }
+});*/
+    $(document).ready(function() {
+  var savedTheme = localStorage.getItem('myTheme');
+  if (savedTheme && savedTheme !== 'Disabled') {
+    $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove(); // Удаляем все ссылки на старые темы
+    loadThemeCSS(savedTheme.toLowerCase().replace(/\s+/g, '_')); // Загружаем сохраненную тему
+  } else {
+    $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove(); // Удаляем все ссылки на старые темы
   }
 });
 
