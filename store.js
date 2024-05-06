@@ -3,10 +3,8 @@
 
 // Функция для загрузки CSS-файла темы
 function loadThemeCSS(themeName) {
- setTimeout(function() {
   var css = $('<link rel="stylesheet" href="http://lampa.run.place/' + themeName + '.css">');
   $('body').append(css);
- }, 200);
 }
 
 // Проверка сохраненной темы при запуске приложения
@@ -50,7 +48,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
         });
       }
-    }, 200);
+    }, 100);
   }
 });
 
@@ -75,7 +73,7 @@ Lampa.SettingsApi.addParam({
           $('.extensions__item--theme').on('hover:enter', function() {
             localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
           });
-        }, 1500)
+        }, 500)
       });
     }, 10);
   }
