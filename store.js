@@ -19,7 +19,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
       };
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-          var css = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
+          var css = $('<link rel="stylesheet" href="http://lampa.run.place/authentic_brief.css">');
              $('body').append(css);
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
