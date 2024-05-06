@@ -69,11 +69,11 @@ Lampa.SettingsApi.addParam({
           store: 'http://lampa.run.place/extensions.json',
           with_installed: false,
         });
-        //setTimeout(function() {
+        setTimeout(function() {
           $('.extensions__item--theme').on('hover:enter', function() {
             localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
           });
-        //}, 1000)
+        }, 1000)
       });
     }, 10);
   }
