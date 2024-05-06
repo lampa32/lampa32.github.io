@@ -17,10 +17,17 @@ Lampa.Controller.listener.follow('toggle', function(e) {
         $('.selectbox-item > div:contains("Отключить")').onclick = null;
         });
       };
-      if (localStorage.getItem('myTheme') == 'Циановая') {
+      if (localStorage.getItem('myTheme') == 'Authentic Brief') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-          Lampa.Noty.show('Циановая');
+          var css = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
+             $('body').append(css);
           $('.selectbox-item > div:contains("Включить")').onclick = null;
+        });
+      };
+      if (localStorage.getItem('myTheme') == 'Authentic Brief') {
+        $('.selectbox-item > div:contains("Отключить")').on('click', function() {
+          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+        $('.selectbox-item > div:contains("Отключить")').onclick = null;
         });
       };
         }, 100);
