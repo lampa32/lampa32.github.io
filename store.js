@@ -23,10 +23,8 @@ Lampa.Controller.listener.follow('toggle', function(e) {
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
-          //loadThemeCSS('copenhagen');
-            var css = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
-            $('body').append(css);
-         // $('.selectbox-item > div:contains("Включить")').onclick = null;
+          loadThemeCSS('copenhagen');
+          $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
