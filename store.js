@@ -2,7 +2,7 @@
     'use strict'
 
 // Функция для загрузки CSS-файла темы
-function loadThemeCSS(themeName) {
+/*function loadThemeCSS(themeName) {
   var css = $('<link rel="stylesheet" href="http://lampa.run.place/' + themeName + '.css">');
   $('body').append(css);
 }
@@ -14,6 +14,23 @@ $(document).ready(function() {
     loadThemeCSS(savedTheme.toLowerCase().replace(/\s+/g, '_'));
   } else {
     $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+  }
+});*/
+    function loadThemeCSS(themeName) {
+  var cssFile = 'http://lampa.run.place/' + themeName + '.css';
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = cssFile;
+  document.head.appendChild(link);
+}
+
+$(document).ready(function() {
+  var savedTheme = localStorage.getItem('myTheme');
+  if (savedTheme && savedTheme !== 'Disabled') {
+    $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove(); // Удаляем все ссылки на старые темы
+    loadThemeCSS(savedTheme.toLowerCase().replace(/\s+/g, '_')); // Загружаем сохраненную тему
+  } else {
+    $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove(); // Удаляем все ссылки на старые темы
   }
 });
 
