@@ -1,6 +1,7 @@
 (function () {
     'use strict'
 
+
 // Функция для загрузки CSS-файла темы
 function loadThemeCSS(themeName) {
   var css = $('<link rel="stylesheet" href="http://lampa.run.place/' + themeName + '.css">');
@@ -24,6 +25,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('copenhagen');
+          localStorage.removeItem('myTheme');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
@@ -38,6 +40,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('authentic_brief');
+          localStorage.removeItem('myTheme');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
@@ -78,6 +81,7 @@ Lampa.SettingsApi.addParam({
     }, 10);
   }
 });
+
 
 /*Lampa.Controller.listener.follow('toggle', function(e) {
     if(e.name == 'select') {
