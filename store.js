@@ -24,7 +24,8 @@ Lampa.Controller.listener.follow('toggle', function(e) {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           //loadThemeCSS('copenhagen');
-            $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
+            var css = $('<link rel="stylesheet" href="http://lampa.run.place/copenhagen.css">');
+            $('body').append(css);
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
