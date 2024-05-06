@@ -7,18 +7,13 @@ function loadThemeCSS(themeName) {
   $('body').append(css);
 }
 
-// Функция для удаления CSS-файлов тем
-function removeThemeCSS() {
-  $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
-}
-
 // Проверка сохраненной темы при запуске приложения
 $(document).ready(function() {
   var savedTheme = localStorage.getItem('myTheme');
   if (savedTheme && savedTheme !== 'Disabled') {
     loadThemeCSS(savedTheme.toLowerCase().replace(/\s+/g, '_'));
   } else {
-    removeThemeCSS();
+    $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
   }
 });
 
@@ -27,30 +22,28 @@ Lampa.Controller.listener.follow('toggle', function(e) {
     setTimeout(function() {
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-          removeThemeCSS();
+          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('copenhagen');
-          localStorage.setItem('myTheme', 'Copenhagen');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
         $('.selectbox-item > div:contains("Отключить")').on('click', function() {
-          removeThemeCSS();
+          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-          removeThemeCSS();
+          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('authentic_brief');
-          localStorage.setItem('myTheme', 'Authentic Brief');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
         $('.selectbox-item > div:contains("Отключить")').on('click', function() {
-          removeThemeCSS();
+          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
         });
@@ -76,17 +69,14 @@ Lampa.SettingsApi.addParam({
           store: 'http://lampa.run.place/extensions.json',
           with_installed: false,
         });
+        setTimeout(function() {
+          $('.extensions__item--theme').on('hover:enter', function() {
+            localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
+          });
+        }, 1000)
       });
     }, 10);
   }
-});
-
-// Обработчик нажатия на элемент темы
-$('body').on('click', '.extensions__item--theme', function() {
-  var themeName = this.querySelector('.extensions__item-name').innerText;
-  removeThemeCSS();
-  loadThemeCSS(themeName.toLowerCase().replace(/\s+/g, '_'));
-  localStorage.setItem('myTheme', themeName);
 });
 
 
