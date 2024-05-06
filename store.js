@@ -1,7 +1,100 @@
 (function () {
     'use strict'
+function loadThemeCSS(themeName) {
+  return new Promise((resolve, reject) => {
+    const css = $('<link rel="stylesheet" href="http://lampa.run.place/' + themeName + '.css">');
+    $('body').append(css);
+    css.on('load', resolve).on('error', reject);
+  });
+}
 
-// Функция для загрузки CSS-файла темы
+// Проверка сохраненной темы при запуске приложения
+$(document).ready(function() {
+  const savedTheme = localStorage.getItem('myTheme');
+  if (savedTheme && savedTheme !== 'Disabled') {
+    const sanitizedThemeName = savedTheme.toLowerCase().replace(/[^a-z0-9_]/g, '_');
+    loadThemeCSS(sanitizedThemeName)
+      .then(() => {
+        console.log(`Тема "${savedTheme}" успешно загружена`);
+      })
+      .catch((error) => {
+        console.error(`Ошибка загрузки темы "${savedTheme}":`, error);
+      });
+  } else {
+    $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+  }
+});
+
+Lampa.Controller.listener.follow('toggle', function(e) {
+  if (e.name === 'select') {
+    const handleThemeToggle = (themeName, action) => {
+      loadThemeCSS(themeName)
+        .then(() => {
+          console.log(`Тема "${themeName}" успешно ${action}`);
+        })
+        .catch((error) => {
+          console.error(`Ошибка ${action} темы "${themeName}":`, error);
+        });
+    };
+
+    const savedTheme = localStorage.getItem('myTheme');
+    const sanitizedThemeName = savedTheme.toLowerCase().replace(/[^a-z0-9_]/g, '_');
+
+    if (savedTheme === 'Copenhagen') {
+      $('.selectbox-item > div:contains("Включить")').on('click', () => {
+        $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+        handleThemeToggle('copenhagen', 'включена');
+      });
+
+      $('.selectbox-item > div:contains("Отключить")').on('click', () => {
+        $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+        localStorage.setItem('myTheme', 'Disabled');
+        console.log('Тема отключена');
+      });
+    }
+
+    if (savedTheme === 'Authentic Brief') {
+      $('.selectbox-item > div:contains("Включить")').on('click', () => {
+        $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+        handleThemeToggle('authentic_brief', 'включена');
+      });
+
+      $('.selectbox-item > div:contains("Отключить")').on('click', () => {
+        $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+        localStorage.setItem('myTheme', 'Disabled');
+        console.log('Тема отключена');
+      });
+    }
+  }
+});
+
+Lampa.SettingsApi.addParam({
+  component: 'interface',
+  param: {
+    name: 'col',
+    type: 'static',
+  },
+  field: {
+    name: '123'
+  },
+  onRender: function(item) {
+    setTimeout(function() {
+      $('.settings-param > div:contains("123")').parent().insertAfter($('div[data-name="interface_size"]'));
+      item.on('hover:enter', function() {
+        Lampa.Extensions.show({
+          store: 'http://lampa.run.place/extensions.json',
+          with_installed: false,
+        });
+        setTimeout(function() {
+          $('.extensions__item--theme').on('hover:enter', function() {
+            localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
+          });
+        }, 500)
+      });
+    }, 10);
+  }
+});
+/*// Функция для загрузки CSS-файла темы
 function loadThemeCSS(themeName) {
   var css = $('<link rel="stylesheet" href="http://lampa.run.place/' + themeName + '.css">');
   $('body').append(css);
@@ -77,7 +170,7 @@ Lampa.SettingsApi.addParam({
       });
     }, 10);
   }
-});
+});*/
 
 
 /*Lampa.Controller.listener.follow('toggle', function(e) {
