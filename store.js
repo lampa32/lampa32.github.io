@@ -76,17 +76,17 @@ Lampa.SettingsApi.addParam({
           store: 'http://lampa.run.place/extensions.json',
           with_installed: false,
         });
-        setTimeout(function() {
-          $('.extensions__item--theme').on('hover:enter', function() {
-            var themeName = this.querySelector('.extensions__item-name').innerText;
-            removeThemeCSS();
-            loadThemeCSS(themeName.toLowerCase().replace(/\s+/g, '_'));
-            localStorage.setItem('myTheme', themeName);
-          });
-        }, 1000)
       });
     }, 10);
   }
+});
+
+// Обработчик нажатия на элемент темы
+$('body').on('click', '.extensions__item--theme', function() {
+  var themeName = this.querySelector('.extensions__item-name').innerText;
+  removeThemeCSS();
+  loadThemeCSS(themeName.toLowerCase().replace(/\s+/g, '_'));
+  localStorage.setItem('myTheme', themeName);
 });
 
 
