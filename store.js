@@ -22,16 +22,16 @@ Lampa.Controller.listener.follow('toggle', function(e) {
     setTimeout(function() {
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-          //$('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('copenhagen');
-          $('.selectbox-item > div:contains("Включить")').onclick = null;
+          //$('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
         $('.selectbox-item > div:contains("Отключить")').on('click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
-          $('.selectbox-item > div:contains("Отключить")').onclick = null;
+          //$('.selectbox-item > div:contains("Отключить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
