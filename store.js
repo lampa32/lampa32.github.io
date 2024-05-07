@@ -32,7 +32,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
         });
       }
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
-          onsole.log('Обработчик для темы Copenhagen (Отключить)');
+          console.log('Обработчик для темы Copenhagen (Отключить)');
         $('.selectbox-item > div:contains("Отключить")').on('click', function() {
              console.log('Клик на кнопке "Отключить" для темы Copenhagen');
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
