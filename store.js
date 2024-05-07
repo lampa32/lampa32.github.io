@@ -1,6 +1,6 @@
 (function () {
     'use strict'
-
+function mainSet() {
 // Функция для загрузки CSS-файла темы
 function loadThemeCSS(themeName) {
   var css = $('<link rel="stylesheet" href="http://lampa.run.place/' + themeName + '.css">');
@@ -194,7 +194,7 @@ Lampa.SettingsApi.addParam({
             $('div[data-name="Color_interface"]').insertAfter('div[data-name="interface_size"]');
         }, 0);
     }
-});
+});*/
 
 }
 
@@ -207,5 +207,5 @@ if (window.appready) {
             mainSet();
         }
     });
-}*/
+}
 })();
