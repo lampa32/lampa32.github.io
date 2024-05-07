@@ -22,7 +22,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
     setTimeout(function() {
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-         // $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('copenhagen');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
@@ -36,7 +36,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-         // $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('authentic_brief');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
@@ -73,7 +73,7 @@ Lampa.SettingsApi.addParam({
           $('.extensions__item--theme').on('hover:enter', function() {
             localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
           });
-        }, 10)
+        }, 100)
       });
     }, 10);
   }
