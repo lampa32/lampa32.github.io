@@ -17,6 +17,7 @@ $(document).ready(function() {
   }
 });
 
+function themes() {
 Lampa.Controller.listener.follow('toggle', function(e) {
   if (e.name == 'select') {
     setTimeout(function() {
@@ -51,6 +52,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
     }, 100);
   }
 });
+}
 
 Lampa.SettingsApi.addParam({
   component: 'interface',
@@ -69,11 +71,12 @@ Lampa.SettingsApi.addParam({
           store: 'http://lampa.run.place/extensions.json',
           with_installed: false,
         });
+        themes();
         setTimeout(function() {
           $('.extensions__item--theme').on('hover:enter', function() {
             localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
           });
-        }, 100)
+        }, 50)
       });
     }, 10);
   }
