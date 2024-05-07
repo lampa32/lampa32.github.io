@@ -3,6 +3,7 @@
 function mainSet() {
 // Функция для загрузки CSS-файла темы
 function loadThemeCSS(themeName) {
+     console.log('Загрузка CSS для темы: ', themeName);
   var css = $('<link rel="stylesheet" href="http://lampa.run.place/' + themeName + '.css">');
   $('body').append(css);
 }
@@ -11,6 +12,7 @@ function loadThemeCSS(themeName) {
 $(document).ready(function() {
   var savedTheme = localStorage.getItem('myTheme');
   if (savedTheme && savedTheme !== 'Disabled') {
+      console.log('Обнаружена сохраненная тема: ', savedTheme);
     loadThemeCSS(savedTheme.toLowerCase().replace(/\s+/g, '_'));
   } else {
     $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
@@ -21,14 +23,18 @@ Lampa.Controller.listener.follow('toggle', function(e) {
   if (e.name == 'select') {
     setTimeout(function() {
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
+          console.log('Обработчик для темы Copenhagen');
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
+            console.log('Клик на кнопке "Включить" для темы Copenhagen');
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('copenhagen');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
+          onsole.log('Обработчик для темы Copenhagen (Отключить)');
         $('.selectbox-item > div:contains("Отключить")').on('click', function() {
+             console.log('Клик на кнопке "Отключить" для темы Copenhagen');
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
@@ -72,6 +78,7 @@ Lampa.SettingsApi.addParam({
         });
         setTimeout(function() {
           $('.extensions__item--theme').on('hover:enter', function() {
+              console.log('Наведение на расширение темы: ', this.querySelector('.extensions__item-name').innerText);
             localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
           });
         }, 100)
