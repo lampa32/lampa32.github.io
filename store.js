@@ -34,7 +34,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
           console.log('Обработчик для темы Copenhagen (Отключить)');
         //$('.selectbox-item > div:contains("Отключить")').on('click', function() {
-           $('.selectbox-item').on('click', 'div:contains("Отключить")', function() {
+           $('.selectbox-item').on('mousedown', 'div:contains("Отключить")', function() {
              console.log('Клик на кнопке "Отключить" для темы Copenhagen');
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
