@@ -145,8 +145,8 @@ function checkAlive() {
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
 		    Lampa.Storage.set('torrserver_url_two', ''); // обнуляем доп. ссылку  
 		    Lampa.Storage.set('torrserver_use_link', 'two');
-		      var myResult = searchRandom();
-			setTimeout(function() {
+		       setTimeout(function() {
+		          var myResult = searchRandom();
 			  if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
 		        }, 3500) //без таймаута undefined
 		}
