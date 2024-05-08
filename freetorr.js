@@ -50,7 +50,8 @@ function myRequest(i) {
 		xhr.send();
 		xhr.onload = function() {
 			if (xhr.status == 200) {
-				optionsNEW.push(options[i]);  //формируем новый массив
+				optionsNEW.push(options[i]); //формируем новый массив
+				localStorage.setItem('optNEW', 'found');
 			}
 			if (xhr.status == 404) {
 				console.log("FreeTorr", 'Сервер ' + options[i] + ' умер');
@@ -71,6 +72,7 @@ function myRequest(i) {
 /* Функция чека каждого сервера через опрос на наличие доступности */
 
 function checkAlive() {
+	localStorage.setItem('optNEW', 'not_found');
 	for (var i = 0; i <= options.length - 1; i++) {
 		myRequest(i)
 	}
@@ -145,10 +147,11 @@ function checkAlive() {
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
 		    Lampa.Storage.set('torrserver_url_two', ''); // обнуляем доп. ссылку  
 		    Lampa.Storage.set('torrserver_use_link', 'two');
-		       setTimeout(function() {
+		     if (localStorage.getItem('optNEW') == 'found');
+		      // setTimeout(function() {
 		          var myResult = searchRandom();
 			  if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-		        }, 3500) //без таймаута undefined
+		     //   }, 3500) //без таймаута undefined
 		}
 		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию hideBut
 		if (localStorage.getItem('switch_server_button') === null) {
