@@ -135,21 +135,6 @@ function checkAlive() {
               }
            },500);
 
-
-	   var searchRandomRetryTimer;
-
-	   function checkSearchRandomResult() {
-  var myResult = searchRandom();
-  if (myResult == 'undefined') {
-    console.log('optionsNEW list is not ready, retrying in 100ms');
-    searchRandomRetryTimer = setTimeout(checkSearchRandomResult, 100);
-  } else {
-    console.log('Setting torrserver_url_two to:', 'http://' + myResult + ':8090');
-    Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-    clearTimeout(searchRandomRetryTimer);
-  }
-}
-
 /* Видимо так
 	> ставим метку tor_free - автовыбор сервера активен или нет?
 	> ставим метку torrserv - вкл для параметра меню с выбором free серверов?
@@ -158,9 +143,12 @@ function checkAlive() {
 	function start_free(){
 		/* Если параметр не существует в localStorage или Автовыбор, выставляем случайный сервер в Дополнительную ссылку*/
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
-			Lampa.Storage.set('torrserver_url_two', ''); // обнуляем доп. ссылку
-			Lampa.Storage.set('torrserver_use_link', 'two');
-			   checkSearchRandomResult();
+		    Lampa.Storage.set('torrserver_url_two', ''); // обнуляем доп. ссылку  
+		    Lampa.Storage.set('torrserver_use_link', 'two');
+		      var myResult = searchRandom();
+			setTimeout(function() {
+			  if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
+		        }, 3500) //без таймаута undefined
 		}
 		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию hideBut
 		if (localStorage.getItem('switch_server_button') === null) {
