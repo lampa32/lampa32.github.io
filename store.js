@@ -34,12 +34,14 @@ Lampa.Controller.listener.follow('toggle', function(e) {
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
           console.log('Обработчик для темы Copenhagen (Отключить)');
         //$('.selectbox-item > div:contains("Отключить")').on('click', function() {
-           $(document).on('click', '.selectbox-item > div:contains("Отключить")', function() {
+           setTimeout(function() {
+          $('.selectbox-item > div:contains("Отключить")').on('click', function() {
              console.log('Клик на кнопке "Отключить" для темы Copenhagen');
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
         });
+               }, 100);
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
