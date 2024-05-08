@@ -26,9 +26,9 @@ Lampa.Controller.listener.follow('toggle', function(e) {
           console.log('Обработчик для темы Copenhagen');
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
             console.log('Клик на кнопке "Включить" для темы Copenhagen');
-          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+         // $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('copenhagen');
-          $('.selectbox-item > div:contains("Включить")').onclick = null;
+          //$('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
@@ -37,18 +37,18 @@ Lampa.Controller.listener.follow('toggle', function(e) {
              console.log('Клик на кнопке "Отключить" для темы Copenhagen');
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
-          $('.selectbox-item > div:contains("Отключить")').onclick = null;
+         // $('.selectbox-item > div:contains("Отключить")').onclick = null;
         })
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
-        $('.selectbox-item > div:contains("Включить")').on('hover.click', function() {
+        $('.selectbox-item > div:contains("Включить")').on('click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('authentic_brief');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
-        $('.selectbox-item > div:contains("Отключить")').on('hover.click', function() {
+        $('.selectbox-item > div:contains("Отключить")').on('click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
