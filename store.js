@@ -41,14 +41,14 @@ Lampa.Controller.listener.follow('toggle', function(e) {
         })
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
-        $('.selectbox-item > div:contains("Включить")').on('click', function() {
+        $('.selectbox-item > div:contains("Включить")').on('hover:enter hover.click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('authentic_brief');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
-        $('.selectbox-item > div:contains("Отключить")').on('click', function() {
+        $('.selectbox-item > div:contains("Отключить")').on('hover:enter hover.click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
