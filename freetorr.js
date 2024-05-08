@@ -140,7 +140,7 @@ function checkAlive() {
 
 	   function checkSearchRandomResult() {
   var myResult = searchRandom();
-  if (myResult === 'undefined') {
+  if (myResult == 'undefined') {
     console.log('optionsNEW list is not ready, retrying in 100ms');
     searchRandomRetryTimer = setTimeout(checkSearchRandomResult, 100);
   } else {
