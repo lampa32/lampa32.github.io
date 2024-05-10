@@ -34,7 +34,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
      // }
-      if (localStorage.getItem('myTheme') == 'Copenhagen') {
+     // if (localStorage.getItem('myTheme') == 'Copenhagen') {
           console.log('Обработчик для темы Copenhagen (Отключить)');
           $('.selectbox-item > div:contains("Отключить")').on('click', function() {
              console.log('Клик на кнопке "Отключить" для темы Copenhagen');
@@ -42,7 +42,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
           localStorage.setItem('myTheme', 'Disabled');
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
         })
-      }
+     // }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
