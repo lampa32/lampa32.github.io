@@ -27,7 +27,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
     setTimeout(function() {
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
           console.log('Обработчик для темы Copenhagen');
-        $('.selectbox-item > div:contains("Включить")').on('click', function() {
+        $('.selectbox-item > div:contains("Включить")').on('hover:enter hover:click hover:touch', function() {
             console.log('Клик на кнопке "Включить" для темы Copenhagen');
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           loadThemeCSS('copenhagen');
