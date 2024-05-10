@@ -148,7 +148,7 @@ function checkAlive() {
 		       setTimeout(function() {
 		          var myResult = searchRandom();
 			  if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-		       }, 3500) //без таймаута undefined
+		       }, 500) //без таймаута undefined
 		}
 		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию hideBut
 		if (localStorage.getItem('switch_server_button') === null) {
