@@ -145,7 +145,13 @@ function checkAlive() {
 		if (localStorage.getItem('torrserv') === null || localStorage.getItem('torrserv') == 1) {
 		    Lampa.Storage.set('torrserver_url_two', ''); // обнуляем доп. ссылку  
 		    Lampa.Storage.set('torrserver_use_link', 'two');
-		    Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
+			var wait_timer = setInterval(function(){
+			  var myResult = searchRandom();
+                           if (myResult !== 'undefined'){
+                              clearInterval(wait_timer);
+                              Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
+                           }
+                        }, 100);
 		       /*setTimeout(function() {
 		          var myResult = searchRandom();
 			  if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
