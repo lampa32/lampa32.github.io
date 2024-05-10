@@ -25,7 +25,7 @@ $(document).ready(function() {
 Lampa.Controller.listener.follow('toggle', function(e) {
   if (e.name == 'select') {
     setTimeout(function() {
-     // if (localStorage.getItem('myTheme') == 'Copenhagen') {
+      if (Lampa.Storage.get('myTheme') == 'Copenhagen') {
          // console.log('Обработчик для темы Copenhagen');
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
             console.log('Клик на кнопке "Включить" для темы Copenhagen');
@@ -33,7 +33,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
           loadThemeCSS('copenhagen');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
-     // }
+      }
      // if (localStorage.getItem('myTheme') == 'Copenhagen') {
           console.log('Обработчик для темы Copenhagen (Отключить)');
           $('.selectbox-item > div:contains("Отключить")').on('click', function() {
