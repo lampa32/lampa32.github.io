@@ -3,9 +3,12 @@
 function mainSet() {
 // Функция для загрузки CSS-файла темы
 function loadThemeCSS(themeName) {
-     console.log('Загрузка CSS для темы: ', themeName);
-  var css = $('<link rel="stylesheet" href="http://lampa.run.place/' + themeName + '.css">');
-  $('body').append(css);
+  console.log('Загрузка CSS для темы: ', themeName);
+  var cssFile = 'http://lampa.run.place/' + themeName.toLowerCase().replace(/\s+/g, '_') + '.css';
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = cssFile;
+  document.head.appendChild(link);
 }
 
 // Проверка сохраненной темы при запуске приложения
