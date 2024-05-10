@@ -33,7 +33,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
           loadThemeCSS('copenhagen');
           $('.selectbox-item > div:contains("Включить")').onclick = null;
         });
-      }
+     // }
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
           console.log('Обработчик для темы Copenhagen (Отключить)');
           $('.selectbox-item > div:contains("Отключить")').on('click', function() {
