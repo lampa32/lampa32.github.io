@@ -119,7 +119,7 @@ Lampa.SettingsApi.addParam({
               }
             });
           }
-        }, 100);
+        }, 1500);
       });
     }, 10);
   }
