@@ -86,7 +86,7 @@ Lampa.SettingsApi.addParam({
               console.log('Наведение на расширение темы: ', this.querySelector('.extensions__item-name').innerText);
             localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
           });
-        }, 100)
+        }, 1000)
       });
     }, 10);
   }
