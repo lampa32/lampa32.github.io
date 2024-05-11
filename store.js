@@ -3,20 +3,41 @@
 function mainSet() {
 // Функция для загрузки CSS-файла темы
 function loadThemeCSS(themeName) {
+  // Удаляем все предыдущие загруженные темы
+  $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
+
   console.log('Загрузка CSS для темы: ', themeName);
-  var cssFile = 'http://lampa.run.place/' + themeName + '.css';
+  var cssFile = 'http://lampa.run.place/' + themeName.toLowerCase().replace(/\s+/g, '_') + '.css';
   var link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = cssFile;
   document.head.appendChild(link);
 }
 
+// Проверка существования CSS-файла перед загрузкой
+function checkCSSFileExists(url, callback) {
+  var img = new Image();
+  img.onload = function() { callback(true); };
+  img.onerror = function() { callback(false); };
+  img.src = url;
+}
+
+// Флаг для отслеживания загруженной темы
+var isThemeLoaded = false;
+
 // Проверка сохраненной темы при запуске приложения
 $(document).ready(function() {
   var savedTheme = localStorage.getItem('myTheme');
   if (savedTheme && savedTheme !== 'Disabled') {
-      console.log('Обнаружена сохраненная тема: ', savedTheme);
-    loadThemeCSS(savedTheme);
+    console.log('Обнаружена сохраненная тема: ', savedTheme);
+    checkCSSFileExists('http://lampa.run.place/' + savedTheme.toLowerCase().replace(/\s+/g, '_') + '.css', function(exists) {
+      if (exists) {
+        loadThemeCSS(savedTheme);
+        isThemeLoaded = true;
+      } else {
+        console.log('CSS-файл темы не найден:', savedTheme);
+      }
+    });
   } else {
     $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
   }
@@ -26,43 +47,46 @@ Lampa.Controller.listener.follow('toggle', function(e) {
   if (e.name == 'select') {
     setTimeout(function() {
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
-          console.log('Обработчик для темы Copenhagen');
+        console.log('Обработчик для темы Copenhagen');
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-            console.log('Клик на кнопке "Включить" для темы Copenhagen');
-          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
-          var css = $('<link rel="stylesheet" href="http://lampa.run.place/' + 'copenhagen' + '.css">');
-          $('body').append(css); 
-          //loadThemeCSS('copenhagen');
-          $('.selectbox-item > div:contains("Включить")').onclick = null;
+          console.log('Клик на кнопке "Включить" для темы Copenhagen');
+          if (!isThemeLoaded) {
+            loadThemeCSS('copenhagen');
+            isThemeLoaded = true;
+          }
+          $('.selectbox-item > div:contains("Включить")').off('click');
         });
       }
       if (localStorage.getItem('myTheme') == 'Copenhagen') {
-          console.log('Обработчик для темы Copenhagen (Отключить)');
-          $('.selectbox-item > div:contains("Отключить")').on('click', function() {
-             console.log('Клик на кнопке "Отключить" для темы Copenhagen');
+        console.log('Обработчик для темы Copenhagen (Отключить)');
+        $('.selectbox-item > div:contains("Отключить")').on('click', function() {
+          console.log('Клик на кнопке "Отключить" для темы Copenhagen');
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
-          $('.selectbox-item > div:contains("Отключить")').onclick = null;
-        })
+          isThemeLoaded = false;
+          $('.selectbox-item > div:contains("Отключить")').off('click');
+        });
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
         $('.selectbox-item > div:contains("Включить")').on('click', function() {
-          $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
-          loadThemeCSS('authentic_brief');
-          $('.selectbox-item > div:contains("Включить")').onclick = null;
+          if (!isThemeLoaded) {
+            loadThemeCSS('authentic_brief');
+            isThemeLoaded = true;
+          }
+          $('.selectbox-item > div:contains("Включить")').off('click');
         });
       }
       if (localStorage.getItem('myTheme') == 'Authentic Brief') {
         $('.selectbox-item > div:contains("Отключить")').on('click', function() {
           $('link[rel="stylesheet"][href^="http://lampa.run.place/"]').remove();
           localStorage.setItem('myTheme', 'Disabled');
-          $('.selectbox-item > div:contains("Отключить")').onclick = null;
+          isThemeLoaded = false;
+          $('.selectbox-item > div:contains("Отключить")').off('click');
         });
       }
     }, 100);
   }
 });
-
 
 Lampa.SettingsApi.addParam({
   component: 'interface',
@@ -81,12 +105,21 @@ Lampa.SettingsApi.addParam({
           store: 'http://lampa.run.place/extensions.json',
           with_installed: false,
         });
-        setTimeout(function() {
-          $('.extensions__item--theme').on('hover:enter', function() {
-              console.log('Наведение на расширение темы: ', this.querySelector('.extensions__item-name').innerText);
-            localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
-          });
-        }, 1000)
+        var extensionsLoadInterval = setInterval(function() {
+          var extensionsItem = $('.extensionsitem--theme');
+          if (extensionsItem.length > 0) {
+            clearInterval(extensionsLoadInterval);
+            extensionsItem.on('hover:enter', function() {
+              var itemName = this.querySelector('.extensions__item-name');
+              if (itemName) {
+                console.log('Наведение на расширение темы: ', itemName.innerText);
+                localStorage.setItem('myTheme', itemName.innerText);
+              } else {
+                console.log('Элемент с классом .extensions__item-name не найден');
+              }
+            });
+          }
+        }, 100);
       });
     }, 10);
   }
