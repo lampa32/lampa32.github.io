@@ -56,7 +56,8 @@
     });
 
     pollParsers(menu)
-        .then(function(updatedMenu) {
+        //.then(
+        function(updatedMenu) {
             Lampa.Select.show({
                 title: 'Меню смены парсера',
                 items: updatedMenu.map(function(item) {
@@ -81,7 +82,7 @@
                     }, 2000)
                 }
             })
-        })
+        }//)
         .catch(function(error) {
             console.error('Error:', error);
         });
