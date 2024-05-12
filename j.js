@@ -102,30 +102,42 @@ function myRequest(url, title, menuItem) {
         var proto = url.startsWith('http') ? 'http://' : 'https://';
         var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + (menuItem.jac_key ? '&' + menuItem.jac_key : '');
 
-        $.ajax({
-            url: myLink,
-            timeout: 3000,
-            type: 'GET',
-            success: function(data, textStatus, jqXHR) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', myLink, true);
+        xhr.timeout = 3000;
+
+        xhr.onload = function() {
+            if (xhr.status === 200) {
                 menuItem.title = title + ' <span style="color: #1aff00;">✓</span>';
                 resolve(menuItem);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                if (jqXHR.status == 401) {
+            } else {
+                if (xhr.status === 401) {
                     menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
                 } else {
                     menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
                 }
                 resolve(menuItem);
             }
-        });
+        };
+
+        xhr.onerror = function() {
+            menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
+            resolve(menuItem);
+        };
+
+        xhr.ontimeout = function() {
+            
+            menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
+            resolve(menuItem);
+        };
+
+        xhr.send();
     });
 }
 
 var eLoop = 0, myInterval, myIntervalPlus;
 Lampa.Storage.listener.follow('change', function(event) {
     if (event.name == 'activity') {
-        
         if (Lampa.Activity.active().component == 'torrents') {
             myInterval = setInterval(function() {
                 if (eLoop = 30) {
