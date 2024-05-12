@@ -149,7 +149,7 @@ Lampa.Storage.listener.follow('change', function(event) {
                 if ($('.empty__title').length) {
                     eLoop = 0
                     myMenu();
-                    $('.empty__title').remove();
+                    //$('.empty__title').remove();
                     clearInterval(myInterval);
                 } else eLoop++;
             }, 2000)
