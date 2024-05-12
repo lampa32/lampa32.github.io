@@ -105,30 +105,30 @@ function myRequest(url, title, menuItem) {
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
-        //xhr.timeout = 5000;
+        xhr.timeout = 3000;
 
         xhr.onload = function() {
             console.log('Response Status:', xhr.status);
             console.log('Response Text:', xhr.responseText);
 
             if (xhr.status === 200) {
-                menuItem.title = title + ' <span style="color: #1aff00;">✓</span>';
+                menuItem.title = '<span style="color: #1aff00;">✓</span> <span style="color: green;">' + title + '</span>';
                 resolve(menuItem);
             } else {
-                menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
+                menuItem.title = '<span style="color: #ff2e36;">✗</span> <span style="color: red;">' + title + '</span>';
                 resolve(menuItem);
             }
         };
 
         xhr.onerror = function() {
             console.error('Network error:', xhr.status);
-            menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
+            menuItem.title = '<span style="color: #ff2e36;">✗</span> <span style="color: red;">' + title + '</span>';
             resolve(menuItem);
         };
 
         xhr.ontimeout = function() {
             console.error('Request timed out');
-            menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
+            menuItem.title = '<span style="color: #ff2e36;">✗</span> <span style="color: red;">' + title + '</span>';
             resolve(menuItem);
         };
 
