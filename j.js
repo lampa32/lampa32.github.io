@@ -101,37 +101,38 @@ function pollParsers(menu) {
 function myRequest(url, title, menuItem) {
     return new Promise(function(resolve, reject) {
         var proto = url.startsWith('http') ? 'http://' : 'https://';
-        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' //+ (menuItem.jac_key ? '&' + menuItem.jac_key : '');
+        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + (menuItem.jac_key ? '&' + menuItem.jac_key : '');
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
-        xhr.timeout = 10000;
+        xhr.timeout = 5000;
 
         xhr.onload = function() {
-            if (xhr.status == 200) {
-                console.log('Response:', xhr.responseText); // Добавлено логирование ответа сервера
+            console.log('Response Status:', xhr.status);
+            console.log('Response Text:', xhr.responseText);
+
+            if (xhr.status === 200) {
                 menuItem.title = title + ' <span style="color: #1aff00;">✓</span>';
                 resolve(menuItem);
             } else {
-                if (xhr.status === 401) {
-                    menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
-                } else {
-                    menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
-                }
+                menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
                 resolve(menuItem);
             }
         };
 
         xhr.onerror = function() {
+            console.error('Network error:', xhr.status);
             menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
             resolve(menuItem);
         };
 
         xhr.ontimeout = function() {
+            console.error('Request timed out');
             menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
             resolve(menuItem);
         };
 
+        console.log('Sending request to:', myLink);
         xhr.send();
     });
 }
