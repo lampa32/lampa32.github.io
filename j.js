@@ -53,6 +53,7 @@
         jac_key: ''
     });
 
+
     pollParsers(menu)
         .then(function(updatedMenu) {
             Lampa.Select.show({
@@ -125,7 +126,6 @@ function myRequest(url, title, menuItem) {
         };
 
         xhr.ontimeout = function() {
-            
             menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
             resolve(menuItem);
         };
@@ -134,22 +134,10 @@ function myRequest(url, title, menuItem) {
     });
 }
 
-var eLoop = 0, myInterval, myIntervalPlus;
 Lampa.Storage.listener.follow('change', function(event) {
     if (event.name == 'activity') {
         if (Lampa.Activity.active().component == 'torrents') {
-            myInterval = setInterval(function() {
-                if (eLoop = 30) {
-                    eLoop = 0;
-                    clearInterval(myInterval);
-                }
-                if ($('.empty__title').length) {
-                    eLoop = 0
-                    myMenu();
-                    $('.empty__title').remove();
-                    clearInterval(myInterval);
-                } else eLoop++;
-            }, 2000)
+            myMenu();
         }
     }
 });
