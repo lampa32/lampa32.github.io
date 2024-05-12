@@ -231,7 +231,7 @@ function myMenu(){
 	url:	'api.prisma.ws:443',
 	jac_key:''
     });
-    checkAlive();
+    
     Lampa.Select.show({
 	title: 'Меню смены парсера',
 	items: menu,
