@@ -6,35 +6,45 @@ function pollParsers() {
         // элементы меню
     ];
 
+    var promises = [];
+
     for (var i = 0; i < menu.length; i++) {
         var url = menu[i].url;
         var selector = 'body > div.selectbox > div.selectboxcontent.layer--height > div.selectboxbody.layer--wheight > div > div > div > div:nth-child(' + (i + 2) + ') > div';
-        myRequest(url, selector, menu[i].title);
+        promises.push(myRequest(url, selector, menu[i].title));
     }
 
-    setTimeout(function() {
-        myMenu(menu);
-    }, 500); // Задержка 500 мс перед вызовом myMenu
+    Promise.all(promises)
+        .then(function() {
+            myMenu(menu);
+        })
+        .catch(function(error) {
+            console.error('Error:', error);
+        });
 }
 
 function myRequest(url, selector, title) {
-    var proto = url.startsWith('http') ? 'http://' : 'https://';
-    var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=';
+    return new Promise(function(resolve, reject) {
+        var proto = url.startsWith('http') ? 'http://' : 'https://';
+        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=';
 
-    $.ajax({
-        url: myLink,
-        timeout: 3000,
-        type: 'GET',
-        success: function(data, textStatus, jqXHR) {
-            $(selector).html(title + ' <span style="color: #1aff00;">✓</span>');
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            if (jqXHR.status == 401) {
-                $(selector).html(title + ' <span style="color: #ff2e36;">✗</span>');
-            } else {
-                $(selector).html(title + ' <span style="color: #ff2e36;">✗</span>');
+        $.ajax({
+            url: myLink,
+            timeout: 3000,
+            type: 'GET',
+            success: function(data, textStatus, jqXHR) {
+                $(selector).html(title + ' <span style="color: #1aff00;">✓</span>');
+                resolve();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                if (jqXHR.status == 401) {
+                    $(selector).html(title + ' <span style="color: #ff2e36;">✗</span>');
+                } else {
+                    $(selector).html(title + ' <span style="color: #ff2e36;">✗</span>');
+                }
+                resolve();
             }
-        }
+        });
     });
 }
 
