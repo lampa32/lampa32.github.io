@@ -1,6 +1,5 @@
 (function () {
     'use strict';
-
     function myRequest(url, selector, title) {
     var proto = url.startsWith('http') ? 'http://' : 'https://';
     var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=';
@@ -75,26 +74,19 @@ function checkAlive() {
 
     for (var i = 0; i < menu.length; i++) {
         var url = menu[i].url;
-        
         var selector = 'body > div.selectbox > div.selectboxcontent.layer--height > div.selectboxbody.layer--wheight > div > div > div > div:nth-child(' + (i + 2) + ') > div';
         myRequest(url, selector, menu[i].title);
     }
+
+    myMenu(menu); // вызов myMenu
 }
 
 function myMenu(menu) {
     var enabled = Lampa.Controller.enabled().name;
 
-    var menuItems = menu.map(function(item) {
-        return {
-            title: item.title.replace(/ ✓| ✗/g, ''),
-            url: item.url,
-            jac_key: item.jac_key
-        };
-    });
-
     Lampa.Select.show({
         title: 'Меню смены парсера',
-        items: menuItems,
+        items: menu,
         onBack: function onBack() {
             Lampa.Controller.toggle(enabled);
         },
@@ -116,6 +108,7 @@ var eLoop = 0, myInterval, myIntervalPlus;
 Lampa.Storage.listener.follow('change', function (event) {
     if (event.name == 'activity') {
         if (Lampa.Activity.active().component == 'torrents') {
+            
             myInterval = setInterval(function () {
                 if (eLoop = 30) {
                     eLoop = 0;
@@ -139,4 +132,5 @@ Lampa.Controller.listener.follow('toggle', function(e) {
         }, 10);
     }
 });
+    
 })();
