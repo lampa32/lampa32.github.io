@@ -78,7 +78,7 @@
                     }, 1000)
                     setTimeout(function() {
                         Lampa.Activity.push(activ)
-                    }, 2000)
+                    }, 3000)
                 }
             })
         })
@@ -152,7 +152,7 @@ Lampa.Storage.listener.follow('change', function(event) {
                     $('.empty__title').remove();
                     clearInterval(myInterval);
                 } else eLoop++;
-            }, 1000)
+            }, 2000)
         }
     }
 });
