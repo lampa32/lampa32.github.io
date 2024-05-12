@@ -1,12 +1,11 @@
 (function () {
     'use strict';
-    
 
     function myMenu() {
     var enabled = Lampa.Controller.enabled().name;
     var menu = [];
-
-    menu.push({
+        
+        menu.push({
         title: 'Lampa32',
         url: 'jac.lampa32.ru',
         jac_key: ''
@@ -54,53 +53,54 @@
         jac_key: ''
     });
 
-    pollParsers(menu)
-        .then(function(updatedMenu) {
-            Lampa.Select.show({
-                title: 'Меню смены парсера',
-                items: updatedMenu.map(function(item) {
-                    return {
-                        title: item.title,
-                        url: item.url,
-                        jac_key: item.jac_key
-                    };
-                }),
-                onBack: function onBack() {
-                    Lampa.Controller.toggle(enabled);
-                },
-                onSelect: function onSelect(a) {
-                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', 'all') & Lampa.Storage.set('parse_in_search', true) & Lampa.Storage.set('parse_lang', 'lg');
-                    Lampa.Controller.toggle(enabled);
-                    var activ = Lampa.Storage.get('activity')
-                    setTimeout(function() {
-                        window.history.back();
-                    }, 1000)
-                    setTimeout(function() {
-                        Lampa.Activity.push(activ)
-                    }, 3000)
-                }
-            })
-        })
+    var menuItems = menu.map(function(item) {
+        return {
+            title: item.title,
+            url: item.url,
+            jac_key: item.jac_key
+        };
+    });
+
+    Lampa.Select.show({
+        title: 'Меню смены парсера',
+        items: menuItems,
+        onBack: function onBack() {
+            Lampa.Controller.toggle(enabled);
+        },
+        onSelect: function onSelect(a) {
+            Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', 'all') & Lampa.Storage.set('parse_in_search', true) & Lampa.Storage.set('parse_lang', 'lg');
+            Lampa.Controller.toggle(enabled);
+            var activ = Lampa.Storage.get('activity')
+            setTimeout(function() {
+                window.history.back();
+            }, 1000)
+            setTimeout(function() {
+                Lampa.Activity.push(activ)
+            }, 3000)
+        }
+    });
+
+    pollParsers(menu, menuItems);
+}
+
+function pollParsers(menu, menuItems) {
+    var promises = [];
+
+    for (var i = 0; i < menu.length; i++) {
+        var url = menu[i].url;
+        promises.push(myRequest(url, menuItems[i], menu[i]));
+    }
+
+    Promise.all(promises)
         .catch(function(error) {
             console.error('Error:', error);
         });
 }
 
-function pollParsers(menu) {
-    var promises = [];
-
-    for (var i = 0; i < menu.length; i++) {
-        var url = menu[i].url;
-        promises.push(myRequest(url, menu[i].title, menu[i]));
-    }
-
-    return Promise.all(promises);
-}
-
-function myRequest(url, title, menuItem) {
+function myRequest(url, menuItem, parserItem) {
     return new Promise(function(resolve, reject) {
         var proto = url.startsWith('http') ? 'http://' : 'https://';
-        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + (menuItem.jac_key ? '&' + menuItem.jac_key : '');
+        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + (parserItem.jac_key ? '&' + parserItem.jac_key : '');
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
@@ -108,53 +108,31 @@ function myRequest(url, title, menuItem) {
 
         xhr.onload = function() {
             if (xhr.status === 200) {
-                menuItem.title = title + ' <span style="color: #1aff00;">✓</span>';
-                resolve(menuItem);
+                menuItem.title = parserItem.title + ' <span style="color: #1aff00;">✓</span>';
+                resolve();
             } else {
                 if (xhr.status === 401) {
-                    menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
+                    menuItem.title = parserItem.title + ' <span style="color: #ff2e36;">✗</span>';
                 } else {
-                    menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
+                    menuItem.title = parserItem.title + ' <span style="color: #ff2e36;">✗</span>';
                 }
-                resolve(menuItem);
+                resolve();
             }
         };
 
         xhr.onerror = function() {
-            menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
-            resolve(menuItem);
+            menuItem.title = parserItem.title + ' <span style="color: #ff2e36;">✗</span>';
+            
+            resolve();
         };
 
         xhr.ontimeout = function() {
-            
-            menuItem.title = title + ' <span style="color: #ff2e36;">✗</span>';
-            resolve(menuItem);
+            menuItem.title = parserItem.title + ' <span style="color: #ff2e36;">✗</span>';
+            resolve();
         };
 
         xhr.send();
     });
 }
-
-var eLoop = 0, myInterval, myIntervalPlus;
-Lampa.Storage.listener.follow('change', function(event) {
-    if (event.name == 'activity') {
-        if (Lampa.Activity.active().component == 'torrents') {
-            myInterval = setInterval(function() {
-                if (eLoop = 30) {
-                    eLoop = 0;
-                    clearInterval(myInterval);
-                }
-                if ($('.empty__title').length) {
-                    eLoop = 0
-                    myMenu();
-                    $('.empty__title').remove();
-                    clearInterval(myInterval);
-                } else eLoop++;
-            }, 2000)
-        }
-    }
-});
-    
-    
     
 })();
