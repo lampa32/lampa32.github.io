@@ -52,9 +52,6 @@
         jac_key: ''
     });
 
-    // Сброс цвета всех элементов меню перед опросом
-    $('body > div.selectbox > div.selectboxcontent.layer--height > div.selectboxbody.layer--wheight > div > div > div > div > div').css('color', '');
-
     for (var i = 0; i < menu.length; i++) {
         var url = menu[i].url;
         var selector = 'body > div.selectbox > div.selectboxcontent.layer--height > div.selectboxbody.layer--wheight > div > div > div > div:nth-child(' + (i + 2) + ') > div';
@@ -73,13 +70,13 @@ function myRequest(url, selector) {
         timeout: 3000,
         type: 'GET',
         success: function(data, textStatus, jqXHR) {
-            $(selector).css('color', '#1aff00');
+            $(selector).text($(selector).text() + ' ✓');
         },
         error: function(jqXHR, textStatus, errorThrown) {
             if (jqXHR.status == 401) {
-                $(selector).css('color', '#ff2e36');
+                $(selector).text($(selector).text() + ' ✗');
             } else {
-                $(selector).css('color', '#ff2e36');
+                $(selector).text($(selector).text() + ' ✗');
             }
         }
     });
@@ -88,13 +85,22 @@ function myRequest(url, selector) {
 function myMenu(menu) {
     var enabled = Lampa.Controller.enabled().name;
 
+    var menuItems = menu.map(function(item) {
+        return {
+            title: item.title.replace(/ ✓| ✗/g, ''),
+            url: item.url,
+            jac_key: item.jac_key
+        };
+    });
+
     Lampa.Select.show({
         title: 'Меню смены парсера',
-        items: menu,
+        items: menuItems,
         onBack: function onBack() {
             Lampa.Controller.toggle(enabled);
         },
         onSelect: function onSelect(a) {
+            
             Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', 'all') & Lampa.Storage.set('parse_in_search', true) & Lampa.Storage.set('parse_lang', 'lg');
             Lampa.Controller.toggle(enabled);
             var activ = Lampa.Storage.get('activity')
