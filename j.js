@@ -1,9 +1,12 @@
 (function () {
     'use strict';
     
-function pollParsers() {
+
+    function myMenu() {
+    var enabled = Lampa.Controller.enabled().name;
     var menu = [];
-        menu.push({
+
+    menu.push({
         title: 'Lampa32',
         url: 'jac.lampa32.ru',
         jac_key: ''
@@ -50,8 +53,34 @@ function pollParsers() {
         url: 'api.prisma.ws:443',
         jac_key: ''
     });
-    
 
+    pollParsers(menu)
+        .then(function(updatedMenu) {
+            Lampa.Select.show({
+                title: 'Меню смены парсера',
+                items: updatedMenu,
+                onBack: function onBack() {
+                    Lampa.Controller.toggle(enabled);
+                },
+                onSelect: function onSelect(a) {
+                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', 'all') & Lampa.Storage.set('parse_in_search', true) & Lampa.Storage.set('parse_lang', 'lg');
+                    Lampa.Controller.toggle(enabled);
+                    var activ = Lampa.Storage.get('activity')
+                    setTimeout(function() {
+                        window.history.back();
+                    }, 1000)
+                    setTimeout(function() {
+                        Lampa.Activity.push(activ)
+                    }, 3000)
+                }
+            })
+        })
+        .catch(function(error) {
+            console.error('Error:', error);
+        });
+}
+
+function pollParsers(menu) {
     var promises = [];
 
     for (var i = 0; i < menu.length; i++) {
@@ -60,13 +89,7 @@ function pollParsers() {
         promises.push(myRequest(url, selector, menu[i].title, menu[i]));
     }
 
-    Promise.all(promises)
-        .then(function(updatedMenu) {
-            myMenu(updatedMenu);
-        })
-        .catch(function(error) {
-            console.error('Error:', error);
-        });
+    return Promise.all(promises);
 }
 
 function myRequest(url, selector, title, menuItem) {
@@ -94,57 +117,27 @@ function myRequest(url, selector, title, menuItem) {
     });
 }
 
-function myMenu(menu) {
-    var enabled = Lampa.Controller.enabled().name;
-
-    var menuItems = menu.map(function(item) {
-        return {
-            title: item.title.replace(/ <span style="color: #1aff00;">✓<\/span>| <span style="color: #ff2e36;">✗<\/span>/g, ''),
-            url: item.url,
-            jac_key: item.jac_key
-        };
-    });
-
-    Lampa.Select.show({
-        title: 'Меню смены парсера',
-        items: menuItems,
-        onBack: function onBack() {
-            Lampa.Controller.toggle(enabled);
-        },
-        onSelect: function onSelect(a) {
-            Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', 'all') & Lampa.Storage.set('parse_in_search', true) & Lampa.Storage.set('parse_lang', 'lg');
-            Lampa.Controller.toggle(enabled);
-            var activ = Lampa.Storage.get('activity')
-            setTimeout(function () {
-                window.history.back();
-            }, 1000)
-            setTimeout(function () {
-                Lampa.Activity.push(activ)
-            }, 3000)
-        }
-    })
-}
-
 var eLoop = 0, myInterval, myIntervalPlus;
-Lampa.Storage.listener.follow('change', function (event) {
+Lampa.Storage.listener.follow('change', function(event) {
     if (event.name == 'activity') {
+        
         if (Lampa.Activity.active().component == 'torrents') {
-            myInterval = setInterval(function () {
+            myInterval = setInterval(function() {
                 if (eLoop = 30) {
                     eLoop = 0;
                     clearInterval(myInterval);
                 }
                 if ($('.empty__title').length) {
                     eLoop = 0
-                    pollParsers();
+                    myMenu();
                     $('.empty__title').remove();
                     clearInterval(myInterval);
-                }
-                else eLoop++;
+                } else eLoop++;
             }, 2000)
         }
     }
 });
+    
     
     
 })();
