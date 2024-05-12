@@ -54,6 +54,7 @@
     });
 
 
+
     pollParsers(menu)
         .then(function(updatedMenu) {
             Lampa.Select.show({
@@ -134,13 +135,30 @@ function myRequest(url, title, menuItem) {
     });
 }
 
+var eLoop = 0, myInterval, myIntervalPlus;
 Lampa.Storage.listener.follow('change', function(event) {
     if (event.name == 'activity') {
         if (Lampa.Activity.active().component == 'torrents') {
-            myMenu();
+            myMenu(); // Вызов myMenu() сразу при открытии списка "torrents"
+
+            myInterval = setInterval(function() {
+                if (eLoop == 30) {
+                    eLoop = 0;
+                    //Lampa.Noty.show('Интервал очищен по ожиданию');
+                    
+                    clearInterval(myInterval);
+                }
+                if ($('.empty__title').length) {
+                    eLoop = 0
+                    //Lampa.Noty.show('Интервал очищен по условию')
+                    $('.empty__title').remove();
+                    clearInterval(myInterval);
+                } else eLoop++;
+            }, 2000)
         }
     }
 });
+
     
     
 })();
