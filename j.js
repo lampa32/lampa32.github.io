@@ -152,7 +152,7 @@ Lampa.Storage.listener.follow('change', function(event) {
                     $('.empty__title').remove();
                     clearInterval(myInterval);
                 } else eLoop++;
-            }, 1500)
+            }, 1000)
         }
     }
 });
