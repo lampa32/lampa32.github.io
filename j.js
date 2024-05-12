@@ -105,7 +105,7 @@ function myRequest(url, title, menuItem) {
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
-        xhr.timeout = 4000;
+        xhr.timeout = 3000;
 
         xhr.onload = function() {
             if (xhr.status === 200) {
