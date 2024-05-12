@@ -1,7 +1,28 @@
 (function () {
     'use strict';
 
-    function pollParsers() {
+    function myRequest(url, selector, title) {
+    var proto = url.startsWith('http') ? 'http://' : 'https://';
+    var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=';
+
+    $.ajax({
+        url: myLink,
+        timeout: 3000,
+        type: 'GET',
+        success: function(data, textStatus, jqXHR) {
+            $(selector).text(title + ' ✓');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status == 401) {
+                $(selector).text(title + ' ✗');
+            } else {
+                $(selector).text(title + ' ✗');
+            }
+        }
+    });
+}
+
+function checkAlive() {
     var menu = [];
 
     menu.push({
@@ -54,32 +75,10 @@
 
     for (var i = 0; i < menu.length; i++) {
         var url = menu[i].url;
+        
         var selector = 'body > div.selectbox > div.selectboxcontent.layer--height > div.selectboxbody.layer--wheight > div > div > div > div:nth-child(' + (i + 2) + ') > div';
-        myRequest(url, selector);
+        myRequest(url, selector, menu[i].title);
     }
-
-    myMenu(menu);
-}
-
-function myRequest(url, selector) {
-    var proto = url.startsWith('http') ? 'http://' : 'https://';
-    var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=';
-
-    $.ajax({
-        url: myLink,
-        timeout: 3000,
-        type: 'GET',
-        success: function(data, textStatus, jqXHR) {
-            $(selector).text($(selector).text() + ' ✓');
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            if (jqXHR.status == 401) {
-                $(selector).text($(selector).text() + ' ✗');
-            } else {
-                $(selector).text($(selector).text() + ' ✗');
-            }
-        }
-    });
 }
 
 function myMenu(menu) {
@@ -100,7 +99,6 @@ function myMenu(menu) {
             Lampa.Controller.toggle(enabled);
         },
         onSelect: function onSelect(a) {
-            
             Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', 'all') & Lampa.Storage.set('parse_in_search', true) & Lampa.Storage.set('parse_lang', 'lg');
             Lampa.Controller.toggle(enabled);
             var activ = Lampa.Storage.get('activity')
@@ -125,13 +123,20 @@ Lampa.Storage.listener.follow('change', function (event) {
                 }
                 if ($('.empty__title').length) {
                     eLoop = 0
-                    pollParsers();
                     $('.empty__title').remove();
                     clearInterval(myInterval);
                 }
                 else eLoop++;
             }, 2000)
         }
+    }
+});
+
+Lampa.Controller.listener.follow('toggle', function(e) {
+    if(e.name == 'select') {
+        setTimeout(function() {
+            checkAlive();
+        }, 10);
     }
 });
 })();
