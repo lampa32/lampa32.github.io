@@ -100,7 +100,7 @@ function pollParsers(menu) {
 
 function myRequest(url, title, menuItem) {
     return new Promise(function(resolve, reject) {
-        var proto = url.startsWith('http') ? 'http://' : 'https://';
+        var proto = location.protocol === "https:" ? 'https://' : 'http://'
         var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + (menuItem.jac_key ? '&' + menuItem.jac_key : '');
 
         var xhr = new XMLHttpRequest();
