@@ -55,8 +55,7 @@
         jac_key: ''
     });
 
-    pollParsers(menu)
-        //.then(
+    pollParsers(menu).then(
         function(updatedMenu) {
             Lampa.Select.show({
                 title: 'Меню смены парсера',
@@ -82,7 +81,7 @@
                     }, 2000)
                 }
             })
-        }//)
+        })
         .catch(function(error) {
             console.error('Error:', error);
         });
