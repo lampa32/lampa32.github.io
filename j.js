@@ -109,6 +109,7 @@ function myRequest(url, title, menuItem) {
 
         xhr.onload = function() {
             if (xhr.status === 200) {
+                console.log('Response:', xhr.responseText); // Добавлено логирование ответа сервера
                 menuItem.title = title + ' <span style="color: #1aff00;">✓</span>';
                 resolve(menuItem);
             } else {
