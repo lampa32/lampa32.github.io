@@ -98,37 +98,37 @@ function pollParsers(menu) {
     return Promise.all(promises);
 }
 
-function myRequest(url, title, menuItem) {
+     function myRequest(url, title, menuItem) {
     return new Promise(function(resolve, reject) {
         var proto = location.protocol === "https:" ? 'https://' : 'http://';
         var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + (menuItem.jac_key ? '&' + menuItem.jac_key : '');
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
-        xhr.timeout = 5000;
+        xhr.timeout = 3000;
 
         xhr.onload = function() {
             console.log('Response Status:', xhr.status);
             console.log('Response Text:', xhr.responseText);
 
             if (xhr.status === 200) {
-                menuItem.title = '<span style="color: #1aff00;">' + title + '&nbsp;&#9989;</span>';
+                menuItem.title = '<span style="color: #1aff00;">' + title + '&nbsp;&#10003;</span>';
                 resolve(menuItem);
             } else {
-                menuItem.title = '<span style="color: #ff2e36;">' + title + '&nbsp;&#10060;</span>';
+                menuItem.title = '<span style="color: #ff2e36;">' + title + '&nbsp;&#10005;</span>';
                 resolve(menuItem);
             }
         };
 
         xhr.onerror = function() {
             console.error('Network error:', xhr.status);
-            menuItem.title = '<span style="color: #ff2e36;">' + title + '&nbsp;&#10060;</span>';
+            menuItem.title = '<span style="color: #ff2e36;">' + title + '&nbsp;&#10005;</span>';
             resolve(menuItem);
         };
 
         xhr.ontimeout = function() {
             console.error('Request timed out');
-            menuItem.title = '<span style="color: #ff2e36;">' + title + '&nbsp;&#10060;</span>';
+            menuItem.title = '<span style="color: #ff2e36;">' + title + '&nbsp;&#10005;</span>';
             resolve(menuItem);
         };
 
