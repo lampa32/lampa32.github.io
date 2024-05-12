@@ -3,7 +3,53 @@
     
 function pollParsers() {
     var menu = [
-        // элементы меню
+        menu.push({
+        title: 'Lampa32',
+        url: 'jac.lampa32.ru',
+        jac_key: ''
+    });
+
+    menu.push({
+        title: 'Jacred.xyz',
+        url: 'jacred.xyz',
+        jac_key: ''
+    });
+
+    menu.push({
+        title: 'Jacred.ru',
+        url: 'jacred.ru',
+        jac_key: ''
+    });
+
+    menu.push({
+        title: 'Jacred My To',
+        url: 'jacred.my.to',
+        jac_key: ''
+    });
+
+    menu.push({
+        title: 'Viewbox',
+        url: 'jacred.viewbox.dev',
+        jac_key: 'viewbox'
+    });
+
+    menu.push({
+        title: 'Spawn Jackett',
+        url: 'spawn.pp.ua:59118',
+        jac_key: '2'
+    });
+
+    menu.push({
+        title: 'Spawn Jacred',
+        url: 'spawn.pp.ua:59117',
+        jac_key: ''
+    });
+
+    menu.push({
+        title: 'Prisma',
+        url: 'api.prisma.ws:443',
+        jac_key: ''
+    });
     ];
 
     var promises = [];
@@ -11,19 +57,19 @@ function pollParsers() {
     for (var i = 0; i < menu.length; i++) {
         var url = menu[i].url;
         var selector = 'body > div.selectbox > div.selectboxcontent.layer--height > div.selectboxbody.layer--wheight > div > div > div > div:nth-child(' + (i + 2) + ') > div';
-        promises.push(myRequest(url, selector, menu[i].title));
+        promises.push(myRequest(url, selector, menu[i].title, menu[i]));
     }
 
     Promise.all(promises)
-        .then(function() {
-            myMenu(menu);
+        .then(function(updatedMenu) {
+            myMenu(updatedMenu);
         })
         .catch(function(error) {
             console.error('Error:', error);
         });
 }
 
-function myRequest(url, selector, title) {
+function myRequest(url, selector, title, menuItem) {
     return new Promise(function(resolve, reject) {
         var proto = url.startsWith('http') ? 'http://' : 'https://';
         var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=';
@@ -34,7 +80,7 @@ function myRequest(url, selector, title) {
             type: 'GET',
             success: function(data, textStatus, jqXHR) {
                 $(selector).html(title + ' <span style="color: #1aff00;">✓</span>');
-                resolve();
+                resolve(menuItem);
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 if (jqXHR.status == 401) {
@@ -42,7 +88,7 @@ function myRequest(url, selector, title) {
                 } else {
                     $(selector).html(title + ' <span style="color: #ff2e36;">✗</span>');
                 }
-                resolve();
+                resolve(menuItem);
             }
         });
     });
