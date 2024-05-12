@@ -112,23 +112,23 @@ function myRequest(url, title, menuItem) {
             console.log('Response Text:', xhr.responseText);
 
             if (xhr.status === 200) {
-                menuItem.title = '<span style="color: #1aff00;">✓</span> <span style="color: green;">' + title + '</span>';
+                menuItem.title = '<span style="color: #1aff00;">✓ ' + title + '</span>';
                 resolve(menuItem);
             } else {
-                menuItem.title = '<span style="color: #ff2e36;">✗</span> <span style="color: red;">' + title + '</span>';
+                menuItem.title = '<span style="color: #ff2e36;">✗ ' + title + '</span>';
                 resolve(menuItem);
             }
         };
 
         xhr.onerror = function() {
             console.error('Network error:', xhr.status);
-            menuItem.title = '<span style="color: #ff2e36;">✗</span> <span style="color: red;">' + title + '</span>';
+            menuItem.title = '<span style="color: #ff2e36;">✗ ' + title + '</span>';
             resolve(menuItem);
         };
 
         xhr.ontimeout = function() {
             console.error('Request timed out');
-            menuItem.title = '<span style="color: #ff2e36;">✗</span> <span style="color: red;">' + title + '</span>';
+            menuItem.title = '<span style="color: #ff2e36;">✗ ' + title + '</span>';
             resolve(menuItem);
         };
 
