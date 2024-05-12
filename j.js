@@ -99,6 +99,7 @@ function pollParsers(menu) {
 }
 
 function myRequest(url, title, menuItem) {
+  setTimeout(function() {
     return new Promise(function(resolve, reject) {
         var proto = url.startsWith('http') ? 'http://' : 'https://';
         var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + (menuItem.jac_key ? '&' + menuItem.jac_key : '');
@@ -133,6 +134,7 @@ function myRequest(url, title, menuItem) {
 
         xhr.send();
     });
+  }, 1000)
 }
 
 var eLoop = 0, myInterval, myIntervalPlus;
