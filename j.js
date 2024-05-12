@@ -1,6 +1,7 @@
 (function () {
     'use strict';
-function pollParsers() {
+
+    function pollParsers() {
     var menu = [];
 
     menu.push({
@@ -51,6 +52,9 @@ function pollParsers() {
         jac_key: ''
     });
 
+    // Сброс цвета всех элементов меню перед опросом
+    $('body > div.selectbox > div.selectboxcontent.layer--height > div.selectboxbody.layer--wheight > div > div > div > div > div').css('color', '');
+
     for (var i = 0; i < menu.length; i++) {
         var url = menu[i].url;
         var selector = 'body > div.selectbox > div.selectboxcontent.layer--height > div.selectboxbody.layer--wheight > div > div > div > div:nth-child(' + (i + 2) + ') > div';
@@ -64,24 +68,21 @@ function myRequest(url, selector) {
     var proto = url.startsWith('http') ? 'http://' : 'https://';
     var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=';
 
-    var xhr = new XMLHttpRequest();
-    xhr.timeout = 3000;
-    xhr.open("GET", myLink, true);
-    xhr.send();
-    xhr.ontimeout = function () {
-        $(selector).css('color', 'ff2e36');
-    }
-    xhr.onerror = function () {
-        $(selector).css('color', 'ff2e36');
-    }
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            $(selector).css('color', '1aff00')
+    $.ajax({
+        url: myLink,
+        timeout: 3000,
+        type: 'GET',
+        success: function(data, textStatus, jqXHR) {
+            $(selector).css('color', '#1aff00');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status == 401) {
+                $(selector).css('color', '#ff2e36');
+            } else {
+                $(selector).css('color', '#ff2e36');
+            }
         }
-        if (xhr.status == 401) {
-            $(selector).css('color', 'ff2e36')
-        }
-    }
+    });
 }
 
 function myMenu(menu) {
