@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+ 
+
     function myMenu() {
     var enabled = Lampa.Controller.enabled().name;
     var menu = [];
@@ -52,8 +54,6 @@
         url: 'api.prisma.ws:443',
         jac_key: ''
     });
-
-
 
     pollParsers(menu)
         .then(function(updatedMenu) {
@@ -139,18 +139,14 @@ var eLoop = 0, myInterval, myIntervalPlus;
 Lampa.Storage.listener.follow('change', function(event) {
     if (event.name == 'activity') {
         if (Lampa.Activity.active().component == 'torrents') {
-            myMenu(); // Вызов myMenu() сразу при открытии списка "torrents"
-
             myInterval = setInterval(function() {
-                if (eLoop == 30) {
+                if (eLoop = 30) {
                     eLoop = 0;
-                    //Lampa.Noty.show('Интервал очищен по ожиданию');
-                    
                     clearInterval(myInterval);
                 }
                 if ($('.empty__title').length) {
                     eLoop = 0
-                    //Lampa.Noty.show('Интервал очищен по условию')
+                    myMenu();
                     $('.empty__title').remove();
                     clearInterval(myInterval);
                 } else eLoop++;
@@ -158,7 +154,5 @@ Lampa.Storage.listener.follow('change', function(event) {
         }
     }
 });
-
-    
     
 })();
