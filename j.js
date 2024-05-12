@@ -2,7 +2,7 @@
     'use strict';
     
 function pollParsers() {
-    var menu = [
+    var menu = [];
         menu.push({
         title: 'Lampa32',
         url: 'jac.lampa32.ru',
@@ -50,7 +50,7 @@ function pollParsers() {
         url: 'api.prisma.ws:443',
         jac_key: ''
     });
-    ];
+    
 
     var promises = [];
 
