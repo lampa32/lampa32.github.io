@@ -48,7 +48,7 @@
     });
 
     menu.push({
-        title: 'Spawn Jackett',
+        title: 'Spa Jackett',
         url: 'spawn.pp.ua:59117',
         jac_key: '2',
         jac_int: 'healthy',
