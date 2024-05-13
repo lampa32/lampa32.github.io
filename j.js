@@ -13,7 +13,6 @@
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg',
-        jac_search: true
     });
 
     menu.push({
@@ -73,8 +72,7 @@
                     Lampa.Controller.toggle(enabled);
                 },
                 onSelect: function onSelect(a) {
-                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', a.jac_int) & Lampa.Storage.set('parse_in_search', a.jac_search) & Lampa.Storage.set('parse_lang', a.jac_lang);
-                    Lampa.Settings.update();
+                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', a.jac_int) & Lampa.Storage.set('parse_in_search', true) & Lampa.Storage.set('parse_lang', a.jac_lang);
                     Lampa.Controller.toggle(enabled);
                     var activ = Lampa.Storage.get('activity')
                     setTimeout(function() {
@@ -82,7 +80,7 @@
                     }, 1000)
                     setTimeout(function() {
                         Lampa.Activity.push(activ)
-                    }, 3000)
+                    }, 2000)
                 }
             })
         })
