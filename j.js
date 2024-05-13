@@ -12,7 +12,7 @@
         url: 'jac.lampa32.ru',
         jac_key: '32',
         jac_int: 'all',
-        jac_lang: 'df_lg'
+        jac_lang: 'df'
     });
 
     menu.push({
