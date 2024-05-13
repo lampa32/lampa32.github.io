@@ -72,7 +72,7 @@
                     Lampa.Controller.toggle(enabled);
                 },
                 onSelect: function onSelect(a) {
-                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', a.jac_int) & Lampa.Storage.set('parse_in_search', true) & Lampa.Storage.set('parse_lang', a.jac_lang);
+                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', a.jac_int) & Lampa.Storage.set('parse_lang', a.jac_lang) & Lampa.Storage.set('parse_in_search', true);
                     Lampa.Controller.toggle(enabled);
                     var activ = Lampa.Storage.get('activity')
                     setTimeout(function() {
