@@ -12,8 +12,8 @@
         url: 'jac.lampa32.ru',
         jac_key: '',
         jac_int: 'all',
-        jac_search: 'true',
-        jac_lang: 'lg'
+        jac_lang: 'lg',
+        jac_search: true
     });
 
     menu.push({
