@@ -101,7 +101,9 @@ function pollParsers(menu) {
      function myRequest(url, title, menuItem) {
         return new Promise(function(resolve, reject) {
         var proto = location.protocol === "https:" ? 'https://' : 'http://';
-        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + (menuItem.jac_key ? '&' + menuItem.jac_key : '');
+        var myAdder = '';
+        if (url == 'spawn.pp.ua:59117') var myAdder = '2'
+        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + myAdder;//(menuItem.jac_key ? '&' + menuItem.jac_key : '');
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
