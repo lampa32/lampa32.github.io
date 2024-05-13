@@ -155,22 +155,25 @@ function pollParsers(menu) {
     });
 }
 
-var eLoop = 0, myInterval, myIntervalPlus;
+var eLoop = 0, myInterval;
 Lampa.Storage.listener.follow('change', function(event) {
     if (event.name == 'activity') {
         if (Lampa.Activity.active().component == 'torrents') {
+            clearInterval(myInterval); // Остановить предыдущий интервал, если он был
             myInterval = setInterval(function() {
-                if (eLoop = 30) {
+                if (eLoop >= 30) {
                     eLoop = 0;
                     clearInterval(myInterval);
+                } else {
+                    if ($('.empty__title').length) {
+                        eLoop = 0;
+                        myMenu();
+                        clearInterval(myInterval);
+                    } else {
+                        eLoop++;
+                    }
                 }
-                if ($('.empty__title').length) {
-                    eLoop = 0
-                    myMenu();
-                    //$('.empty__title').remove();
-                    clearInterval(myInterval);
-                } else eLoop++;
-            }, 2000)
+            }, 500); // Уменьшил интервал до 500 мс (0.5 секунды)
         }
     }
 });
