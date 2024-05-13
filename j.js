@@ -10,9 +10,9 @@
     menu.push({
         title: 'Lampa32',
         url: 'jac.lampa32.ru',
-        jac_key: '',
+        jac_key: '32',
         jac_int: 'all',
-        jac_lang: 'df'
+        jac_lang: 'lg_df'
     });
 
     menu.push({
@@ -48,7 +48,7 @@
     });
 
     menu.push({
-        title: 'Spa Jackett',
+        title: 'Spawn Jackett',
         url: 'spawn.pp.ua:59117',
         jac_key: '2',
         jac_int: 'healthy',
