@@ -154,42 +154,30 @@ function pollParsers(menu) {
         xhr.send();
     });
 }
-
-var observer;
+var eLoop = 0;
+var checkForEmptyTitle;
 
 Lampa.Storage.listener.follow('change', function(event) {
     if (event.name == 'activity') {
         if (Lampa.Activity.active().component == 'torrents') {
-            startObserver();
+            checkForEmptyTitle = requestAnimationFrame(checkEmptyTitle);
         } else {
-            stopObserver();
+            cancelAnimationFrame(checkForEmptyTitle);
         }
     }
 });
 
-function startObserver() {
-    stopObserver(); // Остановить предыдущего наблюдателя, если он был
-
-    var targetNode = document.body; // Узел, за которым будем наблюдать
-    var config = { childList: true, subtree: true }; // Настройки наблюдения
-
-    observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if ($('.empty__title').length) {
-                myMenu();
-                stopObserver();
-            }
-        });
-    });
-
-    observer.observe(targetNode, config);
-}
-
-function stopObserver() {
-    if (observer) {
-        observer.disconnect();
-        observer = null;
+function checkEmptyTitle() {
+    if ($('.empty__title').length) {
+        eLoop = 0;
+        myMenu();
+    } else if (eLoop >= 30) {
+        eLoop = 0;
+    } else {
+        eLoop++;
+        checkForEmptyTitle = requestAnimationFrame(checkEmptyTitle);
     }
 }
+
     
 })();
