@@ -69,7 +69,9 @@
                     return {
                         title: item.title,
                         url: item.url,
-                        jac_key: item.jac_key
+                        jac_key: item.jac_key,
+                        jac_int: item.jac_int,
+                        jac_lang: item.jac_lang
                     };
                 }),
                 onBack: function onBack() {
