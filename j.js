@@ -18,25 +18,33 @@
     menu.push({
         title: 'Jacred.xyz',
         url: 'jacred.xyz',
-        jac_key: ''
+        jac_key: '',
+        jac_int: 'all',
+        jac_lang: 'lg'
     });
 
     menu.push({
         title: 'Jacred.ru',
         url: 'jacred.ru',
-        jac_key: ''
+        jac_key: '',
+        jac_int: 'all',
+        jac_lang: 'lg'
     });
 
     menu.push({
         title: 'Jacred My To',
         url: 'jacred.my.to',
-        jac_key: ''
+        jac_key: '',
+        jac_int: 'all',
+        jac_lang: 'lg'
     });
 
     menu.push({
         title: 'Viewbox',
         url: 'jacred.viewbox.dev',
-        jac_key: 'viewbox'
+        jac_key: 'viewbox',
+        jac_int: 'all',
+        jac_lang: 'lg'
     });
 
     menu.push({
