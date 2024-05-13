@@ -12,7 +12,7 @@
         url: 'jac.lampa32.ru',
         jac_key: '',
         jac_int: 'all',
-        jac_lang: 'lg',
+        jac_lang: 'lg'
     });
 
     menu.push({
@@ -41,14 +41,18 @@
 
     menu.push({
         title: 'Spawn Jackett',
-        url: 'spawn.pp.ua:59118',
-        jac_key: '2'
+        url: 'spawn.pp.ua:59117',
+        jac_key: '2',
+        jac_int: 'healthy',
+        jac_lang: 'df'
     });
 
     menu.push({
         title: 'Spawn Jacred',
-        url: 'spawn.pp.ua:59117',
-        jac_key: ''
+        url: 'spawn.pp.ua:59118',
+        jac_key: '',
+        jac_int: 'all',
+        jac_lang: 'lg'
     });
 
     menu.push({
