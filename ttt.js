@@ -14,7 +14,7 @@ Lampa.Listener.follow('full', function(e) {
           $torrentButton.prependTo($parent);
         }
       });
-    }, 10);
+    }, 1000);
   }
 });
   /*Lampa.Listener.follow('full', function(e) {
