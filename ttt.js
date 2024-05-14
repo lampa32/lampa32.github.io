@@ -2,10 +2,10 @@
     'use strict';
     Lampa.Platform.tv();
 	
-/*Lampa.Listener.follow('full', function(e) {
+Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
     setTimeout(function() {
-      $('.view--torrent').each(function() {
+      $('.view--online2').each(function() {
         var $torrentButton = $(this);
         var $parent = $torrentButton.parent();
         var $modsOnlineButton = $parent.find('.view--modss_online');
@@ -21,9 +21,9 @@
       });
     }, 10);
   }
-});*/
+});
 	
-Lampa.Listener.follow('full', function(e) {
+/*Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
     setTimeout(function() {
       $('.view--online2').each(function() {
@@ -37,7 +37,7 @@ Lampa.Listener.follow('full', function(e) {
       });
     }, 10);
   }
-});
+});*/
   /*Lampa.Listener.follow('full', function(e) {
       if (e.type == 'complite') {
        setTimeout(function() {
