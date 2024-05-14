@@ -41,6 +41,12 @@
     $('.view--online, .view--online_mod, .view--torrent').insertBefore($('.button--play'));
 
     setTimeout(function() {
+      // Удаляем дубликаты для кнопок .view--online
+      if ($('.view--online').length > 1) {
+        $('.view--online').slice(1).remove();
+      }
+
+      // Упорядочиваем кнопки .view--online
       $('.view--online').each(function() {
         var $torrentButton = $(this);
         var $parent = $torrentButton.parent();
@@ -51,6 +57,12 @@
         }
       });
 
+      // Удаляем дубликаты для кнопок .view--online_mod
+      if ($('.view--online_mod').length > 1) {
+        $('.view--online_mod').slice(1).remove();
+      }
+
+      // Упорядочиваем кнопки .view--online_mod
       $('.view--online_mod').each(function() {
         var $onmodButton = $(this);
         var $parent = $onmodButton.parent();
@@ -61,6 +73,12 @@
         }
       });
 
+      // Удаляем дубликаты для кнопок .view--torrent
+      if ($('.view--torrent').length > 1) {
+        $('.view--torrent').slice(1).remove();
+      }
+
+      // Упорядочиваем кнопки .view--torrent
       $('.view--torrent').each(function() {
         var $torrentButton = $(this);
         var $parent = $torrentButton.parent();
