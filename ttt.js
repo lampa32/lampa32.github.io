@@ -3,24 +3,15 @@
     Lampa.Platform.tv();
 
 Lampa.Listener.follow('full', function(e) {
-  if (e.type == 'complite') {
-    setTimeout(function() {
-      $('.card').each(function() {
-        const $card = $(this);
-        const $firstButton = $card.find('.view--torrent').first();
-        $firstButton.prependTo($card);
-      });
-    }, 10);
-  }
-});
+
 	
-  /*Lampa.Listener.follow('full', function(e) {
+  Lampa.Listener.follow('full', function(e) {
       if (e.type == 'complite') {
        setTimeout(function() {
           $('.view--torrent').first().prependTo($('.view--torrent').first().parent());
        },10);
      }
-  })*/
+  })
    /* let isButtonMoved = false;
 
 Lampa.Listener.follow('full', function(e) {
