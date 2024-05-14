@@ -37,11 +37,10 @@
 });*/
 	Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
-    // Вставляем кнопки перед кнопкой "Воспроизвести"
-    insertBefore($('.button--play'));
+    // Вставляем элементы перед кнопкой "Воспроизвести"
+    $('.view--online, .view--online_mod, .view--torrent').insertBefore($('.button--play'));
 
     setTimeout(function() {
-      // Код для упорядочивания кнопок
       $('.view--online').each(function() {
         var $torrentButton = $(this);
         var $parent = $torrentButton.parent();
