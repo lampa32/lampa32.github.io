@@ -10,7 +10,7 @@
        },10);
      }
   })*/
-    /*let isButtonMoved = false;
+    let isButtonMoved = false;
 
 Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
@@ -21,11 +21,11 @@ Lampa.Listener.follow('full', function(e) {
         isButtonMoved = true;
       }
     }, 10);
-  } else if (e.type == 'start') {
+  } else if (e.type == 'complite') {
     isButtonMoved = false;
   }
-});*/
-    Lampa.Controller.listener.follow('toggle', function(e) {
+});
+   /* Lampa.Controller.listener.follow('toggle', function(e) {
 			  if (e.name == 'select') {
                     if (Lampa.Activity.active().component == 'full') {
                       setTimeout(function() {
@@ -33,7 +33,7 @@ Lampa.Listener.follow('full', function(e) {
                       }, 10)
                     }
               }
-    });
+    });*/
                 
                     
   
