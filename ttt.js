@@ -18,10 +18,10 @@ Lampa.Listener.follow('full', function(e) {
       if (!isButtonMoved) {
         $('.view--torrent').first().prependTo($('.view--torrent').first().parent());
        // if ($('.view--torrent').length > 1) $('.view--torrent').slice(1).remove();
-        isButtonMoved = false;
+        isButtonMoved = true;
       }
     }, 10);
-  } else if (e.type == 'start') {
+  } else /*if (e.type == 'start')*/ {
     isButtonMoved = false;
   }
 });
