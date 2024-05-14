@@ -5,7 +5,7 @@
   Lampa.Listener.follow('full', function(e) {
       if (e.type == 'complite') {
        setTimeout(function() {
-         $('.view--torrent').appendTo('body');
+         $('.view--torrent').last();
          // if ($('.view--torrent').length > 1) $('.view--torrent')[1].remove();
        },10);
      }
