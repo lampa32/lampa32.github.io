@@ -23,6 +23,15 @@ Lampa.Listener.follow('full', function(e) {
           $onmodButton.insertBefore($secondChild); // Вставляем $onmodButton перед вторым элементом
         }
       });
+      $('.view--torrent').each(function() {
+        var $torrentButton = $(this);
+        var $parent = $torrentButton.parent();
+        var $thirdChild = $parent.children().eq(2); // Выбираем третий элемент
+
+        if (!$torrentButton.is($thirdChild)) {
+          $torrentButton.insertAfter($parent.children().eq(1)); // Вставляем $torrentButton после второго элемента
+        }
+      });
     }, 10);
   }
 });
