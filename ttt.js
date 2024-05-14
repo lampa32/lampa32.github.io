@@ -2,13 +2,13 @@
     'use strict';
     Lampa.Platform.tv();
 
-	Lampa.Listener.follow('full', function(e) {
+Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
     setTimeout(function() {
       $('.view--torrent').each(function() {
-        const $torrentButton = $(this);
-        const $parent = $torrentButton.parent();
-        const $firstChild = $parent.children().first();
+        var $torrentButton = $(this);
+        var $parent = $torrentButton.parent();
+        var $firstChild = $parent.children().first();
 
         if (!$torrentButton.is($firstChild)) {
           $torrentButton.prependTo($parent);
