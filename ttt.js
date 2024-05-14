@@ -17,7 +17,7 @@ Lampa.Listener.follow('full', function(e) {
     setTimeout(function() {
       if (!isButtonMoved) {
         $('.view--torrent').first().prependTo($('.view--torrent').first().parent());
-        if ($('.view--torrent').length > 1) $('.view--torrent').slice(1).remove();
+        //if ($('.view--torrent').length > 1) $('.view--torrent').slice(1).remove();
         isButtonMoved = true;
       }
     }, 10);
