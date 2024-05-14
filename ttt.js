@@ -2,8 +2,6 @@
     'use strict';
     Lampa.Platform.tv();
 
-Lampa.Listener.follow('full', function(e) {
-
 	
   Lampa.Listener.follow('full', function(e) {
       if (e.type == 'complite') {
