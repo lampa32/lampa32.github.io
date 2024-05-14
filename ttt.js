@@ -1,8 +1,29 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-
+	
 Lampa.Listener.follow('full', function(e) {
+  if (e.type == 'complite') {
+    setTimeout(function() {
+      $('.view--torrent').each(function() {
+        var $torrentButton = $(this);
+        var $parent = $torrentButton.parent();
+        var $modsOnlineButton = $parent.find('.view--modss_online');
+
+        if ($modsOnlineButton.length) {
+          $torrentButton.insertBefore($modsOnlineButton);
+        } else {
+          var $firstChild = $parent.children().first();
+          if (!$torrentButton.is($firstChild)) {
+            $torrentButton.prependTo($parent);
+          }
+        }
+      });
+    }, 10);
+  }
+});
+	
+/*Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
     setTimeout(function() {
       $('.view--torrent').each(function() {
@@ -14,9 +35,9 @@ Lampa.Listener.follow('full', function(e) {
           $torrentButton.prependTo($parent);
         }
       });
-    }, 500);
+    }, 10);
   }
-});
+});*/
   /*Lampa.Listener.follow('full', function(e) {
       if (e.type == 'complite') {
        setTimeout(function() {
