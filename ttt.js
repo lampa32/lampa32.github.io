@@ -8,7 +8,7 @@ Lampa.Listener.follow('full', function(e) {
       $('.view--filmixpva').each(function() {
         var $torrentButton = $(this);
         var $parent = $torrentButton.parent();
-        var $secondChild = $parent.children().second();
+        var $firstChild = $parent.children().first();
 
         if (!$torrentButton.is($firstChild)) {
           $torrentButton.prependTo($parent);
@@ -17,10 +17,10 @@ Lampa.Listener.follow('full', function(e) {
       $('.view--online_mod').each(function() {
         var $onmodButton = $(this);
         var $parent = $onmodButton.parent();
-        var $secondChild = $parent.children().second();
+        var $secondChild = $parent.children().eq(1); // Выбираем второй элемент
 
         if (!$onmodButton.is($secondChild)) {
-          $onmodButton.prependTo($parent);
+          $onmodButton.insertBefore($secondChild); // Вставляем $onmodButton перед вторым элементом
         }
       });
     }, 10);
