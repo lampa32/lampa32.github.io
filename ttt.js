@@ -21,9 +21,9 @@ Lampa.Listener.follow('full', function(e) {
         isButtonMoved = true;
       }
     }, 10);
-  } else if (e.type == 'start') {
+  } /*else if (e.type == 'start') {
     isButtonMoved = false;
-  }
+  }*/
 });
   
 })();
