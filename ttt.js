@@ -1,8 +1,33 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
+
+	Lampa.Listener.follow('full', function(e) {
+  if (e.type == 'complite') {
+    setTimeout(function() {
+      $('.view--filmixpva').each(function() {
+        var $torrentButton = $(this);
+        var $parent = $torrentButton.parent();
+        var $secondChild = $parent.children().second();
+
+        if (!$torrentButton.is($firstChild)) {
+          $torrentButton.prependTo($parent);
+        }
+      });
+      $('.view--online_mod').each(function() {
+        var $torrentButton = $(this);
+        var $parent = $torrentButton.parent();
+        var $secondChild = $parent.children().second();
+
+        if (!$torrentButton.is($secondChild)) {
+          $torrentButton.prependTo($parent);
+        }
+      });
+    }, 10);
+  }
+});
 	
-Lampa.Listener.follow('full', function(e) {
+/*Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
     setTimeout(function() {
       $('.view--online2').each(function() {
@@ -21,7 +46,7 @@ Lampa.Listener.follow('full', function(e) {
       });
     }, 10);
   }
-});
+});*/
 	
 /*Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
