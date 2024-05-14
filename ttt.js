@@ -2,14 +2,28 @@
     'use strict';
     Lampa.Platform.tv();
 
-	
-  Lampa.Listener.follow('full', function(e) {
+	Lampa.Listener.follow('full', function(e) {
+  if (e.type == 'complite') {
+    setTimeout(function() {
+      $('.view--torrent').each(function() {
+        const $torrentButton = $(this);
+        const $parent = $torrentButton.parent();
+        const $firstChild = $parent.children().first();
+
+        if (!$torrentButton.is($firstChild)) {
+          $torrentButton.prependTo($parent);
+        }
+      });
+    }, 10);
+  }
+});
+  /*Lampa.Listener.follow('full', function(e) {
       if (e.type == 'complite') {
        setTimeout(function() {
           $('.view--torrent').first().prependTo($('.view--torrent').first().parent());
        },10);
      }
-  })
+  })*/
    /* let isButtonMoved = false;
 
 Lampa.Listener.follow('full', function(e) {
