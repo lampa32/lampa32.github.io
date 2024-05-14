@@ -37,16 +37,13 @@
 });*/
 	Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
-    
+    // Вставляем элементы перед кнопкой "Воспроизвести"
+    $('.view--online, .view--online_mod, .view--torrent').insertBefore($('.button--play'));
 
     setTimeout(function() {
-
-      // Вставляем элементы перед кнопкой "Воспроизвести"
-    $('.view--online, .view--online_mod, .view--torrent').insertBefore($('.button--play'));
-	    
       // Удаляем дубликаты для кнопок .view--online
       if ($('.view--online').length > 1) {
-        $('.view--online').slice(1).remove();
+        $('.view--online')[1].remove();
       }
 
       // Упорядочиваем кнопки .view--online
@@ -62,7 +59,7 @@
 
       // Удаляем дубликаты для кнопок .view--online_mod
       if ($('.view--online_mod').length > 1) {
-        $('.view--online_mod').slice(1).remove();
+        $('.view--online_mod')[1].remove();
       }
 
       // Упорядочиваем кнопки .view--online_mod
@@ -78,7 +75,7 @@
 
       // Удаляем дубликаты для кнопок .view--torrent
       if ($('.view--torrent').length > 1) {
-        $('.view--torrent').slice(1).remove();
+        $('.view--torrent')[1].remove();
       }
 
       // Упорядочиваем кнопки .view--torrent
@@ -94,5 +91,6 @@
     }, 10);
   }
 });
+    
 	
 })();
