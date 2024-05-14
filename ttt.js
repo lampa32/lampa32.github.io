@@ -37,10 +37,13 @@
 });*/
 	Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
-    // Вставляем элементы перед кнопкой "Воспроизвести"
-    $('.view--online, .view--online_mod, .view--torrent').insertBefore($('.button--play'));
+    
 
     setTimeout(function() {
+
+      // Вставляем элементы перед кнопкой "Воспроизвести"
+    $('.view--online, .view--online_mod, .view--torrent').insertBefore($('.button--play'));
+	    
       // Удаляем дубликаты для кнопок .view--online
       if ($('.view--online').length > 1) {
         $('.view--online').slice(1).remove();
