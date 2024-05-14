@@ -10,7 +10,7 @@
     menu.push({
         title: 'Lampa32',
         url: 'jac.lampa32.ru',
-        jac_key: '32',
+        jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
     });
