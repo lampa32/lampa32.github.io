@@ -2,7 +2,7 @@
     'use strict';
     Lampa.Platform.tv();
 
-	Lampa.Listener.follow('full', function(e) {
+Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
     setTimeout(function() {
       $('.view--filmixpva').each(function() {
@@ -15,12 +15,12 @@
         }
       });
       $('.view--online_mod').each(function() {
-        var $torrentButton = $(this);
-        var $parent = $torrentButton.parent();
+        var $onmodButton = $(this);
+        var $parent = $onmodButton.parent();
         var $secondChild = $parent.children().second();
 
-        if (!$torrentButton.is($secondChild)) {
-          $torrentButton.prependTo($parent);
+        if (!$onmodButton.is($secondChild)) {
+          $onmodButton.prependTo($parent);
         }
       });
     }, 10);
