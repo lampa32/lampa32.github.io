@@ -133,7 +133,7 @@ function checkAlive() {
                   clearInterval(tor_timer);
                   start_free();
               }
-           },500);
+           },200);
 
 /* Видимо так
 	> ставим метку tor_free - автовыбор сервера активен или нет?
@@ -148,7 +148,7 @@ function checkAlive() {
 			 Lampa.Storage.set('torrserver_use_link', 'two');
 		           var myResult = searchRandom();
 			   if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-		       }, 3500) //без таймаута undefined	
+		       }, 4000) //без таймаута undefined	
 		}
 		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию hideBut
 		if (localStorage.getItem('switch_server_button') === null) {
