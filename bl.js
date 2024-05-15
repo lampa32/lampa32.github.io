@@ -6,7 +6,12 @@
     var status = new status$2(2);
 
     status.onComplite = function (res) {
-        const modifiedList = [].concat(res.cub, res.custom).filter(url => !isBlacklisted(url));
+        // Объединяем списки cub и custom
+        let combinedList = [].concat(res.cub, res.custom);
+
+        // Фильтруем список, исключая scabrum.github.io
+        const modifiedList = combinedList.filter(url => !url.includes('scabrum.github.io'));
+
         call(modifiedList);
     };
 
