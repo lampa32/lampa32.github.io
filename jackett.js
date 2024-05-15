@@ -141,6 +141,7 @@ Lampa.SettingsApi.addParam({
 		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_urltwo"]').hide();
 		else $('[data-name="jackett_urltwo"]').show();
 	});
+	
 	var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
             clearInterval(timer);
@@ -149,7 +150,7 @@ Lampa.SettingsApi.addParam({
             } 
         },100);
 
-	function start_jack(){
+	function start_jack() {
         Lampa.Storage.set('jack','true');
         Lampa.Storage.set('jackett_url', 'jacred.xyz');
         Lampa.Storage.set('jackett_urltwo', 'jacred_xyz');
@@ -158,6 +159,196 @@ Lampa.SettingsApi.addParam({
 	Lampa.Storage.set('jackett_interview', 'all')
 	Lampa.Storage.set('parse_lang', 'lg');
         }
+
+function myMenu() {
+    var enabled = Lampa.Controller.enabled().name;
+    var menu = [];
+
+    menu.push({
+        title: 'Lampa32',
+        url: 'jac.lampa32.ru',
+        jac_key: '',
+        jac_int: 'all',
+        jac_lang: 'lg'
+    });
+
+    menu.push({
+        title: 'Jacred.xyz',
+        url: 'jacred.xyz',
+        jac_key: '',
+        jac_int: 'all',
+        jac_lang: 'lg'
+    });
+
+    menu.push({
+        title: 'Jacred.ru',
+        url: 'jacred.ru',
+        jac_key: '',
+        jac_int: 'all',
+        jac_lang: 'lg'
+    });
+
+    menu.push({
+        title: 'Jacred My To',
+        url: 'jacred.my.to',
+        jac_key: '',
+        jac_int: 'all',
+        jac_lang: 'lg'
+    });
+
+    menu.push({
+        title: 'Viewbox',
+        url: 'jacred.viewbox.dev',
+        jac_key: 'viewbox',
+        jac_int: 'all',
+        jac_lang: 'lg'
+    });
+
+    menu.push({
+        title: 'Spawn Jackett',
+        url: 'spawn.pp.ua:59117',
+        jac_key: '2',
+        jac_int: 'healthy',
+        jac_lang: 'df'
+    });
+
+    menu.push({
+        title: 'Spawn Jacred',
+        url: 'spawn.pp.ua:59118',
+        jac_key: '',
+        jac_int: 'all',
+        jac_lang: 'lg'
+    });
+
+    menu.push({
+        title: 'Prisma',
+        url: 'api.prisma.ws:443',
+        jac_key: ''
+    });
+
+    pollParsers(menu).then(
+        function(updatedMenu) {
+            Lampa.Select.show({
+                title: 'Меню смены парсера',
+                items: updatedMenu.map(function(item) {
+                    return {
+                        title: item.title,
+                        url: item.url,
+                        jac_key: item.jac_key,
+                        jac_int: item.jac_int,
+                        jac_lang: item.jac_lang
+                    };
+                }),
+                onBack: function onBack() {
+                    Lampa.Controller.toggle(enabled);
+                },
+                onSelect: function onSelect(a) {
+                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', a.jac_int) & Lampa.Storage.set('parse_lang', a.jac_lang) & Lampa.Storage.set('parse_in_search', true);
+                    Lampa.Controller.toggle(enabled);
+                    var activ = Lampa.Storage.get('activity')
+                    setTimeout(function() {
+                        window.history.back();
+                    }, 1000)
+                    setTimeout(function() {
+                        Lampa.Activity.push(activ)
+                    }, 2000)
+                }
+            })
+        })
+        .catch(function(error) {
+            console.error('Error:', error);
+        });
+}
+
+function pollParsers(menu) {
+    var promises = [];
+
+    for (var i = 0; i < menu.length; i++) {
+        var url = menu[i].url;
+        promises.push(myMenuRequest(url, menu[i].title, menu[i]));
+    }
+
+    return Promise.all(promises);
+}
+
+     function myMenuRequest(url, title, menuItem) {
+        return new Promise(function(resolve, reject) {
+        var proto = location.protocol === "https:" ? 'https://' : 'http://';
+        var myAdder = '';
+        if (url == 'spawn.pp.ua:59117') var myAdder = '2'
+        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + myAdder;//(menuItem.jac_key ? '&' + menuItem.jac_key : '');
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', myLink, true);
+        xhr.timeout = 3000;
+
+        xhr.onload = function() {
+            console.log('Response Status:', xhr.status);
+            console.log('Response Text:', xhr.responseText);
+
+            if (xhr.status === 200) {
+                menuItem.title = '<span style="color: #1aff00;">&#10003;&nbsp;&nbsp;' + title + '</span>';
+                resolve(menuItem);
+            } else {
+                menuItem.title = '<span style="color: #ff2e36;">&#10005;&nbsp;&nbsp;' + title + '</span>';
+                resolve(menuItem);
+            }
+        };
+
+        xhr.onerror = function() {
+            console.error('Network error:', xhr.status);
+            menuItem.title = '<span style="color: #ff2e36;">&#10005;&nbsp;&nbsp;' + title + '</span>';
+            resolve(menuItem);
+        };
+
+        xhr.ontimeout = function() {
+            console.error('Request timed out');
+            menuItem.title = '<span style="color: #ff2e36;">&#10005;&nbsp;&nbsp;' + title + '</span>';
+            resolve(menuItem);
+        };
+
+        console.log('Sending request to:', myLink);
+        xhr.send();
+    });
+}
+
+var observer;
+
+Lampa.Storage.listener.follow('change', function(event) {
+    if (event.name == 'activity') {
+        if (Lampa.Activity.active().component == 'torrents') {
+            startObserver();
+        } else {
+            stopObserver();
+        }
+    }
+});
+
+function startObserver() {
+    stopObserver(); // Остановить предыдущего наблюдателя, если он был
+
+    var targetNode = document.body; // Узел, за которым будем наблюдать
+    var config = { childList: true, subtree: true }; // Настройки наблюдения
+
+    observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if ($('.empty__title').length) {
+                myMenu();
+                stopObserver();
+            }
+        });
+    });
+
+    observer.observe(targetNode, config);
+}
+
+function stopObserver() {
+    if (observer) {
+        observer.disconnect();
+        observer = null;
+    }
+}
+	
         (function(m, e, t, r, i, k, a) {
                m[i] = m[i] || function() {
                        (m[i].a = m[i].a || []).push(arguments)
@@ -180,7 +371,7 @@ Lampa.SettingsApi.addParam({
         $('body').append(METRIKA);
 
 
-function myMenu(){
+/*function myMenu(){
     var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
@@ -271,7 +462,7 @@ function myMenu(){
 		}, 2000)
 	    }
 	}
-    });
+    });*/
 	
  })();
 
