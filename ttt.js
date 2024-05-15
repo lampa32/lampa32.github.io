@@ -1,12 +1,12 @@
 ﻿(function () {
     'use strict';
-Lampa.Listener.follow('full', function(e) {
+ Lampa.Listener.follow('full', function(e) {
   if (e.type == 'complite') {
     setTimeout(function() {
       var container = Lampa.Activity.active().activity.render();
       
       // Удаление предыдущих клонированных элементов перед .button--play
-      container.find('.button--play').prevAll('.view--torrent').remove();
+      container.find('.button--play').prevAll('.view--torrent, .view--trailer').remove();
       
       // Получение первого элемента .view--torrent
       var firstTorrent = container.find('.view--torrent').first();
@@ -17,9 +17,19 @@ Lampa.Listener.follow('full', function(e) {
       // Удаление изначального элемента .view--torrent из списка
       firstTorrent.remove();
       
+      // Получение первого элемента .view--trailer
+      var firstTrailer = container.find('.view--trailer').first();
+      
+      // Клонирование первого элемента .view--trailer и вставка перед .button--play
+      var clonedTrailer = firstTrailer.clone().insertBefore(container.find('.button--play'));
+      
+      // Удаление изначального элемента .view--trailer из списка
+      firstTrailer.remove();
+      
       // Удаление дубликатов (на всякий случай)
-      container.find('.view--torrent').not(clonedTorrent).remove();
+      container.find('.view--torrent, .view--trailer').not(clonedTorrent).not(clonedTrailer).remove();
     }, 10);
   }
 });
+
  })();
