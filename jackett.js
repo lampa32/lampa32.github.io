@@ -256,7 +256,7 @@ function myMenu() {
             })
         })
         .catch(function(error) {
-            console.error('Error:', error);
+           // console.error('Error:', error);
         });
 }
 
@@ -283,8 +283,8 @@ function pollParsers(menu) {
         xhr.timeout = 3000;
 
         xhr.onload = function() {
-            console.log('Response Status:', xhr.status);
-            console.log('Response Text:', xhr.responseText);
+           // console.log('Response Status:', xhr.status);
+           // console.log('Response Text:', xhr.responseText);
 
             if (xhr.status === 200) {
                 menuItem.title = '<span style="color: #1aff00;">&#10003;&nbsp;&nbsp;' + title + '</span>';
@@ -296,18 +296,18 @@ function pollParsers(menu) {
         };
 
         xhr.onerror = function() {
-            console.error('Network error:', xhr.status);
+           // console.error('Network error:', xhr.status);
             menuItem.title = '<span style="color: #ff2e36;">&#10005;&nbsp;&nbsp;' + title + '</span>';
             resolve(menuItem);
         };
 
         xhr.ontimeout = function() {
-            console.error('Request timed out');
+           // console.error('Request timed out');
             menuItem.title = '<span style="color: #ff2e36;">&#10005;&nbsp;&nbsp;' + title + '</span>';
             resolve(menuItem);
         };
 
-        console.log('Sending request to:', myLink);
+       // console.log('Sending request to:', myLink);
         xhr.send();
     });
 }
