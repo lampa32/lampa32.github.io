@@ -1,11 +1,11 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-function loadBlackList(call) {
+
+    function loadBlackList(call) {
     var status = new status$2(2);
 
     status.onComplite = function (res) {
-        // Здесь мы можем изменить список запрещенных адресов перед передачей его в call
         const modifiedList = [].concat(res.cub, res.custom).filter(url => !isBlacklisted(url));
         call(modifiedList);
     };
@@ -25,13 +25,6 @@ function loadBlackList(call) {
     }, function () {
         status.append('custom', []);
     });
-}
-
-function isBlacklisted(url) {
-    // Здесь мы можем добавить логику для проверки, является ли URL запрещенным
-    // Если URL запрещен, функция должна вернуть true, иначе false
-    // Например:
-    const blacklistedDomains = ['example.com', 'banned.org'];
-    return blacklistedDomains.some(domain => url.includes(domain));
-}
+    }
+    
 })()
