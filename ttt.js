@@ -7,7 +7,7 @@ Lampa.Listener.follow('full', function(e) {
       var container = Lampa.Activity.active().activity.render();
       
       // Удаление предыдущих клонированных элементов и кнопки .button--play
-      container.find('.button--play').remove();
+     // container.find('.button--play').remove();
       container.find('.button--play').prevAll('.view--torrent, .view--trailer, .view--online').remove();
       
       // Получение первого элемента .view--online
