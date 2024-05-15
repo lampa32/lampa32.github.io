@@ -108,13 +108,13 @@ function pollParsers(menu) {
 
     for (var i = 0; i < menu.length; i++) {
         var url = menu[i].url;
-        promises.push(myRequest(url, menu[i].title, menu[i]));
+        promises.push(myMenuRequest(url, menu[i].title, menu[i]));
     }
 
     return Promise.all(promises);
 }
 
-     function myRequest(url, title, menuItem) {
+     function myMenuRequest(url, title, menuItem) {
         return new Promise(function(resolve, reject) {
         var proto = location.protocol === "https:" ? 'https://' : 'http://';
         var myAdder = '';
@@ -123,7 +123,7 @@ function pollParsers(menu) {
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
-        xhr.timeout = 5000;
+        xhr.timeout = 3000;
 
         xhr.onload = function() {
             console.log('Response Status:', xhr.status);
