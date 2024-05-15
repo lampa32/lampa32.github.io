@@ -38,6 +38,13 @@ Lampa.Listener.follow('full', function(e) {
       
       // Удаление дубликатов (на всякий случай)
       container.find('.view--torrent, .view--trailer, .view--online').not(clonedOnline).not(clonedTorrent).not(clonedTrailer).remove();
+
+        // Удаляем не нужные кнопки
+        $('.button--play').remove();
+        $('.button--subscribe').remove();
+
+        // Ставим фокус на первой кнопке
+        Lampa.Controller.toggle('full_start');
     }, 10);
   }
 });
