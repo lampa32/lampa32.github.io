@@ -131,9 +131,7 @@
 			cleanCub();
                 });
 		$('.full-person').on('hover:enter hover:click hover:touch', function() {
-		   setTimeout(function() {
-			$('.button--subscribe').css('display', 'none');
-		   }, 10);
+		   setTimeout(removeButton, 100);
 		});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		setTimeout(function() {
@@ -141,7 +139,9 @@
                 }, 0);
             }
         })
-
+        function removeButton() {
+    $('.button--subscribe').remove();
+	}
         Lampa.Storage.listener.follow('change', function(event) {
             // при смене активного раздела
             if (event.name == 'activity') {
