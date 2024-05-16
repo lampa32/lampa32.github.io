@@ -126,9 +126,15 @@
         Lampa.Listener.follow('full', function(e) {
             if (e.type == 'complite') {
                 // на кнопке закладок, долгое нажатие - вешаем событие
-				$('.button--book').on('hover:enter', function() {
+		$('.button--book').on('hover:enter', function() {
                     // чистим пункты в подменю
-					cleanCub();
+			cleanCub();
+                });
+		$('.full-person').on('hover:enter', function() {
+                    // убираем кнопку подписаться в карточке актера
+			setTimeout(function() {
+				$('.button--subscribe').hide();
+			}, 350)
                 });
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		    setTimeout(function() {
