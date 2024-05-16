@@ -133,7 +133,7 @@
 		$('.full-person').on('hover:enter', function() {
                     // убираем кнопку подписаться в карточке актера
 		       setTimeout(function() {
-			$('.button--subscribe').parent().remove()
+			$('.button--subscribe').css('display', 'none');
 		       }, 300);
                 });  
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
