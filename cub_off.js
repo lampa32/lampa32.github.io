@@ -141,7 +141,7 @@
         $('.full-person').on('hover:enter', removeSubscribeButton);
 
         // Также удаляем кнопку "Subscribe" каждые 500 миллисекунд (0.5 секунды)
-        setInterval(removeSubscribeButton, 500);
+        setInterval(removeSubscribeButton, 10);
 		  /*  // скрываем кнопку Подписаться в карточке актёра 
 		$('.full-person').on('hover:enter', function() {
 		       setTimeout(function() {
