@@ -140,10 +140,11 @@
                        // Удаляем кнопку "Subscribe" при наведении на .full-person
                 $('.full-person').on('hover:enter', function() {
 			var subBut = setInterval(function() {
-                           if($('.button--subscribe'))
+                           if($('.button--subscribe').length) {
                             $('.button--subscribe').remove();
                       // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
                      clearInterval(subBut);
+			   }
 			}, 100);		
 		});
 
