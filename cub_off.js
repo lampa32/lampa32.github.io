@@ -131,13 +131,11 @@
 			cleanCub();
                 });
 		    // скрываем кнопку Подписаться в карточке актёра 
-	        if (Lampa.Activity.active().component == 'actor') {
-		   $('.full-person').on('hover:enter', function() {
+		$('.full-person').on('hover:enter', function() {
 		       setTimeout(function() {
 			    $('.button--subscribe').remove();
 		       }, 350); 
-		    });
-		}
+		});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		setTimeout(function() {
                         $('.button--subscribe').remove();
