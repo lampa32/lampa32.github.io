@@ -130,12 +130,29 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		$('.full-person').on('hover:enter', function() {
-                    // убираем кнопку подписаться в карточке актера
-		    setTimeout(function() {
-                      $('.button--subscribe').remove();
-		    }, 250);
-		});
+		$.Deferred(function(defer) {
+  $('head').append(
+    '<style>' +
+    '.button--subscribe {' +
+    '  transition: opacity 0.3s ease-out;' + // Плавное исчезновение в течение 0.3 секунды
+    '}' +
+    '.button--subscribe.hidden {' +
+    '  opacity: 0;' + // Скрытие кнопки, делая ее полностью прозрачной
+    '}' +
+    '</style>'
+  );
+  defer.resolve();
+}).done(function() {
+  $('.full-person').on('hover:enter', function() {
+    var $subscribeButton = $('.button--subscribe');
+    $subscribeButton.addClass('hidden'); // Добавление класса .hidden для запуска CSS-перехода
+
+    // Удаление кнопки после завершения CSS-перехода
+    setTimeout(function() {
+      $subscribeButton.remove();
+    }, 300); // Задержка должна соответствовать длительности CSS-перехода
+  });
+});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		    setTimeout(function() {
                       $('.button--subscribe').remove();
