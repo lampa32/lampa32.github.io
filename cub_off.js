@@ -121,12 +121,18 @@
 				}
 	    }
         });
-		function removeSubscribeButton() {
-                     var subscribeButton = $('.button--subscribe');
-                        if (subscribeButton.length) {
-                              subscribeButton.remove();
-                        }
-		}
+		var intervalId = null; // Объявляем переменную для хранения идентификатора интервала
+
+function removeSubscribeButton() {
+    var subscribeButton = $('.button--subscribe');
+    if (subscribeButton.length) {
+        subscribeButton.remove();
+    } else {
+        // Если кнопка "Подписаться" уже удалена, сбрасываем интервал
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+}
 		// мы внутри карточки
         Lampa.Listener.follow('full', function(e) {
             if (e.type == 'complite') {
@@ -139,11 +145,11 @@
 
                        // Удаляем кнопку "Subscribe" при наведении на .full-person
                 $('.full-person').on('hover:enter', function() {
-                         removeSubscribeButton();
+    removeSubscribeButton();
 
-                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
-                     setInterval(removeSubscribeButton, 10);
-		});
+    // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд
+    intervalId = setInterval(removeSubscribeButton, 10);
+});
 		  /*  // скрываем кнопку Подписаться в карточке актёра 
 		$('.full-person').on('hover:enter', function() {
 		       setTimeout(function() {
