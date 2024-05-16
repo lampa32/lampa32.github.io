@@ -256,7 +256,7 @@ function myMenu() {
             })
         })
         .catch(function(error) {
-           // console.error('Error:', error);
+            console.error('Error:', error);
         });
 }
 
