@@ -9,9 +9,10 @@
 				setTimeout(function() {
 				  if($('.selectbox .selectbox-item__icon svg').length && Lampa.Activity.active().component == 'full') $('div.selectbox__body > div > div > div > div:contains("@modssmy_bot")').css('display', 'none');
 				  if (Lampa.Activity.active().component === 'modss_online') $('.selectbox-item--icon').remove()
+				  if (Lampa.Activity.active().component === 'actor') $('.button--subscribe').remove()
 				}, 30);
 			  }
-			});
+		});
      }
 	
     // шаблонный метод очистки
@@ -130,13 +131,13 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-	        if (Lampa.Activity.active().component = 'actor') {
+	       /* if (Lampa.Activity.active().component = 'actor') {
 		$('.full-person').on('hover:enter', function() {
 		   setTimeout(function() {
 			$('.button--subscribe').remove();
 		   }, 350); 
 		});
-		}
+		}*/
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		setTimeout(function() {
                         $('.button--subscribe').remove();
