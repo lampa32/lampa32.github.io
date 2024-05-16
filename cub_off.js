@@ -130,28 +130,18 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		$.Deferred(function(defer) {
-  $('head').append(
-    '<style>' +
-    '.button--subscribe {' +
-    '  transition: opacity 0.3s ease-out;' + // Плавное исчезновение в течение 0.3 секунды
-    '}' +
-    '.button--subscribe.hidden {' +
-    '  opacity: 0;' + // Скрытие кнопки, делая ее полностью прозрачной
-    '}' +
-    '</style>'
-  );
-  defer.resolve();
-}).done(function() {
-  $('.full-person').on('hover:enter', function() {
-    var $subscribeButton = $('.button--subscribe');
-    $subscribeButton.addClass('hidden'); // Добавление класса .hidden для запуска CSS-перехода
-
-    // Удаление кнопки после завершения CSS-перехода
-    setTimeout(function() {
+		$('.full-person').on('hover:enter', function() {
+  var $subscribeButton = $('.button--subscribe');
+  var opacity = 1;
+  var fadeOutInterval = setInterval(function() {
+    if (opacity <= 0) {
+      clearInterval(fadeOutInterval);
       $subscribeButton.remove();
-    }, 300); // Задержка должна соответствовать длительности CSS-перехода
-  });
+    } else {
+      opacity -= 0.1;
+      $subscribeButton.css('opacity', opacity);
+    }
+  }, 30);
 });
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		    setTimeout(function() {
