@@ -130,18 +130,20 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		    function removeSubscribeButton() {
-            var subscribeButton = $('.button--subscribe');
-            if (subscribeButton.length) {
-                subscribeButton.remove();
-            }
-        }
+		function removeSubscribeButton() {
+                     var subscribeButton = $('.button--subscribe');
+                        if (subscribeButton.length) {
+                              subscribeButton.remove();
+                        }
+                }
 
-        // Удаляем кнопку "Subscribe" при наведении на .full-person
-        $('.full-person').on('hover:enter', removeSubscribeButton);
+                       // Удаляем кнопку "Subscribe" при наведении на .full-person
+                $('.full-person').on('hover:enter', function() {
+                         removeSubscribeButton();
 
-        // Также удаляем кнопку "Subscribe" каждые 500 миллисекунд (0.5 секунды)
-        setInterval(removeSubscribeButton, 10);
+                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
+                     setInterval(removeSubscribeButton, 10);
+		}
 		  /*  // скрываем кнопку Подписаться в карточке актёра 
 		$('.full-person').on('hover:enter', function() {
 		       setTimeout(function() {
