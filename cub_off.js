@@ -132,7 +132,7 @@
                 });
 		$('.full-person').on('hover:enter', function() {
 		   setTimeout(function() {
-			$('.button--subscribe').parent().remove();
+			$('.button--subscribe').parent().css('display', 'none');
 		   }, 10);
 		});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
