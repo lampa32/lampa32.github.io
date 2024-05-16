@@ -130,17 +130,10 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		function removeSubscribeButton() {
-                     var subscribeButton = $('.button--subscribe');
-                        if (subscribeButton.length) {
-                              subscribeButton.remove();
-                        }
-                }
-
                        // Удаляем кнопку "Subscribe" при наведении на .full-person
                 $('.full-person').on('hover:enter', function() {
-                         removeSubscribeButton();
-
+                         var subscribeButton = $('.button--subscribe');
+                            if (subscribeButton.length) {
                       // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
                      setInterval(removeSubscribeButton, 10);
 		});
