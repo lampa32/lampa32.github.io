@@ -143,7 +143,7 @@
 
                       // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
                      setInterval(removeSubscribeButton, 10);
-		}
+		});
 
                        // Удаляем кнопку "Subscribe" при наведении на .full-person
                 $('.full-person').on('hover:enter', function() {
