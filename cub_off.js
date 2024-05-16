@@ -130,7 +130,7 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		$('.full-person').on('mouseover', function() {
+		$('.full-person').on('hover:enter hover:click hover:touch', function() {
 		   setTimeout(function() {
 			$('.button--subscribe').css('display', 'none');
 		   }, 10);
