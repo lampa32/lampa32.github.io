@@ -121,17 +121,7 @@
 				}
 	    }
         });
-		function removeSubscribeButton() {
-                    var subscribeButton = $('.button--subscribe');
-                        if (subscribeButton.length) {
-                             subscribeButton.remove();
-                           // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд
-                             var intervalId = setInterval(removeSubscribeButton, 10);
-                        } else {
-                              // Если кнопка больше не существует, очищаем интервал
-                               clearInterval(intervalId);
-                          }
-		}
+		
 		// мы внутри карточки
         Lampa.Listener.follow('full', function(e) {
             if (e.type == 'complite') {
@@ -140,7 +130,20 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		
+		function removeSubscribeButton() {
+                     var subscribeButton = $('.button--subscribe');
+                        if (subscribeButton.length) {
+                              subscribeButton.remove();
+                        }
+                }
+
+                       // Удаляем кнопку "Subscribe" при наведении на .full-person
+                $('.full-person').on('hover:enter', function() {
+                         removeSubscribeButton();
+
+                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
+                     setInterval(removeSubscribeButton, 10);
+		}
 
                        // Удаляем кнопку "Subscribe" при наведении на .full-person
                 $('.full-person').on('hover:enter', function() {
