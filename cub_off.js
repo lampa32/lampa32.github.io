@@ -121,15 +121,6 @@
 				}
 	    }
         });
-		
-		// мы внутри карточки
-        Lampa.Listener.follow('full', function(e) {
-            if (e.type == 'complite') {
-                // на кнопке закладок, долгое нажатие - вешаем событие
-		$('.button--book').on('hover:enter', function() {
-                    // чистим пункты в подменю
-			cleanCub();
-                });
 		function removeSubscribeButton() {
                     var subscribeButton = $('.button--subscribe');
                         if (subscribeButton.length) {
@@ -141,6 +132,15 @@
                                clearInterval(intervalId);
                           }
 		}
+		// мы внутри карточки
+        Lampa.Listener.follow('full', function(e) {
+            if (e.type == 'complite') {
+                // на кнопке закладок, долгое нажатие - вешаем событие
+		$('.button--book').on('hover:enter', function() {
+                    // чистим пункты в подменю
+			cleanCub();
+                });
+		
 
                        // Удаляем кнопку "Subscribe" при наведении на .full-person
                 $('.full-person').on('hover:enter', function() {
