@@ -134,7 +134,7 @@
                     // убираем кнопку подписаться в карточке актера
 		     setTimeout(function() {
 			$('.button--subscribe').remove();
-		     }, 0);
+		     }, 10);
                 });  
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		    setTimeout(function() {
