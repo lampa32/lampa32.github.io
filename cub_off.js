@@ -130,24 +130,22 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		var intervalId; // Объявляем глобальную переменную для хранения идентификатора интервала
-		
 		function removeSubscribeButton() {
-                     var subscribeButton = $('.button--subscribe');
+                    var subscribeButton = $('.button--subscribe');
                         if (subscribeButton.length) {
-                              subscribeButton.remove();
-				// Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
-                              setInterval(removeSubscribeButton, 10);
+                             subscribeButton.remove();
+                           // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд
+                             var intervalId = setInterval(removeSubscribeButton, 10);
                         } else {
-			  clearInterval(intervalId);
-			  }
-			
-                }
+                              // Если кнопка больше не существует, очищаем интервал
+                               clearInterval(intervalId);
+                          }
+		}
 
                        // Удаляем кнопку "Subscribe" при наведении на .full-person
                 $('.full-person').on('hover:enter', function() {
                          removeSubscribeButton();
-                 }
+                });
 		  /*  // скрываем кнопку Подписаться в карточке актёра 
 		$('.full-person').on('hover:enter', function() {
 		       setTimeout(function() {
