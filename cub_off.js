@@ -134,6 +134,7 @@
                 $('.full-person').on('hover:enter', function() {
                          var subscribeButton = $('.button--subscribe');
                             if (subscribeButton.length) {
+				    subscribeButton.remove();
                                // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
                               setInterval(removeSubscribeButton, 10);
 			    }
