@@ -143,7 +143,7 @@
 
                       // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
                      setInterval(removeSubscribeButton, 10);
-		}
+		});
 		  /*  // скрываем кнопку Подписаться в карточке актёра 
 		$('.full-person').on('hover:enter', function() {
 		       setTimeout(function() {
