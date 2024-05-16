@@ -131,19 +131,26 @@
 			cleanCub();
                 });
 		function removeSubscribeButton() {
-                     var subscribeButton = $('.button--subscribe');
-                        if (subscribeButton.length) {
-                              subscribeButton.remove();
-                        }
-                }
+  
+  if (subscribeButton.length) {
+    subscribeButton.remove();
+  }
+}
+var subscribeButton = $('.button--subscribe');
+var intervalId; // Объявляем переменную для хранения ID таймера
 
-                       // Удаляем кнопку "Subscribe" при наведении на .full-person
-                $('.full-person').on('hover:enter', function() {
-                         removeSubscribeButton();
+$('.full-person').on('hover:enter', function() {
+   
+  removeSubscribeButton(); // Удаляем кнопку при наведении
 
-                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
-                     setInterval(removeSubscribeButton, 10);
-		});
+  if (subscribeButton.length) {
+    // Если кнопка все еще существует, запускаем таймер
+    intervalId = setInterval(removeSubscribeButton, 10);
+  } else {
+    // Если кнопка была успешно удалена, очищаем таймер (если он был запущен)
+    clearInterval(intervalId);
+  }
+});
 		  /*  // скрываем кнопку Подписаться в карточке актёра 
 		$('.full-person').on('hover:enter', function() {
 		       setTimeout(function() {
