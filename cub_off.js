@@ -131,22 +131,12 @@
 			cleanCub();
                 });
 		$('.full-person').on('hover:enter', function() {
-  var $subscribeButton = $('.button--subscribe');
-  var opacity = 1;
-  var fadeOutInterval = setInterval(function() {
-    if (opacity <= 0) {
-      clearInterval(fadeOutInterval);
-      $subscribeButton.remove();
-    } else {
-      opacity -= 0.1;
-      $subscribeButton.css('opacity', opacity);
-    }
-  }, 30);
-});
+			$('.button--subscribe').parent().remove();
+		});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
-		    setTimeout(function() {
-                      $('.button--subscribe').remove();
-                    }, 0);
+		setTimeout(function() {
+                        $('.button--subscribe').remove();
+                }, 0);
             }
         })
 
