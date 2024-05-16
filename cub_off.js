@@ -130,10 +130,10 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		$('.full-person').on('hover:enter', function() {
+		$('.full-person').on('mouseover', function() {
 		   setTimeout(function() {
 			$('.button--subscribe').css('display', 'none');
-		   }, 350);
+		   }, 10);
 		});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		setTimeout(function() {
