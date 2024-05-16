@@ -143,7 +143,7 @@
                            if($('.button--subscribe').length) {
                             $('.button--subscribe').remove();
                       // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
-                     clearInterval(subBut);
+                   //  clearInterval(subBut);
 			   }
 			}, 10);		
 		});
