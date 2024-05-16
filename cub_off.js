@@ -130,17 +130,21 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		function removeSubscribeButton() {
-  
+		let subscribeButton = $('.button--subscribe'); // Объявляем переменную один раз
+
+function getSubscribeButton() {
+  return subscribeButton;
+}
+
+function removeSubscribeButton() {
   if (subscribeButton.length) {
     subscribeButton.remove();
   }
 }
-var subscribeButton = $('.button--subscribe');
-var intervalId; // Объявляем переменную для хранения ID таймера
+
+let intervalId; // Объявляем переменную для хранения ID таймера
 
 $('.full-person').on('hover:enter', function() {
-   
   removeSubscribeButton(); // Удаляем кнопку при наведении
 
   if (subscribeButton.length) {
