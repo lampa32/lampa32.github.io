@@ -131,7 +131,9 @@
 			cleanCub();
                 });
 		$('.full-person').on('hover:enter', function() {
+		   setTimeout(function() {
 			$('.button--subscribe').parent().remove();
+		   }, 10);
 		});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		setTimeout(function() {
