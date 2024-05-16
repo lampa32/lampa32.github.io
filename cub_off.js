@@ -132,7 +132,9 @@
                 });
 		$('.full-person').on('hover:enter', function() {
                     // убираем кнопку подписаться в карточке актера
-                    $('.button--subscribe').addClass('hidden');
+		    setTimeout(function() {
+                      $('.button--subscribe').remove();
+		    }, 150);
 		});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		    setTimeout(function() {
