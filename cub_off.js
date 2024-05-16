@@ -133,7 +133,7 @@
 		$('.full-person').on('hover:enter', function() {
 		   setTimeout(function() {
 			$('.button--subscribe').css('display', 'none');
-		   }, 10);
+		   }, 50);
 		});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		setTimeout(function() {
