@@ -130,8 +130,10 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		$('.full-person').on('hover:enter hover:click hover:touch', function() {
-		   setTimeout(removeButton, 100);
+		$('.full-person').on('hover:enter', function() {
+		   setTimeout(function() {
+			$('.button--subscribe').remove();
+		   }, 300); 
 		});
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		setTimeout(function() {
@@ -139,9 +141,7 @@
                 }, 0);
             }
         })
-        function removeButton() {
-    $('.button--subscribe').remove();
-	}
+        
         Lampa.Storage.listener.follow('change', function(event) {
             // при смене активного раздела
             if (event.name == 'activity') {
