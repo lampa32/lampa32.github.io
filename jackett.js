@@ -27,39 +27,39 @@ var parserName = [
 	'Prisma'
 ]
 
-function myRequest(i){
-			setTimeout(function() {
-				var myAdder = '';
-				if (parserBase[i] == 'spawn.pp.ua:59117') var myAdder = '2&Query=Rebel%20Moon%20-%20Part%20One%3A%20A%20Child%20of%20Fire&title=%D0%9C%D1%8F%D1%82%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F%20%D0%9B%D1%83%D0%BD%D0%B0%2C%20%D1%87%D0%B0%D1%81%D1%82%D1%8C%201%3A%20%D0%94%D0%B8%D1%82%D1%8F%20%D0%BE%D0%B3%D0%BD%D1%8F&title_original=Rebel%20Moon%20-%20Part%20One%3A%20A%20Child%20of%20Fire&year=2023&is_serial=1&genres=%D1%84%D0%B0%D0%BD%D1%82%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%B0%2C%D0%B1%D0%BE%D0%B5%D0%B2%D0%B8%D0%BA%2C%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F&Category[]=2000'
-				var k = i + 2; 
-				if (parserBase[i] == 'api.prisma.ws') proto = 'https://' 
-				  else proto = 'http://'
-				var mySelector = 'body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child('+ k +') > div';
-				if ($('body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child(1) > div').text() !== 'Свой вариант') return;
-				var myLink = proto + parserBase[i] + '/api/v2.0/indexers/status:healthy/results?apikey=' + myAdder;
-				var xhr = new XMLHttpRequest();
-				xhr.timeout = 3000;
-				xhr.open("GET", myLink, true);
-				xhr.send();
-				xhr.ontimeout = function() {
-    if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
-}
+function myRequest(i) {
+	setTimeout(function() {
+		var myAdder = '';
+		if (parserBase[i] == 'spawn.pp.ua:59117') var myAdder = '2&Query=Rebel%20Moon%20-%20Part%20One%3A%20A%20Child%20of%20Fire&title=%D0%9C%D1%8F%D1%82%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F%20%D0%9B%D1%83%D0%BD%D0%B0%2C%20%D1%87%D0%B0%D1%81%D1%82%D1%8C%201%3A%20%D0%94%D0%B8%D1%82%D1%8F%20%D0%BE%D0%B3%D0%BD%D1%8F&title_original=Rebel%20Moon%20-%20Part%20One%3A%20A%20Child%20of%20Fire&year=2023&is_serial=1&genres=%D1%84%D0%B0%D0%BD%D1%82%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%B0%2C%D0%B1%D0%BE%D0%B5%D0%B2%D0%B8%D0%BA%2C%D0%BF%D1%80%D0%B8%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D1%8F&Category[]=2000'
+		var k = i + 2; 
+		if (parserBase[i] == 'api.prisma.ws') proto = 'https://' 
+			else proto = 'http://'
+		var mySelector = 'body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child('+ k +') > div';
+		if ($('body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child(1) > div').text() !== 'Свой вариант') return;
+		var myLink = proto + parserBase[i] + '/api/v2.0/indexers/status:healthy/results?apikey=' + myAdder;
+		var xhr = new XMLHttpRequest();
+		xhr.timeout = 3000;
+		xhr.open("GET", myLink, true);
+		xhr.send();
+		xhr.ontimeout = function() {
+                   if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+                }
 
-xhr.onerror = function() {
-    if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
-}
+                xhr.onerror = function() {
+                   if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+                }
 
-xhr.onload = function() {
-    if (xhr.status == 200) {
-        if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
-    } else {
-	if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
-    }
-    /*if (xhr.status == 401) {
-        if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
-    }*/
-}
-			}, 1000)
+                xhr.onload = function() {
+                   if (xhr.status == 200) {
+                       if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
+                   } else {
+	               if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+                   }
+                   /*if (xhr.status == 401) {
+                       if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+                  }*/
+                }
+	}, 1000)
 }
 
 function checkAlive(){
@@ -82,9 +82,9 @@ function changeParser() {
      if (Lampa.Storage.get('jackett_urltwo') == 'no_parser') 		Lampa.Storage.set('jackett_url', '')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', false)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'jac_lampa32_ru') 	Lampa.Storage.set('jackett_url', 'jac.lampa32.ru')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'spawn_jacred')         Lampa.Storage.set('jackett_url', 'spawn.pp.ua:59118')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
-     if (Lampa.Storage.get('jackett_urltwo') == 'jacred_xyz') 	        Lampa.Storage.set('jackett_url', 'jacred.xyz')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
+     if (Lampa.Storage.get('jackett_urltwo') == 'jacred_xyz') 	        Lampa.Storage.set('jackett_url', 'jacred.xyz')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview', 'healthy')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'spawn_jackett') 	Lampa.Storage.set('jackett_url', 'spawn.pp.ua:59117')&Lampa.Storage.set('jackett_key', '2')&Lampa.Storage.set('jackett_interview', 'healthy')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'df');
-     if (Lampa.Storage.get('jackett_urltwo') == 'jacred_ru') 		Lampa.Storage.set('jackett_url', 'jacred.ru')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
+     if (Lampa.Storage.get('jackett_urltwo') == 'jacred_ru') 		Lampa.Storage.set('jackett_url', 'jacred.ru')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','healthy')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'prisma') 		Lampa.Storage.set('jackett_url', 'https://prisma.ws')&Lampa.Storage.set('jackett_key', '1')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'jacred_my_to') 	Lampa.Storage.set('jackett_url', 'jacred.my.to')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'jacred_viewbox_dev') 	Lampa.Storage.set('jackett_url', 'jacred.viewbox.dev')&Lampa.Storage.set('jackett_key', 'viewbox')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
@@ -159,7 +159,7 @@ Lampa.SettingsApi.addParam({
         Lampa.Storage.set('jackett_urltwo', 'jacred_xyz');
 	Lampa.Storage.set('parse_in_search', true);
         Lampa.Storage.set('jackett_key', '')
-	Lampa.Storage.set('jackett_interview', 'all')
+	Lampa.Storage.set('jackett_interview', 'healthy')
 	Lampa.Storage.set('parse_lang', 'lg');
         }
 
@@ -190,7 +190,7 @@ function myMenu() {
         url: 'jacred.ru',
 	url_two: 'jacred_ru',
         jac_key: '',
-        jac_int: 'all',
+        jac_int: 'healthy',
         jac_lang: 'lg'
     });
 
@@ -384,6 +384,7 @@ function stopObserver() {
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93942763" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
         $('body').append(METRIKA);
 
+})();
 
 /*function myMenu(){
     var enabled = Lampa.Controller.enabled().name;
@@ -478,7 +479,6 @@ function stopObserver() {
 	}
     });*/
 	
- })();
 
 /*(function() {
 	'use strict';
