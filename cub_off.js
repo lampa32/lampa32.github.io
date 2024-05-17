@@ -146,20 +146,21 @@
   });*/
 
                        	    // скрываем кнопку Подписаться в карточке актёра 
-		  $(document).ready(function() {
-       $('.full-person').on('click', function() {
-		       setTimeout(function() {
-			    $('.button--subscribe').remove();
-		       }, 500); 
-		 });
-		  });
-		
-                // скрываем кнопку ПОДПИСАТЬСЯ в карточке
-		setTimeout(function() {
-                        $('.button--subscribe').remove();
-                }, 0);
-            }
-        })
+		 const fullPersonElements = document.querySelectorAll('.full-person');
+
+// Перебираем все найденные элементы
+fullPersonElements.forEach(function(element) {
+  // Добавляем обработчик события click на каждый элемент
+  element.addEventListener('click', function() {
+    // Код, который нужно выполнить при нажатии на элемент .full-person
+    console.log('Элемент .full-person был нажат');
+	  setTimeout(function() {
+				$('.button--subscribe').hide();
+			      }, 350)
+    
+    // Здесь можно добавить любой другой код, который должен выполняться при нажатии
+  });
+});
         
         Lampa.Storage.listener.follow('change', function(event) {
             // при смене активного раздела
