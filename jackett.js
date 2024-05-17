@@ -168,6 +168,7 @@ function myMenu() {
     menu.push({
         title: 'Lampa32',
         url: 'jac.lampa32.ru',
+	url_two: 'jac.lampa32.ru',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -235,6 +236,7 @@ function myMenu() {
                     return {
                         title: item.title,
                         url: item.url,
+			url_two: item.url_two,  
                         jac_key: item.jac_key,
                         jac_int: item.jac_int,
                         jac_lang: item.jac_lang
@@ -244,7 +246,7 @@ function myMenu() {
                     Lampa.Controller.toggle(enabled);
                 },
                 onSelect: function onSelect(a) {
-                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', a.jac_int) & Lampa.Storage.set('parse_lang', a.jac_lang) & Lampa.Storage.set('parse_in_search', true);
+                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_urltwo', a.url_two) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', a.jac_int) & Lampa.Storage.set('parse_lang', a.jac_lang) & Lampa.Storage.set('parse_in_search', true);
                     Lampa.Controller.toggle(enabled);
                     var activ = Lampa.Storage.get('activity')
                     setTimeout(function() {
