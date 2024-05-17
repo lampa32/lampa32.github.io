@@ -160,7 +160,7 @@ Lampa.SettingsApi.addParam({
 	Lampa.Storage.set('parse_lang', 'lg');
         }
 
-function myMenu() {
+/*function myMenu() {
     var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
@@ -370,7 +370,7 @@ function stopObserver() {
                 accurateTrackBounce: true
         });
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93942763" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
-        $('body').append(METRIKA);
+        $('body').append(METRIKA);*/
 
 
 /*function myMenu(){
