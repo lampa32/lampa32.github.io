@@ -130,7 +130,7 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-               function removeSubscribeButton() {
+               /*function removeSubscribeButton() {
                      var subscribeButton = $('.button--subscribe');
                         if (subscribeButton.length) {
                               subscribeButton.remove();
@@ -143,13 +143,14 @@
 
                       // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
                      setInterval(removeSubscribeButton, 10);
-  }
+  });*/
 
-                       	   /* // скрываем кнопку Подписаться в карточке актёра 
-		if ($('.full-person')) 
+                       	    // скрываем кнопку Подписаться в карточке актёра 
+		 $('.full-person').on('hover:enter', function() {
 		       setTimeout(function() {
 			    $('.button--subscribe').remove();
-		       }, 350); */
+		       }, 500); 
+		 });
 		
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		setTimeout(function() {
