@@ -52,10 +52,12 @@ xhr.onerror = function() {
 xhr.onload = function() {
     if (xhr.status == 200) {
         if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
+    } else {
+	if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
     }
-    if (xhr.status == 502) {
+    /*if (xhr.status == 401) {
         if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
-    }
+    }*/
 }
 			}, 1000)
 }
