@@ -291,20 +291,20 @@ function pollParsers(menu) {
                 menuItem.title = '<span style="color: #1aff00;">&#10003;&nbsp;&nbsp;' + title + '</span>';
                 resolve(menuItem);
             } else {
-                menuItem.title = '<span style="color: #ff2e36;">&#10005;&nbsp;&nbsp;' + title + '</span>';
+                menuItem.title = '<span style="color: #ff2e36;">&#10008;&nbsp;&nbsp;' + title + '</span>';
                 resolve(menuItem);
             }
         };
 
         xhr.onerror = function() {
            // console.error('Network error:', xhr.status);
-            menuItem.title = '<span style="color: #ff2e36;">&#10005;&nbsp;&nbsp;' + title + '</span>';
+            menuItem.title = '<span style="color: #ff2e36;">&#10008;&nbsp;&nbsp;' + title + '</span>';
             resolve(menuItem);
         };
 
         xhr.ontimeout = function() {
            // console.error('Request timed out');
-            menuItem.title = '<span style="color: #ff2e36;">&#10005;&nbsp;&nbsp;' + title + '</span>';
+            menuItem.title = '<span style="color: #ff2e36;">&#10008;&nbsp;&nbsp;' + title + '</span>';
             resolve(menuItem);
         };
 
