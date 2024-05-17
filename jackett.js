@@ -181,7 +181,7 @@ function myMenu() {
         url: 'jacred.xyz',
 	url_two: 'jacred_xyz',
         jac_key: '',
-        jac_int: 'all',
+        jac_int: 'healthy',
         jac_lang: 'lg'
     });
 
