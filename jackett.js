@@ -42,20 +42,21 @@ function myRequest(i){
 				xhr.open("GET", myLink, true);
 				xhr.send();
 				xhr.ontimeout = function() {
-					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
-				}
-				
-				xhr.onerror = function() {
-					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
-				}
-				xhr.onload = function() {
-					if (xhr.status == 200) {
-						if ($(mySelector).text() == parserName[i]) '<span style="color: #1aff00;">&#10003;&nbsp;&nbsp;' + text + '</span>';//$(mySelector).css('color','1aff00')
-					}
-					if (xhr.status == 401) {
-						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36')
-					}
-				}
+    if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+}
+
+xhr.onerror = function() {
+    if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+}
+
+xhr.onload = function() {
+    if (xhr.status == 200) {
+        if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10003;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
+    }
+    if (xhr.status == 401) {
+        if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+    }
+}
 			}, 1000)
 }
 
