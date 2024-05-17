@@ -137,7 +137,7 @@
                         }
                 }*/
 
-                      /* // Удаляем кнопку "Subscribe" при наведении на .full-person
+                       // Удаляем кнопку "Subscribe" при наведении на .full-person
                 $('.full-person').on('hover:enter', function() {
 			var subBut = setInterval(function() {
                            if($('.button--subscribe').length) {
@@ -146,13 +146,13 @@
                               //clearInterval(subBut);
 			   }
 			}, 5);		
-		});*/
+		});
 
-                       	    // скрываем кнопку Подписаться в карточке актёра 
+                       	   /* // скрываем кнопку Подписаться в карточке актёра 
 		if ($('.full-person')) 
 		       setTimeout(function() {
 			    $('.button--subscribe').remove();
-		       }, 350); 
+		       }, 350); */
 		
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
 		setTimeout(function() {
