@@ -117,16 +117,34 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		var button = document.querySelector('.full-person');
-                button.addEventListener('click', function () {
-                      var subBut = setInterval(function() {
-                           if($('.button--subscribe').length) {
-                               $('.button--subscribe').remove();
-                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
-                               clearInterval(subBut);
-                           }
-                      }, 10);  
-                });
+		// Функция, которая будет выполнена после полной загрузки страницы
+window.addEventListener('DOMContentLoaded', function() {
+  var button = document.querySelector('.full-person');
+
+  // Проверяем, существует ли элемент на странице
+  if (button) {
+    button.addEventListener('click', function() {
+      // Функция, которая будет удалять кнопку
+      function removeButton() {
+        var subscribeButton = document.querySelector('.button--subscribe');
+        if (subscribeButton) {
+          subscribeButton.remove();
+        }
+      }
+
+      // Вызываем функцию removeButton() сразу после нажатия
+      removeButton();
+
+      // Устанавливаем интервал для удаления кнопки каждые 10 миллисекунд
+      var subBut = setInterval(removeButton, 10);
+
+      // Очищаем интервал после 1 секунды (1000 миллисекунд)
+      setTimeout(function() {
+        clearInterval(subBut);
+      }, 1000);
+    });
+  }
+});
                 setTimeout(function() {
 		     $('.button--subscribe').remove();
 	        }, 0)
