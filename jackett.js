@@ -42,20 +42,21 @@ function myRequest(i){
 				xhr.open("GET", myLink, true);
 				xhr.send();
 				xhr.ontimeout = function() {
-    if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
-				}
+    if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+}
 
-				xhr.onerror = function() {
-					if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36');
-				}
-				xhr.onload = function() {
-					if (xhr.status == 200) {
-						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','1aff00')
-					}
-					if (xhr.status == 401) {
-						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36')
-					}
-				}
+xhr.onerror = function() {
+    if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+}
+
+xhr.onload = function() {
+    if (xhr.status == 200) {
+        if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10003;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
+    }
+    if (xhr.status == 401) {
+        if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
+    }
+}
 			}, 1000)
 }
 
@@ -160,7 +161,7 @@ Lampa.SettingsApi.addParam({
 	Lampa.Storage.set('parse_lang', 'lg');
         }
 
-/*function myMenu() {
+/function myMenu() {
     var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
@@ -176,6 +177,7 @@ Lampa.SettingsApi.addParam({
     menu.push({
         title: 'Jacred.xyz',
         url: 'jacred.xyz',
+	url_two: 'jacred_xyz',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -184,6 +186,7 @@ Lampa.SettingsApi.addParam({
     menu.push({
         title: 'Jacred.ru',
         url: 'jacred.ru',
+	url_two: 'jacred_ru',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -192,6 +195,7 @@ Lampa.SettingsApi.addParam({
     menu.push({
         title: 'Jacred My To',
         url: 'jacred.my.to',
+	url_two: 'jacred_my_to',   
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -200,6 +204,7 @@ Lampa.SettingsApi.addParam({
     menu.push({
         title: 'Viewbox',
         url: 'jacred.viewbox.dev',
+	url_two: 'jacred_viewbox_dev',
         jac_key: 'viewbox',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -208,6 +213,7 @@ Lampa.SettingsApi.addParam({
     menu.push({
         title: 'Spawn Jackett',
         url: 'spawn.pp.ua:59117',
+	url_two: 'spawn_jackett',
         jac_key: '2',
         jac_int: 'healthy',
         jac_lang: 'df'
@@ -216,6 +222,7 @@ Lampa.SettingsApi.addParam({
     menu.push({
         title: 'Spawn Jacred',
         url: 'spawn.pp.ua:59118',
+	url_two: 'spawn_jacred',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -224,7 +231,10 @@ Lampa.SettingsApi.addParam({
     menu.push({
         title: 'Prisma',
         url: 'api.prisma.ws:443',
-        jac_key: ''
+	url_two: 'prisma',
+        jac_key: '',
+	jac_int: 'all',
+        jac_lang: 'lg'
     });
 
     pollParsers(menu).then(
@@ -370,7 +380,7 @@ function stopObserver() {
                 accurateTrackBounce: true
         });
         var METRIKA = '<noscript><div><img src="https://mc.yandex.ru/watch/93942763" style="position:absolute; left:-9999px;" alt="" /></div></noscript>';
-        $('body').append(METRIKA);*/
+        $('body').append(METRIKA);
 
 
 /*function myMenu(){
