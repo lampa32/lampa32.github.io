@@ -275,7 +275,6 @@ function pollParsers(menu) {
 }
 
 function myMenuRequest(url, title, menuItem) {
-   setTimeout(function(){
      return new Promise(function(resolve, reject) {
         var proto = location.protocol === "https:" ? 'https://' : 'http://';
         var myAdder = '';
@@ -284,7 +283,7 @@ function myMenuRequest(url, title, menuItem) {
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
-        xhr.timeout = 3000;
+        xhr.timeout = 4000;
 
         xhr.onload = function() {
            // console.log('Response Status:', xhr.status);
@@ -314,7 +313,6 @@ function myMenuRequest(url, title, menuItem) {
        // console.log('Sending request to:', myLink);
         xhr.send();
     });
-  }, 1000)
 }
 
 var observer;
