@@ -283,7 +283,7 @@ function myMenuRequest(url, title, menuItem) {
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
-        xhr.timeout = 14000;
+        xhr.timeout = 3000;
 
         xhr.onload = function() {
            // console.log('Response Status:', xhr.status);
