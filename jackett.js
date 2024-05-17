@@ -168,7 +168,7 @@ function myMenu() {
     menu.push({
         title: 'Lampa32',
         url: 'jac.lampa32.ru',
-	url_two: 'jac_lampa32_ru',
+	//url_two: 'jac_lampa32_ru',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -177,7 +177,7 @@ function myMenu() {
     menu.push({
         title: 'Jacred.xyz',
         url: 'jacred.xyz',
-	url_two: 'jacred_xyz',
+	//url_two: 'jacred_xyz',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -186,7 +186,7 @@ function myMenu() {
     menu.push({
         title: 'Jacred.ru',
         url: 'jacred.ru',
-	url_two: 'jacred_ru',
+	//url_two: 'jacred_ru',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -195,7 +195,7 @@ function myMenu() {
     menu.push({
         title: 'Jacred My To',
         url: 'jacred.my.to',
-	url_two: 'jacred_my_to',   
+	//url_two: 'jacred_my_to',   
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -204,7 +204,7 @@ function myMenu() {
     menu.push({
         title: 'Viewbox',
         url: 'jacred.viewbox.dev',
-	url_two: 'jacred_viewbox_dev',
+	//url_two: 'jacred_viewbox_dev',
         jac_key: 'viewbox',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -213,7 +213,7 @@ function myMenu() {
     menu.push({
         title: 'Spawn Jackett',
         url: 'spawn.pp.ua:59117',
-	url_two: 'spawn_jackett',
+	//url_two: 'spawn_jackett',
         jac_key: '2',
         jac_int: 'healthy',
         jac_lang: 'df'
@@ -222,7 +222,7 @@ function myMenu() {
     menu.push({
         title: 'Spawn Jacred',
         url: 'spawn.pp.ua:59118',
-	url_two: 'spawn_jacred',
+	//url_two: 'spawn_jacred',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
@@ -231,7 +231,7 @@ function myMenu() {
     menu.push({
         title: 'Prisma',
         url: 'api.prisma.ws:443',
-	url_two: 'prisma',
+	//url_two: 'prisma',
         jac_key: '',
 	jac_int: 'all',
         jac_lang: 'lg'
@@ -245,7 +245,7 @@ function myMenu() {
                     return {
                         title: item.title,
                         url: item.url,
-			url_two: item.url_two,  
+			//url_two: item.url_two,  
                         jac_key: item.jac_key,
                         jac_int: item.jac_int,
                         jac_lang: item.jac_lang
@@ -255,7 +255,7 @@ function myMenu() {
                     Lampa.Controller.toggle(enabled);
                 },
                 onSelect: function onSelect(a) {
-                    Lampa.Storage.set('jackett_url', a.url) & Lampa.Storage.set('jackett_urltwo', a.url_two) & Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', a.jac_int) & Lampa.Storage.set('parse_lang', a.jac_lang) & Lampa.Storage.set('parse_in_search', true);
+                    Lampa.Storage.set('jackett_url', a.url) & /*Lampa.Storage.set('jackett_urltwo', a.url_two) & */Lampa.Storage.set('jackett_key', a.jac_key) & Lampa.Storage.set('jackett_interview', a.jac_int) & Lampa.Storage.set('parse_lang', a.jac_lang) & Lampa.Storage.set('parse_in_search', true);
                     Lampa.Controller.toggle(enabled);
                     var activ = Lampa.Storage.get('activity')
                     setTimeout(function() {
