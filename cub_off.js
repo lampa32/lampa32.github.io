@@ -101,19 +101,6 @@
 					$('div > span:contains("CUB Premium")').remove()
                 }, 0);
             }
-	    /*if (e.name == 'add_plugin') {
-                setTimeout(function() {
-                    // убираем артефакты после входа в Расширения, надпись "Редактировать" / "Ещё" / "История" / "Статус"
-			        if (document.querySelector("div > span > div > span")) {
-					if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
-						$('div > span:contains("Еще")').parent().remove()
-						$('div > span:contains("Редактировать")').parent().remove()
-						$('div > span:contains("История")').parent().remove()
-						$('div > span:contains("Статус")').parent().remove()
-					}
-				}
-                }, 0);
-            }*/
 	    if (e.name == 'server') {
 		// убираем рекламу в настройках torrserver
 				if (document.querySelector('.ad-server') !== null) {
@@ -130,37 +117,20 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-               /*function removeSubscribeButton() {
-                     var subscribeButton = $('.button--subscribe');
-                        if (subscribeButton.length) {
-                              subscribeButton.remove();
-                        }
-                }
-
-                       // Удаляем кнопку "Subscribe" при наведении на .full-person
-                $('.full-person').on('hover:enter', function() {
-                         removeSubscribeButton();
-
+		$('.full-person').on('hover:enter', function() {
+                      var subBut = setInterval(function() {
+                           if($('.button--subscribe').length) {
+                               $('.button--subscribe').remove();
                       // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
-                     setInterval(removeSubscribeButton, 10);
-  });*/
-
-                       	    // скрываем кнопку Подписаться в карточке актёра 
-		 const fullPersonElements = document.querySelectorAll('.full-person');
-
-// Перебираем все найденные элементы
-fullPersonElements.forEach(function(element) {
-  // Добавляем обработчик события click на каждый элемент
-  element.addEventListener('click', function() {
-    // Код, который нужно выполнить при нажатии на элемент .full-person
-    console.log('Элемент .full-person был нажат');
-	  setTimeout(function() {
-				$('.button--subscribe').hide();
-			      }, 350)
-    
-    // Здесь можно добавить любой другой код, который должен выполняться при нажатии
-  });
-});
+                               clearInterval(subBut);
+                           }
+                      }, 10);  
+                });
+                setTimeout(function() {
+		     $('.button--subscribe').remove();
+	        }, 0)
+	    }	    
+         });
         
         Lampa.Storage.listener.follow('change', function(event) {
             // при смене активного раздела
