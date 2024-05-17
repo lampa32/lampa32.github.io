@@ -117,7 +117,7 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		$('.full-person').on('hover:enter', function() {
+		$('body').on('click','.full-person',function(){
                       var subBut = setInterval(function() {
                            if($('.button--subscribe').length) {
                                $('.button--subscribe').remove();
