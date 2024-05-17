@@ -149,7 +149,7 @@
 		});*/
 
                        	    // скрываем кнопку Подписаться в карточке актёра 
-		$('.full-person').on('hover:enter', function() {
+		$('.full-person').on('click', function() {
 		       setTimeout(function() {
 			    $('.button--subscribe').remove();
 		       }, 350); 
