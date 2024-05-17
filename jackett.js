@@ -50,7 +50,7 @@ function myRequest(i){
 				}
 				xhr.onload = function() {
 					if (xhr.status == 200) {
-						if ($(mySelector).text() == parserName[i]) '<span style="color: #1aff00;">&#10003;&nbsp;&nbsp;' + text + '</span>';//$(mySelector).css('color','1aff00')
+						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','1aff00')
 					}
 					if (xhr.status == 401) {
 						if ($(mySelector).text() == parserName[i]) $(mySelector).css('color','ff2e36')
