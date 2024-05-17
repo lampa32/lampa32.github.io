@@ -51,7 +51,7 @@ xhr.onerror = function() {
 
 xhr.onload = function() {
     if (xhr.status == 200) {
-        if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10003;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
+        if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
     }
     if (xhr.status == 401) {
         if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
@@ -290,7 +290,7 @@ function myMenuRequest(url, title, menuItem) {
            // console.log('Response Text:', xhr.responseText);
 
             if (xhr.status === 200) {
-                menuItem.title = '<span style="color: #1aff00;">&#10003;&nbsp;&nbsp;' + title + '</span>';
+                menuItem.title = '<span style="color: #1aff00;">&#10004;&nbsp;&nbsp;' + title + '</span>';
                 resolve(menuItem);
             } else {
                 menuItem.title = '<span style="color: #ff2e36;">&#10008;&nbsp;&nbsp;' + title + '</span>';
