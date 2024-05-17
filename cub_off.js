@@ -117,7 +117,7 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		var button = document.querySelector('.button--subscribe');
+		var button = document.querySelector('.full-person');
                 button.addEventListener('click', function () {
                       var subBut = setInterval(function() {
                            if($('.button--subscribe').length) {
