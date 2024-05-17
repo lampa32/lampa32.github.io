@@ -168,7 +168,7 @@ function myMenu() {
     menu.push({
         title: 'Lampa32',
         url: 'jac.lampa32.ru',
-	url_two: 'jac.lampa32.ru',
+	url_two: 'jac_lampa32_ru',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
