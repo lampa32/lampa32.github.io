@@ -188,7 +188,7 @@
                 setTimeout(function() {
                   $('div[data-component="tmdb"]').remove();
 		  $('div[data-component="server"]').remove();
-		  $('div[data-component="parser"]').remove();
+		  //$('div[data-component="parser"]').remove();
 			
                 }, 0)
 	    }
