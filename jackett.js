@@ -53,7 +53,7 @@ xhr.onload = function() {
     if (xhr.status == 200) {
         if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10003;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
     }
-    if (xhr.status == 401) {
+    if (xhr.status == 502) {
         if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
     }
 }
@@ -161,7 +161,7 @@ Lampa.SettingsApi.addParam({
 	Lampa.Storage.set('parse_lang', 'lg');
         }
 
-/function myMenu() {
+function myMenu() {
     var enabled = Lampa.Controller.enabled().name;
     var menu = [];
 
