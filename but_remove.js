@@ -39,7 +39,7 @@ function deleteSubscribeButton(){
 
                   }
 
-   }, 10);
+   }, 20);
 
 }
 
