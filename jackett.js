@@ -51,8 +51,11 @@ function myRequest(i) {
 
                 xhr.onload = function() {
                    if (xhr.status == 200) {
-                       if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
-                   } else {
+                       //if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
+                       if ($(mySelector).text() == parserName[i]) {
+    $(mySelector).html('<span style="color: green;">&#10004;</span>&nbsp;&nbsp;<span style="background-color: #1aff00; padding: 2px 5px; border: 1px solid green;">' + $(mySelector).text() + '</span>');
+		       }
+		   } else {
 	               if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff0000');
                    }
                    /*if (xhr.status == 401) {
