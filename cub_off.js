@@ -118,16 +118,22 @@
 			cleanCub();
                 });
 		document.body.addEventListener('click', function(event) {
-                   if (event.target.classList.contains('full-person')) {
-                      var subBut = setInterval(function() {
-                           if($('.button--subscribe').length) {
-                               $('.button--subscribe').remove();
-                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
-                               clearInterval(subBut);
-                           }
-                      }, 10);  
-		   }
-                });
+  if (event.target.classList.contains('full-person')) {
+    let interval;
+
+    const removeSubscribeButton = () => {
+      const subscribeButton = document.querySelector('.button--subscribe');
+      if (subscribeButton) {
+        subscribeButton.remove();
+      } else {
+        clearInterval(interval);
+      }
+    };
+
+    removeSubscribeButton();
+    interval = setInterval(removeSubscribeButton, 10);
+  }
+});
                 setTimeout(function() {
 		     $('.button--subscribe').remove();
 	        }, 0)
