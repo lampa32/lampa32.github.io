@@ -35,11 +35,11 @@ function deleteSubscribeButton(){
 
                                      }
 
-                           },20)
+                           },10)
 
                   }
 
-   }, 20);
+   }, 10);
 
 }
 
