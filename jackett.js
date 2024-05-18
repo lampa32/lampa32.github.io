@@ -97,7 +97,7 @@ Lampa.SettingsApi.addParam({
      name: 'jackett_urltwo',
      type: 'select',
      values: {
-        no_parser:          '&lt;span style="color: #FFFF00;"&gt;Свой вариант&lt;/span&gt;',
+        no_parser:          'Свой вариант',
         jac_lampa32_ru:     'Lampa32',
         jacred_xyz:         'Jacred.xyz',
 	jacred_ru:          'Jacred.ru',
@@ -131,11 +131,10 @@ Lampa.SettingsApi.addParam({
                                 }
 				if(Lampa.Storage.field('parser_use')) item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 				else item.hide();
-				document.querySelector('.no_parser').style.color = '#FFFF00';
 			}, 20);
         }
    });
-	Lampa.Settings.listener.follow('open', function (e) {
+	Lampa.Settings.listener.follow('', function (e) {
 		if (e.name == 'parser') {
 			e.body.find('[data-name="jackett_url2"]').remove();
 			e.body.find('[data-name="jackett_url_two"]').remove();
@@ -305,20 +304,20 @@ function myMenuRequest(url, title, menuItem) {
                 menuItem.title = '<span style="color: #1aff00;">&#10004;&nbsp;&nbsp;' + title + '</span>';
                 resolve(menuItem);
             } else {
-                menuItem.title = '<span style="color: #ff2e36;">&#10008;&nbsp;&nbsp;' + title + '</span>';
+                menuItem.title = '<span style="color: #ff0000;">&#10008;&nbsp;&nbsp;' + title + '</span>';
                 resolve(menuItem);
             }
         };
 
         xhr.onerror = function() {
            // console.error('Network error:', xhr.status);
-            menuItem.title = '<span style="color: #ff2e36;">&#10008;&nbsp;&nbsp;' + title + '</span>';
+            menuItem.title = '<span style="color: #ff0000;">&#10008;&nbsp;&nbsp;' + title + '</span>';
             resolve(menuItem);
         };
 
         xhr.ontimeout = function() {
            // console.error('Request timed out');
-            menuItem.title = '<span style="color: #ff2e36;">&#10008;&nbsp;&nbsp;' + title + '</span>';
+            menuItem.title = '<span style="color: #ff0000;">&#10008;&nbsp;&nbsp;' + title + '</span>';
             resolve(menuItem);
         };
 
