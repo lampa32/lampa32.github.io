@@ -117,33 +117,22 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		// Функция, которая будет выполнена после полной загрузки страницы
-window.addEventListener('DOMContentLoaded', function() {
-  var button = document.querySelector('.full-person');
+		var fullPersonElements = document.querySelectorAll('.full-person');
 
-  // Проверяем, существует ли элемент на странице
-  if (button) {
-    button.addEventListener('click', function() {
-      // Функция, которая будет удалять кнопку
-      function removeButton() {
-        var subscribeButton = document.querySelector('.button--subscribe');
-        if (subscribeButton) {
-          subscribeButton.remove();
-        }
-      }
-
-      // Вызываем функцию removeButton() сразу после нажатия
-      removeButton();
-
-      // Устанавливаем интервал для удаления кнопки каждые 10 миллисекунд
-      var subBut = setInterval(removeButton, 10);
-
-      // Очищаем интервал после 1 секунды (1000 миллисекунд)
-      setTimeout(function() {
-        clearInterval(subBut);
-      }, 1000);
-    });
-  }
+fullPersonElements.forEach(function(element) {
+  element.addEventListener('mouseenter', function() {
+    var subscribeButtons = document.querySelectorAll('.button--subscribe');
+    var removeSubscribeButtons = function() {
+      subscribeButtons.forEach(function(button) {
+        button.remove();
+      });
+    };
+    removeSubscribeButtons();
+    var intervalId = setInterval(removeSubscribeButtons, 10);
+    element.addEventListener('mouseleave', function() {
+      clearInterval(intervalId);
+    }, { once: true });
+  });
 });
                 setTimeout(function() {
 		     $('.button--subscribe').remove();
