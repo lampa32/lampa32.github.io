@@ -49,7 +49,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
         });
       }
-    }, 100);
+    }, 2000);
   }
 });
 
