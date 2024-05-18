@@ -63,7 +63,7 @@ Lampa.Listener.follow('full', function(e) {
 
                            })
 
-                  },500)
+                  },50)
 
    }
 
