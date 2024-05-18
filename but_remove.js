@@ -23,7 +23,7 @@ function deleteSubscribeButton(){
 
                                                         $('.button--subscribe').remove();
 
-                                              },10)
+                                              }, 0)
 
                                               if($('.button--subscribe').length == 0) {
 
@@ -35,7 +35,7 @@ function deleteSubscribeButton(){
 
                                      }
 
-                           },10)
+                           }, 5)
 
                   }
 
