@@ -97,7 +97,7 @@ Lampa.SettingsApi.addParam({
      name: 'jackett_urltwo',
      type: 'select',
      values: {
-        no_parser:          '<div style="color: #FFFF00;">Свой вариант</div>',
+        no_parser:          'Свой вариант',
         jac_lampa32_ru:     'Lampa32',
         jacred_xyz:         'Jacred.xyz',
 	jacred_ru:          'Jacred.ru',
@@ -131,6 +131,7 @@ Lampa.SettingsApi.addParam({
                                 }
 				if(Lampa.Storage.field('parser_use')) item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 				else item.hide();
+				document.querySelector('.no_parser').style.color = '#FFFF00';
 			}, 20);
         }
    });
