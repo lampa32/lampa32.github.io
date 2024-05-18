@@ -117,14 +117,15 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		const removeSubscribeButton = () => {
-  const subscribeButtons = document.querySelectorAll('.button--subscribe');
-  if (subscribeButtons.length) {
-    subscribeButtons.forEach(button => button.remove());
-  } else {
-    clearInterval(interval);
-  }
-};
+		$('.full-person').on('hover:enter', function() {
+                      var subBut = setInterval(function() {
+                           if($('.button--subscribe').length) {
+                               $('.button--subscribe').remove();
+                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
+                               clearInterval(subBut);
+                           }
+                      }, 10);  
+                });
                 setTimeout(function() {
 		     $('.button--subscribe').remove();
 	        }, 0)
