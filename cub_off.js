@@ -117,23 +117,17 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		var fullPersonElements = document.querySelectorAll('.full-person');
-
-fullPersonElements.forEach(function(element) {
-  element.addEventListener('mouseenter', function() {
-    var subscribeButtons = document.querySelectorAll('.button--subscribe');
-    var removeSubscribeButtons = function() {
-      subscribeButtons.forEach(function(button) {
-        button.remove();
-      });
-    };
-    removeSubscribeButtons();
-    var intervalId = setInterval(removeSubscribeButtons, 10);
-    element.addEventListener('mouseleave', function() {
-      clearInterval(intervalId);
-    }, { once: true });
-  });
-});
+		document.body.addEventListener('click', function(event) {
+                   if (event.target.classList.contains('full-person')) {
+                      var subBut = setInterval(function() {
+                           if($('.button--subscribe').length) {
+                               $('.button--subscribe').remove();
+                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
+                               clearInterval(subBut);
+                           }
+                      }, 10);  
+		   }
+                });
                 setTimeout(function() {
 		     $('.button--subscribe').remove();
 	        }, 0)
