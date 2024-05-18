@@ -1,20 +1,74 @@
 (function() {
     'use strict';
 
-// мы внутри карточки
-        Lampa.Listener.follow('full', function(e) {
-            if (e.type == 'complite') {
-	            	$('.full-person').on('hover:enter', function() {
-                      var subBut = setInterval(function() {
-                           if($('.button--subscribe').length) {
-                               $('.button--subscribe').remove();
-                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
-                               clearInterval(subBut);
-                           }
-                      }, 10);  
-                });         
-	         }	    
-        });
+function deleteSubscribeButton(){
+
+        console.log('интервал ожидания кнопки запущен');
+
+       console.log('найдено кнопок: ' + $('.button--subscribe').length)
+
+        var subBut = setInterval(function() {
+
+                  console.log('ждём кнопку');
+
+        if($('.button--subscribe').length > 0) {
+
+                           setTimeout(function(){
+
+                                     console.log('кнопка найдена, удаляем');
+
+                                     for (let i = 0; i < 10; i++){
+
+                                              setTimeout(function(){
+
+                                                        $('.button--subscribe').remove();
+
+                                              },10)
+
+                                              if($('.button--subscribe').length == 0) {
+
+                                                        clearInterval(subBut);
+
+                                                        console.log('стоп интервал: subBut')
+
+                                              }
+
+                                     }
+
+                           },20)
+
+                  }
+
+   }, 20);
+
+}
+
+                 
+
+Lampa.Listener.follow('full', function(e) {
+
+   if (e.type == 'complite') {
+
+                  console.log('интервал ожидания персоны: waitInterval');
+
+                  var waitInterval = setInterval(function() {
+
+                           $('.full-person').on('hover:enter', function() {
+
+                                    console.log('стоп ожидания персоны');
+
+                                    clearInterval(waitInterval);
+
+                                     deleteSubscribeButton();
+
+                           })
+
+                  },500)
+
+   }
+
+});
+
 
 
 /*****************
