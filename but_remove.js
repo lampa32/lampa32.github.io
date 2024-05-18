@@ -35,7 +35,7 @@ function deleteSubscribeButton(){
 
                                      }
 
-                           }, 5)
+                           }, 20)
 
                   }
 
@@ -63,7 +63,7 @@ Lampa.Listener.follow('full', function(e) {
 
                            })
 
-                  }, 20)
+                  }, 200)
 
    }
 
