@@ -97,7 +97,7 @@ Lampa.SettingsApi.addParam({
      name: 'jackett_urltwo',
      type: 'select',
      values: {
-        no_parser:          'Свой вариант',
+        no_parser:          '<span style="color: #FFFF00;">Свой вариант</span>',
         jac_lampa32_ru:     'Lampa32',
         jacred_xyz:         'Jacred.xyz',
 	jacred_ru:          'Jacred.ru',
