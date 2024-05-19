@@ -51,7 +51,7 @@ function myRequest(i) {
 
                 xhr.onload = function() {
                    if (xhr.status == 200) {
-                       if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '73e573');
+                       if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '64e364');
 		   } else {
 	               if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'f00030');
                    }
