@@ -290,7 +290,7 @@ function myMenuRequest(url, title, menuItem) {
 	var proto = location.protocol === "https:" ? 'https://' : 'http://'
         var myAdder = '';
         if (url == 'spawn.pp.ua:59117') var myAdder = '2'
-        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + myAdder;//(menuItem.jac_key ? '&' + menuItem.jac_key : '');
+        var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + myAdder; //(menuItem.jac_key ? '&' + menuItem.jac_key : '');
 
         var xhr = new XMLHttpRequest();
         xhr.open('GET', myLink, true);
@@ -301,23 +301,23 @@ function myMenuRequest(url, title, menuItem) {
            // console.log('Response Text:', xhr.responseText);
 
             if (xhr.status === 200) {
-                menuItem.title = '<span style="color: #1aff00;">&#10004;&nbsp;&nbsp;' + title + '</span>';
+                menuItem.title = '<span style="color: #64e364;">&#10004;&nbsp;&nbsp;' + title + '</span>';
                 resolve(menuItem);
             } else {
-                menuItem.title = '<span style="color: #ff0000;">&#10008;&nbsp;&nbsp;' + title + '</span>';
+                menuItem.title = '<span style="color: #ff2121;">&#10008;&nbsp;&nbsp;' + title + '</span>';
                 resolve(menuItem);
             }
         };
 
         xhr.onerror = function() {
            // console.error('Network error:', xhr.status);
-            menuItem.title = '<span style="color: #ff0000;">&#10008;&nbsp;&nbsp;' + title + '</span>';
+            menuItem.title = '<span style="color: #ff2121;">&#10008;&nbsp;&nbsp;' + title + '</span>';
             resolve(menuItem);
         };
 
         xhr.ontimeout = function() {
            // console.error('Request timed out');
-            menuItem.title = '<span style="color: #ff0000;">&#10008;&nbsp;&nbsp;' + title + '</span>';
+            menuItem.title = '<span style="color: #ff2121;">&#10008;&nbsp;&nbsp;' + title + '</span>';
             resolve(menuItem);
         };
 
@@ -386,98 +386,7 @@ function stopObserver() {
 
 })();
 
-/*function myMenu(){
-    var enabled = Lampa.Controller.enabled().name;
-    var menu = [];
 
-    menu.push({
-	title:	'Lampa32',
-	url:	'jac.lampa32.ru',
-	jac_key:''
-    });
-
-    menu.push({
-	title:	'Jacred.xyz',
-	url:	'jacred.xyz',
-	jac_key:''
-    });
-
-    menu.push({
-	title:	'Jacred.ru',
-	url:	'jacred.ru',
-	jac_key:''
-    });
-
-    menu.push({
-	title:	'Jacred My To',
-	url:	'jacred.my.to',
-	jac_key:''
-    });
-
-    menu.push({
-	title:	'Viewbox',
-	url:	'jacred.viewbox.dev',
-	jac_key:'viewbox'
-    });
-
-    menu.push({
-	title:	'Spawn Jackett',
-	url:	'spawn.pp.ua:59118',
-	jac_key:'2'
-    });
-
-    menu.push({
-	title:	'Spawn Jacred',
-	url:	'spawn.pp.ua:59117',
-	jac_key:''
-    });
-
-    menu.push({
-	title:	'Prisma',
-	url:	'api.prisma.ws:443',
-	jac_key:''
-    });
-    
-    Lampa.Select.show({
-	title: 'Меню смены парсера',
-	items: menu,
-	onBack: function onBack() {
-	    Lampa.Controller.toggle(enabled);
-	},
-	onSelect: function onSelect(a) {
-	    Lampa.Storage.set('jackett_url', a.url)&Lampa.Storage.set('jackett_key', a.jac_key)&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
-	    Lampa.Controller.toggle(enabled);
-	    var activ = Lampa.Storage.get('activity')
-	    setTimeout(function(){
-		window.history.back();
-	    }, 1000)
-	    setTimeout(function(){Lampa.Activity.push(activ)}, 3000)
-	}
-    })
-}
-
-    var eLoop = 0, myInterval, myIntervalPlus;
-    Lampa.Storage.listener.follow('change', function (event) {
-	if (event.name == 'activity') {
-	    if (Lampa.Activity.active().component == 'torrents') {
-		myInterval = setInterval(function(){
-		    if (eLoop = 30) {
-			eLoop = 0;
-			//Lampa.Noty.show('Интервал очищен по ожиданию');
-			clearInterval(myInterval);
-		    } 
-		    if ($('.empty__title').length) {
-			eLoop = 0
-			//Lampa.Noty.show('Интервал очищен по условию')
-			myMenu();
-			$('.empty__title').remove();
-			clearInterval(myInterval);
-		    }
-		    else eLoop++;
-		}, 2000)
-	    }
-	}
-    });*/
 	
 
 /*(function() {
