@@ -51,10 +51,7 @@ function myRequest(i) {
 
                 xhr.onload = function() {
                    if (xhr.status == 200) {
-                     //  if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '308446');
-                       if ($(mySelector).text() == parserName[i]) {
-    $(mySelector).html('<span style="background-color: #308446; padding: 2px 5px; border: 1px solid green; border-radius: 20px; -webkit-backface-visibility: hidden; backface-visibility: hidden; color: white;">&#10004; ' + $(mySelector).text() + '</span>');
-}
+                       if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '71bc78');
 		   } else {
 	               if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff0000');
                    }
