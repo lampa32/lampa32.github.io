@@ -53,7 +53,7 @@ function myRequest(i) {
                    if (xhr.status == 200) {
                        //if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
                        if ($(mySelector).text() == parserName[i]) {
-    $(mySelector).html('<span style="color: green;">&#10004;</span>&nbsp;&nbsp;<span style="background-color: #308446; padding: 2px 5px; border: 1px solid green; border-radius: 10px; -webkit-backface-visibility: hidden; backface-visibility: hidden;">' + $(mySelector).text() + '</span>');
+    $(mySelector).html('<span style="color: green;">&#10004;</span>&nbsp;&nbsp;<span style="background-color: #308446; padding: 2px 5px; border: 1px solid green; border-radius: 25px; -webkit-backface-visibility: hidden; backface-visibility: hidden;">' + $(mySelector).text() + '</span>');
 }
 		   } else {
 	               if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff0000');
