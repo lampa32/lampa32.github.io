@@ -54,7 +54,7 @@ function myRequest(i) {
                        //if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10004;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '1aff00');
                        if ($(mySelector).text() == parserName[i]) {
     //$(mySelector).html('<span style="color: green;">&#10004;</span>&nbsp;&nbsp;<span style="background-color: #308446; padding: 2px 5px; border: 1px solid green; border-radius: 30px; -webkit-backface-visibility: hidden; backface-visibility: hidden;">' + $(mySelector).text() + '</span>');
-			       $(mySelector).html('<span style="padding: 5px 10px; border-radius: 5px; background-color: rgba(0, 255, 0, 0.2); color: green; transition: all 0.3s ease;">' + $(mySelector).text() + '</span>');
+			       $(mySelector).html('<span style="padding: 5px 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); background: linear-gradient(to right, #00ff00, #00e600); color: white;">' + $(mySelector).text() + '</span>');
 }
 		   } else {
 	               if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff0000');
