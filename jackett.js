@@ -42,7 +42,7 @@ function myRequest(i) {
 		xhr.open("GET", myLink, true);
 		xhr.send();
 		xhr.ontimeout = function() {
-                   if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff0000');
+                   if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'e57373');
                 }
 
                 xhr.onerror = function() {
