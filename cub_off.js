@@ -121,7 +121,7 @@
   checkAndRemoveSubscribeButton();
 });
 
-$('.full-person').on('mouseenter', function() {
+$('.full-person').on('hover:enter', function() {
   checkAndRemoveSubscribeButton();
 });
 
