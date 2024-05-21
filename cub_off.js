@@ -117,27 +117,6 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		// Функция для проверки и удаления кнопки "Subscribe"
-function checkAndRemoveSubscribeButton() {
-  var buttons = document.querySelectorAll('.button--subscribe');
-  if (buttons.length) {
-    buttons.forEach(function(button) {
-      button.remove();
-    });
-  }
-}
-
-// Добавляем обработчик события загрузки страницы
-window.addEventListener('load', checkAndRemoveSubscribeButton);
-
-// Добавляем обработчик события прокрутки страницы
-window.addEventListener('scroll', checkAndRemoveSubscribeButton);
-
-// Добавляем обработчик события наведения курсора на элементы с классом '.full-person'
-document.querySelectorAll('.full-person').forEach(function(element) {
-  element.addEventListener('mouseenter', checkAndRemoveSubscribeButton);
-});
-
                 setTimeout(function() {
 		     $('.button--subscribe').remove();
 	        }, 0)
