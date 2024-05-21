@@ -117,15 +117,23 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-		$('.full-person').on('hover:enter', function() {
-                      var subBut = setInterval(function() {
-                           if($('.button--subscribe').length) {
-                               $('.button--subscribe').remove();
-                      // Также удаляем кнопку "Subscribe" каждые 10 миллисекунд 
-                               clearInterval(subBut);
-                           }
-                      }, 10);  
-                });
+		$(window).on('scroll', function() {
+  checkAndRemoveSubscribeButton();
+});
+
+$('.full-person').on('mouseenter', function() {
+  checkAndRemoveSubscribeButton();
+});
+
+function checkAndRemoveSubscribeButton() {
+  var subBut = setInterval(function() {
+    if ($('.button--subscribe').length) {
+      $('.button--subscribe').remove();
+      clearInterval(subBut);
+    }
+  }, 10);
+}
+
                 setTimeout(function() {
 		     $('.button--subscribe').remove();
 	        }, 0)
