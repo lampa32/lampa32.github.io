@@ -87,22 +87,8 @@
 			// скрываем все строки с замочками 
 			$('.selectbox-item__lock').parent().css('display', 'none');
 			// скрываем строку Статус
-			if (document.querySelector("div > span > div > span")) {
-			/* универсальный метод - сначал проверяем:
-				если элемент сушествует, 
-				проверяем его текст - если шильдик группы без цензуры - выходим из функции */
-				//if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
-					return
-				/* в остальных случаях, проверяем:
-					если мы в НЕ в Расширениях - скрываем строку СТАТУС - без замочков она лишняя */
-				//}
-			}
-			else {
-				setTimeout(function() {	
-					if (!$('.extensions__body').length) $('div > span:contains("Статус")').parent().remove() //$('.settings-param-title').last().css('display', 'none'); 
-				}, 10)
-			}
-	     }, 10)
+			if (!$('.extensions__body').length) $('div > span:contains("Статус")').parent().remove() //$('.settings-param-title').last().css('display', 'none'); 
+	}, 10)
     }
 
     function hideIT() {
@@ -160,27 +146,6 @@
         }, 1000);
 		// убираем рекламу в Настройках.. Аккаунт (Синхронизация)
         Lampa.Settings.listener.follow('open', function(e) {
-            /*if (e.name == 'account') {
-                setTimeout(function() {
-                    // удаляем строки Синхронизация 
-					$('.settings--account-premium').remove()
-                    // и строку /CUB Premium/ над ними
-					$('div > span:contains("CUB Premium")').remove()
-                }, 0);
-            }*/
-	    if (e.name == 'add_plugin') {
-                setTimeout(function() {
-                    // убираем артефакты после входа в Расширения, надпись "Редактировать" / "Ещё" / "История" / "Статус"
-			        if (document.querySelector("div > span > div > span")) {
-					//if (document.querySelector("div > span > div > span").innerText == '@lampa_plugins_uncensored') {
-						$('div > span:contains("Еще")').parent().remove()
-						$('div > span:contains("Редактировать")').parent().remove()
-						$('div > span:contains("История")').parent().remove()
-						$('div > span:contains("Статус")').parent().remove()
-					//}
-				}
-                }, 0);
-            }
 	    if (e.name == 'main') {
                 setTimeout(function() {
                   $('div[data-component="tmdb"]').remove();
