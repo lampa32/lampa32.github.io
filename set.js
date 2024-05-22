@@ -1,8 +1,6 @@
 (function () {
     'use strict';
     Lampa.Platform.tv();
-
-	Lampa.Storage.set('switch_server_button', '2');
 	
    window.lampa_settings.torrents_use = true;
    window.lampa_settings.demo = false;
@@ -188,7 +186,7 @@
                 setTimeout(function() {
                   $('div[data-component="tmdb"]').remove();
 		  $('div[data-component="server"]').remove();
-		  //$('div[data-component="parser"]').remove();
+		  $('div[data-component="parser"]').remove();
 			
                 }, 0)
 	    }
