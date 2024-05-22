@@ -44,7 +44,7 @@
 	    'https://lampa32.github.io/addon.js',
 	    'https://lampa32.github.io/mult.js',
 	    'https://lampa32.github.io/tv2.js',
-	    'https://cub.red/plugin/collections'
+	    'https://cub.red/plugin/tracks'
     ], function () {});
 
     (function(m, e, t, r, i, k, a) {
