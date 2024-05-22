@@ -82,7 +82,7 @@
 	 }
 	
     // шаблонный метод очистки
-	function cleanCub(){
+  function cleanCub(){
         setTimeout(function() {
 			// скрываем все строки с замочками 
 			$('.selectbox-item__lock').parent().css('display', 'none');
@@ -150,8 +150,7 @@
                 setTimeout(function() {
                   $('div[data-component="tmdb"]').remove();
 		  $('div[data-component="server"]').remove();
-		  $('div[data-component="parser"]').remove();
-			
+		  $('div[data-component="parser"]').remove();	
                 }, 0)
 	    }
         });
