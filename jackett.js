@@ -139,13 +139,11 @@ Lampa.SettingsApi.addParam({
 			e.body.find('[data-name="jackett_url2"]').remove();
 			e.body.find('[data-name="jackett_url_two"]').remove();
 		}
-		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_urltwo"]').hide();
-		   else $('[data-name="jackett_urltwo"]').show();
         });
-	/*Lampa.Storage.listener.follow('change', function (e) {
+	Lampa.Storage.listener.follow('change', function (e) {
 		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_urltwo"]').hide();
 		else $('[data-name="jackett_urltwo"]').show();
-	});*/
+	});
 	
 	var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
