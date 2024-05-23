@@ -348,7 +348,7 @@ function startObserver() {
 
     observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
-            if ($('.empty__title').length) {
+            if ($('.empty__title').length&&Lampa.Storage.field('parser_torrent_type') == 'jackett') {
                 myMenu();
                 stopObserver();
             }
