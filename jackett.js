@@ -131,7 +131,7 @@ Lampa.SettingsApi.addParam({
                                 }
 				if(Lampa.Storage.field('parser_use')) item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 				else item.hide();
-				if(Lampa.Storage.field('parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_urltwo"]').hide();
+				if(Lampa.Storage.field('parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett')) $('[data-name="jackett_urltwo"]').hide();
 		                else $('[data-name="jackett_urltwo"]').show();
 			}, 20);
         }
