@@ -84,10 +84,10 @@
     // шаблонный метод очистки
   function cleanCub(){
         setTimeout(function() {
-			// скрываем все строки с замочками 
+		       // скрываем все строки с замочками 
 			$('.selectbox-item__lock').parent().css('display', 'none');
 			// скрываем строку Статус
-			if (!$('.extensions__body').length) $('div > span:contains("Статус")').parent().remove() //$('.settings-param-title').last().css('display', 'none'); 
+		        if (!$('[data-name="account_use"]').length) $('div > span:contains("Статус")').parent().remove()
 	}, 10)
     }
 
