@@ -32,7 +32,7 @@
 			//}
 			//else {
 				//setTimeout(function() {	
-					if (!$('.extensions__body').length) $('div > span:contains("Статус")').parent().remove() //$('.settings-param-title').last().css('display', 'none'); 
+					if (!$('./*extensions*/settings__body').length) $('div > span:contains("Статус")').parent().remove() //$('.settings-param-title').last().css('display', 'none'); 
 				//}, 10)
 			//}
 		}, 10)
