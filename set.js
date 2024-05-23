@@ -82,7 +82,7 @@
 	 }
 	
     // шаблонный метод очистки
-  function cleanCub(){
+   function cleanCub(){
         setTimeout(function() {
 		       // скрываем все строки с замочками 
 			$('.selectbox-item__lock').parent().css('display', 'none');
