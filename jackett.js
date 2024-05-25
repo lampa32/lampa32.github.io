@@ -119,7 +119,7 @@ Lampa.SettingsApi.addParam({
     },
     onRender: function (item) {
 		//changeParser();
-			/*setTimeout(function() {
+			setTimeout(function() {
 				$('div[data-children="parser"]').on('hover:enter', function(){
 					Lampa.Settings.update();
 				});
@@ -129,36 +129,23 @@ Lampa.SettingsApi.addParam({
                                    $('div[data-name="jackett_key"]').hide()
 				   Lampa.Controller.toggle('settings_component');
                                 }
-				if(Lampa.Storage.field('parser_use')&&Lampa.Storage.field('parser_torrent_type') == 'jackett') item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
+				if(Lampa.Storage.field('parser_use')&&Lampa.Storage.field('parser_torrent_type') === 'jackett') item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 				else item.hide();
-			}, 50);*/
-	    if (Lampa.Storage.field('parser_use') && Lampa.Storage.field('parser_torrent_type') === 'jackett') {
-    item.show();
-    $('.settings-param__name', item).css('color', '#ffffff');
-
-    // Используем отложенное выполнение для перемещения параметра
-    setTimeout(function() {
-      $('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
-    }, 10)
-    
-  } else {
-    item.hide();
-  }
-    }
+			}, 10);
    });
+	
 	Lampa.Settings.listener.follow('', function (e) {
 		if (e.name == 'parser') {
 			e.body.find('[data-name="jackett_url2"]').remove();
 			e.body.find('[data-name="jackett_url_two"]').remove();
 		}
         });
-	/*Lampa.Storage.listener.follow('change', function (e) {
+	
+	Lampa.Storage.listener.follow('change', function (e) {
 		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') $('[data-name="jackett_urltwo"]').hide();
 		else $('[data-name="jackett_urltwo"]').show();
-		setTimeout(function() {
-      $('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
-    }, 10)
-	});*/
+                     $('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
+	});
 	
 	var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
