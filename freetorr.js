@@ -229,6 +229,7 @@ Lampa.SettingsApi.addParam({
                                                   Lampa.Controller.toggle('settings_component')
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
+						  $('div[data-name="switch_server_button"]').hide()
 					    }
 					 }, 0);
                                }
