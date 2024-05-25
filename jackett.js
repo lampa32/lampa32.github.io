@@ -119,7 +119,7 @@ Lampa.SettingsApi.addParam({
     },
     onRender: function (item) {
 		//changeParser();
-			setTimeout(function() {
+			/*setTimeout(function() {
 				$('div[data-children="parser"]').on('hover:enter', function(){
 					Lampa.Settings.update();
 				});
@@ -131,8 +131,19 @@ Lampa.SettingsApi.addParam({
                                 }
 				if(Lampa.Storage.field('parser_use')&&Lampa.Storage.field('parser_torrent_type') == 'jackett') item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 				else item.hide();
-			}, 50);
-        }
+			}, 50);*/
+	    if (Lampa.Storage.field('parser_use') && Lampa.Storage.field('parser_torrent_type') === 'jackett') {
+    item.show();
+    $('.settings-param__name', item).css('color', '#ffffff');
+
+    // Используем отложенное выполнение для перемещения параметра
+    setTimeout(function() {
+      $('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
+    }, 100);
+  } else {
+    item.hide();
+  }
+    }
    });
 	Lampa.Settings.listener.follow('', function (e) {
 		if (e.name == 'parser') {
