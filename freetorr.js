@@ -209,6 +209,7 @@ Lampa.SettingsApi.addParam({
 					};*/
 				},
 				onRender: function (item) {
+				     var prevSwitchServerButton = Lampa.Storage.field('switch_server_button');
 					setTimeout(function() {
 					   if($('div[data-name="torrserv"]').length > 1) item.hide();
 						$('.settings-param__name', item).css('color','ffffff');
@@ -222,6 +223,7 @@ Lampa.SettingsApi.addParam({
 	                                          $('div[data-name="torrserver_url"]').hide()
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
+						  Lampa.Storage.set('switch_server_button', prevSwitchServerButton);
 					    }
 					    if(Lampa.Storage.field('torrserv') == '0') {
 						 var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
@@ -230,7 +232,8 @@ Lampa.SettingsApi.addParam({
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
 						  $('div[data-name="switch_server_button"]').hide()
-						  Lampa.Storage.set('switch_server_button', '1')
+						  prevSwitchServerButton = Lampa.Storage.field('switch_server_button');
+                                                  Lampa.Storage.set('switch_server_button', '1');
 					    }
 					 }, 0);
                                }
