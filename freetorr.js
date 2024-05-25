@@ -223,7 +223,7 @@ Lampa.SettingsApi.addParam({
 	                                          $('div[data-name="torrserver_url"]').hide()
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
-						  Lampa.Storage.set('switch_server_button', prevSwitchServerButton);
+						  Lampa.Storage.set('switch_server_button', currentSwitchServerButton);
 					    }
 					    if(Lampa.Storage.field('torrserv') == '0') {
 						 var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
