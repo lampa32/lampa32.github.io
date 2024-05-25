@@ -209,11 +209,11 @@ Lampa.SettingsApi.addParam({
 					};*/
 				},
 				onRender: function (item) {
-				     var prevSwitchServerButton = Lampa.Storage.field('switch_server_button');
 					setTimeout(function() {
 					   if($('div[data-name="torrserv"]').length > 1) item.hide();
 						$('.settings-param__name', item).css('color','ffffff');
 						$('div[data-name="torrserv"]').insertAfter('div[data-name="torrserver_use_link"]');
+						var prevSwitchServerButton = Lampa.Storage.field('switch_server_button');
 					   if(Lampa.Storage.field('torrserv') == '1') {
 							//прячем лишние пункты и переносим фокус
 						 var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
@@ -232,7 +232,6 @@ Lampa.SettingsApi.addParam({
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
 						  $('div[data-name="switch_server_button"]').hide()
-						  prevSwitchServerButton = Lampa.Storage.field('switch_server_button');
                                                   Lampa.Storage.set('switch_server_button', '1');
 					    }
 					 }, 0);
