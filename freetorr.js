@@ -230,6 +230,9 @@ Lampa.SettingsApi.addParam({
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
 						  $('div[data-name="switch_server_button"]').hide()
+						    setTimeout(function(){
+	                                                $('#SWITCH_SERVER').hide();
+		                                    }, 10)
 					    }
 					 }, 0);
                                }
