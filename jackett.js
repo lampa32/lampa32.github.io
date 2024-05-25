@@ -137,9 +137,9 @@ Lampa.SettingsApi.addParam({
     $('.settings-param__name', item).css('color', '#ffffff');
 
     // Используем отложенное выполнение для перемещения параметра
-    setTimeout(function() {
+    
       $('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
-    }, 100);
+    
   } else {
     item.hide();
   }
