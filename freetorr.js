@@ -222,7 +222,6 @@ Lampa.SettingsApi.addParam({
 	                                          $('div[data-name="torrserver_url"]').hide()
 						  $('div[data-name="torrserver_use_link"]').hide()
 						  $('div > span:contains("Ссылки")').remove()
-						   prevSwitchServerButton = Lampa.Storage.field('switch_server_button');
 						  Lampa.Storage.set('switch_server_button', prevSwitchServerButton);
 					    }
 					    if(Lampa.Storage.field('torrserv') == '0') {
@@ -232,6 +231,7 @@ Lampa.SettingsApi.addParam({
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
 						  $('div[data-name="switch_server_button"]').hide()
+						    prevSwitchServerButton = Lampa.Storage.field('switch_server_button');
                                                   Lampa.Storage.set('switch_server_button', '1');
 					    }
 					 }, 0);
