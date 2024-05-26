@@ -113,7 +113,25 @@ function checkAlive() {
                    $('#SWITCH_SERVER').hide()
                 }, 500);
 	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
-	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
+	if(Lampa.Storage.get('switch_server_button') == 3) {
+		setTimeout(function(){
+	                                  $('#SWITCH_SERVER').show();
+		                        }, 10)
+                                        Lampa.Storage.listener.follow('change', function (event) {
+                                            if (event.name == 'activity') {
+                                                if (Lampa.Activity.active().component !== 'torrents') {
+	                                          setTimeout(function(){
+	                                             $('#SWITCH_SERVER').show();
+		                                  }, 10)
+                                                }
+                                                if (Lampa.Activity.active().component === 'torrents') {
+	                                           setTimeout(function(){
+	                                              $('#SWITCH_SERVER').show();
+		                                   }, 10)
+                                                }
+                                             }
+                                         })
+	}
   }
   /* Функция для отображения кнопки только в торрентах */
 
