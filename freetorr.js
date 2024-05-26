@@ -107,7 +107,7 @@ function checkAlive() {
 	});
    } 
   function ttt() {
-	  //Lampa.Storage.set('switch_server_button', Lampa.Storage.get('switch_server_button'));
+	  Lampa.Storage.set('switch_server_button', Lampa.Storage.get('switch_server_button'));
 	 if(Lampa.Storage.get('switch_server_button') == 1) 
 		setTimeout(function(){
                    $('#SWITCH_SERVER').hide()
