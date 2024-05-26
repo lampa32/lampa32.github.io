@@ -190,6 +190,23 @@ Lampa.SettingsApi.addParam({
 					if (value == '0') {
                                                 Lampa.Storage.set('torrserver_use_link', 'one');                                               
                                                 Lampa.Storage.set('torrserver_url_two', ''); 
+						setTimeout(function(){
+	                               $('#SWITCH_SERVER').hide();
+		                      }, 10)
+                                      Lampa.Storage.listener.follow('change', function (event) {
+                                          if (event.name == 'activity') {
+                                             if (Lampa.Activity.active().component !== 'torrents') {  
+	                                        setTimeout(function(){
+	                                           $('#SWITCH_SERVER').hide();
+		                                }, 10)  
+                                             }
+                                             if (Lampa.Activity.active().component === 'torrents') {
+	                                        setTimeout(function(){
+	                                           $('#SWITCH_SERVER').hide();
+		                                }, 10)
+                                             }
+                                           }
+                                       })
                                                 Lampa.Settings.update();
                                                 return;
                                         }
@@ -229,24 +246,7 @@ Lampa.SettingsApi.addParam({
                                                   Lampa.Controller.toggle('settings_component')
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
-						  $('div[data-name="switch_server_button"]').hide()
-						    setTimeout(function(){
-	                               $('#SWITCH_SERVER').hide();
-		                      }, 10)
-                                      Lampa.Storage.listener.follow('change', function (event) {
-                                          if (event.name == 'activity') {
-                                             if (Lampa.Activity.active().component !== 'torrents') {  
-	                                        setTimeout(function(){
-	                                           $('#SWITCH_SERVER').hide();
-		                                }, 10)  
-                                             }
-                                             if (Lampa.Activity.active().component === 'torrents') {
-	                                        setTimeout(function(){
-	                                           $('#SWITCH_SERVER').hide();
-		                                }, 10)
-                                             }
-                                           }
-                                       })
+						  $('div[data-name="switch_server_button"]').hide()  
 					    }
 					 }, 0);
                                }
@@ -269,9 +269,7 @@ Lampa.SettingsApi.addParam({
 				name: 'Кнопка для смены сервера',
 				description: 'Параметр включает отображение кнопки в верхнем баре для быстрой смены сервера' 
 			},
-	                //onChange: function (value) {
-	   onRender: function (item) {
-
+	                onChange: function (value) {
 			      if (value == '1') {
 				     setTimeout(function(){
 	                               $('#SWITCH_SERVER').hide();
