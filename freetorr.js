@@ -96,7 +96,7 @@ function checkAlive() {
 		setTimeout(function(){
                    $('#SWITCH_SERVER').hide()
                 }, 500);
-	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
+	if(Lampa.Storage.get('switch_server_button') == 2) showBut_Torr();
 	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
 	
 	
@@ -156,7 +156,27 @@ function checkAlive() {
                }
             }
         })
-  }
+    }
+
+    function showBut() {
+	    setTimeout(function(){
+	        $('#SWITCH_SERVER').show();
+	    }, 10)
+            Lampa.Storage.listener.follow('change', function (event) {
+              if (event.name == 'activity') {
+                if (Lampa.Activity.active().component !== 'torrents') {
+	          setTimeout(function(){
+	             $('#SWITCH_SERVER').show();
+		  }, 10)
+                }
+                if (Lampa.Activity.active().component === 'torrents') {
+	           setTimeout(function(){
+	             $('#SWITCH_SERVER').show();
+		   }, 10)
+                }
+              }
+             })
+    }
 	   //запускаем функцию start_free если Lampa запустилась
            var tor_timer = setInterval(function(){
               if(typeof Lampa !== 'undefined'){
@@ -182,7 +202,7 @@ function checkAlive() {
 		}
 		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию hideBut
 		if (localStorage.getItem('switch_server_button') === null) {
-		    hideBut();
+		    showBut_Torr();
 		}
 		if(Lampa.Platform.is('android')) Lampa.Storage.set('internal_torrclient', true);
 	}
@@ -318,26 +338,10 @@ Lampa.SettingsApi.addParam({
                                        })
                               }
                               if (value == '2') {
-				      hideBut();
+				      showBut_Torr();
 			      }
 			      if (value == '3') {
-				      setTimeout(function(){
-	                                  $('#SWITCH_SERVER').show();
-		                        }, 10)
-                                        Lampa.Storage.listener.follow('change', function (event) {
-                                            if (event.name == 'activity') {
-                                                if (Lampa.Activity.active().component !== 'torrents') {
-	                                          setTimeout(function(){
-	                                             $('#SWITCH_SERVER').show();
-		                                  }, 10)
-                                                }
-                                                if (Lampa.Activity.active().component === 'torrents') {
-	                                           setTimeout(function(){
-	                                              $('#SWITCH_SERVER').show();
-		                                   }, 10)
-                                                }
-                                             }
-                                         })
+				      showBut();
                               }
 				   
 			},
