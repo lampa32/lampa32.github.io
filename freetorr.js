@@ -216,6 +216,7 @@ Lampa.SettingsApi.addParam({
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
 						Lampa.Storage.set('switch_server_button', Lampa.Storage.get('switch_server_button'));
+						switch_server();
 						Lampa.Settings.update();
 						return;
 					}
