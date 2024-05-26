@@ -109,7 +109,7 @@ function checkAlive() {
   function ttt() {
 	  
 	if(Lampa.Storage.get('switch_server_button') == 1) hideBut();
-	if(localStorage.getItem('switch_server_button') == 2) showBut_Torr();
+	if(Lampa.Storage.get('switch_server_button') == 2) showBut_Torr();
 	if(Lampa.Storage.get('switch_server_button') == 3) showBut();
 
   }
@@ -153,7 +153,9 @@ function checkAlive() {
                }
 	    //показываем кнопку если зашли в торренты
                if (Lampa.Activity.active().component === 'torrents') {
+	         setTimeout(function(){
 	          $('#SWITCH_SERVER').show();
+		 }, 10)
                }
             }
         })
