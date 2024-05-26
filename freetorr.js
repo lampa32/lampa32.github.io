@@ -113,7 +113,7 @@ function checkAlive() {
                    $('#SWITCH_SERVER').hide()
                 }, 500);
 	if(Lampa.Storage.get('switch_server_button') == 2) showBut_Torr()
-	if(Lampa.Storage.get('switch_server_button') == 3) show_But()
+	if(Lampa.Storage.get('switch_server_button') == 3) showBut()
 
   }
   /* Функция для отображения кнопки только в торрентах */
@@ -244,8 +244,7 @@ Lampa.SettingsApi.addParam({
 						Lampa.Noty.show("TorrServer изменён");
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
-						//Lampa.Storage.set('switch_server_button', Lampa.Storage.get('switch_server_button'));
-						//ttt();
+						ttt();
 						Lampa.Settings.update();
 						return;
 					}
