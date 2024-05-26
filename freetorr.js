@@ -106,7 +106,14 @@ function checkAlive() {
 		Lampa.Noty.show("TorrServer изменён");
 	});
    } 
-
+  function ttt() {
+	 if(Lampa.Storage.get('switch_server_button') == 1) 
+		setTimeout(function(){
+                   $('#SWITCH_SERVER').hide()
+                }, 500);
+	if(Lampa.Storage.get('switch_server_button') == 2) hideBut()
+	if(Lampa.Storage.get('switch_server_button') == 3) $('#SWITCH_SERVER').show()
+  }
   /* Функция для отображения кнопки только в торрентах */
 
   function hideBut() {
@@ -216,7 +223,7 @@ Lampa.SettingsApi.addParam({
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
 						//Lampa.Storage.set('switch_server_button', Lampa.Storage.get('switch_server_button'));
-						switch_server();
+						ttt();
 						Lampa.Settings.update();
 						return;
 					}
