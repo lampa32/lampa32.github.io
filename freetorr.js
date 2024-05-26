@@ -198,8 +198,6 @@ Lampa.SettingsApi.addParam({
 						Lampa.Noty.show("TorrServer изменён");
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
-						var previousValue = Lampa.Storage.get('switch_server_button');
-						Lampa.Storage.set('switch_server_button', previousValue);
 						Lampa.Settings.update();
 						return;
 					}
@@ -232,7 +230,9 @@ Lampa.SettingsApi.addParam({
 						  $('div[data-name="torrserver_url_two"]').hide()
 					          $('div[data-name="torrserver_use_link"]').hide()
 						  $('div[data-name="switch_server_button"]').hide()
-                                                  Lampa.Storage.set('switch_server_button', '1');
+						    setTimeout(function(){
+	                               $('#SWITCH_SERVER').hide();
+		                      }, 10)
 					    }
 					 }, 0);
                                }
