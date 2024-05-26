@@ -233,6 +233,20 @@ Lampa.SettingsApi.addParam({
 						    setTimeout(function(){
 	                               $('#SWITCH_SERVER').hide();
 		                      }, 10)
+                                      Lampa.Storage.listener.follow('change', function (event) {
+                                          if (event.name == 'activity') {
+                                             if (Lampa.Activity.active().component !== 'torrents') {  
+	                                        setTimeout(function(){
+	                                           $('#SWITCH_SERVER').hide();
+		                                }, 10)  
+                                             }
+                                             if (Lampa.Activity.active().component === 'torrents') {
+	                                        setTimeout(function(){
+	                                           $('#SWITCH_SERVER').hide();
+		                                }, 10)
+                                             }
+                                           }
+                                       })
 					    }
 					 }, 0);
                                }
