@@ -269,7 +269,8 @@ Lampa.SettingsApi.addParam({
 				name: 'Кнопка для смены сервера',
 				description: 'Параметр включает отображение кнопки в верхнем баре для быстрой смены сервера' 
 			},
-	                onChange: function (value) {
+	                //onChange: function (value) {
+	   onRender: function (item) {
 
 			      if (value == '1') {
 				     setTimeout(function(){
