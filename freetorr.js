@@ -304,7 +304,7 @@ Lampa.SettingsApi.addParam({
 				description: 'Параметр включает отображение кнопки в верхнем баре для быстрой смены сервера' 
 			},
 	                onChange: function (value) {
-			      if (value == '1') {
+			     /* if (value == '1') {
 				      hideBut();  
                               }
                               if (value == '2') {
@@ -312,7 +312,8 @@ Lampa.SettingsApi.addParam({
 			      }
 			      if (value == '3') {
 				      showBut();
-                              }
+                              }*/
+				ttt();
 				   
 			},
 	                onRender: function (item) {
