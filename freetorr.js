@@ -108,12 +108,9 @@ function checkAlive() {
   } 
   function ttt() {
 	  
-	if(Lampa.Storage.get('switch_server_button') == 1) 
-		setTimeout(function(){
-                   $('#SWITCH_SERVER').hide()
-                }, 500);
-	if(Lampa.Storage.get('switch_server_button') == 2) showBut_Torr()
-	if(Lampa.Storage.get('switch_server_button') == 3) showBut()
+	if(Lampa.Storage.get('switch_server_button') == 1) hideBut();
+	if(Lampa.Storage.get('switch_server_button') == 2) showBut_Torr();
+	if(Lampa.Storage.get('switch_server_button') == 3) showBut();
 
   }
 
