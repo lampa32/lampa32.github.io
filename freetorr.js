@@ -109,7 +109,7 @@ function checkAlive() {
   function ttt() {
 	  
 	if(Lampa.Storage.get('switch_server_button') == 1) hideBut();
-	if(Lampa.Storage.get('switch_server_button') == 2) showBut_Torr();
+	if(localStorage.getItem('switch_server_button') == 2) showBut_Torr();
 	if(Lampa.Storage.get('switch_server_button') == 3) showBut();
 
   }
