@@ -105,10 +105,10 @@ function checkAlive() {
 		Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
 		Lampa.Noty.show("TorrServer изменён");
 	});
-   } 
+  } 
   function ttt() {
-	  //Lampa.Storage.set('switch_server_button', Lampa.Storage.get('switch_server_button'));
-	 if(Lampa.Storage.get('switch_server_button') == 1) 
+	  
+	if(Lampa.Storage.get('switch_server_button') == 1) 
 		setTimeout(function(){
                    $('#SWITCH_SERVER').hide()
                 }, 500);
@@ -116,6 +116,27 @@ function checkAlive() {
 	if(Lampa.Storage.get('switch_server_button') == 3) showBut()
 
   }
+
+  function hideBut() {
+     setTimeout(function(){
+	$('#SWITCH_SERVER').hide();
+     }, 10)
+     Lampa.Storage.listener.follow('change', function (event) {
+        if (event.name == 'activity') {
+           if (Lampa.Activity.active().component !== 'torrents') {  
+	      setTimeout(function(){
+	         $('#SWITCH_SERVER').hide();
+	      }, 10)  
+           }
+           if (Lampa.Activity.active().component === 'torrents') {
+	      setTimeout(function(){
+	         $('#SWITCH_SERVER').hide();
+	      }, 10)
+           }
+         }
+     })
+  }
+	
   /* Функция для отображения кнопки только в торрентах */
 
   function showBut_Torr() {
@@ -219,23 +240,7 @@ Lampa.SettingsApi.addParam({
 					if (value == '0') {
                                                 Lampa.Storage.set('torrserver_use_link', 'one');                                               
                                                 Lampa.Storage.set('torrserver_url_two', ''); 
-						setTimeout(function(){
-	                               $('#SWITCH_SERVER').hide();
-		                      }, 10)
-                                      Lampa.Storage.listener.follow('change', function (event) {
-                                          if (event.name == 'activity') {
-                                             if (Lampa.Activity.active().component !== 'torrents') {  
-	                                        setTimeout(function(){
-	                                           $('#SWITCH_SERVER').hide();
-		                                }, 10)  
-                                             }
-                                             if (Lampa.Activity.active().component === 'torrents') {
-	                                        setTimeout(function(){
-	                                           $('#SWITCH_SERVER').hide();
-		                                }, 10)
-                                             }
-                                           }
-                                       })
+						hideBut();
                                                 Lampa.Settings.update();
                                                 return;
                                         }
@@ -301,23 +306,7 @@ Lampa.SettingsApi.addParam({
 			},
 	                onChange: function (value) {
 			      if (value == '1') {
-				     setTimeout(function(){
-	                               $('#SWITCH_SERVER').hide();
-		                      }, 10)
-                                      Lampa.Storage.listener.follow('change', function (event) {
-                                          if (event.name == 'activity') {
-                                             if (Lampa.Activity.active().component !== 'torrents') {  
-	                                        setTimeout(function(){
-	                                           $('#SWITCH_SERVER').hide();
-		                                }, 10)  
-                                             }
-                                             if (Lampa.Activity.active().component === 'torrents') {
-	                                        setTimeout(function(){
-	                                           $('#SWITCH_SERVER').hide();
-		                                }, 10)
-                                             }
-                                           }
-                                       })
+				      hideBut();  
                               }
                               if (value == '2') {
 				      showBut_Torr();
