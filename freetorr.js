@@ -107,7 +107,7 @@ function checkAlive() {
 	});
    } 
   function ttt() {
-	  Lampa.Storage.set('switch_server_button', Lampa.Storage.get('switch_server_button'));
+	  //Lampa.Storage.set('switch_server_button', Lampa.Storage.get('switch_server_button'));
 	 if(Lampa.Storage.get('switch_server_button') == 1) 
 		setTimeout(function(){
                    $('#SWITCH_SERVER').hide()
@@ -118,7 +118,7 @@ function checkAlive() {
   }
   /* Функция для отображения кнопки только в торрентах */
 
-  function hideBut() {
+  function showBut_Torr() {
 
 	 //прячем кнопку при старте приложения 
               setTimeout(function(){
@@ -183,7 +183,7 @@ function checkAlive() {
 			   if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
 		       }, 4000) //без таймаута undefined	
 		}
-		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию hideBut
+		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию showBut_Torr
 		if (localStorage.getItem('switch_server_button') === null) {
 		    showBut_Torr();
 		}
