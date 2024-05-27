@@ -193,17 +193,17 @@
         
     }
     
-	if (window.appready) {cub_off(); hideIT(); modssAd(); mainSet();}
+	if (window.appready) {/*cub_off(); hideIT(); modssAd(); */mainSet();}
     else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
             if (e.type == 'ready') {
                 // вызываем cub_off()
-                cub_off();
+               // cub_off();
                 // вызываем hideIT()
-                hideIT();
+               // hideIT();
 		// прячем рекламу MODSs
-		modssAd();
+		//modssAd();
 		// вызываем основные настройки
 		mainSet();
                 // удаляем раздел Лента с главного меню
