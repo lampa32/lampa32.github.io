@@ -8,7 +8,7 @@
     //window.lampa_settings.plugins_use = false;
 
 
-//function mainSet() {
+function mainSet() {
 
     var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
@@ -79,7 +79,7 @@
     }
 
 	
-	/*function cub_off() {
+	function cub_off() {
 		// убираем рекламу перед включением плеера через смену региона (не языка)
         $(document).ready(function() {
             var date = new Date(),
@@ -172,7 +172,7 @@
                 }, 200)
             }
         });
-	}*/
+	}
   
 	 Lampa.SettingsApi.addComponent({
             component: 'ero',
@@ -233,8 +233,8 @@
     Lampa.Storage.set('plugins', delplugin); 
 */
   
-//}
-    if (window.appready) {/*cub_off(); */hideIT(); modssAd(); mainSet();}
+}
+    if (window.appready) {cub_off(); hideIT(); modssAd(); mainSet();}
       else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
@@ -243,7 +243,7 @@
 		           mainSet();
                modssAd();
                hideIT();
-               //cub_off();
+               cub_off();
 				       $("[data-action=feed]").eq(0).remove();
                $("[data-action=subscribes]").eq(0).remove();
 		           $("[data-action=anime]").eq(0).remove();
