@@ -70,16 +70,20 @@
 
          var initMarker = 0;
 
-         function modssAd() {
+ function modssAd() {
 		Lampa.Controller.listener.follow('toggle', function(e) {
 			  if (e.name == 'select') {
 				setTimeout(function() {
-				  if($('.selectbox .selectbox-item__icon svg').length && Lampa.Activity.active().component == 'full') $('div.selectbox__body > div > div > div > div:contains("@modssmy_bot")').css('display', 'none');
+				  if(Lampa.Activity.active().component == 'full') {
+					if (document.querySelector('.ad-server') !== null) {
+					   $('.ad-server').remove();
+					}
+				  }
 				  if (Lampa.Activity.active().component === 'modss_online') $('.selectbox-item--icon').remove()
-				}, 30);
+				}, 20);
 			  }
 		});
-	 }
+   }
 	
     // шаблонный метод очистки
    function cleanCub(){
