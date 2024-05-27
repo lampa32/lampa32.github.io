@@ -45,7 +45,7 @@ function mainSet() {
 				}, 30);
 			}
 		});
-	 }
+	 }0
 	
     // шаблонный метод очистки
    function cleanCub(){
@@ -172,6 +172,7 @@ function mainSet() {
                 }, 200)
             }
         });
+	}
   
 	 Lampa.SettingsApi.addComponent({
             component: 'ero',
@@ -231,7 +232,7 @@ function mainSet() {
     var delplugin = plugArray.filter(function(obj) {return obj.url !== 'http://tvlampa.fun/plugin.js'});
     Lampa.Storage.set('plugins', delplugin); 
 */
-  }
+  
 }
     if (window.appready) {cub_off(); hideIT(); modssAd(); mainSet();}
       else {
