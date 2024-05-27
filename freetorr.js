@@ -106,7 +106,8 @@ function checkAlive() {
 		Lampa.Noty.show("TorrServer изменён");
 	});
   } 
-  function ttt() {
+	
+  function valBut() {
 	  
 	if(Lampa.Storage.get('switch_server_button') == 1) hideBut();
 	if(Lampa.Storage.get('switch_server_button') == 2) showBut_Torr();
@@ -248,7 +249,7 @@ Lampa.SettingsApi.addParam({
 						Lampa.Noty.show("TorrServer изменён");
 						Lampa.Storage.set('torrserver_use_link', 'two');
 						Lampa.Storage.set('torrserver_url_two', 'http://' + searchRandom() + ':8090');
-						ttt();
+						valBut();
 						Lampa.Settings.update();
 						return;
 					}
@@ -313,7 +314,8 @@ Lampa.SettingsApi.addParam({
 			      if (value == '3') {
 				      showBut();
                               }*/
-				ttt();
+				
+				valBut();
 				   
 			},
 	                onRender: function (item) {
