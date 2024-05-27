@@ -13,7 +13,7 @@
 					}
 				  }
 				  if (Lampa.Activity.active().component === 'modss_online') $('.selectbox-item--icon').remove()
-				}, 30);
+				}, 20);
 			  }
 		});
      }
