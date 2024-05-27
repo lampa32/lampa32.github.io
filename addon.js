@@ -170,7 +170,7 @@ Lampa.SettingsApi.addComponent({
 					}
 		});
 		
-		/*Lampa.SettingsApi.addParam({
+		Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
 						name: 'TMDB',
@@ -207,7 +207,7 @@ Lampa.SettingsApi.addComponent({
 						}, 100);
 					}
 		});
-                */
+                
 		Lampa.SettingsApi.addParam({
 					component: 'add_interface_plugin',
 					param: {
@@ -427,6 +427,42 @@ Lampa.SettingsApi.addComponent({
 					}
 		});
 	        Lampa.SettingsApi.addParam({
+					component: 'add_interface_plugin',
+					param: {
+						name: 'Collections',
+						type: 'select',
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+						},
+					//default: '1',
+						},
+					field: {
+						name: 'Коллекции',
+						description: 'Обнаружьте захватывающие коллекции фильмов и сериалов в главном меню приложения. От новинок до классики — каждая коллекция это увлекательное погружение в мир киноискусства'
+					},
+					onChange: function(value) {
+						if (value == '1') {
+						       itemON('https://cub.red/plugin/collections', 'Коллекции', '@lampa', 'Collections');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://cub.red/plugin/collections";
+							deletePlugin(pluginToRemoveUrl);
+						}
+					},
+			                onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
+						var myResult = checkPlugin('https://cub.red/plugin/collections')
+						setTimeout(function() {	
+							$('div[data-name="Collections"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Collections"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Collections"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);
+					}
+		});
+	        Lampa.SettingsApi.addParam({
 	        			component: 'add_interface_plugin',
 					param: {
 						name: 'Weather',
@@ -602,6 +638,78 @@ Lampa.SettingsApi.addComponent({
 									$('div[data-name="concert_search"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 								} else {
 									$('div[data-name="concert_search"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								}
+							}, 100);
+						}
+		});
+	        Lampa.SettingsApi.addParam({
+						component: 'add_interface_plugin',
+						param: {
+							name: 'franchise',
+							type: 'select',
+							values: {
+								1:	'Установить',
+								2:	'Удалить',
+							},
+						//default: '1',
+							},
+						field: {
+							name: 'Франшиза',
+							description: 'Плагин показывает франшизу по текущему фильму в карточке под описанием'
+						},
+						onChange: function(value) {
+							if (value == '1') {
+								itemON('https://bdvburik.github.io/franshrezka.js', 'Франшиза', '@BDV_Burik', 'franchise');
+							}
+							if (value == '2') {
+								var pluginToRemoveUrl = "https://bdvburik.github.io/franshrezka.js";
+								deletePlugin(pluginToRemoveUrl);
+							}
+						},
+								onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
+							var myResult = checkPlugin('https://bdvburik.github.io/franshrezka.js')
+							setTimeout(function() {	
+								$('div[data-name="franchise"]').append('<div class="settings-param__status one"></div>')
+								if (myResult) {
+									$('div[data-name="franchise"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								} else {
+									$('div[data-name="franchise"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+								}
+							}, 100);
+						}
+		});
+	        Lampa.SettingsApi.addParam({
+						component: 'add_interface_plugin',
+						param: {
+							name: 'Rezka_comments',
+							type: 'select',
+							values: {
+								1:	'Установить',
+								2:	'Удалить',
+							},
+						//default: '1',
+							},
+						field: {
+							name: 'Комментарии от Rezka',
+							description: 'Плагин выводит комментарии к фильму от сервиса Rezka'
+						},
+						onChange: function(value) {
+							if (value == '1') {
+								itemON('https://BDVBurik.github.io/rezkacommentwo.js', 'Комментарии Rezka', '@BDV_Burik', 'Rezka_comments');
+							}
+							if (value == '2') {
+								var pluginToRemoveUrl = "https://BDVBurik.github.io/rezkacommentwo.js";
+								deletePlugin(pluginToRemoveUrl);
+							}
+						},
+								onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall()
+							var myResult = checkPlugin('https://BDVBurik.github.io/rezkacommentwo.js')
+							setTimeout(function() {	
+								$('div[data-name="Rezka_comments"]').append('<div class="settings-param__status one"></div>')
+								if (myResult) {
+									$('div[data-name="Rezka_comments"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+								} else {
+									$('div[data-name="Rezka_comments"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 								}
 							}, 100);
 						}
@@ -939,6 +1047,42 @@ Lampa.SettingsApi.addComponent({
 								$('div[data-name="Wsoff"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
 							} else {
 								$('div[data-name="Wsoff"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
+							}
+						}, 100);			  
+					}
+		});
+	        Lampa.SettingsApi.addParam({
+					component: 'add_management_plugin',
+					param: {
+						name: 'Redirect',
+						type: 'select',
+						values: {
+							1:	'Установить',
+							2:	'Удалить',
+						},
+					//default: '1',
+						},
+					field: {
+                                    		name: 'Смена сервера',
+                                    		description: 'Плагин позволяет сменить сервер приложения'
+					},
+					onChange: function(value) {
+						if (value == '1') {
+						       itemON('https://bylampa.github.io/redirect.js', 'Смена Сервера', '@scabrum', 'Redirect');
+						}
+						if (value == '2') {
+							var pluginToRemoveUrl = "https://bylampa.github.io/redirect.js";
+							deletePlugin(pluginToRemoveUrl);
+						}
+					},
+					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
+						var myResult = checkPlugin('https://bylampa.github.io/redirect.js')
+						setTimeout(function() {	
+							$('div[data-name="Redirect"]').append('<div class="settings-param__status one"></div>')
+							if (myResult) {
+								$('div[data-name="Redirect"]').find('.settings-param__status').removeClass('active error wait').addClass('active')
+							} else {
+								$('div[data-name="Redirect"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
 						}, 100);			  
 					}
@@ -1292,7 +1436,7 @@ Lampa.SettingsApi.addComponent({
 					}
 		});
                 */
-		Lampa.SettingsApi.addParam({
+		/*Lampa.SettingsApi.addParam({
 					component: 'add_torrent_plugin',
 					param: {
 						name: 'Tracks',
@@ -1327,7 +1471,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);		  
 					}
-		});
+		});*/
                 /*
 	        Lampa.SettingsApi.addParam({
 					component: 'add_torrent_plugin',
