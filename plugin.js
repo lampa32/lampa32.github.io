@@ -8,7 +8,7 @@
     //window.lampa_settings.plugins_use = false;
 
 
-function mainSet() {
+//function mainSet() {
 
     var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
@@ -233,7 +233,7 @@ function mainSet() {
     Lampa.Storage.set('plugins', delplugin); 
 */
   
-}
+//}
     if (window.appready) {/*cub_off(); */hideIT(); modssAd(); mainSet();}
       else {
         Lampa.Listener.follow('app', function(e) {
