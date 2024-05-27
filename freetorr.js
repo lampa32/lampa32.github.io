@@ -106,7 +106,8 @@ function checkAlive() {
 		Lampa.Noty.show("TorrServer изменён");
 	});
   } 
-	
+
+	// Функция отображения кнопки при разном сценарии
   function valBut() {
 	  
 	if(Lampa.Storage.get('switch_server_button') == 1) hideBut();
@@ -115,6 +116,7 @@ function checkAlive() {
 
   }
 
+	// Кнопка скрыта всегда
   function hideBut() {
      setTimeout(function(){
 	$('#SWITCH_SERVER').hide();
@@ -162,6 +164,7 @@ function checkAlive() {
         })
     }
 
+	// Кнопка всегда видна
     function showBut() {
 	    setTimeout(function(){
 	        $('#SWITCH_SERVER').show();
@@ -236,7 +239,7 @@ Lampa.SettingsApi.addParam({
 					description: 'Нажмите для смены сервера'
 				},
 				onChange: function (value) {
-                    /* Если  Не выбран */
+                                        /* Если  Не выбран */
 					if (value == '0') {
                                                 Lampa.Storage.set('torrserver_use_link', 'one');                                               
                                                 Lampa.Storage.set('torrserver_url_two', ''); 
