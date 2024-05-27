@@ -234,7 +234,7 @@ function mainSet() {
 */
   
 }
-    if (window.appready) {cub_off(); hideIT(); /*modssAd(); */mainSet();}
+    if (window.appready) {/*cub_off(); hideIT(); /*modssAd(); */mainSet();}
       else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
@@ -242,8 +242,8 @@ function mainSet() {
 		   // вызываем основные настройки
 		           mainSet();
              //  modssAd();
-               hideIT();
-               cub_off();
+             //  hideIT();
+             //  cub_off();
 				       $("[data-action=feed]").eq(0).remove();
                $("[data-action=subscribes]").eq(0).remove();
 		           $("[data-action=anime]").eq(0).remove();
