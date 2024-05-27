@@ -45,7 +45,7 @@ function mainSet() {
 				}, 30);
 			}
 		});
-	 }0
+	 }
 	
     // шаблонный метод очистки
    function cleanCub(){
