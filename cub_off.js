@@ -7,11 +7,11 @@
 		Lampa.Controller.listener.follow('toggle', function(e) {
 			  if (e.name == 'select') {
 				setTimeout(function() {
-				  //if(Lampa.Activity.active().component == 'full') {
+				  if(Lampa.Activity.active().component == 'full') {
 					if (document.querySelector('.ad-server') !== null) {
 					   $('.ad-server').remove();
 					}
-				 // }
+				  }
 				  if (Lampa.Activity.active().component === 'modss_online') $('.selectbox-item--icon').remove()
 				}, 10);
 			  }
