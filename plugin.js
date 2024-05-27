@@ -36,7 +36,7 @@ function mainSet() {
 
    var initMarker = 0;
 
-  function modssAd() {
+ /* function modssAd() {
 		Lampa.Controller.listener.follow('toggle', function(e) {
 			if (e.name == 'select') {
 				setTimeout(function() {
@@ -45,7 +45,7 @@ function mainSet() {
 				}, 30);
 			}
 		});
-	 }
+	 }*/
 	
     // шаблонный метод очистки
    function cleanCub(){
@@ -234,14 +234,14 @@ function mainSet() {
 */
   
 }
-    if (window.appready) {cub_off(); hideIT(); modssAd(); mainSet();}
+    if (window.appready) {cub_off(); hideIT(); /*modssAd(); */mainSet();}
       else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
             if (e.type == 'ready') {
 		   // вызываем основные настройки
 		           mainSet();
-               modssAd();
+             //  modssAd();
                hideIT();
                cub_off();
 				       $("[data-action=feed]").eq(0).remove();
