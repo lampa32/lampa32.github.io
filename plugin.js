@@ -25,14 +25,15 @@ function mainSet() {
            Lampa.Storage.set('start_page', 'main');
            Lampa.Storage.set('source', 'cub');
            Lampa.Storage.set('background', 'false');
-	         Lampa.Storage.set('animation', 'false');
-	         Lampa.Storage.set('mask', 'false');
-	         Lampa.Storage.set('player_normalization', 'true');
-	         Lampa.Storage.set('player_timecode', 'ask');
-	         Lampa.Storage.set('screensaver', 'false');
-	         Lampa.Storage.set('pages_save_total', '3');
-	         location.reload()
+	   Lampa.Storage.set('animation', 'false');
+	   Lampa.Storage.set('mask', 'false');
+	   Lampa.Storage.set('player_normalization', 'true');
+	   Lampa.Storage.set('player_timecode', 'ask');
+	   Lampa.Storage.set('screensaver', 'false');
+           Lampa.Storage.set('pages_save_total', '3');
+	   location.reload()
     } 
+	
 	Lampa.SettingsApi.addComponent({
             component: 'ero',
             name: '18+',
@@ -68,44 +69,44 @@ function mainSet() {
                 if(Lampa.Storage.field('SISI_fix') == true) $("[data-action=sisi_]").eq(0).hide();
 			   
     
-    Lampa.Utils.putScriptAsync([
+        Lampa.Utils.putScriptAsync([
 	        'https://lampa32.github.io/tv2.js',
-				  'http://79.137.205.41:9118/online.js',
-				  'https://lampa32.github.io/start.js',
-				  'https://lampa32.github.io/freetorr.js',
-				  'https://lampa32.github.io/jackett.js',
-				  'https://lampa32.github.io/addon.js',
-				  'https://lampa32.github.io/mult.js',
-				  'http://79.137.205.41:9118/sisi.js',
-          'https://cub.red/plugin/tracks'
-				  ], function () {});
+	        'http://79.137.205.41:9118/online.js',
+	        'https://lampa32.github.io/start.js',
+	        'https://lampa32.github.io/freetorr.js',
+	        'https://lampa32.github.io/jackett.js',
+	        'https://lampa32.github.io/addon.js',
+	        'https://lampa32.github.io/mult.js',
+	        'http://79.137.205.41:9118/sisi.js',
+                'https://cub.red/plugin/tracks'
+        ], function () {});
 }
 
-   var initMarker = 0;
+  var initMarker = 0;
 
   function modssAd() {
-		Lampa.Controller.listener.follow('toggle', function(e) {
-			  if (e.name == 'select') {
-				setTimeout(function() {
-				  if(Lampa.Activity.active().component == 'full') {
-					if (document.querySelector('.ad-server') !== null) {
-					   $('.ad-server').remove();
-					}
-				  }
-				  if (Lampa.Activity.active().component === 'modss_online') $('.selectbox-item--icon').remove()
-				}, 20);
-			  }
-		});
+     Lampa.Controller.listener.follow('toggle', function(e) {
+	if (e.name == 'select') {
+	  setTimeout(function() {
+	     if(Lampa.Activity.active().component == 'full') {
+		if (document.querySelector('.ad-server') !== null) {
+		   $('.ad-server').remove();
+		}
+	     }
+	     if (Lampa.Activity.active().component === 'modss_online') $('.selectbox-item--icon').remove()
+	   }, 20);
+         }
+      });
    }
 	
     // шаблонный метод очистки
    function cleanCub(){
         setTimeout(function() {
-		       // скрываем все строки с замочками 
-			      $('.selectbox-item__lock').parent().css('display', 'none');
-			// скрываем строку Статус
-		          if (!$('[data-name="account_use"]').length) $('div > span:contains("Статус")').parent().remove()
-	      }, 10)
+	// скрываем все строки с замочками 
+	    $('.selectbox-item__lock').parent().css('display', 'none');
+	// скрываем строку Статус
+	    if (!$('[data-name="account_use"]').length) $('div > span:contains("Статус")').parent().remove()
+	 }, 10)
     }
 
     function hideIT() {
@@ -113,97 +114,98 @@ function mainSet() {
         document.addEventListener('DOMSubtreeModified', function removeAD(event) {
             var cardElements = document.getElementsByClassName('card');
             // если появилась карточка
-			if (cardElements.length > 0) {
+	      if (cardElements.length > 0) {
                 // ставим флаг, чтобы действие ниже не дублировалось несколько раз, ограничим его по времени ожидания в 500мс
-				if (initMarker == 0) {
+		if (initMarker == 0) {
                     initMarker = 1 // Флаг
                     // чистим
-					          cleanCub();
+		    cleanCub();
                     // спустя полсекунды флаг снимаем
-					          setTimeout(function() {
-                        initMarker = 0
-                    }, 500)
-                }
-            }
-
-        }, false);
-    }
+			setTimeout(function() {
+                           initMarker = 0
+                        }, 500)
+                 }
+               }
+          }, false);
+     }
 
 	
-	function cub_off() {
-		// убираем рекламу перед включением плеера через смену региона (не языка)
+     function cub_off() {
+	// убираем рекламу перед включением плеера через смену региона (не языка)
         $(document).ready(function() {
             var date = new Date(),
-                time = date.getTime()
-            localStorage.setItem("region", '{"code":"uk","time":' + time + '}')
+              time = date.getTime()
+              localStorage.setItem("region", '{"code":"uk","time":' + time + '}')
         })
-		// удаляем рекламу в разделе Сериалов
-		$('[data-action="tv"]').on('hover:enter hover:click hover:touch', function() {
-			var myTextBoxInterval = setInterval(function() {
-				if (document.querySelector('.ad-bot') !== null) {
-					$('.ad-bot').remove();
-					clearInterval(myTextBoxInterval);
-				}
-			}, 100);
-			var myTextBoxInterval2 = setInterval(function() {
-				if (document.querySelector('.card__textbox') !== null) {
-					$('.card__textbox').parent().parent().remove();
-					clearInterval(myTextBoxInterval2);
-				}
-			}, 100);
-		})
-		// убираем элементы в верхнем меню
-        setTimeout(function() {
-            // лента
-			     $('.open--feed').remove();
-            // звезда
-			     $('.open--premium').remove();
-            // колокольчик
-			     $('.open--notice').remove();
-        }, 1000);
+		
+	     // удаляем рекламу в разделе Сериалов
+	$('[data-action="tv"]').on('hover:enter hover:click hover:touch', function() {
+	  var myTextBoxInterval = setInterval(function() {
+		if (document.querySelector('.ad-bot') !== null) {
+		    $('.ad-bot').remove();
+		    clearInterval(myTextBoxInterval);
+		}
+	   }, 100);
+	   var myTextBoxInterval2 = setInterval(function() {
+	         if (document.querySelector('.card__textbox') !== null) {
+		    $('.card__textbox').parent().parent().remove();
+		    clearInterval(myTextBoxInterval2);
+		 }
+	    }, 100);
+	  })
+		
+	     // убираем элементы в верхнем меню
+          setTimeout(function() {
+                 // лента
+	     $('.open--feed').remove();
+                 // звезда
+	     $('.open--premium').remove();
+                 // колокольчик
+	     $('.open--notice').remove();
+           }, 1000);
 
     
 		// убираем рекламу в Настройках.. Аккаунт (Синхронизация)
-        Lampa.Settings.listener.follow('open', function(e) {
+           Lampa.Settings.listener.follow('open', function(e) {
 	         if (e.name == 'main') {
-                setTimeout(function() {
-                  $('div[data-component="tmdb"]').remove();
-		              $('div[data-component="sisi"]').remove();
-		              $('div[data-component="my_iptv"]').remove();	
-                }, 0)
+                    setTimeout(function() {
+                        $('div[data-component="tmdb"]').remove();
+		        $('div[data-component="sisi"]').remove();
+		        $('div[data-component="my_iptv"]').remove();	
+                     }, 0)
 	         }
-           if (e.name == 'account') {
-                setTimeout(function() {
+                 if (e.name == 'account') {
+                    setTimeout(function() {
                     // удаляем строки Синхронизация 
-				         	$('.settings--account-premium').remove()
+			$('.settings--account-premium').remove()
                     // и строку /CUB Premium/ над ними
-					        $('div > span:contains("CUB Premium")').remove()
-                }, 0);
-           }
+		        $('div > span:contains("CUB Premium")').remove()
+                     }, 0);
+                 }
 	         if (e.name == 'server') {
-		          // убираем рекламу в настройках torrserver
-				         if (document.querySelector('.ad-server') !== null) {
-					           $('.ad-server').remove();
-				         }
-           }
-        });
+		    // убираем рекламу в настройках torrserver
+		    if (document.querySelector('.ad-server') !== null) {
+			 $('.ad-server').remove();
+		    }
+                 }
+       });
 		
 		// мы внутри карточки
-        Lampa.Listener.follow('full', function(e) {
-            if (e.type == 'complite') {
+       Lampa.Listener.follow('full', function(e) {
+             if (e.type == 'complite') {
                 // на кнопке закладок, долгое нажатие - вешаем событие
-				       $('.button--book').on('hover:enter', function() {
-                    // чистим пункты в подменю
-					          cleanCub();
-                });
+		  $('.button--book').on('hover:enter', function() {
+                // чистим пункты в подменю
+		     cleanCub();
+                  });
                 // скрываем кнопку ПОДПИСАТЬСЯ в карточке
-		            setTimeout(function() {
+		  setTimeout(function() {
 		    //if ($('.view--online').length > 1) $('.view--online')[1].remove();//убираем дубликат кнопки 
-                    $('.button--subscribe').remove();
-		                $(".view--online", Lampa.Activity.active().activity.render()).empty().append('<svg viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32"><path d="m17 14.5 4.2-4.5L4.9 1.2c-.1-.1-.3-.1-.6-.2L17 14.5zM23 21l5.9-3.2c.7-.4 1.1-1 1.1-1.8s-.4-1.5-1.1-1.8L23 11l-4.7 5 4.7 5zM2.4 1.9c-.3.3-.4.7-.4 1.1v26c0 .4.1.8.4 1.2L15.6 16 2.4 1.9zM17 17.5 4.3 31c.2 0 .4-.1.6-.2L21.2 22 17 17.5z" fill="currentColor" fill="#ffffff" class="fill-000000"></path></svg>Онлайн');
-			              Lampa.Controller.toggle('full_start');
-                 }, 0);
-            }
+                     $('.button--subscribe').remove();
+		     $(".view--online", Lampa.Activity.active().activity.render()).empty().append('<svg viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32"><path d="m17 14.5 4.2-4.5L4.9 1.2c-.1-.1-.3-.1-.6-.2L17 14.5zM23 21l5.9-3.2c.7-.4 1.1-1 1.1-1.8s-.4-1.5-1.1-1.8L23 11l-4.7 5 4.7 5zM2.4 1.9c-.3.3-.4.7-.4 1.1v26c0 .4.1.8.4 1.2L15.6 16 2.4 1.9zM17 17.5 4.3 31c.2 0 .4-.1.6-.2L21.2 22 17 17.5z" fill="currentColor" fill="#ffffff" class="fill-000000"></path></svg>Онлайн');
+		     Lampa.Controller.toggle('full_start');
+                   }, 0);
+               }
         })
 
         Lampa.Storage.listener.follow('change', function(event) {
@@ -223,7 +225,8 @@ function mainSet() {
                 }, 200)
             }
         });
-	}
+	
+        }
   
 	 
   
@@ -244,8 +247,8 @@ function mainSet() {
       else {
         Lampa.Listener.follow('app', function(e) {
             // если приложение прогрузилось
-            if (e.type == 'ready') {
-		   // вызываем основные настройки
+           if (e.type == 'ready') {
+	    // вызываем основные настройки
 	       mainSet();
                modssAd();
                hideIT();
