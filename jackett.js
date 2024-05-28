@@ -135,7 +135,7 @@ Lampa.SettingsApi.addParam({
     }
    });
 	
-	Lampa.Settings.listener.follow('', function (e) {
+	Lampa.Settings.listener.follow('open', function (e) {
 		if (e.name == 'parser') {
 			e.body.find('[data-name="jackett_url2"]').remove();
 			e.body.find('[data-name="jackett_url_two"]').remove();
