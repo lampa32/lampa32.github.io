@@ -43,7 +43,6 @@
 	    'https://lampa32.github.io/addon.js',
 	    'https://lampa32.github.io/mult.js',
 	    'https://lampa32.github.io/tv2.js',
-	    'https://lampa32.github.io/but_remove.js',
 	    'https://cub.red/plugin/tracks'
     ], function () {});
 
