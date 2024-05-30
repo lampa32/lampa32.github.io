@@ -1,7 +1,45 @@
 (function() {
     'use strict';
 
-function deleteSubscribeButton(){
+
+function deleteSubscribeButton() {
+  console.log('Интервал ожидания кнопки запущен');
+
+  var observer = new MutationObserver(function(mutationsList) {
+    for (var mutation of mutationsList) {
+      if (mutation.type === 'childList') {
+        var subscribeButton = document.querySelector('.button--subscribe');
+        if (subscribeButton) {
+          console.log('Кнопка найдена, удаляем');
+          subscribeButton.remove();
+          observer.disconnect();
+          console.log('Интервал остановлен: observer');
+        }
+      }
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+Lampa.Listener.follow('full', function(e) {
+  if (e.type === 'complite') {
+    console.log('Интервал ожидания персоны: waitInterval');
+    var waitInterval = setInterval(function() {
+      var fullPerson = document.querySelector('.full-person');
+      if (fullPerson) {
+        fullPerson.addEventListener('hover:enter', function() {
+          console.log('Стоп ожидания персоны');
+          clearInterval(waitInterval);
+          deleteSubscribeButton();
+        });
+      }
+    }, 200);
+  }
+});
+
+    
+/*function deleteSubscribeButton(){
 
         console.log('интервал ожидания кнопки запущен');
 
@@ -67,7 +105,7 @@ Lampa.Listener.follow('full', function(e) {
 
    }
 
-});
+});*/
 
 
 
