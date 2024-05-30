@@ -143,7 +143,7 @@ Lampa.SettingsApi.addParam({
         });
 	
 	Lampa.Storage.listener.follow('change', function (e) {
-		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') {
+		if (/*e.name == 'parser_torrent_type'&&*/Lampa.Storage.field('parser_torrent_type') !== 'jackett') {
 		  $('div[data-name="jackett_urltwo"]').hide();
 		}
 	        else {
@@ -153,21 +153,20 @@ Lampa.SettingsApi.addParam({
 	});
 	
 	var timer = setInterval(function(){
-        if(typeof Lampa !== 'undefined'){
-            clearInterval(timer);
-
-            if(!Lampa.Storage.get('jack','false')) start_jack();	
-            } 
+          if(typeof Lampa !== 'undefined'){
+              clearInterval(timer);
+                if(!Lampa.Storage.get('jack','false')) start_jack();	
+          } 
         },100);
 
 	function start_jack() {
-        Lampa.Storage.set('jack','true');
-        Lampa.Storage.set('jackett_url', 'jacred.xyz');
-        Lampa.Storage.set('jackett_urltwo', 'jacred_xyz');
-	Lampa.Storage.set('parse_in_search', true);
-        Lampa.Storage.set('jackett_key', '')
-	Lampa.Storage.set('jackett_interview', 'healthy')
-	Lampa.Storage.set('parse_lang', 'lg');
+           Lampa.Storage.set('jack','true');
+           Lampa.Storage.set('jackett_url', 'jacred.xyz');
+           Lampa.Storage.set('jackett_urltwo', 'jacred_xyz');
+	   Lampa.Storage.set('parse_in_search', true);
+           Lampa.Storage.set('jackett_key', '')
+	   Lampa.Storage.set('jackett_interview', 'healthy')
+	   Lampa.Storage.set('parse_lang', 'lg');
         }
 
 function myMenu() {
