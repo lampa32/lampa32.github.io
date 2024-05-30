@@ -140,24 +140,17 @@ Lampa.SettingsApi.addParam({
 			e.body.find('[data-name="jackett_url2"]').remove();
 			e.body.find('[data-name="jackett_url_two"]').remove();
 		}
-		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') {
-		        e.body.find('[data-name="jackett_urltwo"]').hide();
-		}
-	        else {
-		        e.body.find('[data-name="jackett_urltwo"]').show();
-		        e.body.find('[data-name="jackett_urltwo"]').insertAfter('[data-name="parser_torrent_type"]');
-		}
         });
 	
-	/*Lampa.Storage.listener.follow('change', function (e) {
+	Lampa.Storage.listener.follow('change', function (e) {
 		if (e.name == 'parser_torrent_type'&&Lampa.Storage.field('parser_torrent_type') !== 'jackett') {
-		  $('[data-name="jackett_urltwo"]').hide();
+		  $('div[data-name="jackett_urltwo"]').hide();
 		}
 	        else {
-		  $('[data-name="jackett_urltwo"]').show();
+		  $('div[data-name="jackett_urltwo"]').show();
 		  $('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 		}
-	});*/
+	});
 	
 	var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
