@@ -49,7 +49,7 @@ function myRequest(i) {
 	setTimeout(function() {
 		var myLink = 'http://' + options[i] + ':8090';
 		var xhr = new XMLHttpRequest();
-		xhr.timeout = 2000; 
+		xhr.timeout = 1000; 
 		xhr.open("GET", myLink, true);
 		xhr.send();
 		xhr.onload = function() {
