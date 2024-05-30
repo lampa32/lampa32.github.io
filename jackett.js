@@ -129,8 +129,8 @@ Lampa.SettingsApi.addParam({
                                    $('div[data-name="jackett_key"]').hide()
 				   Lampa.Controller.toggle('settings_component');
                                 }
-				if(Lampa.Storage.field('parser_use')&&Lampa.Storage.field('parser_torrent_type') == 'jackett') item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
-				else item.hide();
+				//if(Lampa.Storage.field('parser_use')&&Lampa.Storage.field('parser_torrent_type') == 'jackett') item.show()&$('.settings-param__name', item).css('color','ffffff')&$('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
+				//else item.hide();
 			}, 10);
     }
    });
