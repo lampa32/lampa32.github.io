@@ -149,7 +149,7 @@ Lampa.SettingsApi.addParam({
 		     else $('[data-name="jackett_urltwo"]').show();
 		  $('div[data-name="jackett_urltwo"]').insertAfter('div[data-name="parser_torrent_type"]');
 		
-	     }, 100)
+	     }, 0)
 	});
 	
 	var timer = setInterval(function(){
