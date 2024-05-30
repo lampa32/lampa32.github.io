@@ -143,7 +143,7 @@ Lampa.SettingsApi.addParam({
         });
 	
 	Lampa.Storage.listener.follow('change', function (e) {
-		if (/*e.name == 'parser_torrent_type'&&*/Lampa.Storage.field('parser_torrent_type') !== 'jackett') {
+		if (Lampa.Storage.field('parser_torrent_type') !== 'jackett') {
 		  $('div[data-name="jackett_urltwo"]').hide();
 		}
 	        else {
