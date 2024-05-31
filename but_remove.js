@@ -2,24 +2,27 @@
     'use strict';
 
 function deleteSubscribeButton() {
-  console.log('Интервал ожидания кнопки запущен');
-
-  var observer = new MutationObserver(function(mutationsList) {
-    for (var mutation of mutationsList) {
-      if (mutation.type === 'childList') {
-        var subscribeButton = document.querySelector('.button--subscribe');
-        if (subscribeButton) {
-          console.log('Кнопка найдена, удаляем');
-          subscribeButton.remove();
-          observer.disconnect();
-          console.log('Интервал остановлен: observer');
-        }
-      }
-    }
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
+  var subscribeButton = document.querySelector('.button--subscribe');
+  if (subscribeButton) {
+    console.log('Кнопка найдена, удаляем');
+    subscribeButton.remove();
+    observer.disconnect();
+    console.log('Интервал остановлен: observer');
+  } else {
+    setTimeout(deleteSubscribeButton, 100);
+  }
 }
+
+var observer = new MutationObserver(function(mutationsList) {
+  for (var mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      deleteSubscribeButton();
+    }
+  }
+});
+
+observer.observe(document.body, { childList: true, subtree: true });
+console.log('Интервал ожидания кнопки запущен');
 
 Lampa.Listener.follow('full', function(e) {
   if (e.type === 'complite') {
@@ -33,7 +36,7 @@ Lampa.Listener.follow('full', function(e) {
           deleteSubscribeButton();
         });
       }
-    }, 200);
+    }, 100);
   }
 });
 
