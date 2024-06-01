@@ -40,7 +40,7 @@ Lampa.Listener.follow('full', function(e) {
           deleteSubscribeButton();
         });
       }
-    }, 100);
+    }, 50);
   }
 });
 
