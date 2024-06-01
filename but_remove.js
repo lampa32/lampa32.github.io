@@ -1,44 +1,10 @@
 (function() {
     'use strict';
 
-var observerConfig = { childList: true, subtree: true };
 
-function deleteButtonToDelete() {
-  var buttonToDelete = document.querySelector('.button--subscribe');
-  if (buttonToDelete) {
-    console.log('Кнопка найдена, удаляем');
-    buttonToDelete.remove();
-    observer.disconnect();
-    console.log('Наблюдение остановлено');
-  }
-}
-
-var observer = new MutationObserver(function(mutationsList) {
-  for (var i = 0; i < mutationsList.length; i++) {
-    if (mutationsList[i].type === 'childList') {
-      deleteButtonToDelete();
-    }
-  }
-});
-
-observer.observe(document.body, observerConfig);
-console.log('Ожидание кнопки...');
-
-Lampa.Listener.follow('full', function(e) {
-  if (e.type === 'complite') {
-    console.log('Ожидание персоны...');
-    var fullPerson = document.querySelector('.full-person');
-    if (fullPerson) {
-      fullPerson.addEventListener('hover:enter', function() {
-        console.log('Персона найдена, удаляем кнопку');
-        deleteButtonToDelete();
-      });
-    }
-  }
-});
     
     
-    /*function deleteSubscribeButton() {
+function deleteSubscribeButton() {
   var subscribeButton = document.querySelector('.button--subscribe');
   if (subscribeButton) {
     console.log('Кнопка найдена, удаляем');
@@ -46,7 +12,7 @@ Lampa.Listener.follow('full', function(e) {
     observer.disconnect();
     console.log('Интервал остановлен: observer');
   } else {
-    setTimeout(deleteSubscribeButton, 100);
+    setTimeout(deleteSubscribeButton, 150);
   }
 }
 
@@ -73,9 +39,9 @@ Lampa.Listener.follow('full', function(e) {
           deleteSubscribeButton();
         });
       }
-    }, 100);
+    }, 150);
   }
-});*/
+});
 
     
 /*function deleteSubscribeButton(){
