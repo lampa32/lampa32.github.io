@@ -13,7 +13,7 @@ function deleteSubscribeButton() {
     observer.disconnect();
     console.log('Интервал остановлен: observer');
   } else {
-    setTimeout(deleteSubscribeButton, 100);
+    setTimeout(deleteSubscribeButton, 50);
   }
 }
 
