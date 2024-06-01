@@ -1,11 +1,48 @@
 (function() {
     'use strict';
 
+Lampa.Listener.follow('full', function(e) {
+  if (e.type === 'complite') {
+    console.log('Интервал ожидания персоны: waitInterval');
+    var waitInterval = setInterval(function() {
+      var fullPerson = document.querySelector('.full-person');
+      if (fullPerson) {
+        fullPerson.addEventListener('hover:enter', function() {
+          console.log('Стоп ожидания персоны');
+          clearInterval(waitInterval);
+          hideSubscribeButton();
+        });
+      }
+    }, 100);
+  }
+});
 
+var observer = new MutationObserver(function(mutationsList) {
+  for (var mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      hideSubscribeButton();
+    }
+  }
+});
+
+observer.observe(document.body, { childList: true, subtree: true });
+console.log('Интервал ожидания кнопки запущен');
+
+function hideSubscribeButton() {
+  var subscribeButton = document.querySelector('.button--subscribe');
+  if (subscribeButton) {
+    console.log('Кнопка найдена, скрываем');
+    subscribeButton.style.display = 'none';
+    observer.disconnect();
+    console.log('Интервал остановлен: observer');
+  } else {
+    console.log('Кнопка не найдена');
+  }
+}
 
 
     
-function deleteSubscribeButton() {
+/*function deleteSubscribeButton() {
   var subscribeButton = document.querySelector('.button--subscribe');
   if (subscribeButton) {
     console.log('Кнопка найдена, удаляем');
@@ -42,7 +79,7 @@ Lampa.Listener.follow('full', function(e) {
       }
     }, 50);
   }
-});
+});*/
 
     
 /*function deleteSubscribeButton(){
