@@ -12,9 +12,9 @@ function deleteSubscribeButton() {
     subscribeButton.remove();
     observer.disconnect();
     console.log('Интервал остановлен: observer');
-  } /*else {
+  } else {
     setTimeout(deleteSubscribeButton, 100);
-  }*/
+  }
 }
 
 var observer = new MutationObserver(function(mutationsList) {
