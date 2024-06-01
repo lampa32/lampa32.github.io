@@ -1,53 +1,20 @@
 (function() {
     'use strict';
 
-Lampa.Listener.follow('full', function(e) {
-  if (e.type === 'complite') {
-    console.log('Интервал ожидания персоны: waitInterval');
 
-    var subscribeButton = document.querySelector('.subscribe-button');
 
-    if (subscribeButton) {
-      console.log('Кнопка найдена, удаляем');
-      subscribeButton.remove();
-      observer.disconnect();
-      console.log('Интервал остановлен: observer');
-    } else {
-      console.log('Кнопка не найдена');
-    }
-  }
-});
 
-var observer = new MutationObserver(function(mutationsList) {
-  for (var mutation of mutationsList) {
-    if (mutation.type === 'childList') {
-      var subscribeButton = document.querySelector('.subscribe-button');
-      if (subscribeButton) {
-        console.log('Кнопка найдена, удаляем');
-        subscribeButton.remove();
-        observer.disconnect();
-        console.log('Интервал остановлен: observer');
-      } else {
-        console.log('Кнопка не найдена');
-      }
-    }
-  }
-});
-
-observer.observe(document.body, { childList: true, subtree: true });
-console.log('Интервал ожидания кнопки запущен');
     
-    
-/*function deleteSubscribeButton() {
+function deleteSubscribeButton() {
   var subscribeButton = document.querySelector('.button--subscribe');
   if (subscribeButton) {
     console.log('Кнопка найдена, удаляем');
     subscribeButton.remove();
     observer.disconnect();
     console.log('Интервал остановлен: observer');
-  } else {
+  } /*else {
     setTimeout(deleteSubscribeButton, 100);
-  }
+  }*/
 }
 
 var observer = new MutationObserver(function(mutationsList) {
@@ -75,7 +42,7 @@ Lampa.Listener.follow('full', function(e) {
       }
     }, 100);
   }
-});*/
+});
 
     
 /*function deleteSubscribeButton(){
