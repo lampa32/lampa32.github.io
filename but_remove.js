@@ -12,7 +12,7 @@ function deleteSubscribeButton() {
     observer.disconnect();
     console.log('Интервал остановлен: observer');
   } else {
-    setTimeout(deleteSubscribeButton, 150);
+    setTimeout(deleteSubscribeButton, 100);
   }
 }
 
@@ -39,7 +39,7 @@ Lampa.Listener.follow('full', function(e) {
           deleteSubscribeButton();
         });
       }
-    }, 150);
+    }, 100);
   }
 });
 
