@@ -40,6 +40,13 @@ function hideSubscribeButton() {
   }
 }
 
+// Добавлен новый обработчик событий
+Lampa.Events.listen('component', function(event) {
+  if (event.type === 'resize') {
+    hideSubscribeButton();
+  }
+});
+
 
     
 /*function deleteSubscribeButton() {
