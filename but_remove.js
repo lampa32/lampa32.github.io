@@ -3,10 +3,10 @@
 
 
 function deleteSubscribeButton() {
-  var subscribeButton = document.querySelector('.button--subscribe');
-  if (subscribeButton) {
+  var subscribeButton = $('.button--subscribe');
+  if (subscribeButton.length) {
     console.log('Кнопка найдена, удаляем');
-    subscribeButton.style.visibility = 'hidden'; // Изменяем стиль кнопки на невидимый
+    subscribeButton.css('display', 'none'); // Скрываем кнопку путем изменения display на none
     observer.disconnect();
     console.log('Интервал остановлен: observer');
   } else {
