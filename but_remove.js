@@ -5,15 +5,17 @@
 
     
 function deleteSubscribeButton() {
-  var subscribeButton = document.querySelector('.button--subscribe');
-  if (subscribeButton) {
-    console.log('Кнопка найдена, удаляем');
-    subscribeButton.remove();
-    observer.disconnect();
-    console.log('Интервал остановлен: observer');
-  } else {
-    setTimeout(deleteSubscribeButton, 10);
-  }
+    var subscribeButton = document.querySelector('.button--subscribe');
+    if (subscribeButton) {
+        console.log('Кнопка найдена, удаляем');
+        subscribeButton.remove();
+        observer.disconnect();
+        console.log('Интервал остановлен: observer');
+    } else {
+        if(observer){
+            setTimeout(deleteSubscribeButton, 10);
+        }
+    }
 }
 
 var observer = new MutationObserver(function(mutationsList) {
