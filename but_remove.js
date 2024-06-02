@@ -6,7 +6,7 @@ function deleteSubscribeButton() {
   var subscribeButton = document.querySelector('.button--subscribe');
   if (subscribeButton) {
     console.log('Кнопка найдена, удаляем');
-    subscribeButton.style.display = 'none'; // Изменяем стиль кнопки на скрытый
+    subscribeButton.style.visibility = 'hidden'; // Изменяем стиль кнопки на невидимый
     observer.disconnect();
     console.log('Интервал остановлен: observer');
   } else {
