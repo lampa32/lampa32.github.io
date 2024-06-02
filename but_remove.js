@@ -2,22 +2,21 @@
     'use strict';
 
 
-function deleteSubscribeButton() {
-  var subscribeButton = $('.button--subscribe');
-  if (subscribeButton.length) {
+function deleteSubscribeButtons() {
+  var subscribeButtons = $('.button--subscribe');
+  subscribeButtons.each(function(index, button) {
     console.log('Кнопка найдена, удаляем');
-    subscribeButton.css('display', 'none'); // Скрываем кнопку путем изменения display на none
-    observer.disconnect();
-    console.log('Интервал остановлен: observer');
-  } else {
-    setTimeout(deleteSubscribeButton, 10);
-  }
+    $(button).css('display', 'none'); // Скрываем каждую найденную кнопку
+  });
+
+  observer.disconnect();
+  console.log('Интервал остановлен: observer');
 }
 
 var observer = new MutationObserver(function(mutationsList) {
   for (var mutation of mutationsList) {
     if (mutation.type === 'childList') {
-      deleteSubscribeButton();
+      deleteSubscribeButtons();
     }
   }
 });
@@ -34,13 +33,12 @@ Lampa.Listener.follow('full', function(e) {
         fullPerson.addEventListener('hover:enter', function() {
           console.log('Стоп ожидания персоны');
           clearInterval(waitInterval);
-          deleteSubscribeButton();
+          deleteSubscribeButtons();
         });
       }
     }, 100);
   }
 });
-
     
 /*function deleteSubscribeButton() {
   var subscribeButton = document.querySelector('.button--subscribe');
