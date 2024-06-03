@@ -9,13 +9,25 @@ function deleteSubscribeButton() {
         var styleElement = document.createElement('style');
         styleElement.innerHTML = '.button--subscribe { display: none; }';
         document.body.appendChild(styleElement);
-        console.log('Кнопка скрыта');
+        observer.disconnect();
+        console.log('Интервал остановлен: observer');
     }
 }
 
+var observer = new MutationObserver(function(mutationsList) {
+  for (var mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      deleteSubscribeButton();
+    }
+  }
+});
+
+observer.observe(document.body, { childList: true, subtree: true });
+console.log('Интервал ожидания кнопки запущен');
+
 Lampa.Listener.follow('full', function(e) {
   if (e.type === 'complite') {
-    console.log('Ожидание персоны');
+    console.log('Интервал ожидания персоны: waitInterval');
     var fullPerson = document.querySelector('.full-person');
     if (fullPerson) {
         fullPerson.addEventListener('hover:enter', function() {
