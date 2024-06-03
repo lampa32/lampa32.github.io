@@ -114,9 +114,9 @@
                     // чистим пункты в подменю
 			cleanCub();
                 });
-                setTimeout(function() {
+                /*setTimeout(function() {
 		     $('.button--subscribe').remove();
-	        }, 0)
+	        }, 0)*/
 	    }	    
          });
         
