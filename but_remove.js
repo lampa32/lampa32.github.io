@@ -4,7 +4,7 @@
 
 
     
-function deleteSubscribeButton() {
+/*function deleteSubscribeButton() {
     var subscribeButton = document.querySelector('.button--subscribe');
     if (subscribeButton) {
         console.log('Кнопка найдена, удаляем');
@@ -43,7 +43,7 @@ Lampa.Listener.follow('full', function(e) {
       }
     }, 100);
   }
-});
+});*/
 
     
 /*function deleteSubscribeButton(){
