@@ -55,7 +55,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
           $('.selectbox-item > div:contains("Отключить")').onclick = null;
         });
       }
-    }, 100);
+    }, 50);
   }
 });
 
@@ -80,9 +80,9 @@ Lampa.SettingsApi.addParam({
           $('.extensions__item--theme').on('hover:enter', function() {
             localStorage.setItem('myTheme', this.querySelector('.extensions__item-name').innerText)
           });
-        }, 2000)
+        }, 500)
       });
-    }, 500);
+    }, 50);
   }
 });
 
