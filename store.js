@@ -82,7 +82,7 @@ Lampa.SettingsApi.addParam({
           });
         }, 2000)
       });
-    }, 10);
+    }, 500);
   }
 });
 
