@@ -142,9 +142,9 @@ function checkAlive() {
   function showBut_Torr() {
 
 	 //прячем кнопку при старте приложения 
-              setTimeout(function(){
+            /*  setTimeout(function(){
                 $('#SWITCH_SERVER').hide()
-              }, 10);
+              }, 10);*/
 	  
            //прячем кнопку если мы не в торрентах
        Lampa.Storage.listener.follow('change', function (event) {
