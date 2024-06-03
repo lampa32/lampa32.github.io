@@ -2,6 +2,127 @@
     'use strict'
 function mainSet() {
 
+function loadThemeCSS(themeName) {
+  var css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = 'http://lampa.run.place/' + themeName + '.css';
+  document.body.appendChild(css);
+}
+
+function removeThemeCSS() {
+  var links = document.querySelectorAll('link[rel="stylesheet"][href^="http://lampa.run.place/"]');
+  links.forEach(function(link) {
+    link.remove();
+  });
+}
+
+function observeThemeChanges() {
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList') {
+        var savedTheme = localStorage.getItem('myTheme');
+        if (savedTheme && savedTheme !== 'Disabled') {
+          loadThemeCSS(savedTheme.toLowerCase().replace(/\s+/g, '_'));
+        } else {
+          removeThemeCSS();
+        }
+      }
+    });
+  });
+
+  observer.observe(document.body, { childList: true });
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  observeThemeChanges();
+  var savedTheme = localStorage.getItem('myTheme');
+  if (savedTheme && savedTheme !== 'Disabled') {
+    loadThemeCSS(savedTheme.toLowerCase().replace(/\s+/g, '_'));
+  } else {
+    removeThemeCSS();
+  }
+});
+
+Lampa.Controller.listener.follow('toggle', function(e) {
+  if (e.name === 'select') {
+    setTimeout(function() {
+      var savedTheme = localStorage.getItem('myTheme');
+      if (savedTheme === 'Copenhagen') {
+        var enableButton = document.querySelector('.selectbox-item > div:contains("Включить")');
+        var disableButton = document.querySelector('.selectbox-item > div:contains("Отключить")');
+        if (enableButton) {
+          enableButton.addEventListener('click', function() {
+            removeThemeCSS();
+            loadThemeCSS('copenhagen');
+            enableButton.removeEventListener('click', this);
+          });
+        }
+        if (disableButton) {
+          disableButton.addEventListener('click', function() {
+            removeThemeCSS();
+            localStorage.setItem('myTheme', 'Disabled');
+            disableButton.removeEventListener('click', this);
+          });
+        }
+      }
+      if (savedTheme === 'Authentic Brief') {
+        var enableButton = document.querySelector('.selectbox-item > div:contains("Включить")');
+        var disableButton = document.querySelector('.selectbox-item > div:contains("Отключить")');
+        if (enableButton) {
+          enableButton.addEventListener('click', function() {
+            removeThemeCSS();
+            loadThemeCSS('authentic_brief');
+            enableButton.removeEventListener('click', this);
+          });
+        }
+        if (disableButton) {
+          disableButton.addEventListener('click', function() {
+            removeThemeCSS();
+            localStorage.setItem('myTheme', 'Disabled');
+            disableButton.removeEventListener('click', this);
+          });
+        }
+      }
+    }, 2000);
+  }
+});
+
+Lampa.SettingsApi.addParam({
+  component: 'interface',
+  param: {
+    name: 'col',
+    type: 'static',
+  },
+  field: {
+    name: '123',
+  },
+  onRender: function(item) {
+    setTimeout(function() {
+      var settingsParam = document.querySelector('.settings-param > div:contains("123")');
+      if (settingsParam) {
+        settingsParam.parentElement.insertAdjacentElement('afterend', document.querySelector('div[data-name="interface_size"]'));
+      }
+      item.addEventListener('hover:enter', function() {
+        Lampa.Extensions.show({
+          store: 'http://lampa.run.place/extensions.json',
+          with_installed: false,
+        });
+        setTimeout(function() {
+            
+          var themeItems = document.querySelectorAll('.extensionsitem--theme');
+          themeItems.forEach(function(themeItem) {
+            themeItem.addEventListener('hover:enter', function() {
+              var themeName = this.querySelector('.extensionsitem-name').innerText;
+              localStorage.setItem('myTheme', themeName);
+            });
+          });
+        }, 1500);
+      });
+    }, 10);
+  },
+});
+    
+/*****
   // Функция для загрузки CSS-файла темы
 function loadThemeCSS(themeName) {
   var css = $('<link rel="stylesheet" href="http://lampa.run.place/' + themeName + '.css">');
@@ -78,7 +199,7 @@ Lampa.SettingsApi.addParam({
       });
     }, 10);
   }
-});
+});****/
 
 
 /*Lampa.Controller.listener.follow('toggle', function(e) {
