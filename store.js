@@ -16,6 +16,45 @@ function removeThemeCSS() {
   });
 }
 
+function handleThemeToggle(themeName) {
+  if (themeName === 'Copenhagen') {
+    var enableButton = document.querySelector('.selectbox-item > div:contains("Включить")');
+    var disableButton = document.querySelector('.selectbox-item > div:contains("Отключить")');
+    if (enableButton) {
+      enableButton.addEventListener('click', function() {
+        removeThemeCSS();
+        loadThemeCSS('copenhagen');
+        enableButton.removeEventListener('click', this);
+      });
+    }
+    if (disableButton) {
+      disableButton.addEventListener('click', function() {
+        removeThemeCSS();
+        localStorage.setItem('myTheme', 'Disabled');
+        disableButton.removeEventListener('click', this);
+      });
+    }
+  }
+  if (themeName === 'Authentic Brief') {
+    var enableButton = document.querySelector('.selectbox-item > div:contains("Включить")');
+    var disableButton = document.querySelector('.selectbox-item > div:contains("Отключить")');
+    if (enableButton) {
+      enableButton.addEventListener('click', function() {
+        removeThemeCSS();
+        loadThemeCSS('authentic_brief');
+        enableButton.removeEventListener('click', this);
+      });
+    }
+    if (disableButton) {
+      disableButton.addEventListener('click', function() {
+        removeThemeCSS();
+        localStorage.setItem('myTheme', 'Disabled');
+        disableButton.removeEventListener('click', this);
+      });
+    }
+  }
+}
+
 function observeThemeChanges() {
   var observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
@@ -47,41 +86,10 @@ Lampa.Controller.listener.follow('toggle', function(e) {
   if (e.name === 'select') {
     setTimeout(function() {
       var savedTheme = localStorage.getItem('myTheme');
-      if (savedTheme === 'Copenhagen') {
-        var enableButton = document.querySelector('.selectbox-item > div:contains("Включить")');
-        var disableButton = document.querySelector('.selectbox-item > div:contains("Отключить")');
-        if (enableButton) {
-          enableButton.addEventListener('click', function() {
-            removeThemeCSS();
-            loadThemeCSS('copenhagen');
-            enableButton.removeEventListener('click', this);
-          });
-        }
-        if (disableButton) {
-          disableButton.addEventListener('click', function() {
-            removeThemeCSS();
-            localStorage.setItem('myTheme', 'Disabled');
-            disableButton.removeEventListener('click', this);
-          });
-        }
-      }
-      if (savedTheme === 'Authentic Brief') {
-        var enableButton = document.querySelector('.selectbox-item > div:contains("Включить")');
-        var disableButton = document.querySelector('.selectbox-item > div:contains("Отключить")');
-        if (enableButton) {
-          enableButton.addEventListener('click', function() {
-            removeThemeCSS();
-            loadThemeCSS('authentic_brief');
-            enableButton.removeEventListener('click', this);
-          });
-        }
-        if (disableButton) {
-          disableButton.addEventListener('click', function() {
-            removeThemeCSS();
-            localStorage.setItem('myTheme', 'Disabled');
-            disableButton.removeEventListener('click', this);
-          });
-        }
+      if (savedTheme && savedTheme !== 'Disabled') {
+        handleThemeToggle(savedTheme);
+      } else {
+        removeThemeCSS();
       }
     }, 2000);
   }
@@ -121,6 +129,7 @@ Lampa.SettingsApi.addParam({
     }, 10);
   },
 });
+
     
 /*****
   // Функция для загрузки CSS-файла темы
