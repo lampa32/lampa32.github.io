@@ -52,9 +52,10 @@
 	
 	function cub_off() {
 
-        /*var styleElement = document.createElement('style');
-        styleElement.innerHTML = '.button--subscribe { display: none; }';
-        document.body.appendChild(styleElement);*/
+		//убираем везде кнопку "Подписаться" через стиль
+          var styleElement = document.createElement('style');
+          styleElement.innerHTML = '.button--subscribe { display: none; }';
+          document.body.appendChild(styleElement);
 		
 		// убираем рекламу перед включением плеера через смену региона (не языка)
           $(document).ready(function() {
