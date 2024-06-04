@@ -103,6 +103,7 @@ Lampa.SettingsApi.addParam({
      values: {
         no_parser:                'Свой вариант',
         jac_lampa32_ru:           'Lampa32',
+	bylampa_jackett:          'ByLampa Jackett',
         jacred_xyz:               'Jacred.xyz',
 	jacred_ru:                'Jacred.ru',
         jacred_my_to:             'Jacred My To',
@@ -110,7 +111,6 @@ Lampa.SettingsApi.addParam({
         spawn_jackett:            'Spawn Jackett',
         spawn_jacred:             'Spawn Jacred',
         altjacred_duckdns_org:    'Johnny Jacred',
-	bylampa_jackett:          'ByLampa Jackett',
      },
      default: 'jacred_xyz'
     },
@@ -186,7 +186,16 @@ function myMenu() {
         jac_int: 'all',
         jac_lang: 'lg'
     });
-
+	
+    menu.push({
+        title: 'ByLampa Jackett',
+        url: '79.137.204.8:9117',
+	url_two: 'bylampa_jackett',
+        jac_key: '777',
+        jac_int: 'healthy',
+        jac_lang: 'df'
+    });
+	
     menu.push({
         title: 'Jacred.xyz',
         url: 'jacred.xyz',
