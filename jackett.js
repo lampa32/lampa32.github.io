@@ -310,6 +310,7 @@ function myMenuRequest(url, title, menuItem) {
 	var proto = location.protocol === "https:" ? 'https://' : 'http://'
         var myAdder = '';
         if (url == 'spawn.pp.ua:59117') var myAdder = '2'
+	if (url == '79.137.204.8:9117') var myAdder = '777'
         var myLink = proto + url + '/api/v2.0/indexers/status:healthy/results?apikey=' + myAdder; //(menuItem.jac_key ? '&' + menuItem.jac_key : '');
 
         var xhr = new XMLHttpRequest();
