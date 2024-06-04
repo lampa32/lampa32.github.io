@@ -13,13 +13,13 @@ var parserBase = [
 	'jacred.viewbox.dev',
 	'spawn.pp.ua:59118',
 	'spawn.pp.ua:59117',
-	'79.137.204.8:9117',
+	//'79.137.204.8:9117',
 	'altjacred.duckdns.org'
 ]
 
 var parserName = [
 	'Lampa32',
-	'ByLampa Jackett',
+	//'ByLampa Jackett',
 	'Jacred.xyz',
 	'Jacred.ru',
 	'Jacred My To',
