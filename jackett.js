@@ -108,8 +108,8 @@ Lampa.SettingsApi.addParam({
 	jacred_ru:                'Jacred.ru',
         jacred_my_to:             'Jacred My To',
 	jacred_viewbox_dev:       'Viewbox',
-        spawn_jackett:            'Spawn Jackett',
         spawn_jacred:             'Spawn Jacred',
+	spawn_jackett:            'Spawn Jackett',
         altjacred_duckdns_org:    'Johnny Jacred'
      },
      default: 'jacred_xyz'
@@ -233,21 +233,21 @@ function myMenu() {
     });
 
     menu.push({
-        title: 'Spawn Jackett',
-        url: 'spawn.pp.ua:59117',
-	url_two: 'spawn_jackett',
-        jac_key: '2',
-        jac_int: 'healthy',
-        jac_lang: 'df'
-    });
-
-    menu.push({
         title: 'Spawn Jacred',
         url: 'spawn.pp.ua:59118',
 	url_two: 'spawn_jacred',
         jac_key: '',
         jac_int: 'all',
         jac_lang: 'lg'
+    });
+
+    menu.push({
+        title: 'Spawn Jackett',
+        url: 'spawn.pp.ua:59117',
+	url_two: 'spawn_jackett',
+        jac_key: '2',
+        jac_int: 'healthy',
+        jac_lang: 'df'
     });
 
     menu.push({
