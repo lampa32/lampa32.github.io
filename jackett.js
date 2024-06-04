@@ -23,8 +23,8 @@ var parserName = [
 	'Jacred.ru',
 	'Jacred My To',
 	'Viewbox',
-	'Spawn Jackett',
 	'Spawn Jacred',
+	'Spawn Jackett',
 	'Johnny Jacred',
 	'ByLampa Jackett'
 ]
@@ -110,7 +110,7 @@ Lampa.SettingsApi.addParam({
 	jacred_viewbox_dev:       'Viewbox',
         spawn_jackett:            'Spawn Jackett',
         spawn_jacred:             'Spawn Jacred',
-        altjacred_duckdns_org:    'Johnny Jacred',
+        altjacred_duckdns_org:    'Johnny Jacred'
      },
      default: 'jacred_xyz'
     },
