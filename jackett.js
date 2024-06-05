@@ -41,7 +41,7 @@ function myRequest(i) {
 		if ($('body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child(1) > div').text() !== 'Свой вариант') return;
 		var myLink = proto + parserBase[i] + '/api/v2.0/indexers/status:healthy/results?apikey=' + myAdder;
 		var xhr = new XMLHttpRequest();
-		xhr.timeout = 5000;
+		xhr.timeout = 3000;
 		xhr.open("GET", myLink, true);
 		xhr.send();
 		xhr.ontimeout = function() {
