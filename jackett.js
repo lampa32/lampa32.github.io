@@ -39,7 +39,7 @@ function myRequest(i) {
 			else proto = 'http://'*/
 		var mySelector = 'body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child('+ k +') > div';
 		if ($('body > div.selectbox > div.selectbox__content.layer--height > div.selectbox__body.layer--wheight > div > div > div > div:nth-child(1) > div').text() !== 'Свой вариант') return;
-		var myLink = proto + parserBase[i] + '/api/v2.0/indexers/status:all/results?apikey=' + myAdder;
+		var myLink = proto + parserBase[i] + '/api/v2.0/indexers/status:healthy/results?apikey=' + myAdder;
 		var xhr = new XMLHttpRequest();
 		xhr.timeout = 3000;
 		xhr.open("GET", myLink, true);
