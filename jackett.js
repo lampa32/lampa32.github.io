@@ -91,7 +91,7 @@ function changeParser() {
      if (Lampa.Storage.get('jackett_urltwo') == 'altjacred_duckdns_org')   Lampa.Storage.set('jackett_url', 'altjacred.duckdns.org')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'jacred_my_to') 	   Lampa.Storage.set('jackett_url', 'jacred.my.to')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'jacred_viewbox_dev')      Lampa.Storage.set('jackett_url', 'jacred.viewbox.dev')&Lampa.Storage.set('jackett_key', 'viewbox')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
-     if (Lampa.Storage.get('jackett_urltwo') == 'bylampa_jackett') 	   Lampa.Storage.set('jackett_url', '79.137.204.8:9117')&Lampa.Storage.set('jackett_key', '777')&Lampa.Storage.set('jackett_interview', 'healthy')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'df');
+     if (Lampa.Storage.get('jackett_urltwo') == 'bylampa_jackett') 	   Lampa.Storage.set('jackett_url', '79.137.204.8:9117')&Lampa.Storage.set('jackett_key', '777')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'df');
 	 return;
 }
 
@@ -192,7 +192,7 @@ function myMenu() {
         url: '79.137.204.8:9117',
 	url_two: 'bylampa_jackett',
         jac_key: '777',
-        jac_int: 'healthy',
+        jac_int: 'all',
         jac_lang: 'df'
     });
 	
