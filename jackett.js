@@ -58,9 +58,9 @@ function myRequest(i) {
 		   } else {
 	               if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2121');
                    }
-                   /*if (xhr.status == 401) {
-                       if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', 'ff2e36');
-                  }*/
+                   if (xhr.status == 401) {
+                       if ($(mySelector).text() == parserName[i]) $(mySelector).html('&#10008;&nbsp;&nbsp;' + $(mySelector).text()).css('color', '000');
+                  }
                 }
 	}, 1000)
 }
