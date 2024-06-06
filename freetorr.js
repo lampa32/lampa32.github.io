@@ -244,6 +244,7 @@ Lampa.SettingsApi.addParam({
                                                 Lampa.Storage.set('torrserver_use_link', 'one');                                               
                                                 Lampa.Storage.set('torrserver_url_two', ''); 
 						//if(Lampa.Storage.get('switch_server_button') !== 1) hideBut();
+						hideBut();
                                                 Lampa.Settings.update();
                                                 return;
                                         }
