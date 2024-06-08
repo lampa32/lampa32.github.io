@@ -92,7 +92,7 @@ function checkAlive() {
 	$('#app > div.head > div > div.head__actions').append(switch_serverBUTT);
 	$('#SWITCH_SERVER').insertAfter('div[class="head__action selector open--settings"]');
        
-	if(Lampa.Storage.get('switch_server_button') == 1 /*|| Lampa.Storage.get('torrserv') == 0)*/
+	if(Lampa.Storage.get('switch_server_button') == 1 /*|| Lampa.Storage.get('torrserv') == 0*/)
 		setTimeout(function(){
                    $('#SWITCH_SERVER').hide()
                 }, 500);
