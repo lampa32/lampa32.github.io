@@ -189,6 +189,7 @@ function checkAlive() {
               if(typeof Lampa !== 'undefined'){
                   clearInterval(tor_timer);
                   start_free();
+		  checkAlive();
               }
            },200);
 
@@ -328,12 +329,12 @@ Lampa.SettingsApi.addParam({
 			}
    });
 
-   if(window.appready) {switch_server(); checkAlive();}
+   if(window.appready) {switch_server(); /*checkAlive();*/}
 	else {
 		Lampa.Listener.follow('app', function(e) {
 			if(e.type == 'ready') {
 				switch_server();
-				checkAlive();
+				//checkAlive();
 			}
 		});
 	}
