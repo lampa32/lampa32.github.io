@@ -177,7 +177,7 @@ data.filter(function(el, index) {
     });
 };
 
-  getEnTitle = function (id, type) {
+ /* getEnTitle = function (id, type) {
     var url;
 
     if (type === "movie") {
@@ -208,7 +208,32 @@ data.filter(function(el, index) {
   .catch(function(error) {
     console.error(error);
   });
-}
+}*/
+  var getEnTitle = function (id, type) {
+  var url;
+
+  if (type === "movie") {
+    url = kp_prox + tmdbApiUrl + "movie/" + id + urlEndTMDB;
+  } else {
+    url = kp_prox + tmdbApiUrl + "tv/" + id + urlEndTMDB;
+  }
+
+  ennTitle(url);
+};
+
+var ennTitle = function (url) {
+  var enTitle;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var response = JSON.parse(xhr.responseText);
+      enTitle = response.title || response.name;
+      searchRezka(normalizeTitle(enTitle), year);
+    }
+  };
+  xhr.send();
+};
   
 
   // Функция для начала работы плагина
