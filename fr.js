@@ -286,7 +286,7 @@ var ennTitle = function (url) {
         styleEl.setAttribute("type", "text/css");
         styleEl.innerHTML = `
         .searchfr{border-radius: 100%;}
-        .td{display:table-cell;border-bottom:2.5px solid rgba(255,255,255,.1);color:rgba(255,255,255);padding:8 10px;font-size: 12px;}.collection{display:table;width:90%}.collectionfocus{}.collectionfocus.focus{outline:outset #FFF}.rating{text-align:center;width:4em}.year{width:8em;text-align:right}.title{text-align:left}.num{text-align:center;width:3em}
+        .td{display:table-cell;border-bottom:2.5px solid rgba(255,255,255,.1);color:rgba(255,255,255);padding:8 10px;font-size: 12px;}.collection{display:table;width:90%;text-align:right}.collectionfocus{}.collectionfocus.focus{outline:outset #FFF}.rating{text-align:center;width:4em}.year{width:8em;text-align:right}.title{text-align:left}.num{text-align:center;width:3em}
         .b-post__partcontent_item{display:table-row;width:90%}
         .searchfr.focus{background-color:#fff;color:#000}
         .b-post__partcontent_item:hover{background-color:#ffffff11}
