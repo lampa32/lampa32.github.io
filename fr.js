@@ -131,21 +131,10 @@ data.filter(function(el, index) {
   });
   };*/
 
-  // Создание и добавление заголовка
-var franchiseTitle = document.createElement("h2");
-franchiseTitle.textContent = "Франшиза";
-document.body.appendChild(franchiseTitle);
-
-// Проверка наличия заголовка
-if (franchiseTitle.parentNode) {
-  console.log("Заголовок добавлен успешно!");
-} else {
-  console.error("Заголовок не был добавлен!");
-}
-
   
   collectRender = function (data) {
     var www = "";
+    var franchiseTitle = $("<h2>Франшиза</h2>");
 
     var wid;
     data.forEach(function(el, index) {
@@ -174,6 +163,7 @@ if (franchiseTitle.parentNode) {
     var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 100%;'>" + www + "</div>");
 
     $(".collection").remove();
+    $(".full-descr__text").after(franchiseTitle);
     $(".full-descr__text").after(collect);
 
     $("#collect").ready(function () {
