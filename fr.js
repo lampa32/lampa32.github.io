@@ -134,7 +134,7 @@ data.filter(function(el, index) {
   
   collectRender = function (data) {
     var www = "";
-    var franchiseTitle = $("Франшиза");
+    var franchiseTitle = $("<h3>Франшиза</h3>");
 
     var wid;
     data.forEach(function(el, index) {
