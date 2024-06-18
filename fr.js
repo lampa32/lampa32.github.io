@@ -281,7 +281,10 @@ var ennTitle = function (url) {
         namemovie = e.data.movie.title || e.data.movie.name;
 
         getEnTitle(e.data.movie.id, e.object.method);
-
+        // Добавьте это перед созданием элемента "collection"
+var franchiseTitle = document.createElement("h2");
+franchiseTitle.textContent = "Франшиза";
+document.body.appendChild(franchiseTitle);
         var styleEl = document.createElement("style");
         styleEl.setAttribute("type", "text/css");
         styleEl.innerHTML = `
@@ -292,7 +295,11 @@ var ennTitle = function (url) {
         .b-post__partcontent_item:hover{background-color:#ffffff11}
         .focus{background-color:#ffffff11}
         .current{background-color:#ffffff1f}.show{visibility:visible}.hide{visibility:hidden};`;
-        //
+        // Добавьте это в блок создания стилей
+franchiseTitle {
+  color: white;
+  margin-bottom: 10px;
+}
         //
         document.head.appendChild(styleEl);
       }
