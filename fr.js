@@ -134,7 +134,7 @@ data.filter(function(el, index) {
   
   collectRender = function (data) {
     var www = "";
-    var franchiseTitle = $("<h2>Франшиза</h2>");
+    var franchiseTitle = $("Франшиза");
 
     var wid;
     data.forEach(function(el, index) {
@@ -163,7 +163,7 @@ data.filter(function(el, index) {
     var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 100%;'>" + www + "</div>");
 
     $(".collection").remove();
-    $(".parent-of-full-descr__text").prepend(franchiseTitle);
+    $(".full-descr__text").before(franchiseTitle);
     $(".full-descr__text").after(collect);
 
     $("#collect").ready(function () {
