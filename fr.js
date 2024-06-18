@@ -132,8 +132,8 @@ data.filter(function(el, index) {
   };*/
 
   
-  /*var collectRender = function (data) {
-    var www = "";
+  var collectRender = function (data) {
+    //var www = "";
     var franchiseTitle = $("<h2>Франшиза</h2>");
     franchiseTitle.css({
   "font-size": "17px",
@@ -183,57 +183,8 @@ data.filter(function(el, index) {
             });
         });
     });
-};*/
-  var collectRender = function (data) {
-    var www = "";
-    var franchiseTitle = $("<h2>Франшиза</h2>");
-    franchiseTitle.css({
-        "font-size": "17px",
-        "font-weight": "normal"
-    });
-    var wid;
-    data.forEach(function(el, index) {
-        if (el.className.indexOf("current") !== -1) {
-            wid = index;
-        }
-    });
-
-    data.forEach(function(el, index) {
-        www += "<div id=\"search" + el.children[0].innerText + "\" class=\"stringhide selector " + el.className;
-        if (wid + 2 >= index && index >= wid - 2) {
-            www += " show";
-        } else {
-            www += " hide hdhd";
-        }
-        www += "\"><span class=\"" + el.children[0].className + "\">" + el.children[0].innerText + "</span><span class=\"" + el.children[1].className + "\">" + el.children[1].innerText + "</span><span class=\"" + el.children[1].className + "\">";
-        if ($("a", el.children[1]).attr("href")) {
-            www += Lampa.Lang.translate($("a", el.children[1]).attr("href").split("/")[3]);
-        } else {
-            www += "";
-        }
-        www += "</span><span class=\"" + el.children[2].className + "\">" + el.children[2].innerText + "</span><span class=\"" + el.children[3].className + "\"><i class=\"hd-tooltip tooltipstered\">" + el.children[3].innerText + "</i></span></div>";
-    });
-
-    var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 100%;'>" + www + "</div>");
-
-    $(".collection").remove();
-    $(".full-descr__text").after(collect);
-    $(".full-descr__text").after(franchiseTitle);
-
-    document.addEventListener('DOMContentLoaded', function() {
-        $(".collectionfocus").one("hover:enter", function() {
-            $(".hdhd").removeClass("hide");
-            $("#collect").removeClass("collectionfocus selector");
-
-            $(".b-post__partcontent_item").bind("hover:enter", function(e) {
-                var input = $(this).children()[1].innerText.split("/")[0].trim().replace(/\s+$/, "");
-                Lampa.Search.open({
-                    input: input
-                });
-            });
-        });
-    });
 };
+  
 
  /* getEnTitle = function (id, type) {
     var url;
