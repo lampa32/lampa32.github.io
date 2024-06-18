@@ -136,7 +136,7 @@ data.filter(function(el, index) {
     var www = "";
     var franchiseTitle = $("<h2>Франшиза</h2>");
     franchiseTitle.css({
-  "font-size": "16px",
+  "font-size": "17px",
   "font-weight": "normal"
 });
     var wid;
