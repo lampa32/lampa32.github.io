@@ -133,7 +133,7 @@ data.filter(function(el, index) {
 
   
   var collectRender = function (data) {
-    //var www = "";
+    var www = "";
     var franchiseTitle = $("<h2>Франшиза</h2>");
     franchiseTitle.css({
   "font-size": "17px",
