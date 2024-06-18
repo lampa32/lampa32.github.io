@@ -135,7 +135,10 @@ data.filter(function(el, index) {
   collectRender = function (data) {
     var www = "";
     var franchiseTitle = $("<h2>Франшиза</h2>");
-    franchiseTitle.css("font-size", "15px"); /* или любой другой желаемый размер */
+    franchiseTitle.css({
+  "font-size": "15px",
+  "font-weight": "normal"
+});
     var wid;
     data.forEach(function(el, index) {
         if (el.className.indexOf("current") !== -1) {
