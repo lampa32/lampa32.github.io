@@ -78,7 +78,7 @@
     });
   };
 
-collectRender = async function (data) {
+/*collectRender = async function (data) {
     www = "";
 
     var wid;
@@ -129,10 +129,10 @@ data.filter(function(el, index) {
   });
   });
   });
-  };
+  };*/
 
   
-  /*var collectRender = function (data) {
+  var collectRender = function (data) {
     var www = "";
     var franchiseTitle = $("<h2>Франшиза</h2>");
     franchiseTitle.css({
@@ -183,7 +183,7 @@ data.filter(function(el, index) {
             });
         });
     });
-};*/
+};
 
  /* getEnTitle = function (id, type) {
     var url;
