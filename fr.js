@@ -134,11 +134,11 @@ data.filter(function(el, index) {
   
   collectRender = function (data) {
     var www = "";
-    /*var franchiseTitle = $("<h2>Франшиза</h2>");
+    var franchiseTitle = $("<h2>Франшиза</h2>");
     franchiseTitle.css({
   "font-size": "17px",
   "font-weight": "normal"
-});*/
+});
     var wid;
     data.forEach(function(el, index) {
         if (el.className.indexOf("current") !== -1) {
@@ -167,7 +167,7 @@ data.filter(function(el, index) {
 
     $(".collection").remove();
     $(".full-descr__text").after(collect);
-   // $(".full-descr__text").after(franchiseTitle);
+    $(".full-descr__text").after(franchiseTitle);
     
 
     $("#collect").ready(function () {
