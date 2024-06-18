@@ -132,7 +132,7 @@ data.filter(function(el, index) {
   };*/
 
   
-  collectRender = function (data) {
+  var collectRender = function (data) {
     var www = "";
     var franchiseTitle = $("<h2>Франшиза</h2>");
     franchiseTitle.css({
