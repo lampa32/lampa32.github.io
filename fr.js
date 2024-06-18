@@ -131,9 +131,18 @@ data.filter(function(el, index) {
   });
   };*/
 
-  var franchiseTitle = document.createElement("h2");
+  // Создание и добавление заголовка
+var franchiseTitle = document.createElement("h2");
 franchiseTitle.textContent = "Франшиза";
 document.body.appendChild(franchiseTitle);
+
+// Проверка наличия заголовка
+if (franchiseTitle.parentNode) {
+  console.log("Заголовок добавлен успешно!");
+} else {
+  console.error("Заголовок не был добавлен!");
+}
+
   
   collectRender = function (data) {
     var www = "";
