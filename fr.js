@@ -156,6 +156,9 @@ data.filter(function(el, index) {
         }
         www += "</span><span class=\"" + el.children[2].className + "\">" + el.children[2].innerText + "</span><span class=\"" + el.children[3].className + "\"><i class=\"hd-tooltip tooltipstered\">" + el.children[3].innerText + "</i></span></div>";
     });
+    var franchiseTitle = document.createElement("h2");
+franchiseTitle.textContent = "Франшиза";
+document.body.appendChild(franchiseTitle);
 
     var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 100%;'>" + www + "</div>");
 
@@ -281,10 +284,7 @@ var ennTitle = function (url) {
         namemovie = e.data.movie.title || e.data.movie.name;
 
         getEnTitle(e.data.movie.id, e.object.method);
-        // Добавьте это перед созданием элемента "collection"
-var franchiseTitle = document.createElement("h2");
-franchiseTitle.textContent = "Франшиза";
-document.body.appendChild(franchiseTitle);
+
         var styleEl = document.createElement("style");
         styleEl.setAttribute("type", "text/css");
         styleEl.innerHTML = `
