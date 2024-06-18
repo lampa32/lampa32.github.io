@@ -296,10 +296,7 @@ document.body.appendChild(franchiseTitle);
         .focus{background-color:#ffffff11}
         .current{background-color:#ffffff1f}.show{visibility:visible}.hide{visibility:hidden};`;
         // Добавьте это в блок создания стилей
-franchiseTitle {
-  color: white;
-  margin-bottom: 10px;
-}
+        //franchiseTitle {color: white;margin-bottom: 10px}
         //
         document.head.appendChild(styleEl);
       }
