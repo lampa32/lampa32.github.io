@@ -191,14 +191,14 @@ var ennTitle = function (url) {
 
         var styleEl = document.createElement("style");
         styleEl.setAttribute("type", "text/css");
-        styleEl.innerHTML = '
+        styleEl.innerHTML = "
         .searchfr{border-radius: 100%;}
         .td{display:table-cell;border-bottom:2.5px solid rgba(255,255,255,.1);color:rgba(255,255,255);padding:9 10px;font-size: 12.2px;}.collection{display:table;width:90%}.collectionfocus{}.collectionfocus.focus{outline:outset #FFF}.rating{text-align:center;width:4em}.year{width:8em;text-align:right}.title{text-align:left}.num{text-align:center;width:3em}
         .b-post__partcontent_item{display:table-row;width:90%}
         .searchfr.focus{background-color:#fff;color:#000}
         .b-post__partcontent_item:hover{background-color:#ffffff11}
         .focus{background-color:#ffffff11}
-        .current{background-color:#ffffff1f}.show{visibility:visible}.hide{visibility:hidden};';
+        .current{background-color:#ffffff1f}.show{visibility:visible}.hide{visibility:hidden};";
         
         document.head.appendChild(styleEl);
       }
