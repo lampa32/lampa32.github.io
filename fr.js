@@ -46,11 +46,11 @@
   });
 }
 
-  var cleanTitle = function (str) {
+  function cleanTitle(str) {
     return str.replace(/[\s.,:;''`!?]+/g, "%20").trim();
   };
 
-  var normalizeTitle = function (str) {
+  function normalizeTitle(str) {
     return cleanTitle(
       str
         .toLowerCase()
@@ -59,7 +59,7 @@
     );
   };
 
-  var searchRezka = function (name, year) {
+  function searchRezka(name, year) {
     var dom = reazkaParseHtmlDom(
       "https://hdrezka.ag/search/?do=search&subaction=search&q=",
       name,
@@ -132,7 +132,7 @@ data.filter(function(el, index) {
   };*/
 
   
-  var collectRender = function (data) {
+  function collectRender(data) {
     // Если данных нет, просто возвращаем из функции
     if (data.length === 0) {
         return;
@@ -224,7 +224,7 @@ data.filter(function(el, index) {
     console.error(error);
   });
 }*/
-  var getEnTitle = function (id, type) {
+function getEnTitle(id, type) {
   var url;
 
   if (type === "movie") {
@@ -236,7 +236,7 @@ data.filter(function(el, index) {
   ennTitle(url);
 };
 
-var ennTitle = function (url) {
+function ennTitle(url) {
   var enTitle;
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url, true);
@@ -252,7 +252,7 @@ var ennTitle = function (url) {
   
 
   // Функция для начала работы плагина
-  startPlugin = function () {
+  function startPlugin() {
     window.rezkacoll_plugin = true;
     Lampa.Listener.follow("full", function (e) {
       if (e.type == "complite") {
