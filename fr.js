@@ -133,6 +133,10 @@ data.filter(function(el, index) {
 
   
   var collectRender = function (data) {
+    // Если данных нет, просто возвращаем из функции
+    if (data.length === 0) {
+        return;
+    }
     var www = "";
     var franchiseTitle = $("<h2>Франшиза</h2>");
     franchiseTitle.css({
@@ -167,7 +171,9 @@ data.filter(function(el, index) {
 
     $(".collection").remove();
     $(".full-descr__text").after(collect);
-    $(".full-descr__text").after(franchiseTitle);
+    if (data.length > 0) {
+      $(".full-descr__text").after(franchiseTitle);
+    }
     
 
     $("#collect").ready(function () {
