@@ -6,7 +6,7 @@ Lampa.Storage.set('parser_use', true)
 var proto = location.protocol === "https:" ? 'https://' : 'http://'
 
 var parserBase = [
-	'jac.lampa32.ru',
+	'79.137.204.8:9118',
 	'79.137.204.8:9117',
 	'jacred.xyz',
 	'jacred.ru',
@@ -83,7 +83,7 @@ Lampa.Controller.listener.follow('toggle', function(e) {
 function changeParser() {
      //if (!Lampa.Storage.field('jackett_urltwo')) 			   Lampa.Storage.set('jackett_url', 'jacred.xyz')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'no_parser') 		   Lampa.Storage.set('jackett_url', '')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', false)&Lampa.Storage.set('parse_lang', 'lg');
-     if (Lampa.Storage.get('jackett_urltwo') == 'jac_lampa32_ru') 	   Lampa.Storage.set('jackett_url', 'jac.lampa32.ru')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
+     if (Lampa.Storage.get('jackett_urltwo') == 'jac_lampa32_ru') 	   Lampa.Storage.set('jackett_url', '79.137.204.8:9118')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview','all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'spawn_jacred')            Lampa.Storage.set('jackett_url', 'spawn.pp.ua:59118')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview', 'all')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'jacred_xyz') 	           Lampa.Storage.set('jackett_url', 'jacred.xyz')&Lampa.Storage.set('jackett_key', '')&Lampa.Storage.set('jackett_interview', 'healthy')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'lg');
      if (Lampa.Storage.get('jackett_urltwo') == 'spawn_jackett') 	   Lampa.Storage.set('jackett_url', 'spawn.pp.ua:59117')&Lampa.Storage.set('jackett_key', '2')&Lampa.Storage.set('jackett_interview', 'healthy')&Lampa.Storage.set('parse_in_search', true)&Lampa.Storage.set('parse_lang', 'df');
@@ -180,7 +180,7 @@ function myMenu() {
 
     menu.push({
         title: 'Lampa32',
-        url: 'jac.lampa32.ru',
+        url: '79.137.204.8:9118',
 	url_two: 'jac_lampa32_ru',
         jac_key: '',
         jac_int: 'all',
