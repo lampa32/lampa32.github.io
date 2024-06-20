@@ -138,11 +138,11 @@ data.filter(function(el, index) {
         return;
     }
     var www = "";
-    var franchiseTitle = $("<div class='franchise-heading'>Франшиза</div>");
+    var franchiseTitle = $("<div class='franchise'>Франшиза</div>");
         franchiseTitle.css({
            "font-size": "1.6em",
            "font-weight": "normal",
-           "padding-bottom": "25px"
+           "padding-bottom": "15px"
         });
     var wid;
     data.forEach(function(el, index) {
