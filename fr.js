@@ -141,7 +141,8 @@ data.filter(function(el, index) {
     var franchiseTitle = $("<div class='franchise-heading'>Франшиза</div>");
         franchiseTitle.css({
            "font-size": "1.6em",
-           "font-weight": "normal"
+           "font-weight": "normal",
+           "padding-bottom": "20px"
         });
     var wid;
     data.forEach(function(el, index) {
