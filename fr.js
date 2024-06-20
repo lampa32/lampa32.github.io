@@ -142,7 +142,7 @@ data.filter(function(el, index) {
         franchiseTitle.css({
            "font-size": "1.6em",
            "font-weight": "normal",
-           "padding-bottom": "50px"
+           "padding-bottom": "25px"
         });
     var wid;
     data.forEach(function(el, index) {
