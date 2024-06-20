@@ -168,7 +168,7 @@ data.filter(function(el, index) {
     
      if (Lampa.Platform.screen('mobile')) {
        var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 100%;'>" + www + "</div>");
-     } elese {
+     } else {
        var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 125%;'>" + www + "</div>");
      }
     $(".collection").remove();
