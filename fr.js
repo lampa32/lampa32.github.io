@@ -138,11 +138,11 @@ data.filter(function(el, index) {
         return;
     }
     var www = "";
-    var franchiseTitle = $("<h2>Франшиза</h2>");
-    franchiseTitle.css({
-  "font-size": "1.6em",
-  "font-weight": "normal"
-});
+    var franchiseTitle = $("<div class="franchise-heading">Франшиза</div>");
+        franchiseTitle.css({
+           "font-size": "1.6em",
+           "font-weight": "normal"
+        });
     var wid;
     data.forEach(function(el, index) {
         if (el.className.indexOf("current") !== -1) {
