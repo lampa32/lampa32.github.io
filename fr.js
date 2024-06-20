@@ -167,7 +167,7 @@ data.filter(function(el, index) {
     });
     
 
-    var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 120%;'>" + www + "</div>");
+    var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 125%;'>" + www + "</div>");
 
     $(".collection").remove();
     $(".full-descr__text").after(collect);
