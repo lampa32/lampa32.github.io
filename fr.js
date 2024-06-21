@@ -167,12 +167,9 @@ data.filter(function(el, index) {
         }
         www += "</span><span class=\"" + el.children[2].className + "\">" + el.children[2].innerText + "</span><span class=\"" + el.children[3].className + "\"><i class=\"hd-tooltip tooltipstered\">" + el.children[3].innerText + "</i></span></div>";
     });
-    
-     if (Lampa.Platform.screen('mobile')) {
-       var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 100%;'>" + www + "</div>");
-     } else {
-       var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 125%;'>" + www + "</div>");
-     }
+     
+    var collect = $("<div id=\"collect\" class=\"collection selector collectionfocus\" style='display: table;width: 100%;'>" + www + "</div>");
+     
     $(".collection").remove();
     $(".full-descr__text").after(collect);
     if (data.length > 0) {
