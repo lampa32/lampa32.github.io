@@ -35,7 +35,7 @@
     } 
 	
     Lampa.Utils.putScriptAsync([
-	    'http://tv.lampa32.ru/online.js',
+	    'http://79.137.204.8:9118/online.js',
 	    'https://lampa32.github.io/freetorr.js',
 	    //'https://lampa32.github.io/snow.js',
 	    'https://lampa32.github.io/jackett.js',
