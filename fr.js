@@ -180,7 +180,7 @@ data.filter(function(el, index) {
     $("#collect").ready(function () {
         $(".collectionfocus").one("hover:enter", function() {
             $(".hdhd").removeClass("hide");
-            //$("#collect").removeClass("collectionfocus selector");
+            $("#collect").removeClass("collectionfocus selector");
 
             $(".b-post__partcontent_item").bind("hover:enter", function(e) {
                 var input = $(this).children()[1].innerText.split("/")[0].trim().replace(/\s+$/, "");
