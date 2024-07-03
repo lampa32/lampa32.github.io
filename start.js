@@ -64,66 +64,6 @@
       }
     },1000)*/
 
-function card() {
-  var apiKey = '4ef0d7355d9ffb5151e987764708ce96';
-  var baseUrl = 'http://tmdb.cub.red/3/';
 
-  function fetchMovieDetails(movieId, method, callback) {
-    var apiUrl = baseUrl + method + '/' + movieId + '?api_key=' + apiKey;
-    $.getJSON(apiUrl, function(data, textStatus, xhr) {
-      if (xhr.status === 200) {
-        callback(null, data);
-      } else {
-        callback(new Error('Ошибка получения информации о фильме: ' + data.status_message));
-      }
-    }).fail(function(jqXHR, textStatus, errorThrown) {
-      callback(new Error('Ошибка выборки: ' + textStatus + ', ' + errorThrown));
-    });
-  }
-
-  Lampa.Listener.follow('line', function(e) {
-    if (e.type === 'append' && Lampa.Storage.field('source') !== 'cub') {
-      e.items.forEach(function(movieCard) {
-        if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
-          var id = movieCard.data.id || 0;
-          var mediaType = movieCard.data.media_type ? movieCard.data.media_type : movieCard.data.number_of_seasons ? 'tv' : 'movie';
-          fetchMovieDetails(id, mediaType, function(err, data) {
-            if (err) {
-              console.error(err.message);
-              return;
-            }
-            var release_quality = data.release_quality;
-            if (release_quality) {
-              var quality = document.createElement('div');
-              quality.classList.add('quality');
-              var quality_inner = document.createElement('div');
-              quality_inner.innerText = release_quality;
-              quality.appendChild(quality_inner);
-              movieCard.card.querySelector('.cardrd__view').appendChild(quality);
-            }
-          });
-        } else {
-          console.warn('movieCard.data is undefined or missing id/number_of_seasons:', movieCard);
-        }
-      });
-    }
-  });
-}
-
-function add() {
-  card();
-}
-
-function startPlugin() {
-  window.plugin_lmeq_ready = true;
-  if (window.appready) add();
-  else {
-    Lampa.Listener.follow('app', function(e) {
-      if (e.type === 'ready') add();
-    });
-  }
-}
-
-if (!window.plugin_lmeq_ready) startPlugin();
 
 })();
