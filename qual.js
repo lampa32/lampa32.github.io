@@ -139,30 +139,33 @@
     }
   }
 
-  Lampa.Listener.follow("line", function(e) {
-    if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
-      e.items.forEach(function(movieCard) {
-        if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
-          var id = movieCard.data.id || 0;
-          var mediaType = movieCard.data.media_type
-            ? movieCard.data.media_type
-            : movieCard.data.number_of_seasons
-            ? "tv"
-            : "movie";
-
-          fetchMovieDetails(id, mediaType)
-            .then(function(releaseQuality) {
-              addQualityMarker(movieCard, releaseQuality);
-            })
-            .catch(function(error) {
-              console.error(error);
-            });
-        } else {
-          console.warn("movieCard.data отсутствует или не содержит id/number_of_seasons:", movieCard);
-        }
-      });
-    }
-  });
+     Lampa.Listener.follow("line", function(e) {
+     if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
+       var promises = e.items.map(function(movieCard) {
+         if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
+           var id = movieCard.data.id || 0;
+           var mediaType = movieCard.data.media_type
+             ? movieCard.data.media_type
+             : movieCard.data.number_of_seasons
+             ? "tv"
+             : "movie";
+           return fetchMovieDetails(id, mediaType);
+         } else {
+           console.warn("movieCard.data отсутствует или не содержит id/number_of_seasons:", movieCard);
+           return Promise.resolve(null);
+         }
+       });
+       Promise.all(promises)
+         .then(function(qualities) {
+           qualities.forEach(function(quality, index) {
+             addQualityMarker(e.items[index], quality);
+           });
+         })
+         .catch(function(error) {
+           console.error(error);
+         });
+     }
+   });
 }
 
 var UTILS = {
