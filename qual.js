@@ -26,7 +26,7 @@
               }
               var release_quality = data.release_quality;
               if (release_quality) {
-                var newDivider = $("<span class='full-start-new__split'>").html("\u25CF");
+                /*var newDivider = $("<span class='full-start-new__split'>").html("\u25CF");
                 //const newSpan = $("<span class='full-start__pg'>").html(`${Lampa.Lang.translate('player_quality')}: ${release_quality.toUpperCase()}`);
                 var newSpan = $("<span class='full-start__pg'>").html("".concat(Lampa.Lang.translate('player_quality'), ": ").concat(release_quality.toUpperCase())).css('border-color', function () {
                   switch (release_quality.toLowerCase()) {
@@ -39,7 +39,7 @@
                     case 'bd':
                       return 'green';
                   }
-                }());
+                }());*/
                 $(".full-start-new__details").append(newDivider, newSpan);
                 //Add label on poster
                 var quality = document.createElement('div');
@@ -49,7 +49,7 @@
                 var quality_inner = document.createElement("div");
                 quality_inner.innerText = release_quality;
                 quality.appendChild(quality_inner);
-                if (Lampa.Platform.screen('mobile') !== true) $(".full-start-new__poster").append(quality);
+                //if (Lampa.Platform.screen('mobile') !== true) $(".full-start-new__poster").append(quality);
               }
             });
           });
