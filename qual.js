@@ -88,26 +88,26 @@
       card: card
     };
 
-    var manifest = {
+   /* var manifest = {
       type: "other",
       version: "0.0.1",
       author: '@lme_chat',
       name: "LME Quality",
       description: "Add Quality sticker on other source",
       component: "lmeq"
-    };
+    };*/
     function add() {
-      Lampa.Manifest.plugins = manifest;
+     // Lampa.Manifest.plugins = manifest;
       UTILS.card();
     }
-    function startPlugin() {
-      window.plugin_lmeq_ready = true;
+    //function startPlugin() {
+     // window.plugin_lmeq_ready = true;
       if (window.appready) add();else {
         Lampa.Listener.follow("app", function (e) {
           if (e.type === "ready") add();
         });
       }
-    }
-    if (!window.plugin_lmeq_ready) startPlugin();
+  //  }
+   // if (!window.plugin_lmeq_ready) startPlugin();
 
 })();
