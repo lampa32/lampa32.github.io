@@ -16,7 +16,7 @@
           callback(new Error("Fetch error: ".concat(textStatus, ", ").concat(errorThrown)));
         });
       }
-      Lampa.Listener.follow("full", function (e) {
+      /*Lampa.Listener.follow("full", function (e) {
         if (e.type === "complite" && Lampa.Storage.field('source') !== 'cub') {
           $(document).ready(function () {
             fetchMovieDetails(e.data.movie.id, e.object.method, function (err, data) {
@@ -54,7 +54,7 @@
             });
           });
         }
-      });
+      });*/
       Lampa.Listener.follow("line", function (e) {
         if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
           e.items.forEach(function (movieCard) {
