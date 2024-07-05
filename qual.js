@@ -49,7 +49,7 @@
                 var quality_inner = document.createElement("div");
                 quality_inner.innerText = release_quality;
                 quality.appendChild(quality_inner);
-                //if (Lampa.Platform.screen('mobile') !== true) $(".full-start-new__poster").append(quality);
+                if (Lampa.Platform.screen('mobile') == true) $(".full-start-new__poster").append(quality);
               }
             });
           });
