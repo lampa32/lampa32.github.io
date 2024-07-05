@@ -100,6 +100,7 @@
      // Lampa.Manifest.plugins = manifest;
       UTILS.card();
     }
+    
     function card() {
   var apiKey = '4ef0d7355d9ffb5151e987764708ce96';
   var baseUrl = 'http://tmdb.cub.red/3/';
@@ -129,42 +130,44 @@
     });
   }
 
+  function addQualityMarker(movieCard, releaseQuality) {
+    if (releaseQuality) {
+      var quality = document.createElement("div");
+      quality.classList.add("card__quality");
+      quality.textContent = releaseQuality;
+      movieCard.card.querySelector(".card__view").appendChild(quality);
+    }
+  }
+
   Lampa.Listener.follow("line", function(e) {
     if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
-      Promise.all(
-        e.items.map(function(movieCard) {
-          if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
-            var id = movieCard.data.id || 0;
-            var mediaType = movieCard.data.media_type
-              ? movieCard.data.media_type
-              : movieCard.data.number_of_seasons
-              ? "tv"
-              : "movie";
+      e.items.forEach(function(movieCard) {
+        if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
+          var id = movieCard.data.id || 0;
+          var mediaType = movieCard.data.media_type
+            ? movieCard.data.media_type
+            : movieCard.data.number_of_seasons
+            ? "tv"
+            : "movie";
 
-            return fetchMovieDetails(id, mediaType)
-              .then(function(releaseQuality) {
-                if (releaseQuality) {
-                  var quality = document.createElement("div");
-                  quality.classList.add("card__quality");
-                  quality.textContent = releaseQuality;
-                  movieCard.card.querySelector(".card__view").appendChild(quality);
-                }
-              })
-              .catch(function(error) {
-                console.error(error);
-              });
-          } else {
-            console.warn("movieCard.data отсутствует или не содержит id/number_of_seasons:", movieCard);
-            return Promise.resolve();
-          }
-        })
-      );
+          fetchMovieDetails(id, mediaType)
+            .then(function(releaseQuality) {
+              addQualityMarker(movieCard, releaseQuality);
+            })
+            .catch(function(error) {
+              console.error(error);
+            });
+        } else {
+          console.warn("movieCard.data отсутствует или не содержит id/number_of_seasons:", movieCard);
+        }
+      });
     }
   });
 }
 
 var UTILS = {
   card: card
+};
 };
     //function startPlugin() {
      // window.plugin_lmeq_ready = true;
