@@ -168,7 +168,7 @@
 var UTILS = {
   card: card
 };
-};
+
     //function startPlugin() {
      // window.plugin_lmeq_ready = true;
       if (window.appready) add();else {
