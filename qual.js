@@ -40,7 +40,7 @@
                       return 'green';
                   }
                 }());*/
-                $(".full-start-new__details").append(newDivider, newSpan);
+               // $(".full-start-new__details").append(newDivider, newSpan);
                 //Add label on poster
                 var quality = document.createElement('div');
                 quality.classList.add("card__quality");
