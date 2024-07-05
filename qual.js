@@ -139,38 +139,80 @@
     }
   }
 
-     Lampa.Listener.follow("line", function(e) {
-     if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
-       var promises = e.items.map(function(movieCard) {
-         if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
-           var id = movieCard.data.id || 0;
-           var mediaType = movieCard.data.media_type
-             ? movieCard.data.media_type
-             : movieCard.data.number_of_seasons
-             ? "tv"
-             : "movie";
-           return fetchMovieDetails(id, mediaType);
-         } else {
-           console.warn("movieCard.data отсутствует или не содержит id/number_of_seasons:", movieCard);
-           return Promise.resolve(null);
-         }
-       });
-       Promise.all(promises)
-         .then(function(qualities) {
-           qualities.forEach(function(quality, index) {
-             addQualityMarker(e.items[index], quality);
-           });
-         })
-         .catch(function(error) {
-           console.error(error);
-         });
-     }
-   });
+  function preloadAllContent() {
+    return new Promise(function(resolve, reject) {
+      // Получаем список всех фильмов и сериалов
+      $.getJSON(baseUrl + 'discover/movie?api_key=' + apiKey, function(movieData) {
+        var movieIds = movieData.results.map(function(movie) { return movie.id; });
+        $.getJSON(baseUrl + 'discover/tv?api_key=' + apiKey, function(tvData) {
+          var tvIds = tvData.results.map(function(show) { return show.id; });
+          var allIds = movieIds.concat(tvIds);
+
+          // Загружаем данные о качестве для каждого фильма/сериала
+          var promises = allIds.map(function(id) {
+            var mediaType = movieIds.includes(id) ? 'movie' : 'tv';
+            return fetchMovieDetails(id, mediaType);
+          });
+
+          Promise.all(promises)
+            .then(function() {
+              resolve();
+            })
+            .catch(function(error) {
+              reject(error);
+            });
+        })
+        .fail(function(jqXHR, textStatus, errorThrown) {
+          console.error('Ошибка при получении списка сериалов: ' + textStatus + ', ' + errorThrown);
+          reject(null);
+        });
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        console.error('Ошибка при получении списка фильмов: ' + textStatus + ', ' + errorThrown);
+        reject(null);
+      });
+    });
+  }
+
+  Lampa.Listener.follow("line", function(e) {
+    if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
+      e.items.forEach(function(movieCard) {
+        if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
+          var id = movieCard.data.id || 0;
+          var mediaType = movieCard.data.media_type
+            ? movieCard.data.media_type
+            : movieCard.data.number_of_seasons
+            ? "tv"
+            : "movie";
+
+          // Проверяем, есть ли данные о качестве в кэше
+          if (qualityCache.has(id)) {
+            addQualityMarker(movieCard, qualityCache.get(id));
+          } else {
+            fetchMovieDetails(id, mediaType)
+              
+              .then(function(releaseQuality) {
+                addQualityMarker(movieCard, releaseQuality);
+              })
+              .catch(function(error) {
+                console.error(error);
+              });
+          }
+        } else {
+          console.warn("movieCard.data отсутствует или не содержит id/number_of_seasons:", movieCard);
+        }
+      });
+    }
+  });
+
+  // Предварительно загружаем данные о качестве для всех фильмов и сериалов
+  preloadAllContent();
 }
 
 var UTILS = {
   card: card
 };
+    
 
     //function startPlugin() {
      // window.plugin_lmeq_ready = true;
