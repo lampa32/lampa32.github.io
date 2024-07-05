@@ -39,7 +39,7 @@
                     case 'bd':
                       return 'green';
                   }
-                }());*/
+                }());
                 $(".full-start-new__details").append(newDivider, newSpan);
                 //Add label on poster
                 var quality = document.createElement('div');
@@ -50,7 +50,7 @@
                 quality_inner.innerText = release_quality;
                 quality.appendChild(quality_inner);
                 if (Lampa.Platform.screen('mobile') !== true) $(".full-start-new__poster").append(quality);
-              /*}
+              }
             });
           });
         }
