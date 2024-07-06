@@ -110,7 +110,7 @@
           if (e.type === "ready") add();
         });
       }
-    }
+   // }
    // if (!window.plugin_lmeq_ready) startPlugin();
 
 })();
