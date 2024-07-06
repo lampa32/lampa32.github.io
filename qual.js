@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    function card() {
+    //function card() {
       var apiKey = '4ef0d7355d9ffb5151e987764708ce96';
       var baseUrl = 'http://tmdb.cub.red/3/';
       function fetchMovieDetails(movieId, method, callback) {
@@ -83,7 +83,7 @@
           });
         }
       });
-    }
+   // }
     var UTILS = {
       card: card
     };
@@ -96,20 +96,20 @@
       description: "Add Quality sticker on other source",
       component: "lmeq"
     };*/
-    function add() {
+    //function add() {
      // Lampa.Manifest.plugins = manifest;
       UTILS.card();
-    }
+   // }
     
     
 
     //function startPlugin() {
      // window.plugin_lmeq_ready = true;
-      if (window.appready) add();else {
-        Lampa.Listener.follow("app", function (e) {
-          if (e.type === "ready") add();
-        });
-      }
+     // if (window.appready) add();else {
+       // Lampa.Listener.follow("app", function (e) {
+         // if (e.type === "ready") add();
+       // });
+     // }
   //  }
    // if (!window.plugin_lmeq_ready) startPlugin();
 
