@@ -3,7 +3,7 @@
 
     function card() {
       var apiKey = '4ef0d7355d9ffb5151e987764708ce96';
-      var baseUrl = "https://cors.apn.monster/https://api.themoviedb.org/3/"; //http://tmdb.cub.red/3/';
+      var baseUrl = 'https://api.themoviedb.org/3/'; //http://tmdb.cub.red/3/';
       function fetchMovieDetails(movieId, method, callback) {
         var apiUrl = "".concat(baseUrl).concat(method, "/").concat(movieId, "?api_key=").concat(apiKey);
         $.getJSON(apiUrl, function (data, textStatus, xhr) {
