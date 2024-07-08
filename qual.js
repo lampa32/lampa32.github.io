@@ -63,7 +63,7 @@
           if (e.type === "ready") add();
         });
       }*/
- function card() {
+function card() {
   var apiKey = '4ef0d7355d9ffb5151e987764708ce96';
   var baseUrl = 'http://tmdb.cub.red/3/';
   var movieCache = new Map();
@@ -137,14 +137,9 @@
               var release_quality = results[index].release_quality;
               // Обновляем качество в localStorage
               saveMovieDataToLocalStorage(movieCard.data.id, results[index]);
-              if (release_quality) {
-                var quality = document.createElement("div");
-                quality.classList.add("card__quality");
-                var quality_inner = document.createElement("div");
-                quality_inner.innerText = release_quality;
-                quality.appendChild(quality_inner);
-                movieCard.card.querySelector(".card__view").appendChild(quality);
-              }
+
+              // Добавляем отметку качества
+              addQualityLabel(movieCard, release_quality);
             }
           });
         })
@@ -154,6 +149,54 @@
       }
     }
   });
+
+  Lampa.Listener.follow("more", function (e) {
+    if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
+      var movieIds = e.items
+        .filter(function (movieCard) {
+          return movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons);
+        })
+        .map(function (movieCard) {
+          return {
+            id: movieCard.data.id || 0,
+            mediaType: movieCard.data.media_type ? movieCard.data.media_type : movieCard.data.number_of_seasons ? "tv" : "movie"
+          };
+        });
+
+      if (movieIds.length > 0) {
+
+        Promise.all(movieIds.map(function (item) {
+          return fetchMovieDetails(item.id, item.mediaType);
+        }))
+        .then(function (results) {
+          e.items.forEach(function (movieCard, index) {
+            if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
+              var release_quality = results[index].release_quality;
+              // Обновляем качество в localStorage
+              saveMovieDataToLocalStorage(movieCard.data.id, results[index]);
+
+              // Добавляем отметку качества
+              addQualityLabel(movieCard, release_quality);
+            }
+          });
+        })
+        .catch(function (error) {
+          console.error("Error fetching movie details:", error);
+        });
+      }
+    }
+  });
+
+  function addQualityLabel(movieCard, release_quality) {
+    if (release_quality) {
+      var quality = document.createElement("div");
+      quality.classList.add("card__quality");
+      var quality_inner = document.createElement("div");
+      quality_inner.innerText = release_quality;
+      quality.appendChild(quality_inner);
+      movieCard.card.querySelector(".card__view").appendChild(quality);
+    }
+  }
 }
 
 var UTILS = {
@@ -173,6 +216,5 @@ if (window.appready) {
     }
   });
 }
-
 
 })();
