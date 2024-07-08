@@ -115,42 +115,20 @@ function card() {
   }
 
   Lampa.Listener.follow("line", function (e) {
-    if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
-      var movieIds = e.items
-        .filter(function (movieCard) {
-          return movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons);
-        })
-        .map(function (movieCard) {
-          return {
-            id: movieCard.data.id || 0,
-            mediaType: movieCard.data.media_type ? movieCard.data.media_type : movieCard.data.number_of_seasons ? "tv" : "movie"
-          };
-        });
-
-      if (movieIds.length > 0) {
-        Promise.all(movieIds.map(function (item) {
-          return fetchMovieDetails(item.id, item.mediaType);
-        }))
-        .then(function (results) {
-          e.items.forEach(function (movieCard, index) {
-            if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
-              var release_quality = results[index].release_quality;
-              // Обновляем качество в localStorage
-              saveMovieDataToLocalStorage(movieCard.data.id, results[index]);
-
-              // Добавляем отметку качества
-              addQualityLabel(movieCard, release_quality);
-            }
-          });
-        })
-        .catch(function (error) {
-          console.error("Error fetching movie details:", error);
-        });
-      }
-    }
+    handleAppendEvent(e, "line");
   });
 
   Lampa.Listener.follow("more", function (e) {
+    handleAppendEvent(e, "more");
+  });
+
+  Lampa.Listener.follow("category", function (e) {
+    if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
+      handleAppendEvent(e, "category");
+    }
+  });
+
+  function handleAppendEvent(e, source) {
     if (e.type === "append" && Lampa.Storage.field("source") !== "cub") {
       var movieIds = e.items
         .filter(function (movieCard) {
@@ -164,7 +142,6 @@ function card() {
         });
 
       if (movieIds.length > 0) {
-
         Promise.all(movieIds.map(function (item) {
           return fetchMovieDetails(item.id, item.mediaType);
         }))
@@ -176,7 +153,7 @@ function card() {
               saveMovieDataToLocalStorage(movieCard.data.id, results[index]);
 
               // Добавляем отметку качества
-              addQualityLabel(movieCard, release_quality);
+              addQualityLabel(movieCard, release_quality, source);
             }
           });
         })
@@ -185,16 +162,23 @@ function card() {
         });
       }
     }
-  });
+  }
 
-  function addQualityLabel(movieCard, release_quality) {
+  function addQualityLabel(movieCard, release_quality, source) {
     if (release_quality) {
       var quality = document.createElement("div");
       quality.classList.add("card__quality");
       var quality_inner = document.createElement("div");
+
       quality_inner.innerText = release_quality;
       quality.appendChild(quality_inner);
-      movieCard.card.querySelector(".card__view").appendChild(quality);
+
+      // Добавляем отметку качества в зависимости от источника
+      if (source === "line") {
+        movieCard.card.querySelector(".card__view").appendChild(quality);
+      } else if (source === "more" || source === "category") {
+        movieCard.card.querySelector(".card__info").appendChild(quality);
+      }
     }
   }
 }
