@@ -135,6 +135,8 @@
           e.items.forEach(function (movieCard, index) {
             if (movieCard.data && (movieCard.data.id || movieCard.data.number_of_seasons)) {
               var release_quality = results[index].release_quality;
+              // Обновляем качество в localStorage
+              saveMovieDataToLocalStorage(movieCard.data.id, results[index]);
               if (release_quality) {
                 var quality = document.createElement("div");
                 quality.classList.add("card__quality");
