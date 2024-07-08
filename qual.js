@@ -63,15 +63,35 @@
           if (e.type === "ready") add();
         });
       }*/
-  function card() {
+ function card() {
   var apiKey = '4ef0d7355d9ffb5151e987764708ce96';
   var baseUrl = 'http://tmdb.cub.red/3/';
+  var movieCache = new Map();
+
+  // Загружаем данные из localStorage
+  loadMovieDataFromLocalStorage();
 
   function fetchMovieDetails(movieId, mediaType) {
+    // Сначала проверяем, есть ли данные в кэше
+    if (movieCache.has(movieId)) {
+      return Promise.resolve(movieCache.get(movieId));
+    }
+
+    // Если данных нет в кэше, проверяем localStorage
+    var cachedData = loadMovieDataFromLocalStorage(movieId);
+    if (cachedData) {
+      movieCache.set(movieId, cachedData);
+      return Promise.resolve(cachedData);
+    }
+
+    // Если нет данных ни в кэше, ни в localStorage, делаем запрос к API
     return new Promise(function (resolve, reject) {
       var apiUrl = baseUrl + mediaType + "/" + movieId + "?api_key=" + apiKey;
       $.getJSON(apiUrl, function (data, textStatus, xhr) {
         if (xhr.status === 200) {
+          // Сохраняем данные в кэше и localStorage
+          movieCache.set(movieId, data);
+          saveMovieDataToLocalStorage(movieId, data);
           resolve(data);
         } else {
           reject(new Error("Error fetching movie details: " + data.status_message));
@@ -80,6 +100,18 @@
         reject(new Error("Fetch error: " + textStatus + ", " + errorThrown));
       });
     });
+  }
+
+  function loadMovieDataFromLocalStorage(movieId) {
+    var data = localStorage.getItem('movie_' + movieId);
+    if (data) {
+      return JSON.parse(data);
+    }
+    return null;
+  }
+
+  function saveMovieDataToLocalStorage(movieId, data) {
+    localStorage.setItem('movie_' + movieId, JSON.stringify(data));
   }
 
   Lampa.Listener.follow("line", function (e) {
