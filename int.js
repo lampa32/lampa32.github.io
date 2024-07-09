@@ -26,7 +26,7 @@
         var details = [];
         var countries = Lampa.Api.sources.tmdb.parseCountries(data);
         var pg = Lampa.Api.sources.tmdb.parsePG(data);
-		var hoursMinutes = `${parseInt(timeDuration(data)[0])}ч ${parseInt(timeDuration(data)[1])}мин`;
+		var hoursMinutes = '${parseInt(timeDuration(data)[0])}ч ${parseInt(timeDuration(data)[1])}мин';
         if (create !== '0000') head.push('<span>' + create + '</span>');
         if (countries.length > 0) head.push(countries.join(', '));
         if (vote > 0) details.push('<div class="full-start__rate"><div>' + vote + '</div><div>TMDB</div></div>');
