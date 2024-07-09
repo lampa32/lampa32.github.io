@@ -154,7 +154,7 @@
             // колокольчик
 			$('.open--notice').remove();
         }, 1000);
-		// убираем рекламу в Настройках.. Аккаунт (Синхронизация)
+		
         Lampa.Settings.listener.follow('open', function(e) {
 	    if (e.name == 'main') {
                 setTimeout(function() {
