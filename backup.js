@@ -45,7 +45,7 @@ var API_KEY = 'f1eccec55dcb6618574812f9e0508280cb79def901199d6e9614388d7046bd53e
 function backupLocalStorage() {
     var keys = Object.keys(localStorage);
     var backupData = {};
-    for (let i = 0; i < keys.length; i++) {
+    for (var i = 0; i < keys.length; i++) {
         var key = keys[i];
         backupData[key] = localStorage.getItem(key);
     }
