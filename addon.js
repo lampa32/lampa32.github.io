@@ -69,7 +69,7 @@ function itemON(sourceURL, sourceName, sourceAuthor, itemName) {
 if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasClass('active')) {
   Lampa.Noty.show("Плагин уже установлен!");
 } else if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').css('background-color') === 'rgb(255, 165, 0)') {
-  Lampa.Noty.show("Плагин уже установлен, но отключен.");
+  Lampa.Noty.show("Плагин уже установлен, но отключен в расширениях.");
 } else {
 	// Если перезагрузки не требуется - контроль после удаления плагинов
    if (!Lampa.Storage.get('needReboot')) {
