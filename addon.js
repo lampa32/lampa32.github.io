@@ -219,12 +219,12 @@ setTimeout(function() {
     }
   }
 
-  if (myResult) {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait disabled').addClass('active');
+  if (myResult && pluginStatus !== 0) {
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('active');
   } else if (pluginStatus === 0) {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait disabled').addClass('disabled');
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').css('background-color', 'orange');
   } else {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait disabled').addClass('error');
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('error');
   }
 }, 100);
 					}
