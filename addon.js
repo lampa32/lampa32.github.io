@@ -209,7 +209,12 @@ Lampa.SettingsApi.addComponent({
 var pluginsArray = Lampa.Storage.get('plugins');
 
 setTimeout(function() {
-  $('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>');
+  var $statusIndicator = $('div[data-name="TMDB"]').find('.settings-param__status');
+
+  if ($statusIndicator.length === 0) {
+    $statusIndicator = $('<div class="settings-param__status one"></div>');
+    $('div[data-name="TMDB"]').append($statusIndicator);
+  }
 
   var pluginStatus = null;
   for (var i = 0; i < pluginsArray.length; i++) {
@@ -220,11 +225,11 @@ setTimeout(function() {
   }
 
   if (myResult && pluginStatus !== 0) {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('active');
+    $statusIndicator.removeClass('active error disabled').addClass('active');
   } else if (pluginStatus === 0) {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('disabled');
+    $statusIndicator.removeClass('active error disabled').addClass('disabled');
   } else {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('error');
+    $statusIndicator.removeClass('active error disabled').addClass('error');
   }
 }, 100);
 					}
