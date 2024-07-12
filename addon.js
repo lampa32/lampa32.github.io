@@ -224,12 +224,14 @@ setTimeout(function() {
     }
   }
 
+  $statusIndicator.css('background-color', '');
+
   if (myResult && pluginStatus !== 0) {
-    $statusIndicator.removeClass('active error disabled').addClass('active');
+    $statusIndicator.css('background-color', 'green');
   } else if (pluginStatus === 0) {
-    $statusIndicator.removeClass('active error disabled').addClass('disabled');
+    $statusIndicator.css('background-color', 'yellow');
   } else {
-    $statusIndicator.removeClass('active error disabled').addClass('error');
+    $statusIndicator.css('background-color', 'red');
   }
 }, 100);
 					}
