@@ -2027,15 +2027,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('http://79.137.204.8/sisi.js', 'Клубничка (Bwa Cloud)', '@rik', 'Nyam');
+							itemON('http://79.137.204.8:9118/sisi.js', 'Клубничка (Bwa Cloud)', '@rik', 'Nyam');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "http://79.137.204.8/sisi.js";
+							var pluginToRemoveUrl = "http://79.137.204.8:9118/sisi.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://79.137.204.8/sisi.js')
+						var myResult = checkPlugin('http://79.137.204.8:9118/sisi.js')
 						setTimeout(function() {	
 							$('div[data-name="Nyam"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
