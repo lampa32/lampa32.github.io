@@ -208,16 +208,17 @@ Lampa.SettingsApi.addComponent({
 						var myResult = checkPlugin('http://cub.red/plugin/tmdb-proxy');
 
 setTimeout(function() {
-  $('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>');
+  var $statusIndicator = $('<div class="settings-param__status one"></div>');
+  $('div[data-name="TMDB"]').append($statusIndicator);
 
   if (myResult) {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('active');
+    $statusIndicator.css('background-color', 'green');
   } else {
     var pluginStatus = Lampa.Storage.get('plugin_status', {});
     if (pluginStatus['http://cub.red/plugin/tmdb-proxy'] === false) {
-      $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('disabled');
+      $statusIndicator.css('background-color', 'yellow');
     } else {
-      $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('error');
+      $statusIndicator.css('background-color', 'red');
     }
   }
 }, 100);
