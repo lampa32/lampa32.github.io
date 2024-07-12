@@ -68,7 +68,7 @@ function itemON(sourceURL, sourceName, sourceAuthor, itemName) {
 //if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasClass('active')) {Lampa.Noty.show("Плагин уже установлен!")} else {	
   if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasClass('active')) {
   Lampa.Noty.show("Плагин уже установлен!");
-} else if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasClass('disabled')) {
+} else if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').css('background-color') === 'orange') {
   Lampa.Noty.show("Плагин уже установлен, но отключен.");
 } else {
 	// Если перезагрузки не требуется - контроль после удаления плагинов
