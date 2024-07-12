@@ -66,28 +66,15 @@ function itemON(sourceURL, sourceName) {
 
 function itemON(sourceURL, sourceName, sourceAuthor, itemName) {
 //if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasClass('active')) {Lampa.Noty.show("Плагин уже установлен!")} else {	
-  // Получаем список плагинов
-var pluginsArray = Lampa.Storage.get('plugins');
-
-// Находим плагин по имени
-var pluginIndex = -1;
-for (var i = 0; i < pluginsArray.length; i++) {
-  if (pluginsArray[i].name === itemName) {
-    pluginIndex = i;
-    break;
-  }
-}
-
-if (pluginIndex !== -1) {
-  if (pluginsArray[pluginIndex].status === 1) {
-    Lampa.Noty.show("Плагин уже установлен!");
-  } else if (pluginsArray[pluginIndex].status === 0) {
-    Lampa.Noty.show("Плагин уже установлен, но отключен.");
-  } else {
+if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasClass('active')) {
+  Lampa.Noty.show("Плагин уже установлен!");
+} else if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').css('background-color') === 'rgb(255, 165, 0)') {
+  Lampa.Noty.show("Плагин уже установлен, но отключен.");
+} else {
 	// Если перезагрузки не требуется - контроль после удаления плагинов
    if (!Lampa.Storage.get('needReboot')) {
 	// Получаем список плагинов
-		//var pluginsArray = Lampa.Storage.get('plugins');
+		var pluginsArray = Lampa.Storage.get('plugins');
 	// Добавляем новый элемент к списку
 		pluginsArray.push({
 			"author": sourceAuthor,
