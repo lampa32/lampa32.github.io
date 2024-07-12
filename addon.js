@@ -225,11 +225,11 @@ setTimeout(function() {
   }
 
   if (myResult && pluginStatus !== 0) {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('active');
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error').addClass('active');
   } else if (pluginStatus === 0) {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').css('background-color', 'orange');
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error').css('background-color', 'orange');
   } else {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('error');
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error').addClass('error');
   }
 }, 100);
 					}
