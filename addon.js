@@ -206,20 +206,25 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);*/
 						var myResult = checkPlugin('http://cub.red/plugin/tmdb-proxy');
+var pluginsArray = Lampa.Storage.get('plugins');
 
 setTimeout(function() {
-  var $statusIndicator = $('<div class="settings-param__status one"></div>');
-  $('div[data-name="TMDB"]').append($statusIndicator);
+  $('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>');
 
-  if (myResult) {
-    $statusIndicator.css('background-color', 'green');
-  } else {
-    var pluginStatus = Lampa.Storage.get('plugin_status', {});
-    if (pluginStatus['http://cub.red/plugin/tmdb-proxy'] === false) {
-      $statusIndicator.css('background-color', 'yellow');
-    } else {
-      $statusIndicator.css('background-color', 'red');
+  var pluginStatus = null;
+  for (var i = 0; i < pluginsArray.length; i++) {
+    if (pluginsArray[i].url === 'http://cub.red/plugin/tmdb-proxy') {
+      pluginStatus = pluginsArray[i].status;
+      break;
     }
+  }
+
+  if (myResult && pluginStatus !== 0) {
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('active');
+  } else if (pluginStatus === 0) {
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('disabled');
+  } else {
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('error');
   }
 }, 100);
 					}
