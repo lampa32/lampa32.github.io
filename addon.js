@@ -209,12 +209,7 @@ Lampa.SettingsApi.addComponent({
 var pluginsArray = Lampa.Storage.get('plugins');
 
 setTimeout(function() {
-  var $statusIndicator = $('div[data-name="TMDB"]').find('.settings-param__status');
-
-  if ($statusIndicator.length === 0) {
-    $statusIndicator = $('<div class="settings-param__status one"></div>');
-    $('div[data-name="TMDB"]').append($statusIndicator);
-  }
+  $('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>');
 
   var pluginStatus = null;
   for (var i = 0; i < pluginsArray.length; i++) {
@@ -224,14 +219,12 @@ setTimeout(function() {
     }
   }
 
-  $statusIndicator.css('background-color', '');
-
-  if (myResult && pluginStatus !== 0) {
-    $statusIndicator.css('background-color', 'green');
+  if (myResult) {
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait disabled').addClass('active');
   } else if (pluginStatus === 0) {
-    $statusIndicator.css('background-color', 'yellow');
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait disabled').addClass('disabled');
   } else {
-    $statusIndicator.css('background-color', 'red');
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait disabled').addClass('error');
   }
 }, 100);
 					}
