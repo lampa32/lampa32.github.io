@@ -196,7 +196,7 @@ Lampa.SettingsApi.addComponent({
 					},
 					onRender: function (item) {
 						$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('http://cub.red/plugin/tmdb-proxy')
+						/*var myResult = checkPlugin('http://cub.red/plugin/tmdb-proxy')
 						setTimeout(function() {	
 							$('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -204,7 +204,23 @@ Lampa.SettingsApi.addComponent({
 							} else {
 								$('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error wait').addClass('error')
 							}
-						}, 100);
+						}, 100);*/
+						var myResult = checkPlugin('http://cub.red/plugin/tmdb-proxy');
+
+setTimeout(function() {
+  $('div[data-name="TMDB"]').append('<div class="settings-param__status one"></div>');
+
+  if (myResult) {
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('active');
+  } else {
+    var pluginStatus = Lampa.Storage.get('plugin_status', {});
+    if (pluginStatus['http://cub.red/plugin/tmdb-proxy'] === false) {
+      $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('disabled');
+    } else {
+      $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error disabled').addClass('error');
+    }
+  }
+}, 100);
 					}
 		});
                 
@@ -1991,15 +2007,15 @@ Lampa.SettingsApi.addComponent({
 					},
 					onChange: function(value) {
 						if (value == '1') {
-							itemON('https://bwa.to/s', 'Клубничка', '@rik', 'Sisi');
+							itemON('http://79.137.204.8:9118/sisi.js', 'Клубничка', '@rik', 'Sisi');
 						}
 						if (value == '2') {
-							var pluginToRemoveUrl = "https://bwa.to/s";
+							var pluginToRemoveUrl = "http://79.137.204.8:9118/sisi.js";
 							deletePlugin(pluginToRemoveUrl);
 						}
 					},
 					onRender: function (item) {$('.settings-param__name', item).css('color','f3d900'); hideInstall();
-						var myResult = checkPlugin('https://bwa.to/s')
+						var myResult = checkPlugin('http://79.137.204.8:9118/sisi.js')
 						setTimeout(function() {	
 							$('div[data-name="Sisi"]').append('<div class="settings-param__status one"></div>')
 							if (myResult) {
@@ -2010,7 +2026,7 @@ Lampa.SettingsApi.addComponent({
 						}, 100);		  
 					}
 		});
-	        Lampa.SettingsApi.addParam({
+	        /*Lampa.SettingsApi.addParam({
 					component: 'add_sisi_plugin',
 					param: {
 						name: 'Nyam',
@@ -2045,7 +2061,7 @@ Lampa.SettingsApi.addComponent({
 							}
 						}, 100);		  
 					}
-		});
+		});*/
 	      /*  Lampa.SettingsApi.addParam({
                                   component: 'add_sisi_plugin',
                                   param: {
