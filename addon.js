@@ -153,10 +153,9 @@ function addPluginsComponent() {
   var componentElement = Lampa.SettingsApi.addComponent({
     component: 'add_plugin',
     name: 'Плагины',
-    icon: icon_add_plugin
+    icon: icon_add_plugin,
+    append: indicator
   });
-
-  componentElement.appendChild(indicator);
 
   return indicator;
 }
