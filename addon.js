@@ -227,7 +227,7 @@ setTimeout(function() {
   if (myResult && pluginStatus !== 0) {
     $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error').addClass('active');
   } else if (pluginStatus === 0) {
-    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error').css('background-color', 'orange');
+    $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error').css('background-color', 'rgb(255, 165, 0)');
   } else {
     $('div[data-name="TMDB"]').find('.settings-param__status').removeClass('active error').addClass('error');
   }
