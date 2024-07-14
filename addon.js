@@ -139,7 +139,7 @@ Lampa.SettingsApi.addComponent({
                     component: 'add_interface_plugin',
                     name: 'Interface'
 				});
-				//setTimeout(function() {
+				setTimeout(function() {
 					$('div[data-component="add_interface_plugin"]').remove();
 					$('div[data-component="add_management_plugin"]').remove();
 					$('div[data-component="add_online_plugin"]').remove();
@@ -149,7 +149,7 @@ Lampa.SettingsApi.addComponent({
 					$('div[data-component="add_radio_plugin"]').remove();
 					$('div[data-component="add_sisi_plugin"]').remove();
 					$('div[data-component="pirate_store"]').remove();
-				//}, 0);
+				}, 0);
 				$("#hideInstall").remove();
 				//$('body').append('<div id="hideInstall"><style>div.settings-param__value{opacity: 0%!important;display: none;}</style><div>')
 		                /* Сдвигаем раздел выше */
