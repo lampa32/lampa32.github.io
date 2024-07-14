@@ -132,6 +132,14 @@ function checkPlugin(pluginToCheck) {
 	    append: indicator.outerHTML
 });*/
 	// Функция для создания элемента с классами
+function createElementWithClasses(tagName, classes) {
+  var element = document.createElement(tagName);
+  classes.forEach(function(className) {
+    element.classList.add(className);
+  });
+  return element;
+}
+
 // Функция для добавления компонента с индикатором
 function addPluginsComponent() {
   // Создаем элемент индикатора
@@ -160,7 +168,7 @@ var pluginsIndicator = addPluginsComponent();
 pluginsIndicator.style.display = 'block';
 
 // Скрываем индикатор, когда пользователь просмотрел новые плагины
-//pluginsIndicator.style.display = 'none';
+pluginsIndicator.style.display = 'none';
 /* Интерфейс */
         Lampa.Settings.listener.follow('open', function (e) {
             if (e.name == 'main') {
