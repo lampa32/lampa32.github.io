@@ -128,52 +128,30 @@ function checkPlugin(pluginToCheck) {
 /*Lampa.SettingsApi.addComponent({
             component: 'add_plugin',
             name: 'Плагины',
-            icon: icon_add_plugin,
-	    append: indicator.outerHTML
+            icon: icon_add_plugin
 });*/
-	// Функция для создания элемента с классами
-function createElementWithClasses(tagName, classes) {
-  var element = document.createElement(tagName);
-  classes.forEach(function(className) {
-    element.classList.add(className);
-  });
-  return element;
-}
+	Lampa.SettingsApi.addComponent({
+  component: 'add_plugin',
+  name: 'Плагины',
+  icon: 'icon_add_plugin',
+  onAppend: function(item) {
+    // Создаем индикатор
+    var indicator = document.createElement('div');
+    indicator.classList.add('plugin-indicator');
 
-// Функция для добавления компонента с индикатором
-function addPluginsComponent() {
-  // Создаем элемент индикатора
-  var indicator = createElementWithClasses('div', ['new-plugins-indicator']);
-  indicator.style.display = 'block';
-  var badge = createElementWithClasses('span', ['badge']);
-  badge.textContent = 'New';
-  indicator.appendChild(badge);
+    // Устанавливаем стили для индикатора
+    indicator.style.position = 'absolute';
+    indicator.style.top = '2px';
+    indicator.style.right = '2px';
+    indicator.style.width = '8px';
+    indicator.style.height = '8px';
+    indicator.style.borderRadius = '50%';
+    indicator.style.backgroundColor = 'red';
 
-  // Создаем элемент компонента
-  var componentElement = createElementWithClasses('div', ['settings-component']);
-  var iconElement = createElementWithClasses('i', ['icon']);
-  iconElement.textContent = '⚙️';
-  var nameElement = createElementWithClasses('span', ['name']);
-  nameElement.textContent = 'Плагины';
-  componentElement.appendChild(iconElement);
-  componentElement.appendChild(nameElement);
-  componentElement.appendChild(indicator);
-
-  // Добавляем компонент в DOM
-  var settingsContainer = document.querySelector('.settings-container');
-  settingsContainer.appendChild(componentElement);
-
-  return indicator;
-}
-
-// Вызываем функцию для добавления компонента
-var pluginsIndicator = addPluginsComponent();
-
-// Показываем индикатор, когда появляются новые плагины
-pluginsIndicator.style.display = 'block';
-
-// Скрываем индикатор, когда пользователь просмотрел новые плагины
-pluginsIndicator.style.display = 'none';
+    // Добавляем индикатор к компоненту
+    item.appendChild(indicator);
+  }
+});
 /* Интерфейс */
         Lampa.Settings.listener.follow('open', function (e) {
             if (e.name == 'main') {
