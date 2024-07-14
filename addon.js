@@ -132,14 +132,6 @@ function checkPlugin(pluginToCheck) {
 	    append: indicator.outerHTML
 });*/
 	// Функция для создания элемента с классами
-function createElementWithClasses(tagName, classes) {
-  var element = document.createElement(tagName);
-  classes.forEach(function(className) {
-    element.classList.add(className);
-  });
-  return element;
-}
-
 // Функция для добавления компонента с индикатором
 function addPluginsComponent() {
   // Создаем элемент индикатора
@@ -150,12 +142,13 @@ function addPluginsComponent() {
   indicator.appendChild(badge);
 
   // Добавляем компонент настроек с индикатором
-  Lampa.SettingsApi.addComponent({
+  var componentElement = Lampa.SettingsApi.addComponent({
     component: 'add_plugin',
     name: 'Плагины',
-    icon: icon_add_plugin,
-    append: indicator.outerHTML
+    icon: icon_add_plugin
   });
+
+  componentElement.appendChild(indicator);
 
   return indicator;
 }
