@@ -125,33 +125,12 @@ function checkPlugin(pluginToCheck) {
 
 	
 /* Компонент */
-/*Lampa.SettingsApi.addComponent({
+Lampa.SettingsApi.addComponent({
             component: 'add_plugin',
             name: 'Плагины',
             icon: icon_add_plugin
-});*/
-	Lampa.SettingsApi.addComponent({
-  component: 'add_plugin',
-  name: 'Плагины',
-  icon: icon_add_plugin',
-  onAppend: function(item) {
-    // Создаем индикатор
-    var indicator = document.createElement('div');
-    indicator.classList.add('plugin-indicator');
-
-    // Устанавливаем стили для индикатора
-    indicator.style.position = 'absolute';
-    indicator.style.top = '2px';
-    indicator.style.right = '2px';
-    indicator.style.width = '8px';
-    indicator.style.height = '8px';
-    indicator.style.borderRadius = '50%';
-    indicator.style.backgroundColor = 'red';
-
-    // Добавляем индикатор к компоненту
-    item.appendChild(indicator);
-  }
 });
+	
 /* Интерфейс */
         Lampa.Settings.listener.follow('open', function (e) {
             if (e.name == 'main') {
