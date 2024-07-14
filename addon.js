@@ -144,7 +144,7 @@ function createElementWithClasses(tagName, classes) {
 function addPluginsComponent() {
   // Создаем элемент индикатора
   var indicator = createElementWithClasses('div', ['new-plugins-indicator']);
-  indicator.style.display = 'none';
+  indicator.style.display = 'block';
   var badge = createElementWithClasses('span', ['badge']);
   badge.textContent = 'New';
   indicator.appendChild(badge);
