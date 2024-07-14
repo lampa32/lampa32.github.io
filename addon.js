@@ -133,7 +133,7 @@ function checkPlugin(pluginToCheck) {
 	Lampa.SettingsApi.addComponent({
   component: 'add_plugin',
   name: 'Плагины',
-  icon: 'icon_add_plugin',
+  icon: icon_add_plugin'
   onAppend: function(item) {
     // Создаем индикатор
     var indicator = document.createElement('div');
