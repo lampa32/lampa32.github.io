@@ -122,13 +122,52 @@ function checkPlugin(pluginToCheck) {
 	console.log('search', 'pluginToCheck: ' + pluginToCheck);
 	if (JSON.stringify(checkResult) !== '[]') {return true} else {return false}
 };
+
 	
 /* Компонент */
-Lampa.SettingsApi.addComponent({
+/*Lampa.SettingsApi.addComponent({
             component: 'add_plugin',
             name: 'Плагины',
-            icon: icon_add_plugin
-       });
+            icon: icon_add_plugin,
+	    append: indicator.outerHTML
+});*/
+	// Функция для создания элемента с классами
+function createElementWithClasses(tagName, classes) {
+  var element = document.createElement(tagName);
+  classes.forEach(function(className) {
+    element.classList.add(className);
+  });
+  return element;
+}
+
+// Функция для добавления компонента с индикатором
+function addPluginsComponent() {
+  // Создаем элемент индикатора
+  var indicator = createElementWithClasses('div', ['new-plugins-indicator']);
+  indicator.style.display = 'none';
+  var badge = createElementWithClasses('span', ['badge']);
+  badge.textContent = 'New';
+  indicator.appendChild(badge);
+
+  // Добавляем компонент настроек с индикатором
+  Lampa.SettingsApi.addComponent({
+    component: 'add_plugin',
+    name: 'Плагины',
+    icon: icon_add_plugin,
+    append: indicator.outerHTML
+  });
+
+  return indicator;
+}
+
+// Вызываем функцию для добавления компонента
+var pluginsIndicator = addPluginsComponent();
+
+// Показываем индикатор, когда появляются новые плагины
+pluginsIndicator.style.display = 'block';
+
+// Скрываем индикатор, когда пользователь просмотрел новые плагины
+//pluginsIndicator.style.display = 'none';
 /* Интерфейс */
         Lampa.Settings.listener.follow('open', function (e) {
             if (e.name == 'main') {
