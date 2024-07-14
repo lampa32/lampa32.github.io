@@ -149,13 +149,19 @@ function addPluginsComponent() {
   badge.textContent = 'New';
   indicator.appendChild(badge);
 
-  // Добавляем компонент настроек с индикатором
-  var componentElement = Lampa.SettingsApi.addComponent({
-    component: 'add_plugin',
-    name: 'Плагины',
-    icon: icon_add_plugin,
-    append: indicator
-  });
+  // Создаем элемент компонента
+  var componentElement = createElementWithClasses('div', ['settings-component']);
+  var iconElement = createElementWithClasses('i', ['icon']);
+  iconElement.textContent = '⚙️';
+  var nameElement = createElementWithClasses('span', ['name']);
+  nameElement.textContent = 'Плагины';
+  componentElement.appendChild(iconElement);
+  componentElement.appendChild(nameElement);
+  componentElement.appendChild(indicator);
+
+  // Добавляем компонент в DOM
+  var settingsContainer = document.querySelector('.settings-container');
+  settingsContainer.appendChild(componentElement);
 
   return indicator;
 }
