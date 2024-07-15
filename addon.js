@@ -47,7 +47,7 @@ function showLoadingBar() {
   loadingBar.classList.add('loading-bar');
   loadingBar.style.position = 'fixed';
   loadingBar.style.top = '50%';
-  loadingBar.style.right = '50%';
+  loadingBar.style.left = '50%';
   loadingBar.style.transform = 'translate(-50%, -50%)';
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
