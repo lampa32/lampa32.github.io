@@ -53,7 +53,7 @@ function showOkIcon() {
   okIcon.style.display = 'none';
 
   // Добавляем SVG-код галочки
-  okIcon.innerHTML = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 50C38.8071 50 50 38.8071 50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50Z" fill="#4CAF50"/><path d="M18 25L22 29L32 19" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  okIcon.innerHTML = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 50C38.8071 50 50 38.8071 50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50Z" fill="#64e364"/><path d="M18 25L22 29L32 19" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   // Добавляем элемент галочки в документ
   document.body.appendChild(okIcon);
@@ -66,7 +66,7 @@ function showOkIcon() {
   okIcon.offsetHeight; // Триггер для запуска CSS-транзиции
   okIcon.style.transform = 'translate(-50%, -50%) scale(1)';
 
-  // Через 1 секунду скрываем галочку
+  // Через 1,5 секунды скрываем галочку
   setTimeout(function() {
     okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
     setTimeout(function() {
@@ -74,7 +74,7 @@ function showOkIcon() {
       // Удаляем элемент галочки из документа
       okIcon.remove();
     }, 500);
-  }, 2000);
+  }, 1500);
 }
 
 function showCloseIcon() {
@@ -89,7 +89,7 @@ function showCloseIcon() {
   closeIcon.style.display = 'none';
 
   // Добавляем SVG-код крестика
-  closeIcon.innerHTML = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="25" fill="#E53935"/><path d="M16 16L34 34M16 34L34 16" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  closeIcon.innerHTML = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="25" fill="#ff2121"/><path d="M16 16L34 34M16 34L34 16" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   // Добавляем элемент крестика в документ
   document.body.appendChild(closeIcon);
@@ -102,7 +102,7 @@ function showCloseIcon() {
   closeIcon.offsetHeight; // Триггер для запуска CSS-транзиции
   closeIcon.style.transform = 'translate(-50%, -50%) scale(1)';
 
-  // Через 1 секунду скрываем крестик
+  // Через 1,5 секунды скрываем крестик
   setTimeout(function() {
     closeIcon.style.transform = 'translate(-50%, -50%) scale(0)';
     setTimeout(function() {
@@ -110,7 +110,7 @@ function showCloseIcon() {
       // Удаляем элемент крестика из документа
       closeIcon.remove();
     }, 500);
-  }, 2000);
+  }, 1500);
 }
 	
 /* Следим за настройками */
