@@ -53,12 +53,7 @@ function showOkIcon() {
   okIcon.style.display = 'none';
 
   // Добавляем SVG-код галочки
-  okIcon.innerHTML = `
-    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M25 50C38.8071 50 50 38.8071 50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50Z" fill="#4CAF50"/>
-      <path d="M18 25L22 29L32 19" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `;
+  okIcon.innerHTML = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 50C38.8071 50 50 38.8071 50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50Z" fill="#4CAF50"/><path d="M18 25L22 29L32 19" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   // Добавляем элемент галочки в документ
   document.body.appendChild(okIcon);
@@ -115,7 +110,7 @@ function showCloseIcon() {
       // Удаляем элемент крестика из документа
       closeIcon.remove();
     }, 500);
-  }, 1000);
+  }, 2000);
 }
 	
 /* Следим за настройками */
