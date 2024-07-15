@@ -40,7 +40,6 @@ Lampa.Modal.open({
       }]
 });
 }
-
 function showLoadingBar() {
   // Создаем элемент для полосы загрузки
   var loadingBar = document.createElement('div');
@@ -54,7 +53,7 @@ function showLoadingBar() {
   loadingBar.style.width = '100%';
   loadingBar.style.height = '30px';
   loadingBar.style.backgroundColor = '#ddd';
-  loadingBar.style.borderRadius = '15px'; // Вернули скругленные края
+  loadingBar.style.borderRadius = '15px';
 
   // Создаем элемент для индикатора загрузки
   var loadingIndicator = document.createElement('div');
@@ -65,7 +64,7 @@ function showLoadingBar() {
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
   loadingIndicator.style.backgroundColor = '#4CAF50';
-  loadingIndicator.style.borderRadius = '15px'; // Вернули скругленные края
+  loadingIndicator.style.borderRadius = '15px';
   loadingIndicator.style.transition = 'width 1.5s ease-in-out';
 
   // Добавляем элементы на страницу
@@ -80,11 +79,16 @@ function showLoadingBar() {
     loadingIndicator.style.width = '100%';
   }, 500);
 
-  // Через 3.5 секунды скрываем полосу загрузки
+  // Через 3 секунды после достижения 100% скрываем полосу загрузки
   setTimeout(function() {
     loadingIndicator.style.width = '0';
-  }, 4000);
+    setTimeout(function() {
+      loadingBar.style.display = 'none';
+      loadingBar.remove();
+    }, 1500);
+  }, 4500);
 }
+
 
 function showOkIcon() {
   // Создаем элемент галочки
