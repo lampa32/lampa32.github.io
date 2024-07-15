@@ -77,15 +77,15 @@ function showLoadingBar() {
 
   // Запускаем анимацию
 	setTimeout(function() {
-  loadingIndicator.style.width = '0%';
+  loadingIndicator.style.width = '100%';
 }, 300);
   // Через 3 секунды скрываем полосу загрузки
   setTimeout(function() {
-    loadingIndicator.style.width = '0';
-    setTimeout(function() {
+    //loadingIndicator.style.width = '0';
+   // setTimeout(function() {
       loadingBar.style.display = 'none';
       loadingBar.remove();
-    }, 1500);
+   // }, 1500);
   }, 3000);
 }
 
