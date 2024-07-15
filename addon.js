@@ -40,13 +40,14 @@ Lampa.Modal.open({
       }]
 });
 }
+
 function showLoadingBar() {
   // Создаем элемент для полосы загрузки
   var loadingBar = document.createElement('div');
   loadingBar.classList.add('loading-bar');
   loadingBar.style.position = 'fixed';
   loadingBar.style.top = '50%';
-  loadingBar.style.left = '0';
+  loadingBar.style.left = '-100%'; // Начинаем с левого края экрана
   loadingBar.style.transform = 'translateY(-50%)';
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
@@ -76,6 +77,7 @@ function showLoadingBar() {
 
   // Начинаем анимацию через 0.5 секунды
   setTimeout(function() {
+    loadingBar.style.left = '0'; // Сдвигаем полосу загрузки вправо
     loadingIndicator.style.width = '100%';
   }, 500);
 
@@ -88,7 +90,6 @@ function showLoadingBar() {
     }, 1500);
   }, 4500);
 }
-
 
 function showOkIcon() {
   // Создаем элемент галочки
