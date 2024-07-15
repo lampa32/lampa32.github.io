@@ -41,6 +41,53 @@ Lampa.Modal.open({
 });
 }
 
+function showLoadingBar() {
+  // Создаем элемент для полосы загрузки
+  var loadingBar = document.createElement('div');
+  loadingBar.classList.add('loading-bar');
+  loadingBar.style.position = 'fixed';
+  loadingBar.style.top = '50%';
+  loadingBar.style.left = '50%';
+  loadingBar.style.transform = 'translate(-50%, -50%)';
+  loadingBar.style.zIndex = '9999';
+  loadingBar.style.display = 'none';
+  loadingBar.style.width = '300px';
+  loadingBar.style.height = '30px';
+  loadingBar.style.backgroundColor = '#ddd';
+  loadingBar.style.borderRadius = '15px';
+
+  // Создаем элемент для индикатора загрузки
+  var loadingIndicator = document.createElement('div');
+  loadingIndicator.classList.add('loading-indicator');
+  loadingIndicator.style.position = 'absolute';
+  loadingIndicator.style.left = '0';
+  loadingIndicator.style.top = '0';
+  loadingIndicator.style.bottom = '0';
+  loadingIndicator.style.width = '0';
+  loadingIndicator.style.backgroundColor = '#4CAF50';
+  loadingIndicator.style.borderRadius = '15px';
+  loadingIndicator.style.transition = 'width 1.5s ease-in-out';
+
+  // Добавляем элементы на страницу
+  loadingBar.appendChild(loadingIndicator);
+  document.body.appendChild(loadingBar);
+
+  // Отображаем полосу загрузки
+  loadingBar.style.display = 'block';
+
+  // Запускаем анимацию
+  loadingIndicator.style.width = '100%';
+
+  // Через 3 секунды скрываем полосу загрузки
+  setTimeout(function() {
+    loadingIndicator.style.width = '0';
+    setTimeout(function() {
+      loadingBar.style.display = 'none';
+      loadingBar.remove();
+    }, 1500);
+  }, 3000);
+}	
+
 function showOkIcon() {
   // Создаем элемент галочки
   var okIcon = document.createElement('div');
@@ -170,7 +217,8 @@ if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasCl
 		setTimeout(function() {
 			Lampa.Settings.update();
 			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
-			showOkIcon()
+			//showOkIcon()
+			showLoadingBar()
 		}, 300);
    // Отправляем сигнал ожидания выхода из настроек для появления окна с предложением перезагрузки
 	  // Lampa.Storage.set('needRebootSettingExit', true);
