@@ -88,15 +88,6 @@ function showLoadingBar() {
   }, 3000);
 }
 
-  // Через 3 секунды после достижения 100% скрываем полосу загрузки
-  setTimeout(function() {
-    loadingIndicator.style.width = '0';
-    setTimeout(function() {
-      loadingBar.style.display = 'none';
-      loadingBar.remove();
-    }, 1500);
-  }, 4500);
-}
 
 function showOkIcon() {
   // Создаем элемент галочки
