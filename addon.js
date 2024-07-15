@@ -53,18 +53,18 @@ function showLoadingBar() {
   loadingBar.style.display = 'none';
   loadingBar.style.width = '300px';
   loadingBar.style.height = '30px';
-  loadingBar.style.backgroundColor = '#ddd';
+  loadingBar.style.backgroundColor = '#4CAF50';
   loadingBar.style.borderRadius = '15px';
 
   // Создаем элемент для индикатора загрузки
   var loadingIndicator = document.createElement('div');
   loadingIndicator.classList.add('loading-indicator');
   loadingIndicator.style.position = 'absolute';
-  loadingIndicator.style.right = '100%';
+  loadingIndicator.style.right = '0';
   loadingIndicator.style.top = '0';
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
-  loadingIndicator.style.backgroundColor = '#4CAF50';
+  loadingIndicator.style.backgroundColor = '#ddd';
   loadingIndicator.style.borderRadius = '15px';
   loadingIndicator.style.transition = 'width 1.5s ease-in-out';
 
