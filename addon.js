@@ -53,7 +53,7 @@ function showLoadingBar() {
   loadingBar.style.display = 'none';
   loadingBar.style.width = '300px';
   loadingBar.style.height = '25px';
-  loadingBar.style.backgroundColor = '#4CAF50';
+  loadingBar.style.backgroundColor = '#595959';
   loadingBar.style.borderRadius = '15px';
 
   // Создаем элемент для индикатора загрузки
@@ -86,7 +86,7 @@ function showLoadingBar() {
       loadingBar.style.display = 'none';
       loadingBar.remove();
    // }, 1500);
-  }, 2000);
+  }, 1500);
 }
 
 
