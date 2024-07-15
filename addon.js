@@ -68,9 +68,11 @@ function showOkIcon() {
   okIcon.offsetHeight; // Триггер для запуска CSS-транзиции
   okIcon.style.transform = 'translate(-50%, -50%) scale(1)';
 */
-   okIcon.style.transform = 'translate(-50%, -50%) scale(0) rotate(0deg)';
+   okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
    okIcon.offsetHeight;
-   okIcon.style.transform = 'translate(-50%, -50%) scale(1) rotate(720deg)';
+   okIcon.style.transform = 'translate(-50%, -50%) scale(1.5)';
+   okIcon.offsetHeight;
+   okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
   
 // Через 1,5 секунды скрываем галочку
   setTimeout(function() {
@@ -93,8 +95,8 @@ function showCloseIcon() {
   closeIcon.style.transform = 'translate(-50%, -50%)';
   closeIcon.style.zIndex = '9999';
   closeIcon.style.display = 'none';
-  okIcon.style.width = '10em';
-  okIcon.style.height = '10em';
+  closeIcon.style.width = '10em';
+  closeIcon.style.height = '10em';
 
   // Добавляем SVG-код крестика
   closeIcon.innerHTML = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="25" fill="#4CAF50"/><path d="M16 16L34 34M16 34L34 16" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
