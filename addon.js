@@ -47,14 +47,13 @@ function showLoadingBar() {
   loadingBar.classList.add('loading-bar');
   loadingBar.style.position = 'fixed';
   loadingBar.style.top = '50%';
-  loadingBar.style.left = '50%';
-  loadingBar.style.transform = 'translate(-50%, -50%)';
+  loadingBar.style.left = '0';
+  loadingBar.style.transform = 'translateY(-50%)';
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
-  loadingBar.style.width = '300px';
+  loadingBar.style.width = '100%';
   loadingBar.style.height = '30px';
   loadingBar.style.backgroundColor = '#ddd';
-  loadingBar.style.borderRadius = '15px';
 
   // Создаем элемент для индикатора загрузки
   var loadingIndicator = document.createElement('div');
@@ -63,10 +62,9 @@ function showLoadingBar() {
   loadingIndicator.style.left = '0';
   loadingIndicator.style.top = '0';
   loadingIndicator.style.bottom = '0';
-  loadingIndicator.style.width = '0%';
+  loadingIndicator.style.width = '0';
   loadingIndicator.style.backgroundColor = '#4CAF50';
-  loadingIndicator.style.borderRadius = '15px';
-  loadingIndicator.style.transition = 'width 3s linear';
+  loadingIndicator.style.transition = 'width 1.5s ease-in-out';
 
   // Добавляем элементы на страницу
   loadingBar.appendChild(loadingIndicator);
@@ -75,14 +73,19 @@ function showLoadingBar() {
   // Отображаем полосу загрузки
   loadingBar.style.display = 'block';
 
-  // Запускаем анимацию
-  loadingIndicator.style.width = '100%';
-
-  // Через 3 секунды полоса загрузки исчезнет
+  // Начинаем анимацию через 0.5 секунды
   setTimeout(function() {
-    loadingBar.style.display = 'none';
-    loadingBar.remove();
-  }, 3000);
+    loadingIndicator.style.width = '100%';
+  }, 500);
+
+  // Через 3.5 секунды скрываем полосу загрузки
+  setTimeout(function() {
+    loadingIndicator.style.width = '0';
+    setTimeout(function() {
+      loadingBar.style.display = 'none';
+      loadingBar.remove();
+    }, 1500);
+  }, 4000);
 }
 
 function showOkIcon() {
