@@ -76,8 +76,9 @@ function showLoadingBar() {
   loadingBar.style.display = 'block';
 
   // Запускаем анимацию
+	setTimeout(function() {
   loadingIndicator.style.width = '100%';
-
+}, 300);
   // Через 3 секунды скрываем полосу загрузки
   setTimeout(function() {
     loadingIndicator.style.width = '0';
