@@ -47,8 +47,8 @@ function showLoadingBar() {
   loadingBar.classList.add('loading-bar');
   loadingBar.style.position = 'fixed';
   loadingBar.style.top = '50%';
-  loadingBar.style.left = '50%';
-  loadingBar.style.transform = 'translate(-50%, -50%)';
+  loadingBar.style.right = '0'; // Начинаем с правого края экрана
+  loadingBar.style.transform = 'translateY(-50%)';
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
   loadingBar.style.width = '300px';
@@ -60,7 +60,7 @@ function showLoadingBar() {
   var loadingIndicator = document.createElement('div');
   loadingIndicator.classList.add('loading-indicator');
   loadingIndicator.style.position = 'absolute';
-  loadingIndicator.style.left = '0';
+  loadingIndicator.style.right = '0'; // Начинаем с правого края
   loadingIndicator.style.top = '0';
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
@@ -76,7 +76,9 @@ function showLoadingBar() {
   loadingBar.style.display = 'block';
 
   // Запускаем анимацию
-  loadingIndicator.style.width = '100%';
+  setTimeout(function() {
+    loadingIndicator.style.width = '100%'; // Движение справа налево
+  }, 500);
 
   // Через 3 секунды скрываем полосу загрузки
   setTimeout(function() {
