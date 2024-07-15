@@ -52,7 +52,7 @@ function showLoadingBar() {
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
   loadingBar.style.width = '300px';
-  loadingBar.style.height = '30px';
+  loadingBar.style.height = '20px';
   loadingBar.style.backgroundColor = '#4CAF50';
   loadingBar.style.borderRadius = '15px';
 
@@ -86,7 +86,7 @@ function showLoadingBar() {
       loadingBar.style.display = 'none';
       loadingBar.remove();
    // }, 1500);
-  }, 3000);
+  }, 2000);
 }
 
 
