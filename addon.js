@@ -48,7 +48,8 @@ function showOkIcon() {
   okIcon.style.position = 'fixed';
   okIcon.style.top = '50%';
   okIcon.style.left = '50%';
-  okIcon.style.transform = 'translate(-50%, -50%)';
+  //okIcon.style.transform = 'translate(-50%, -50%)';
+  okIcon.style.transform = 'translate(-50%, -50%) scale(0)'; // Устанавливаем начальное состояние
   okIcon.style.zIndex = '9999';
   okIcon.style.display = 'none';
   okIcon.style.width = '10em';
@@ -68,9 +69,8 @@ function showOkIcon() {
   okIcon.offsetHeight; // Триггер для запуска CSS-транзиции
   okIcon.style.transform = 'translate(-50%, -50%) scale(1)';
 */
-   okIcon.style.opacity = '0';
-   okIcon.offsetHeight;
-   okIcon.style.opacity = '1';
+okIcon.offsetHeight;
+okIcon.style.transform = 'translate(-50%, -50%) scale(1)';
   
 // Через 1,5 секунды скрываем галочку
   setTimeout(function() {
