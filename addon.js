@@ -79,7 +79,48 @@ function showOkIcon() {
       // Удаляем элемент галочки из документа
       okIcon.remove();
     }, 500);
-  }, 1000);
+  }, 2000);
+}
+
+function showCloseIcon() {
+  // Создаем элемент крестика
+  var closeIcon = document.createElement('div');
+  closeIcon.classList.add('close-icon');
+  closeIcon.style.position = 'fixed';
+  closeIcon.style.top = '50%';
+  closeIcon.style.left = '50%';
+  closeIcon.style.transform = 'translate(-50%, -50%)';
+  closeIcon.style.zIndex = '9999';
+  closeIcon.style.display = 'none';
+
+  // Добавляем SVG-код крестика
+  closeIcon.innerHTML = '
+    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="25" cy="25" r="25" fill="#E53935"/>
+      <path d="M16 16L34 34M16 34L34 16" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  ';
+
+  // Добавляем элемент крестика в документ
+  document.body.appendChild(closeIcon);
+
+  // Отображаем элемент
+  closeIcon.style.display = 'block';
+
+  // Запускаем анимацию
+  closeIcon.style.transform = 'translate(-50%, -50%) scale(0)';
+  closeIcon.offsetHeight; // Триггер для запуска CSS-транзиции
+  closeIcon.style.transform = 'translate(-50%, -50%) scale(1)';
+
+  // Через 1 секунду скрываем крестик
+  setTimeout(function() {
+    closeIcon.style.transform = 'translate(-50%, -50%) scale(0)';
+    setTimeout(function() {
+      closeIcon.style.display = 'none';
+      // Удаляем элемент крестика из документа
+      closeIcon.remove();
+    }, 500);
+  }, 2000);
 }
 	
 /* Следим за настройками */
@@ -154,6 +195,7 @@ function deletePlugin(pluginToRemoveUrl) {
 	//Lampa.Storage.set('needReboot', true);
 	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален");
+	showCloseIcon();
 	Lampa.Storage.set('needRebootSettingExit', true);
 	   settingsWatch();
 };
