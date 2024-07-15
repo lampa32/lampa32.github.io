@@ -42,53 +42,53 @@ Lampa.Modal.open({
 }
 
 function showLoadingBar() {
-  // Создаем элемент для полосы загрузки
-  var loadingBar = document.createElement('div');
-  loadingBar.classList.add('loading-bar');
-  loadingBar.style.position = 'fixed';
-  loadingBar.style.top = '50%';
-  loadingBar.style.right = '0'; // Начинаем с правого края экрана
-  loadingBar.style.transform = 'translateY(-50%)';
-  loadingBar.style.zIndex = '9999';
-  loadingBar.style.display = 'none';
-  loadingBar.style.width = '300px';
-  loadingBar.style.height = '30px';
-  loadingBar.style.backgroundColor = '#ddd';
-  loadingBar.style.borderRadius = '15px';
+  // Создаем элемент для полосы загрузки
+  var loadingBar = document.createElement('div');
+  loadingBar.classList.add('loading-bar');
+  loadingBar.style.position = 'fixed';
+  loadingBar.style.top = '50%';
+  loadingBar.style.left = '50%';
+  loadingBar.style.transform = 'translate(-50%, -50%)';
+  loadingBar.style.zIndex = '9999';
+  loadingBar.style.display = 'none';
+  loadingBar.style.width = '300px';
+  loadingBar.style.height = '30px';
+  loadingBar.style.backgroundColor = '#ddd';
+  loadingBar.style.borderRadius = '15px';
 
-  // Создаем элемент для индикатора загрузки
-  var loadingIndicator = document.createElement('div');
-  loadingIndicator.classList.add('loading-indicator');
-  loadingIndicator.style.position = 'absolute';
-  loadingIndicator.style.right = '0'; // Начинаем с правого края
-  loadingIndicator.style.top = '0';
-  loadingIndicator.style.bottom = '0';
-  loadingIndicator.style.width = '0';
-  loadingIndicator.style.backgroundColor = '#4CAF50';
-  loadingIndicator.style.borderRadius = '15px';
-  loadingIndicator.style.transition = 'width 1.5s ease-in-out';
+  // Создаем элемент для индикатора загрузки
+  var loadingIndicator = document.createElement('div');
+  loadingIndicator.classList.add('loading-indicator');
+  loadingIndicator.style.position = 'absolute';
+  loadingIndicator.style.right = '0';
+  loadingIndicator.style.top = '0';
+  loadingIndicator.style.bottom = '0';
+  loadingIndicator.style.width = '0';
+  loadingIndicator.style.backgroundColor = '#4CAF50';
+  loadingIndicator.style.borderRadius = '15px';
+  loadingIndicator.style.transition = 'width 1.5s ease-in-out';
 
-  // Добавляем элементы на страницу
-  loadingBar.appendChild(loadingIndicator);
-  document.body.appendChild(loadingBar);
+  // Добавляем элементы на страницу
+  loadingBar.appendChild(loadingIndicator);
+  document.body.appendChild(loadingBar);
 
-  // Отображаем полосу загрузки
-  loadingBar.style.display = 'block';
+  // Отображаем полосу загрузки
+  loadingBar.style.display = 'block';
 
-  // Запускаем анимацию
+  // Запускаем анимацию
   setTimeout(function() {
-    loadingIndicator.style.width = '100%'; // Движение справа налево
+      loadingIndicator.style.width = '100%';
   }, 500);
-
-  // Через 3 секунды скрываем полосу загрузки
-  setTimeout(function() {
-    loadingIndicator.style.width = '0';
-    setTimeout(function() {
-      loadingBar.style.display = 'none';
-      loadingBar.remove();
-    }, 1500);
-  }, 3000);
+  // Через 3 секунды скрываем полосу загрузки
+  setTimeout(function() {
+    loadingIndicator.style.width = '0';
+    setTimeout(function() {
+      loadingBar.style.display = 'none';
+      loadingBar.remove();
+    }, 1500);
+  }, 3000);
 }
+
 
 
 function showOkIcon() {
