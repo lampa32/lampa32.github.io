@@ -51,8 +51,8 @@ function showOkIcon() {
   okIcon.style.transform = 'translate(-50%, -50%)';
   okIcon.style.zIndex = '9999';
   okIcon.style.display = 'none';
-  okIcon.style.width = '200px';
-  okIcon.style.height = '200px';
+  okIcon.style.width = '10em';
+  okIcon.style.height = '10em';
 
   // Добавляем SVG-код галочки
   okIcon.innerHTML = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 50C38.8071 50 50 38.8071 50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50Z" fill="#4CAF50"/><path d="M18 25L22 29L32 19" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -66,7 +66,7 @@ function showOkIcon() {
   // Запускаем анимацию
   okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
   okIcon.offsetHeight; // Триггер для запуска CSS-транзиции
-  okIcon.style.transform = 'translate(-50%, -50%) scale(3)';
+  okIcon.style.transform = 'translate(-50%, -50%) scale(1)';
 
   // Через 1,5 секунды скрываем галочку
   setTimeout(function() {
