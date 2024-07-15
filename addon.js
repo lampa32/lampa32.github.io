@@ -60,7 +60,7 @@ function showLoadingBar() {
   var loadingIndicator = document.createElement('div');
   loadingIndicator.classList.add('loading-indicator');
   loadingIndicator.style.position = 'absolute';
-  loadingIndicator.style.right = '0';
+  loadingIndicator.style.right = '100%';
   loadingIndicator.style.top = '0';
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
