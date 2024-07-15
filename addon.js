@@ -64,11 +64,15 @@ function showOkIcon() {
   okIcon.style.display = 'block';
 
   // Запускаем анимацию
-  okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
+ /* okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
   okIcon.offsetHeight; // Триггер для запуска CSS-транзиции
   okIcon.style.transform = 'translate(-50%, -50%) scale(1)';
-
-  // Через 1,5 секунды скрываем галочку
+*/
+   okIcon.style.transform = 'translate(-50%, -50%) scale(0) rotate(0deg)';
+   okIcon.offsetHeight;
+   okIcon.style.transform = 'translate(-50%, -50%) scale(1) rotate(720deg)';
+  
+// Через 1,5 секунды скрываем галочку
   setTimeout(function() {
     okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
     setTimeout(function() {
