@@ -66,7 +66,7 @@ function showOkIcon() {
   // Запускаем анимацию
   okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
   okIcon.offsetHeight; // Триггер для запуска CSS-транзиции
-  okIcon.style.transform = 'translate(-50%, -50%) scale(1)';
+  okIcon.style.transform = 'translate(-50%, -50%) scale(3)';
 
   // Через 1,5 секунды скрываем галочку
   setTimeout(function() {
