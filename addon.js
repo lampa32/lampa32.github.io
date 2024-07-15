@@ -52,7 +52,7 @@ function showLoadingBar() {
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
   loadingBar.style.width = '300px';
-  loadingBar.style.height = '20px';
+  loadingBar.style.height = '25px';
   loadingBar.style.backgroundColor = '#4CAF50';
   loadingBar.style.borderRadius = '15px';
 
@@ -66,7 +66,7 @@ function showLoadingBar() {
   loadingIndicator.style.width = '0';
   loadingIndicator.style.backgroundColor = '#ddd';
   loadingIndicator.style.borderRadius = '15px';
-  loadingIndicator.style.transition = 'width 1.5s ease-in-out';
+  loadingIndicator.style.transition = 'width 1s ease-in-out';
 
   // Добавляем элементы на страницу
   loadingBar.appendChild(loadingIndicator);
