@@ -63,10 +63,10 @@ function showLoadingBar() {
   loadingIndicator.style.left = '0';
   loadingIndicator.style.top = '0';
   loadingIndicator.style.bottom = '0';
-  loadingIndicator.style.width = '0';
+  loadingIndicator.style.width = '0%';
   loadingIndicator.style.backgroundColor = '#4CAF50';
   loadingIndicator.style.borderRadius = '15px';
-  loadingIndicator.style.transition = 'width 1.5s ease-in-out';
+  loadingIndicator.style.transition = 'width 3s linear';
 
   // Добавляем элементы на страницу
   loadingBar.appendChild(loadingIndicator);
@@ -78,15 +78,12 @@ function showLoadingBar() {
   // Запускаем анимацию
   loadingIndicator.style.width = '100%';
 
-  // Через 3 секунды скрываем полосу загрузки
+  // Через 3 секунды полоса загрузки исчезнет
   setTimeout(function() {
-    loadingIndicator.style.width = '0';
-    setTimeout(function() {
-      loadingBar.style.display = 'none';
-      loadingBar.remove();
-    }, 1500);
+    loadingBar.style.display = 'none';
+    loadingBar.remove();
   }, 3000);
-}	
+}
 
 function showOkIcon() {
   // Создаем элемент галочки
