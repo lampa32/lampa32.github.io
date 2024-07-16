@@ -324,12 +324,12 @@ if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasCl
 		var script = document.createElement ('script');
 		script.src = sourceURL;
 		document.getElementsByTagName ('head')[0].appendChild (script);
-		setTimeout(function() {
+		showLoadingBar();
+	       setTimeout(function() {
 			Lampa.Settings.update();
 			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
 			//showOkIcon()
-			showLoadingBar();
-		}, 300);
+		}, 1500);
    // Отправляем сигнал ожидания выхода из настроек для появления окна с предложением перезагрузки
 	  // Lampa.Storage.set('needRebootSettingExit', true);
 	  // settingsWatch();
