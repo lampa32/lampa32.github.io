@@ -136,7 +136,7 @@ function showLoadingBar() {
 
   // Анимация с использованием setTimeout
   var startTime = Date.now();
-  var duration = 500; // 1.5 секунды
+  var duration = 1000; // 1.5 секунды
   var interval = setInterval(function() {
     var elapsed = Date.now() - startTime;
     var progress = Math.min((elapsed / duration) * 100, 100);
