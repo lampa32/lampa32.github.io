@@ -86,48 +86,49 @@ function showLoadingBar() {
   }, 1500);
 }
 
-function animateDelete() {
-  // Создаем элемент текста
-  var deleteText = document.createElement('div');
-  deleteText.textContent = 'DELETED';
-  deleteText.style.color = '#ff0000';
-  deleteText.style.fontSize = '50px';
-  deleteText.style.fontWeight = 'bold';
-  deleteText.style.position = 'fixed';
-  deleteText.style.left = '50%';
-  deleteText.style.top = '50%';
-  deleteText.style.transform = 'translate(-50%, -50%)';
-  deleteText.style.opacity = '0';
-  document.body.appendChild(deleteText);
+function showDeletedBar() {
+  // Создаем элемент для полосы загрузки
+  var loadingBar = document.createElement('div');
+  loadingBar.classList.add('loading-bar');
+  loadingBar.style.position = 'fixed';
+  loadingBar.style.top = '50%';
+  loadingBar.style.left = '50%';
+  loadingBar.style.transform = 'translate(-50%, -50%)';
+  loadingBar.style.zIndex = '9999';
+  loadingBar.style.display = 'none';
+  loadingBar.style.width = '300px';
+  loadingBar.style.height = '25px';
+  loadingBar.style.backgroundColor = '#595959';
+  loadingBar.style.borderRadius = '15px';
 
-  // Получаем размеры экрана и элемента текста
-  var screenWidth = window.innerWidth;
-  var screenHeight = window.innerHeight;
-  var textWidth = deleteText.offsetWidth;
-  var textHeight = deleteText.offsetHeight;
+  // Создаем элемент для индикатора загрузки
+  var loadingIndicator = document.createElement('div');
+  loadingIndicator.classList.add('loading-indicator');
+  loadingIndicator.style.position = 'absolute';
+  loadingIndicator.style.right = '0';
+  loadingIndicator.style.top = '0';
+  loadingIndicator.style.bottom = '0';
+  loadingIndicator.style.width = '0';
+  loadingIndicator.style.backgroundColor = '#ddd';
+  loadingIndicator.style.borderRadius = '15px';
+  loadingIndicator.style.transition = 'width 1s ease-in-out';
 
-  // Вычисляем позицию текста, чтобы он был полностью видимым
-  var left = Math.max(textWidth / 2, Math.min(screenWidth - textWidth / 2, parseFloat(deleteText.style.left)));
-  var top = Math.max(textHeight / 2, Math.min(screenHeight - textHeight / 2, parseFloat(deleteText.style.top)));
-  deleteText.style.left = left + 'px';
-  deleteText.style.top = top + 'px';
+  // Добавляем элементы на страницу
+  loadingBar.appendChild(loadingIndicator);
+  document.body.appendChild(loadingBar);
 
-  // Анимируем появление текста
-  var startTime = Date.now();
-  var duration = 1000; // 1 секунда
-  var interval = setInterval(function() {
-    var elapsed = Date.now() - startTime;
-    var progress = elapsed / duration;
-    if (progress >= 1) {
-      clearInterval(interval);
-      setTimeout(function() {
-        deleteText.parentNode.removeChild(deleteText);
-      }, 1000); // Удаляем текст через 1 секунду
-    } else {
-      deleteText.style.opacity = progress;
-      deleteText.style.transform = 'translate(-50%, -50%) scale(' + (0.5 + 0.5 * progress) + ')';
-    }
-  }, 16); // Обновляем анимацию 60 раз в секунду
+  // Отображаем полосу загрузки
+  loadingBar.style.display = 'block';
+
+  // Запускаем анимацию
+	setTimeout(function() {
+  loadingIndicator.style.width = '100%';
+}, 300);
+  // Через 1.5 секунды скрываем полосу загрузки
+  setTimeout(function() {
+      loadingBar.style.display = 'none';
+      loadingBar.remove();
+  }, 1500);
 }
 
 function showOkIcon() {
@@ -260,7 +261,7 @@ if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasCl
 			Lampa.Settings.update();
 			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
 			//showOkIcon()
-			showLoadingBar()
+			showDeletedBar();
 		}, 300);
    // Отправляем сигнал ожидания выхода из настроек для появления окна с предложением перезагрузки
 	  // Lampa.Storage.set('needRebootSettingExit', true);
