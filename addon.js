@@ -144,7 +144,7 @@ function showLoadingBar() {
       setTimeout(function() {
         loadingBar.style.display = 'none';
         loadingBar.parentNode.removeChild(loadingBar);
-      }, 1000);
+      }, 300);
     }
   }, 100);
 }
