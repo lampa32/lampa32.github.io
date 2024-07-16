@@ -205,7 +205,7 @@ function showDeletedBar() {
   var duration = 1000; // 1.5 секунды
   var interval = setInterval(function() {
     var elapsed = Date.now() - startTime;
-    var progress = Math.min((elapsed / duration) * 100, 100);
+    var progress = 100 - Math.min((elapsed / duration) * 100, 100);
 
     loadingIndicator.style.width = progress + '%';
     loadingPercentage.textContent = Math.round(progress) + '%';
