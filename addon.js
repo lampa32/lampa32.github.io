@@ -190,7 +190,7 @@ function showDeletedBar() {
   // Запускаем анимацию
 	setTimeout(function() {
   loadingIndicator.style.width = '100%';
-}, 300);
+}, 1000);
   // Через 1.5 секунды скрываем полосу загрузки
   setTimeout(function() {
       loadingBar.style.display = 'none';
