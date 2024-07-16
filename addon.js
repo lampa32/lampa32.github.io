@@ -98,25 +98,24 @@ function animateDelete() {
   deleteText.style.top = '50%';
   deleteText.style.transform = 'translate(-50%, -50%)';
   deleteText.style.opacity = '0';
-  deleteText.style.animation = 'fadeIn 1s ease-in-out forwards';
   document.body.appendChild(deleteText);
 
   // Анимируем появление текста
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.5);
+  var startTime = Date.now();
+  var duration = 1000; // 1 секунда
+  var interval = setInterval(function() {
+    var elapsed = Date.now() - startTime;
+    var progress = elapsed / duration;
+    if (progress >= 1) {
+      clearInterval(interval);
+      setTimeout(function() {
+        deleteText.parentNode.removeChild(deleteText);
+      }, 1000); // Удаляем текст через 1 секунду
+    } else {
+      deleteText.style.opacity = progress;
+      deleteText.style.transform = 'translate(-50%, -50%) scale(' + (0.5 + 0.5 * progress) + ')';
     }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
-  }
-
-  // Удаляем текст после анимации
-  setTimeout(function() {
-    deleteText.parentNode.removeChild(deleteText);
-  }, 1000);
+  }, 16); // Обновляем анимацию 60 раз в секунду
 }
 
 function showOkIcon() {
