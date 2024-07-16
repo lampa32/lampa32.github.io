@@ -86,29 +86,58 @@ function showLoadingBar() {
   }, 1500);
 }
 
-function removeWithAnimation(element) {
-  // Создаем элемент, который будет использоваться для анимации
-  var animationElement = document.createElement('div');
-  animationElement.classList.add('remove-animation');
-  animationElement.style.position = 'absolute';
-  animationElement.style.zIndex = '9999';
-  animationElement.style.left = element.offsetLeft + 'px';
-  animationElement.style.top = element.offsetTop + 'px';
-  animationElement.style.width = element.offsetWidth + 'px';
-  animationElement.style.height = element.offsetHeight + 'px';
-  animationElement.style.background = 'linear-gradient(45deg, #ff6b6b, #ffa500)';
-  animationElement.style.borderRadius = '50%';
-  animationElement.style.animation = 'removeAnimation 0.5s ease-in-out forwards';
+function animateExplosion() {
+  // Создаем элемент, который будет анимироваться
+  var plugin = document.createElement('div');
+  plugin.classList.add('plugin');
+  plugin.style.width = '100px';
+  plugin.style.height = '100px';
+  plugin.style.backgroundColor = '#333';
+  plugin.style.borderRadius = '50%';
+  plugin.style.position = 'absolute';
+  plugin.style.left = '50%';
+  plugin.style.top = '50%';
+  plugin.style.transform = 'translate(-50%, -50%)';
+  document.body.appendChild(plugin);
 
-  // Добавляем элемент анимации в DOM
-  document.body.appendChild(animationElement);
+  // Создаем контейнер для анимации
+  var explosionContainer = document.createElement('div');
+  explosionContainer.classList.add('explosion-container');
+  plugin.parentNode.insertBefore(explosionContainer, plugin);
 
-  // Удаляем исходный элемент после завершения анимации
+  // Создаем элементы для анимации взрыва
+  var particles = [];
+  for (var i = 0; i < 20; i++) {
+    var particle = document.createElement('div');
+    particle.classList.add('explosion-particle');
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.width = '10px';
+    particle.style.height = '10px';
+    particle.style.backgroundColor = '#ff0000';
+    particle.style.borderRadius = '50%';
+    particle.style.position = 'absolute';
+    particle.style.opacity = '1';
+    explosionContainer.appendChild(particle);
+    particles.push(particle);
+  }
+
+  // Анимируем взрыв
+  for (var j = 0; j < particles.length; j++) {
+    (function(index) {
+      setTimeout(function() {
+        particles[index].style.transform = 'scale(3)';
+        particles[index].style.opacity = '0';
+      }, index * 50);
+    })(j);
+  }
+
+  // Удаляем элемент и контейнер после окончания анимации
   setTimeout(function() {
-    animationElement.remove();
-    element.remove();
-  }, 500);
-}	
+    explosionContainer.parentNode.removeChild(explosionContainer);
+    plugin.parentNode.removeChild(plugin);
+  }, 1000);
+}
 
 function showOkIcon() {
   // Создаем элемент галочки
@@ -261,7 +290,7 @@ function deletePlugin(pluginToRemoveUrl) {
 	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален");
 	//showCloseIcon();
-	removeWithAnimation(element);
+	animateExplosion();
 	Lampa.Storage.set('needRebootSettingExit', true);
 	   settingsWatch();
 };
