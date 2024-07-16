@@ -173,7 +173,7 @@ function showDeletedBar() {
   var loadingIndicator = document.createElement('div');
   loadingIndicator.className = 'loading-indicator';
   loadingIndicator.style.position = 'absolute';
-  loadingIndicator.style.left = '0';
+  loadingIndicator.style.right = '0';
   loadingIndicator.style.top = '0';
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
