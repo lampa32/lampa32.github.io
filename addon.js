@@ -86,6 +86,29 @@ function showLoadingBar() {
   }, 1500);
 }
 
+function removeWithAnimation(element) {
+  // Создаем элемент, который будет использоваться для анимации
+  var animationElement = document.createElement('div');
+  animationElement.classList.add('remove-animation');
+  animationElement.style.position = 'absolute';
+  animationElement.style.zIndex = '9999';
+  animationElement.style.left = element.offsetLeft + 'px';
+  animationElement.style.top = element.offsetTop + 'px';
+  animationElement.style.width = element.offsetWidth + 'px';
+  animationElement.style.height = element.offsetHeight + 'px';
+  animationElement.style.background = 'linear-gradient(45deg, #ff6b6b, #ffa500)';
+  animationElement.style.borderRadius = '50%';
+  animationElement.style.animation = 'removeAnimation 0.5s ease-in-out forwards';
+
+  // Добавляем элемент анимации в DOM
+  document.body.appendChild(animationElement);
+
+  // Удаляем исходный элемент после завершения анимации
+  setTimeout(function() {
+    animationElement.remove();
+    element.remove();
+  }, 500);
+}	
 
 function showOkIcon() {
   // Создаем элемент галочки
@@ -237,7 +260,8 @@ function deletePlugin(pluginToRemoveUrl) {
 	//Lampa.Storage.set('needReboot', true);
 	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален");
-	showCloseIcon();
+	//showCloseIcon();
+	removeWithAnimation(element);
 	Lampa.Storage.set('needRebootSettingExit', true);
 	   settingsWatch();
 };
