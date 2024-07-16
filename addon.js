@@ -86,54 +86,36 @@ function showLoadingBar() {
   }, 1500);
 }
 
-function animateExplosion() {
-  // Создаем SVG-элемент, который будет анимироваться
-  var pluginSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  pluginSvg.setAttribute('viewBox', '0 0 100 100');
-  pluginSvg.setAttribute('width', '100');
-  pluginSvg.setAttribute('height', '100');
-  var pluginPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  pluginPath.setAttribute('d', 'M50 10A40 40 0 1 0 50 90A40 40 0 1 0 50 10');
-  pluginPath.setAttribute('fill', '#333');
-  pluginSvg.appendChild(pluginPath);
-  document.body.appendChild(pluginSvg);
+function animateDelete() {
+  // Создаем элемент текста
+  var deleteText = document.createElement('div');
+  deleteText.textContent = 'DELETED';
+  deleteText.style.color = '#ff0000';
+  deleteText.style.fontSize = '50px';
+  deleteText.style.fontWeight = 'bold';
+  deleteText.style.position = 'absolute';
+  deleteText.style.left = '50%';
+  deleteText.style.top = '50%';
+  deleteText.style.transform = 'translate(-50%, -50%)';
+  deleteText.style.opacity = '0';
+  deleteText.style.animation = 'fadeIn 1s ease-in-out forwards';
+  document.body.appendChild(deleteText);
 
-  // Создаем контейнер для анимации
-  var explosionContainer = document.createElement('div');
-  explosionContainer.classList.add('explosion-container');
-  pluginSvg.parentNode.insertBefore(explosionContainer, pluginSvg);
-
-  // Создаем элементы для анимации взрыва
-  var particles = [];
-  for (var i = 0; i < 20; i++) {
-    var particle = document.createElement('div');
-    particle.classList.add('explosion-particle');
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.top = Math.random() * 100 + '%';
-    particle.style.width = '10px';
-    particle.style.height = '10px';
-    particle.style.backgroundColor = '#ff0000';
-    particle.style.borderRadius = '50%';
-    particle.style.position = 'absolute';
-    particle.style.opacity = '1';
-    explosionContainer.appendChild(particle);
-    particles.push(particle);
+  // Анимируем появление текста
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 
-  // Анимируем взрыв
-  for (var j = 0; j < particles.length; j++) {
-    (function(index) {
-      setTimeout(function() {
-        particles[index].style.transform = 'scale(3)';
-        particles[index].style.opacity = '0';
-      }, index * 50);
-    })(j);
-  }
-
-  // Удаляем элемент и контейнер после окончания анимации
+  // Удаляем текст после анимации
   setTimeout(function() {
-    explosionContainer.parentNode.removeChild(explosionContainer);
-    pluginSvg.parentNode.removeChild(pluginSvg);
+    deleteText.parentNode.removeChild(deleteText);
   }, 1000);
 }
 
@@ -288,7 +270,7 @@ function deletePlugin(pluginToRemoveUrl) {
 	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален");
 	//showCloseIcon();
-	animateExplosion();
+	animateDelete()
 	Lampa.Storage.set('needRebootSettingExit', true);
 	   settingsWatch();
 };
