@@ -177,7 +177,7 @@ function showDeletedBar() {
   loadingIndicator.style.top = '0';
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
-  loadingIndicator.style.backgroundColor = '#ddd';
+  loadingIndicator.style.backgroundColor = '#ff2121';
   loadingIndicator.style.borderRadius = '15px';
 
   // Создаем элемент для отображения процента загрузки
@@ -351,7 +351,7 @@ if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasCl
 			Lampa.Settings.update();
 			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
 			//showOkIcon()
-		  }, 1000);
+		  }, 1500);
    // Отправляем сигнал ожидания выхода из настроек для появления окна с предложением перезагрузки
 	  // Lampa.Storage.set('needRebootSettingExit', true);
 	  // settingsWatch();
@@ -371,7 +371,7 @@ function deletePlugin(pluginToRemoveUrl) {
 	setTimeout(function() {
 	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален");
-	}, 1000);
+	}, 1500);
 		//showCloseIcon();
 	showDeletedBar();
 	Lampa.Storage.set('needRebootSettingExit', true);
