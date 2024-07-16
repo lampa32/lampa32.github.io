@@ -86,6 +86,7 @@ Lampa.Modal.open({
   }, 1500);
 }*/
 
+
 function showLoadingBar() {
   // Создаем элемент для полосы загрузки
   var loadingBar = document.createElement('div');
@@ -134,21 +135,24 @@ function showLoadingBar() {
   loadingBar.style.display = 'block';
 
   // Анимация с использованием setTimeout
-  var progress = 0;
+  var startTime = Date.now();
+  var duration = 1500; // 1.5 секунды
   var interval = setInterval(function() {
-    progress += 2.5; // Увеличиваем прогресс на 2.5% за каждый интервал
+    var elapsed = Date.now() - startTime;
+    var progress = Math.min((elapsed / duration) * 100, 100);
+
     loadingIndicator.style.width = progress + '%';
     loadingPercentage.textContent = Math.round(progress) + '%';
-    if (progress >= 100) {
+
+    if (elapsed >= duration) {
       clearInterval(interval);
       setTimeout(function() {
         loadingBar.style.display = 'none';
         loadingBar.parentNode.removeChild(loadingBar);
-      }, 300);
+      }, 500);
     }
-  }, 100);
+  }, 16);
 }
-
 function showDeletedBar() {
   // Создаем элемент для полосы загрузки
   var loadingBar = document.createElement('div');
