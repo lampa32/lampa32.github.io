@@ -87,23 +87,21 @@ function showLoadingBar() {
 }
 
 function animateExplosion() {
-  // Создаем элемент, который будет анимироваться
-  var plugin = document.createElement('div');
-  plugin.classList.add('plugin');
-  plugin.style.width = '100px';
-  plugin.style.height = '100px';
-  plugin.style.backgroundColor = '#333';
-  plugin.style.borderRadius = '50%';
-  plugin.style.position = 'absolute';
-  plugin.style.left = '50%';
-  plugin.style.top = '50%';
-  plugin.style.transform = 'translate(-50%, -50%)';
-  document.body.appendChild(plugin);
+  // Создаем SVG-элемент, который будет анимироваться
+  var pluginSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  pluginSvg.setAttribute('viewBox', '0 0 100 100');
+  pluginSvg.setAttribute('width', '100');
+  pluginSvg.setAttribute('height', '100');
+  var pluginPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  pluginPath.setAttribute('d', 'M50 10A40 40 0 1 0 50 90A40 40 0 1 0 50 10');
+  pluginPath.setAttribute('fill', '#333');
+  pluginSvg.appendChild(pluginPath);
+  document.body.appendChild(pluginSvg);
 
   // Создаем контейнер для анимации
   var explosionContainer = document.createElement('div');
   explosionContainer.classList.add('explosion-container');
-  plugin.parentNode.insertBefore(explosionContainer, plugin);
+  pluginSvg.parentNode.insertBefore(explosionContainer, pluginSvg);
 
   // Создаем элементы для анимации взрыва
   var particles = [];
@@ -135,7 +133,7 @@ function animateExplosion() {
   // Удаляем элемент и контейнер после окончания анимации
   setTimeout(function() {
     explosionContainer.parentNode.removeChild(explosionContainer);
-    plugin.parentNode.removeChild(plugin);
+    pluginSvg.parentNode.removeChild(pluginSvg);
   }, 1000);
 }
 
