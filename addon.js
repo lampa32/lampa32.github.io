@@ -347,11 +347,11 @@ if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasCl
 		script.src = sourceURL;
 		document.getElementsByTagName ('head')[0].appendChild (script);
 		showLoadingBar();
-	       setTimeout(function() {
+	          setTimeout(function() {
 			Lampa.Settings.update();
 			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
 			//showOkIcon()
-		}, 1500);
+		  }, 1000);
    // Отправляем сигнал ожидания выхода из настроек для появления окна с предложением перезагрузки
 	  // Lampa.Storage.set('needRebootSettingExit', true);
 	  // settingsWatch();
@@ -368,9 +368,11 @@ function deletePlugin(pluginToRemoveUrl) {
 	var updatedPlugins = plugins.filter(function(obj) {return obj.url !== pluginToRemoveUrl});
 	Lampa.Storage.set('plugins', updatedPlugins);
 	//Lampa.Storage.set('needReboot', true);
+	setTimeout(function() {
 	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален");
-	//showCloseIcon();
+	}, 1000);
+		//showCloseIcon();
 	showDeletedBar();
 	Lampa.Storage.set('needRebootSettingExit', true);
 	   settingsWatch();
