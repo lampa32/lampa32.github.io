@@ -155,47 +155,69 @@ function showLoadingBar() {
 }
 function showDeletedBar() {
   // Создаем элемент для полосы загрузки
-  var loadingBar = document.createElement('div');
-  loadingBar.classList.add('loading-bar');
-  loadingBar.style.position = 'fixed';
-  loadingBar.style.top = '50%';
-  loadingBar.style.left = '50%';
-  loadingBar.style.transform = 'translate(-50%, -50%)';
-  loadingBar.style.zIndex = '9999';
-  loadingBar.style.display = 'none';
-  loadingBar.style.width = '300px';
-  loadingBar.style.height = '25px';
-  loadingBar.style.backgroundColor = '#595959';
-  loadingBar.style.borderRadius = '15px';
+  var loadingBar = document.createElement('div');
+  loadingBar.className = 'loading-bar';
+  loadingBar.style.position = 'fixed';
+  loadingBar.style.top = '50%';
+  loadingBar.style.left = '50%';
+  loadingBar.style.marginLeft = '-150px'; // Центрируем по горизонтали
+  loadingBar.style.marginTop = '-12.5px'; // Центрируем по вертикали
+  loadingBar.style.zIndex = '9999';
+  loadingBar.style.display = 'none';
+  loadingBar.style.width = '300px';
+  loadingBar.style.height = '25px';
+  loadingBar.style.backgroundColor = '#595959';
+  loadingBar.style.borderRadius = '15px';
 
-  // Создаем элемент для индикатора загрузки
-  var loadingIndicator = document.createElement('div');
-  loadingIndicator.classList.add('loading-indicator');
-  loadingIndicator.style.position = 'absolute';
-  loadingIndicator.style.left = '0';
-  loadingIndicator.style.top = '0';
-  loadingIndicator.style.bottom = '0';
-  loadingIndicator.style.width = '0';
-  loadingIndicator.style.backgroundColor = '#ddd';
-  loadingIndicator.style.borderRadius = '15px';
-  loadingIndicator.style.transition = 'width 1s ease-in-out';
+  // Создаем элемент для индикатора загрузки
+  var loadingIndicator = document.createElement('div');
+  loadingIndicator.className = 'loading-indicator';
+  loadingIndicator.style.position = 'absolute';
+  loadingIndicator.style.left = '0';
+  loadingIndicator.style.top = '0';
+  loadingIndicator.style.bottom = '0';
+  loadingIndicator.style.width = '0';
+  loadingIndicator.style.backgroundColor = '#ddd';
+  loadingIndicator.style.borderRadius = '15px';
 
-  // Добавляем элементы на страницу
-  loadingBar.appendChild(loadingIndicator);
-  document.body.appendChild(loadingBar);
+  // Создаем элемент для отображения процента загрузки
+  var loadingPercentage = document.createElement('div');
+  loadingPercentage.className = 'loading-percentage';
+  loadingPercentage.style.position = 'absolute';
+  loadingPercentage.style.top = '50%';
+  loadingPercentage.style.left = '50%';
+  loadingPercentage.style.marginLeft = '-25px'; // Центрируем по горизонтали
+  loadingPercentage.style.marginTop = '-8px'; // Центрируем по вертикали
+  loadingPercentage.style.color = '#fff';
+  loadingPercentage.style.fontWeight = 'bold';
+  loadingPercentage.style.fontSize = '16px';
 
-  // Отображаем полосу загрузки
-  loadingBar.style.display = 'block';
+  // Добавляем элементы на страницу
+  loadingBar.appendChild(loadingIndicator);
+  loadingBar.appendChild(loadingPercentage);
+  document.body.appendChild(loadingBar);
 
-  // Запускаем анимацию
-	setTimeout(function() {
-  loadingIndicator.style.width = '100%';
-}, 300);
-  // Через 1.5 секунды скрываем полосу загрузки
-  setTimeout(function() {
-      loadingBar.style.display = 'none';
-      loadingBar.remove();
-  }, 1500);
+  // Отображаем полосу загрузки
+  loadingBar.style.display = 'block';
+
+  // Анимация с использованием setTimeout
+  var startTime = Date.now();
+  var duration = 1000; // 1.5 секунды
+  var interval = setInterval(function() {
+    var elapsed = Date.now() - startTime;
+    var progress = Math.min((elapsed / duration) * 100, 100);
+
+    loadingIndicator.style.width = progress + '%';
+    loadingPercentage.textContent = Math.round(progress) + '%';
+
+    if (elapsed >= duration) {
+      clearInterval(interval);
+      setTimeout(function() {
+        loadingBar.style.display = 'none';
+        loadingBar.parentNode.removeChild(loadingBar);
+      }, 500);
+    }
+  }, 16);
 }
 
 function showOkIcon() {
