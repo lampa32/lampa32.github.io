@@ -111,7 +111,7 @@ function showLoadingBar() {
   loadingIndicator.style.top = '0';
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
-  loadingIndicator.style.backgroundColor = '#ddd';
+  loadingIndicator.style.backgroundColor = '#64e364';
   loadingIndicator.style.borderRadius = '15px';
 
   // Создаем элемент для отображения процента загрузки
