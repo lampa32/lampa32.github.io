@@ -136,18 +136,18 @@ function showLoadingBar() {
   // Анимация с использованием setTimeout
   var progress = 0;
   var interval = setInterval(function() {
-    progress += 5;
+    progress += 2.5; // Увеличиваем прогресс на 2.5% за каждый интервал
     loadingIndicator.style.width = progress + '%';
-    loadingPercentage.textContent = progress + '%';
+    loadingPercentage.textContent = Math.round(progress) + '%';
     if (progress >= 100) {
       clearInterval(interval);
       setTimeout(function() {
         loadingBar.style.display = 'none';
         loadingBar.parentNode.removeChild(loadingBar);
-      }, 500);
+      }, 1000);
     }
   }, 100);
-}	
+}
 
 function showDeletedBar() {
   // Создаем элемент для полосы загрузки
