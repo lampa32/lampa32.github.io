@@ -87,7 +87,6 @@ function showLoadingBar() {
 }
 
 function animateDelete() {
-function animateDelete() {
   // Создаем элемент текста
   var deleteText = document.createElement('div');
   deleteText.textContent = 'DELETED';
