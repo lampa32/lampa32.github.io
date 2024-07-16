@@ -261,7 +261,7 @@ if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasCl
 			Lampa.Settings.update();
 			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
 			//showOkIcon()
-			showDeletedBar();
+			showLoadingBar();
 		}, 300);
    // Отправляем сигнал ожидания выхода из настроек для появления окна с предложением перезагрузки
 	  // Lampa.Storage.set('needRebootSettingExit', true);
@@ -282,7 +282,7 @@ function deletePlugin(pluginToRemoveUrl) {
 	Lampa.Settings.update();
 	Lampa.Noty.show("Плагин успешно удален");
 	//showCloseIcon();
-	animateDelete()
+	showDeletedBar();
 	Lampa.Storage.set('needRebootSettingExit', true);
 	   settingsWatch();
 };
