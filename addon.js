@@ -87,18 +87,31 @@ function showLoadingBar() {
 }
 
 function animateDelete() {
+function animateDelete() {
   // Создаем элемент текста
   var deleteText = document.createElement('div');
   deleteText.textContent = 'DELETED';
   deleteText.style.color = '#ff0000';
   deleteText.style.fontSize = '50px';
   deleteText.style.fontWeight = 'bold';
-  deleteText.style.position = 'absolute';
+  deleteText.style.position = 'fixed';
   deleteText.style.left = '50%';
   deleteText.style.top = '50%';
   deleteText.style.transform = 'translate(-50%, -50%)';
   deleteText.style.opacity = '0';
   document.body.appendChild(deleteText);
+
+  // Получаем размеры экрана и элемента текста
+  var screenWidth = window.innerWidth;
+  var screenHeight = window.innerHeight;
+  var textWidth = deleteText.offsetWidth;
+  var textHeight = deleteText.offsetHeight;
+
+  // Вычисляем позицию текста, чтобы он был полностью видимым
+  var left = Math.max(textWidth / 2, Math.min(screenWidth - textWidth / 2, parseFloat(deleteText.style.left)));
+  var top = Math.max(textHeight / 2, Math.min(screenHeight - textHeight / 2, parseFloat(deleteText.style.top)));
+  deleteText.style.left = left + 'px';
+  deleteText.style.top = top + 'px';
 
   // Анимируем появление текста
   var startTime = Date.now();
