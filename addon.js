@@ -172,7 +172,7 @@ function showDeletedBar() {
   var loadingIndicator = document.createElement('div');
   loadingIndicator.classList.add('loading-indicator');
   loadingIndicator.style.position = 'absolute';
-  loadingIndicator.style.right = '0';
+  loadingIndicator.style.left = '0';
   loadingIndicator.style.top = '0';
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
@@ -190,7 +190,7 @@ function showDeletedBar() {
   // Запускаем анимацию
 	setTimeout(function() {
   loadingIndicator.style.width = '100%';
-}, 1000);
+}, 300);
   // Через 1.5 секунды скрываем полосу загрузки
   setTimeout(function() {
       loadingBar.style.display = 'none';
