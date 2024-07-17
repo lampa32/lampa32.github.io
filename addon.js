@@ -30,7 +30,8 @@ Lampa.Modal.open({
         onSelect: function onSelect() {
           Lampa.Modal.close();
           //$('.modal').remove();
-	  Lampa.Controller.toggle('settings_component');
+		Lampa.Controller.toggle('content')
+	  //Lampa.Controller.toggle('settings_component');
         }
       }, {
         name: 'Да',
