@@ -121,11 +121,12 @@ function showLoadingBar() {
   loadingPercentage.style.position = 'absolute';
   loadingPercentage.style.top = '50%';
   loadingPercentage.style.left = '50%';
-  loadingPercentage.style.marginLeft = '-25px'; // Центрируем по горизонтали
-  loadingPercentage.style.marginTop = '-8px'; // Центрируем по вертикали
+  loadingPercentage.style.transform = 'translate(-50%, -50%)';
+  //loadingPercentage.style.marginLeft = '-25px'; // Центрируем по горизонтали
+ // loadingPercentage.style.marginTop = '-8px'; // Центрируем по вертикали
   loadingPercentage.style.color = '#fff';
   loadingPercentage.style.fontWeight = 'bold';
-  loadingPercentage.style.fontSize = '16px';
+  loadingPercentage.style.fontSize = '1em';
 
   // Добавляем элементы на страницу
   loadingBar.appendChild(loadingIndicator);
