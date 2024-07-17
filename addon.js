@@ -30,7 +30,10 @@ Lampa.Modal.open({
         onSelect: function onSelect() {
           Lampa.Modal.close();
           $('.modal').remove();
-	  Lampa.Controller.toggle('settings_component');
+	  //Lampa.Controller.toggle('settings_component');
+		Lampa.Controller.enabled().controller.back = function(){
+							Lampa.Settings.create('add_plugin');
+		}
         }
       }, {
         name: 'Да',
