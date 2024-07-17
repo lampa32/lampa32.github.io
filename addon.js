@@ -102,7 +102,7 @@ function showLoadingBar() {
   loadingBar.style.width = '30em';//'300px';
   loadingBar.style.height = '3em'; //'25px';
   loadingBar.style.backgroundColor = '#595959';
-  loadingBar.style.borderRadius = '2em';//'15px';
+  loadingBar.style.borderRadius = '4em';//'15px';
 
   // Создаем элемент для индикатора загрузки
   var loadingIndicator = document.createElement('div');
@@ -113,7 +113,7 @@ function showLoadingBar() {
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
   loadingIndicator.style.backgroundColor = '#64e364';
-  loadingIndicator.style.borderRadius = '15px';
+  loadingIndicator.style.borderRadius = '4em';
 
   // Создаем элемент для отображения процента загрузки
   var loadingPercentage = document.createElement('div');
