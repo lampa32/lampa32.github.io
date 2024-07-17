@@ -29,9 +29,9 @@ Lampa.Modal.open({
         name: 'Нет',
         onSelect: function onSelect() {
           Lampa.Modal.close();
-          //$('.modal').remove();
-		//Lampa.Controller.toggle('content')
-	  Lampa.Controller.toggle('settings_component');
+          $('.modal').remove();
+		Lampa.Controller.toggle('content')
+	 // Lampa.Controller.toggle('settings_component');
         }
       }, {
         name: 'Да',
