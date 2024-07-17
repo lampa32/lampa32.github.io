@@ -94,14 +94,14 @@ function showLoadingBar() {
   loadingBar.style.position = 'fixed';
   loadingBar.style.top = '50%';
   loadingBar.style.left = '50%';
-  loadingBar.style.marginLeft = '-150px'; // Центрируем по горизонтали
-  loadingBar.style.marginTop = '-12.5px'; // Центрируем по вертикали
+  loadingBar.style.marginLeft = '-9em'; //'-150px'; // Центрируем по горизонтали
+  loadingBar.style.marginTop = '-0.8em';//'-12.5px'; // Центрируем по вертикали
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
-  loadingBar.style.width = '30em';//'300px';
-  loadingBar.style.height = '5em'; //'25px';
+  loadingBar.style.width = '19em';//'300px';
+  loadingBar.style.height = '1.5em'; //'25px';
   loadingBar.style.backgroundColor = '#595959';
-  loadingBar.style.borderRadius = '15px';
+  loadingBar.style.borderRadius = '1em';//'15px';
 
   // Создаем элемент для индикатора загрузки
   var loadingIndicator = document.createElement('div');
