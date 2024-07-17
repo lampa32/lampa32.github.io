@@ -126,7 +126,7 @@ function showLoadingBar() {
  // loadingPercentage.style.marginTop = '-8px'; // Центрируем по вертикали
   loadingPercentage.style.color = '#fff';
   loadingPercentage.style.fontWeight = 'bold';
-  loadingPercentage.style.fontSize = '1.5em';
+  loadingPercentage.style.fontSize = '1.7em';
 
   // Добавляем элементы на страницу
   loadingBar.appendChild(loadingIndicator);
