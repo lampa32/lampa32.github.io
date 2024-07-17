@@ -96,7 +96,7 @@ function showLoadingBar() {
   loadingBar.style.position = 'fixed';
   loadingBar.style.top = '50%';
   loadingBar.style.left = '50%';
-	loadingBar.style.transform = 'translate(-50%, -50%)'; // Центрируем по центру
+  loadingBar.style.transform = 'translate(-50%, -50%)'; // Центрируем по центру
   //loadingBar.style.marginLeft = '-9em'; //'-150px'; // Центрируем по горизонтали
  // loadingBar.style.marginTop = '-0.8em';//'-12.5px'; // Центрируем по вертикали
   loadingBar.style.zIndex = '9999';
@@ -164,14 +164,15 @@ function showDeletedBar() {
   loadingBar.style.position = 'fixed';
   loadingBar.style.top = '50%';
   loadingBar.style.left = '50%';
-  loadingBar.style.marginLeft = '-150px'; // Центрируем по горизонтали
-  loadingBar.style.marginTop = '-12.5px'; // Центрируем по вертикали
+  loadingBar.style.transform = 'translate(-50%, -50%)'; // Центрируем по центру
+  //loadingBar.style.marginLeft = '-150px'; // Центрируем по горизонтали
+  //loadingBar.style.marginTop = '-12.5px'; // Центрируем по вертикали
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
-  loadingBar.style.width = '300px';
-  loadingBar.style.height = '25px';
+  loadingBar.style.width = '30em';
+  loadingBar.style.height = '2.5em';
   loadingBar.style.backgroundColor = '#595959';
-  loadingBar.style.borderRadius = '15px';
+  loadingBar.style.borderRadius = '4em';
 
   // Создаем элемент для индикатора загрузки
   var loadingIndicator = document.createElement('div');
@@ -182,7 +183,7 @@ function showDeletedBar() {
   loadingIndicator.style.bottom = '0';
   loadingIndicator.style.width = '0';
   loadingIndicator.style.backgroundColor = '#ff2121';
-  loadingIndicator.style.borderRadius = '15px';
+  loadingIndicator.style.borderRadius = '4em';
 
   // Создаем элемент для отображения процента загрузки
   var loadingPercentage = document.createElement('div');
@@ -190,11 +191,12 @@ function showDeletedBar() {
   loadingPercentage.style.position = 'absolute';
   loadingPercentage.style.top = '50%';
   loadingPercentage.style.left = '50%';
-  loadingPercentage.style.marginLeft = '-25px'; // Центрируем по горизонтали
-  loadingPercentage.style.marginTop = '-8px'; // Центрируем по вертикали
+  loadingPercentage.style.transform = 'translate(-50%, -50%)';
+  //loadingPercentage.style.marginLeft = '-25px'; // Центрируем по горизонтали
+  //loadingPercentage.style.marginTop = '-8px'; // Центрируем по вертикали
   loadingPercentage.style.color = '#fff';
   loadingPercentage.style.fontWeight = 'bold';
-  loadingPercentage.style.fontSize = '16px';
+  loadingPercentage.style.fontSize = '1.7em';
 
   // Добавляем элементы на страницу
   loadingBar.appendChild(loadingIndicator);
