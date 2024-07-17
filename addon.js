@@ -98,7 +98,7 @@ function showLoadingBar() {
   loadingBar.style.marginTop = '-12.5px'; // Центрируем по вертикали
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
-  loadingBar.style.width = '5em';//'300px';
+  loadingBar.style.width = '30em';//'300px';
   loadingBar.style.height = '25px';
   loadingBar.style.backgroundColor = '#595959';
   loadingBar.style.borderRadius = '15px';
