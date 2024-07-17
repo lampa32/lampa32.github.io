@@ -94,8 +94,9 @@ function showLoadingBar() {
   loadingBar.style.position = 'fixed';
   loadingBar.style.top = '50%';
   loadingBar.style.left = '50%';
-  loadingBar.style.marginLeft = '-9em'; //'-150px'; // Центрируем по горизонтали
-  loadingBar.style.marginTop = '-0.8em';//'-12.5px'; // Центрируем по вертикали
+	loadingBar.style.transform = 'translate(-50%, -50%)'; // Центрируем по центру
+  //loadingBar.style.marginLeft = '-9em'; //'-150px'; // Центрируем по горизонтали
+ // loadingBar.style.marginTop = '-0.8em';//'-12.5px'; // Центрируем по вертикали
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
   loadingBar.style.width = '30em';//'300px';
