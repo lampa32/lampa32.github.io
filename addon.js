@@ -20,6 +20,7 @@ var icon_add_sisi_plugin = '<div class="settings-folder" style="padding:0!import
 	Lampa.Storage.set('needRebootSettingExit', false);
 /* Запрос на перезагрузку в модальном окне */
 function showReload(reloadText){
+var controller = Controller.enabled().name;
 Lampa.Modal.open({
       title: '',
       align: 'center',
@@ -31,9 +32,7 @@ Lampa.Modal.open({
           Lampa.Modal.close();
           $('.modal').remove();
 	  //Lampa.Controller.toggle('settings_component');
-		Lampa.Controller.enabled().controller.back = function(){
-							Lampa.Settings.create('add_plugin');
-		}
+	  Controller.toggle(controller);
         }
       }, {
         name: 'Да',
