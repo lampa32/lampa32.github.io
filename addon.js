@@ -100,7 +100,7 @@ function showLoadingBar() {
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
   loadingBar.style.width = '30em';//'300px';
-  loadingBar.style.height = '2em'; //'25px';
+  loadingBar.style.height = '2.5em'; //'25px';
   loadingBar.style.backgroundColor = '#595959';
   loadingBar.style.borderRadius = '4em';//'15px';
 
