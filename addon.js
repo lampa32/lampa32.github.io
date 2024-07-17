@@ -28,7 +28,7 @@ Lampa.Modal.open({
       buttons: [{
         name: 'Нет',
         onSelect: function onSelect() {
-          Lampa.Modal.close();
+         // Lampa.Modal.close();
           $('.modal').remove();
 		Lampa.Controller.toggle('content')
 	 // Lampa.Controller.toggle('settings_component');
