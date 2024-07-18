@@ -28,8 +28,8 @@ Lampa.Modal.open({
       buttons: [{
         name: 'Нет',
         onSelect: function onSelect() {
-          Lampa.Modal.close();
-          //$('.modal').remove();
+          //Lampa.Modal.close();
+          $('.modal').remove();
 	  Lampa.Controller.toggle('content')
         }
       }, {
