@@ -28,8 +28,8 @@ Lampa.Modal.open({
       buttons: [{
         name: 'Нет',
         onSelect: function onSelect() {
-          //Lampa.Modal.close();
-          $('.modal').remove();
+          Lampa.Modal.close();
+          //$('.modal').remove();
 	  Lampa.Controller.toggle('content')
         }
       }, {
@@ -52,10 +52,10 @@ function showLoadingBar() {
   loadingBar.style.transform = 'translate(-50%, -50%)'; // Центрируем по центру
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
-  loadingBar.style.width = '30em';//'300px';
-  loadingBar.style.height = '2.5em'; //'25px';
+  loadingBar.style.width = '30em';
+  loadingBar.style.height = '2.5em'; 
   loadingBar.style.backgroundColor = '#595959';
-  loadingBar.style.borderRadius = '4em';//'15px';
+  loadingBar.style.borderRadius = '4em';
 
   // Создаем элемент для индикатора загрузки
   var loadingIndicator = document.createElement('div');
