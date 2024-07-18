@@ -30,8 +30,7 @@ Lampa.Modal.open({
         onSelect: function onSelect() {
           Lampa.Modal.close();
          // $('.modal').remove();
-		Lampa.Controller.toggle('content')
-	 // Lampa.Controller.toggle('settings_component');
+	  Lampa.Controller.toggle('content')
         }
       }, {
         name: 'Да',
@@ -42,51 +41,6 @@ Lampa.Modal.open({
 });
 }
 
-/*function showLoadingBar() {
-  // Создаем элемент для полосы загрузки
-  var loadingBar = document.createElement('div');
-  loadingBar.classList.add('loading-bar');
-  loadingBar.style.position = 'fixed';
-  loadingBar.style.top = '50%';
-  loadingBar.style.left = '50%';
-  loadingBar.style.transform = 'translate(-50%, -50%)';
-  loadingBar.style.zIndex = '9999';
-  loadingBar.style.display = 'none';
-  loadingBar.style.width = '300px';
-  loadingBar.style.height = '25px';
-  loadingBar.style.backgroundColor = '#595959';
-  loadingBar.style.borderRadius = '15px';
-
-  // Создаем элемент для индикатора загрузки
-  var loadingIndicator = document.createElement('div');
-  loadingIndicator.classList.add('loading-indicator');
-  loadingIndicator.style.position = 'absolute';
-  loadingIndicator.style.left = '0';
-  loadingIndicator.style.top = '0';
-  loadingIndicator.style.bottom = '0';
-  loadingIndicator.style.width = '0';
-  loadingIndicator.style.backgroundColor = '#ddd';
-  loadingIndicator.style.borderRadius = '15px';
-  loadingIndicator.style.transition = 'width 1s ease-in-out';
-
-  // Добавляем элементы на страницу
-  loadingBar.appendChild(loadingIndicator);
-  document.body.appendChild(loadingBar);
-
-  // Отображаем полосу загрузки
-  loadingBar.style.display = 'block';
-
-  // Запускаем анимацию
-	setTimeout(function() {
-  loadingIndicator.style.width = '100%';
-}, 300);
-  // Через 1.5 секунды скрываем полосу загрузки
-  setTimeout(function() {
-      loadingBar.style.display = 'none';
-      loadingBar.remove();
-  }, 1500);
-}*/
-
 
 function showLoadingBar() {
   // Создаем элемент для полосы загрузки
@@ -96,8 +50,6 @@ function showLoadingBar() {
   loadingBar.style.top = '50%';
   loadingBar.style.left = '50%';
   loadingBar.style.transform = 'translate(-50%, -50%)'; // Центрируем по центру
-  //loadingBar.style.marginLeft = '-9em'; //'-150px'; // Центрируем по горизонтали
- // loadingBar.style.marginTop = '-0.8em';//'-12.5px'; // Центрируем по вертикали
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
   loadingBar.style.width = '30em';//'300px';
@@ -123,8 +75,6 @@ function showLoadingBar() {
   loadingPercentage.style.top = '50%';
   loadingPercentage.style.left = '50%';
   loadingPercentage.style.transform = 'translate(-50%, -50%)';
-  //loadingPercentage.style.marginLeft = '-25px'; // Центрируем по горизонтали
- // loadingPercentage.style.marginTop = '-8px'; // Центрируем по вертикали
   loadingPercentage.style.color = '#fff';
   loadingPercentage.style.fontWeight = 'bold';
   loadingPercentage.style.fontSize = '1.7em';
@@ -139,10 +89,10 @@ function showLoadingBar() {
 
   // Анимация с использованием setTimeout
   var startTime = Date.now();
-  var duration = 1000; // 1.5 секунды
+  var duration = 1000; // 1 секунда
   var interval = setInterval(function() {
-    var elapsed = Date.now() - startTime;
-    var progress = Math.min((elapsed / duration) * 100, 100);
+  var elapsed = Date.now() - startTime;
+  var progress = Math.min((elapsed / duration) * 100, 100);
 
     loadingIndicator.style.width = progress + '%';
     loadingPercentage.textContent = Math.round(progress) + '%';
@@ -152,10 +102,12 @@ function showLoadingBar() {
       setTimeout(function() {
         loadingBar.style.display = 'none';
         loadingBar.parentNode.removeChild(loadingBar);
-      }, 500);
+      }, 250);
     }
   }, 16);
 }
+
+	
 function showDeletedBar() {
   // Создаем элемент для полосы загрузки
   var loadingBar = document.createElement('div');
@@ -164,8 +116,6 @@ function showDeletedBar() {
   loadingBar.style.top = '50%';
   loadingBar.style.left = '50%';
   loadingBar.style.transform = 'translate(-50%, -50%)'; // Центрируем по центру
-  //loadingBar.style.marginLeft = '-150px'; // Центрируем по горизонтали
-  //loadingBar.style.marginTop = '-12.5px'; // Центрируем по вертикали
   loadingBar.style.zIndex = '9999';
   loadingBar.style.display = 'none';
   loadingBar.style.width = '30em';
@@ -191,8 +141,6 @@ function showDeletedBar() {
   loadingPercentage.style.top = '50%';
   loadingPercentage.style.left = '50%';
   loadingPercentage.style.transform = 'translate(-50%, -50%)';
-  //loadingPercentage.style.marginLeft = '-25px'; // Центрируем по горизонтали
-  //loadingPercentage.style.marginTop = '-8px'; // Центрируем по вертикали
   loadingPercentage.style.color = '#fff';
   loadingPercentage.style.fontWeight = 'bold';
   loadingPercentage.style.fontSize = '1.7em';
@@ -207,10 +155,10 @@ function showDeletedBar() {
 
   // Анимация с использованием setTimeout
   var startTime = Date.now();
-  var duration = 1000; // 1.5 секунды
+  var duration = 1000; // 1 секунда
   var interval = setInterval(function() {
-    var elapsed = Date.now() - startTime;
-    var progress = 100 - Math.min((elapsed / duration) * 100, 100);
+  var elapsed = Date.now() - startTime;
+  var progress = 100 - Math.min((elapsed / duration) * 100, 100);
 
     loadingIndicator.style.width = progress + '%';
     loadingPercentage.textContent = Math.round(progress) + '%';
@@ -220,87 +168,12 @@ function showDeletedBar() {
       setTimeout(function() {
         loadingBar.style.display = 'none';
         loadingBar.parentNode.removeChild(loadingBar);
-      }, 500);
+      }, 250);
     }
   }, 16);
 }
 
-function showOkIcon() {
-  // Создаем элемент галочки
-  var okIcon = document.createElement('div');
-  okIcon.classList.add('ok-icon');
-  okIcon.style.position = 'fixed';
-  okIcon.style.top = '50%';
-  okIcon.style.left = '50%';
-  okIcon.style.transform = 'translate(-50%, -50%)';
-  okIcon.style.zIndex = '9999';
-  okIcon.style.display = 'none';
-  okIcon.style.width = '10em';
-  okIcon.style.height = '10em';
 
-  // Добавляем SVG-код галочки
-  okIcon.innerHTML = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25 50C38.8071 50 50 38.8071 50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50Z" fill="#4CAF50"/><path d="M18 25L22 29L32 19" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-
-  // Добавляем элемент галочки в документ
-  document.body.appendChild(okIcon);
-
-  // Отображаем элемент
-  okIcon.style.display = 'block';
-
-  // Запускаем анимацию
-  okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
-  okIcon.offsetHeight; // Триггер для запуска CSS-транзиции
-  okIcon.style.transform = 'translate(-50%, -50%) scale(1)';
-
-  
-// Через 1,5 секунды скрываем галочку
-  setTimeout(function() {
-    okIcon.style.transform = 'translate(-50%, -50%) scale(0)';
-    setTimeout(function() {
-      okIcon.style.display = 'none';
-      // Удаляем элемент галочки из документа
-      okIcon.remove();
-    }, 500);
-  }, 1500);
-}
-
-function showCloseIcon() {
-  // Создаем элемент крестика
-  var closeIcon = document.createElement('div');
-  closeIcon.classList.add('close-icon');
-  closeIcon.style.position = 'fixed';
-  closeIcon.style.top = '50%';
-  closeIcon.style.left = '50%';
-  closeIcon.style.transform = 'translate(-50%, -50%)';
-  closeIcon.style.zIndex = '9999';
-  closeIcon.style.display = 'none';
-  closeIcon.style.width = '10em';
-  closeIcon.style.height = '10em';
-
-  // Добавляем SVG-код крестика
-  closeIcon.innerHTML = '<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="25" fill="#E53935"/><path d="M16 16L34 34M16 34L34 16" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-
-  // Добавляем элемент крестика в документ
-  document.body.appendChild(closeIcon);
-
-  // Отображаем элемент
-  closeIcon.style.display = 'block';
-
-  // Запускаем анимацию
-  closeIcon.style.transform = 'translate(-50%, -50%) scale(0)';
-  closeIcon.offsetHeight; // Триггер для запуска CSS-транзиции
-  closeIcon.style.transform = 'translate(-50%, -50%) scale(1)';
-
-  // Через 1,5 секунды скрываем крестик
-  setTimeout(function() {
-    closeIcon.style.transform = 'translate(-50%, -50%) scale(0)';
-    setTimeout(function() {
-      closeIcon.style.display = 'none';
-      // Удаляем элемент крестика из документа
-      closeIcon.remove();
-    }, 500);
-  }, 1500);
-}
 	
 /* Следим за настройками */
 function settingsWatch() {
@@ -355,7 +228,6 @@ if ($('DIV[data-name="' + itemName + '"]').find('.settings-param__status').hasCl
 	          setTimeout(function() {
 			Lampa.Settings.update();
 			Lampa.Noty.show("Плагин " + sourceName + " успешно установлен")
-			//showOkIcon()
 		  }, 1500);
    // Отправляем сигнал ожидания выхода из настроек для появления окна с предложением перезагрузки
 	  // Lampa.Storage.set('needRebootSettingExit', true);
@@ -374,13 +246,12 @@ function deletePlugin(pluginToRemoveUrl) {
 	Lampa.Storage.set('plugins', updatedPlugins);
 	//Lampa.Storage.set('needReboot', true);
 	setTimeout(function() {
-	Lampa.Settings.update();
-	Lampa.Noty.show("Плагин успешно удален");
+	  Lampa.Settings.update();
+	  Lampa.Noty.show("Плагин успешно удален");
 	}, 1500);
-		//showCloseIcon();
-	showDeletedBar();
 	Lampa.Storage.set('needRebootSettingExit', true);
 	   settingsWatch();
+	   showDeletedBar();
 };
 
 
