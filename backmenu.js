@@ -2,6 +2,39 @@
     'use strict';
   function main(){
 
+   Lampa.Storage.listener.follow('change', function (e) {});
+                Lampa.Settings.listener.follow('open', function (e) {
+                   if (e.name == 'more') {
+                     Lampa.SettingsApi.addComponent({
+                        component: 'back_menu',
+                        name: 'BackMenu'
+                     });
+                  }
+                  Lampa.Settings.main().update();
+                  Lampa.Settings.main().render().find('[data-component="back_menu"]').addClass('hide');
+       });
+                Lampa.SettingsApi.addParam({
+                         component: 'more',
+                         param: {
+                                 name: 'back_menu',
+                                 type: 'static',
+                                 default: true
+                         },
+                         field: {
+                                 name: 'Меню Выхода'
+                         },
+                         onRender: function(item) {
+                               item.on('hover:enter', function () {
+                                  Lampa.Settings.create('back_menu');
+                                  Lampa.Controller.enabled().controller.back = function(){
+                                  //Lampa.Settings.create('add_plugin');
+                }
+                               });
+                         }
+       });
+
+
+      
     //var stay = 0
     var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
    
