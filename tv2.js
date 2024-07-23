@@ -1772,7 +1772,9 @@ if (!!window.appready) pluginStart();
 else Lampa.Listener.follow('app', function(e){
 	if (e.type === 'ready') {
 		pluginStart() 
-		$(".js-my_iptv-menu0").insertAfter($("[data-action=catalog]"));
+		   setTimeout(function(){
+		       $(".js-my_iptv-menu0").insertAfter($("[data-action=catalog]"));
+		   },5000);
 	}
 });
 /*Lampa.Listener.follow('app', function (e) {
