@@ -101,10 +101,11 @@ function main(){
       menu.push({
         title: 'Перезагрузить'
       });
-        
+   if(Lampa.Storage.field('youtube') !== '1') {
        menu.push({
             title: 'YouTube'
       });
+   }
 
       menu.push({
         title: 'Сменить адрес'
