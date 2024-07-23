@@ -27,7 +27,7 @@
                                item.on('hover:enter', function () {
                                   Lampa.Settings.create('back_menu');
                                   Lampa.Controller.enabled().controller.back = function(){
-                                  //Lampa.Settings.create('add_plugin');
+                                  Lampa.Settings.create('more');
                 }
                                });
                          }
