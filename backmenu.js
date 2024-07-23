@@ -101,7 +101,7 @@ function main(){
       menu.push({
         title: 'Перезагрузить'
       });
-   if(Lampa.Storage.get('youtube') !== '1') {
+   if(localStorage.getItem('youtube') !== '1') {
        menu.push({
             title: 'YouTube'
       });
