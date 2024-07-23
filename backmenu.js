@@ -49,17 +49,25 @@ function main(){
                                        field: {
                                                name: 'YouTube',
                                                description: 'Нажмите для выбора'
-                               },
-                               onChange: function (value) {
-                                   if (value == '1') {
-            
-                                   }
-                                   if (value == '2') {
-            
-                                   }
-                               }
-                               
-             });
+                               },         
+        });
+
+        Lampa.SettingsApi.addParam({
+                               component: 'back_menu',
+                               param: {
+                                       name: 'exit',
+                                       type: 'select',
+                       values: {
+                                1:	'Скрыть',
+                                2:	'Отобразить',
+                            },
+                                       default: '1',
+                                       },
+                                       field: {
+                                               name: 'Выход',
+                                               description: 'Нажмите для выбора'
+                               },         
+        });
       
     
     var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
@@ -93,10 +101,12 @@ function main(){
     function showMeExitMenu() {
       var enabled = Lampa.Controller.enabled().name;
       var menu = [];
-     
+
+   if(localStorage.getItem('youtube') !== '1') {
       menu.push({
         title: 'Выход'
       });
+   }
 
       menu.push({
         title: 'Перезагрузить'
