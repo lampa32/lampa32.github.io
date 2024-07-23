@@ -49,12 +49,22 @@
                                                description: 'Нажмите для выбора'
                                },
                                onChange: function (value) {
-                                  if (value == '1') {
-                                      
-                                  }
-                                  if (value == '2') {
-                                    
-                                  }
+                                   if (value == '1') {
+            // Удаляем пункт "YouTube" из меню выхода
+            var index = menu.findIndex(function(item) {
+                return item.title === 'YouTube';
+            });
+            if (index !== -1) {
+                menu.splice(index, 1);
+            }
+        }
+        if (value == '2') {
+            // Добавляем пункт "YouTube" в меню выхода
+            menu.push({
+                title: 'YouTube'
+            });
+        }
+    }
                                }
              });
       
@@ -99,9 +109,16 @@
         title: 'Перезагрузить'
       });
         
-       menu.push({
+       /*menu.push({
         title: 'YouTube'
-      });
+      });*/
+         // Добавляем пункт "YouTube" только если он выбран в настройках
+    var youtubeParam = Lampa.SettingsApi.getParam('back_menu', 'youtube');
+    if (youtubeParam && youtubeParam.value == '2') {
+        menu.push({
+            title: 'YouTube'
+        });
+    }
 
       menu.push({
         title: 'Сменить адрес'
