@@ -1,6 +1,155 @@
 (function () {
     'use strict';
-  function main(){
+
+function main() {
+    Lampa.Component('back_menu', function (component) {
+        var self = this;
+        var items = [];
+
+        this.create = function () {
+            var content = Lampa.Template.get('back_menu');
+
+            Lampa.SettingsApi.addParam({
+                component: 'more',
+                param: {
+                    name: 'back_menu',
+                    type: 'static',
+                    default: true
+                },
+                field: {
+                    name: 'Меню Выхода'
+                },
+                onRender: function (item) {
+                    item.on('hover:enter', function () {
+                        Lampa.Settings.create('back_menu');
+                        Lampa.Controller.enabled().controller.back = function () {
+                            Lampa.Settings.create('more');
+                        }
+                    });
+                }
+            });
+
+            Lampa.SettingsApi.addParam({
+                component: 'back_menu',
+                param: {
+                    name: 'youtube',
+                    type: 'select',
+                    values: {
+                        1: 'Скрыть',
+                        2: 'Отобразить'
+                    },
+                    default: '1'
+                },
+                field: {
+                    name: 'YouTube',
+                    description: 'Нажмите для выбора'
+                },
+                onChange: function (value) {
+                    self.updateMenu();
+                }
+            });
+
+            this.activity = content.activity;
+            this.render = content.render;
+        };
+
+        this.updateMenu = function () {
+            items = [];
+            items.push({
+                title: 'Выход'
+            });
+            items.push({
+                title: 'Перезагрузить'
+            });
+
+            var youtubeParam = Lampa.SettingsApi.getParam('back_menu', 'youtube');
+            if (youtubeParam && youtubeParam.value == '2') {
+                items.push({
+                    title: 'YouTube'
+                });
+            }
+
+            items.push({
+                title: 'Сменить адрес'
+            });
+        };
+
+        this.toggle = function () {
+            Lampa.Select.show({
+                title: 'Выход ',
+                items: items,
+                onBack: function onBack() {
+                    Lampa.Controller.toggle('content');
+                },
+                onSelect: function onSelect(a) {
+                    if (a.title == 'Выход') closeApp();
+                    if (a.title == 'Перезагрузить') location.reload();
+                    if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
+                    if (a.title == 'Сменить адрес') showServerInput();
+                }
+            });
+        };
+    });
+
+    Lampa.Storage.listener.follow('change', function (e) {});
+    Lampa.Settings.listener.follow('open', function (e) {
+        if (e.name == 'more') {
+            Lampa.Component.get('back_menu').toggle();
+        }
+        Lampa.Settings.main().update();
+        Lampa.Settings.main().render().find('[data-component="back_menu"]').addClass('hide');
+    });
+
+    Lampa.Component.add('back_menu', Lampa.Component('back_menu'));
+
+    var server_protocol = location.protocol === "https:" ? 'https://' : 'http://';
+
+    function showServerInput() {
+        Lampa.Input.edit({
+            title: "Укажите Сервер",
+            value: '',
+            free: true
+        }, function (value) {
+            if (value !== '') {
+                window.location.href = server_protocol + value;
+                
+            }
+            else {
+                showMeExitMenu();
+            }
+        })
+    }
+
+    function closeApp() {
+        if (Lampa.Platform.is('apple_tv')) window.location.assign('exit://exit');
+        if (Lampa.Platform.is("tizen")) tizen.application.getCurrentApplication().exit();
+        if (Lampa.Platform.is("webos")) window.close();
+        if (Lampa.Platform.is("android")) Lampa.Android.exit();
+        if (Lampa.Platform.is("orsay")) Lampa.Orsay.exit();
+        if (Lampa.Platform.is("nw")) nw.Window.get().close();
+        if (Lampa.Platform.is('netcast')) window.NetCastBack();
+        if (Lampa.Platform.is('browser')) window.close();
+    }
+
+    Lampa.Controller.listener.follow('toggle', function (e) {
+        if (e.name == 'select' && $('.selectbox__title').text() == Lampa.Lang.translate('title_out')) {
+            Lampa.Select.hide();
+            setTimeout(function () {
+                showMeExitMenu()
+            }, 100);
+        };
+    })
+}
+
+if (window.appready) main();
+else {
+    Lampa.Listener.follow('app', function (e) {
+        if (e.type == 'ready') main();
+    });
+}
+
+    
+/*function main(){
 
    Lampa.Storage.listener.follow('change', function (e) {});
                 Lampa.Settings.listener.follow('open', function (e) {
@@ -50,22 +199,13 @@
                                },
                                onChange: function (value) {
                                    if (value == '1') {
-            // Удаляем пункт "YouTube" из меню выхода
-            var index = menu.findIndex(function(item) {
-                return item.title === 'YouTube';
-            });
-            if (index !== -1) {
-                menu.splice(index, 1);
-            }
-        }
-        if (value == '2') {
-            // Добавляем пункт "YouTube" в меню выхода
-            menu.push({
-                title: 'YouTube'
-            });
-        }
-    }
+            
+                                   }
+                                   if (value == '2') {
+            
+                                   }
                                }
+                               
              });
       
     
@@ -109,16 +249,9 @@
         title: 'Перезагрузить'
       });
         
-       /*menu.push({
-        title: 'YouTube'
-      });*/
-         // Добавляем пункт "YouTube" только если он выбран в настройках
-    var youtubeParam = Lampa.SettingsApi.getParam('back_menu', 'youtube');
-    if (youtubeParam && youtubeParam.value == '2') {
-        menu.push({
+       menu.push({
             title: 'YouTube'
-        });
-    }
+      });
 
       menu.push({
         title: 'Сменить адрес'
@@ -158,5 +291,5 @@
         Lampa.Listener.follow('app', function(e) {
           if (e.type == 'ready') main();
         });
-    }  
+    }  */
 })()
