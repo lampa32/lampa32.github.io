@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    document.addEventListener("DOMSubtreeModified", function(event) {
+    /*document.addEventListener("DOMSubtreeModified", function(event) {
 	var divs = document.getElementsByClassName("search__sources");
 	var startSource = Lampa.Storage.get('source');
 		if (divs.length > 0) {
@@ -49,7 +49,7 @@
 		if (window.lampa_settings.dcma)
 			window.lampa_settings.dcma = false;
 	  }
-      },100);
+      },100);*/
     
 function card() {
   var apiKey = '4ef0d7355d9ffb5151e987764708ce96';
