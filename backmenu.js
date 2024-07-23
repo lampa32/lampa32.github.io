@@ -33,7 +33,30 @@
                          }
        });
 
-
+       Lampa.SettingsApi.addParam({
+                               component: 'back_menu',
+                               param: {
+                                       name: 'youtube',
+                                       type: 'select',
+                       values: {
+                                1:	'Скрыть',
+                                2:	'Отобразить',
+                            },
+                                       default: '1',
+                                       },
+                                       field: {
+                                               name: 'YouTube',
+                                               description: 'Нажмите для выбора'
+                               },
+                               onChange: function (value) {
+                                  if (value == '1') {
+                                      
+                                  }
+                                  if (value == '2') {
+                                    
+                                  }
+                               }
+             });
       
     
     var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
