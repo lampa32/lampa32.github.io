@@ -35,7 +35,7 @@
 
 
       
-    //var stay = 0
+    
     var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
    
     function showServerInput() {
@@ -75,11 +75,7 @@
       menu.push({
         title: 'Перезагрузить'
       });
-     /*
-      menu.push({
-        type: 'separator' 
-      });
-    */   
+        
        menu.push({
         title: 'YouTube'
       });
@@ -92,16 +88,16 @@
         title: 'Выход ', // пробел обязателен, чтобы отделить событие от оригинального меню
         items: menu,
         onBack: function onBack() { 
-         //stay = 0;
+         
          Lampa.Controller.toggle('content');
         },
         onSelect: function onSelect(a) {
-          //stay = 0;
+          
           if (a.title == 'Выход') closeApp();
           if (a.title == 'Перезагрузить') location.reload();
           if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
           if (a.title == 'Сменить адрес') showServerInput();    
-          //Lampa.Controller.toggle(enabled);
+          
         }
       })
     }
