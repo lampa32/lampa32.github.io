@@ -1769,7 +1769,7 @@ function pluginStart() {
 }
  
 if (!!window.appready) pluginStart();
-else Lampa.Listener.follow('app', function(e){if (e.type === 'ready') pluginStart()});
+else Lampa.Listener.follow('app', function(e){if (e.type === 'ready') pluginStart() $(".js-my_iptv-menu0").insertAfter($("[data-action=catalog]"));});
 /*Lampa.Listener.follow('app', function (e) {
      if (e.type == 'ready') {
              setTimeout(function(){
