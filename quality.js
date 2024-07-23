@@ -1,55 +1,5 @@
 (function () {
     'use strict';
-
-    /*document.addEventListener("DOMSubtreeModified", function(event) {
-	var divs = document.getElementsByClassName("search__sources");
-	var startSource = Lampa.Storage.get('source');
-		if (divs.length > 0) {
-			if (Lampa.Storage.get('source') == 'cub') {
-				var startSource = Lampa.Storage.get('source');
-				Lampa.Storage.set('mySource', startSource) // метка
-				Lampa.Storage.set('source', 'tmdb');
-			}
-		} else {
-		setTimeout(function(){
-			if (localStorage.getItem('mySource')) {Lampa.Storage.set('source', Lampa.Storage.get('mySource'))}
-			localStorage.removeItem("mySource");
-		}, 1500)
-	}
-   }, false); 
-    
-    var pluginArray = Lampa.Storage.get('plugins');
-    var delplugin = pluginArray.filter(function(obj) {return obj.url !== 'http://cub.red/plugin/tmdb-proxy'});
-    Lampa.Storage.set('plugins', delplugin);
-
-    var pluginArray = Lampa.Storage.get('plugins');
-    var deleteplugin = pluginArray.filter(function(obj) {return obj.url !== 'https://cub.red/plugin/tmdb-proxy'});
-    Lampa.Storage.set('plugins', deleteplugin);
-
-
-    Lampa.TMDB.image = function (url) {
-      var base = Lampa.Utils.protocol() + 'image.tmdb.org/' + url;
-      return Lampa.Storage.field('proxy_tmdb') ? 'http://image.tmdb.org/' + Lampa.Utils.addUrlComponent(base) : base;
-    };
-
-    Lampa.TMDB.api = function (url) {
-      var base = Lampa.Utils.protocol() + 'api.themoviedb.org/3/' + url;
-      return Lampa.Storage.field('proxy_tmdb') ? 'http://212.113.103.137:9118/proxy/' + Lampa.Utils.addUrlComponent(base) : base;
-    };
-
-    Lampa.Settings.listener.follow('open', function (e) {
-      if (e.name == 'tmdb') {
-        e.body.find('[data-parent="proxy"]').remove();
-      }
-    });
-
-      var dcma_timer = setInterval(function(){
-	  if(typeof window.lampa_settings != 'undefined' && (window.lampa_settings.fixdcma || window.lampa_settings.dcma)){
-		clearInterval(dcma_timer)
-		if (window.lampa_settings.dcma)
-			window.lampa_settings.dcma = false;
-	  }
-      },100);*/
     
 function card() {
   var apiKey = '4ef0d7355d9ffb5151e987764708ce96';
