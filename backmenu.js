@@ -42,11 +42,11 @@ function main(){
                                param: {
                                        name: 'exit',
                                        type: 'trigger',
-                       values: {
+                      /* values: {
                                 1:	'Скрыть',
                                 2:	'Отобразить',
-                            },
-                                       default: '1',
+                            },*/
+                                       default: true
                                        },
                                        field: {
                                                name: 'Закрыть приложение',
