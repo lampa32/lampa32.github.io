@@ -126,7 +126,7 @@ function main(){
 
    if(localStorage.getItem('exit') !== '1') {
       menu.push({
-        title: exit,//'Закрыть приложение',
+        title: exit//'Закрыть приложение',
       });
    }
  
@@ -138,7 +138,7 @@ function main(){
         
   if(localStorage.getItem('youtube') !== '1') {
        menu.push({
-            title: 'YouTube'
+            title: youtube
       });
    }
 
@@ -157,7 +157,7 @@ function main(){
           
           if (a.title == exit) closeApp();
           if (a.title == 'Перезагрузить') location.reload();
-          if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
+          if (a.title == YouTube) window.location.href = 'https://youtube.com/tv';
           if (a.title == 'Сменить адрес') showServerInput();    
           
         }
