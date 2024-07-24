@@ -6,7 +6,7 @@ function main(){
 
      Lampa.Storage.listener.follow('change', function (e) {});
                 Lampa.Settings.listener.follow('open', function (e) {
-                   if (e.name == 'more') {
+                   if (e.name == 'main') {
                      Lampa.SettingsApi.addComponent({
                         component: 'back_menu',
                         name: 'Меню назад'
