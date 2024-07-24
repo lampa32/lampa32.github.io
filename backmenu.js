@@ -9,7 +9,7 @@ function main(){
                    if (e.name == 'more') {
                      Lampa.SettingsApi.addComponent({
                         component: 'back_menu',
-                        name: 'BackMenu'
+                        name: 'Меню назад'
                      });
                   }
                   Lampa.Settings.main().update();
@@ -119,16 +119,19 @@ function main(){
       var enabled = Lampa.Controller.enabled().name;
       var menu = [];
 
-   if(localStorage.getItem('youtube') !== '1') {
+   if(localStorage.getItem('exit') !== '1') {
       menu.push({
         title: 'Выход'
       });
    }
-
+ 
+  if(localStorage.getItem('reboot') !== '1') {
       menu.push({
         title: 'Перезагрузить'
       });
-   if(localStorage.getItem('youtube') !== '1') {
+  }
+        
+  if(localStorage.getItem('youtube') !== '1') {
        menu.push({
             title: 'YouTube'
       });
