@@ -15,8 +15,8 @@ function main(){
                          $('div[data-component="back_menu"]').remove();
                      }, 0)
                   }
-                  Lampa.Settings.main().update();
-                  Lampa.Settings.main().render().find('[data-component="back_menu"]').addClass('hide');
+                 // Lampa.Settings.main().update();
+                 // Lampa.Settings.main().render().find('[data-component="back_menu"]').addClass('hide');
        });
                 Lampa.SettingsApi.addParam({
                          component: 'more',
