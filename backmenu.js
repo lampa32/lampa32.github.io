@@ -6,11 +6,14 @@ function main(){
 
      Lampa.Storage.listener.follow('change', function (e) {});
                 Lampa.Settings.listener.follow('open', function (e) {
-                   if (e.name == 'more') {
+                   if (e.name == 'main') {
                      Lampa.SettingsApi.addComponent({
                         component: 'back_menu',
-                        name: 'Меню выхода'
+                        name: 'BackMenu'
                      });
+                     setTimeout(function() {
+                         $('div[data-component="back_menu"]').remove();
+                     }, 0)
                   }
                   Lampa.Settings.main().update();
                   Lampa.Settings.main().render().find('[data-component="back_menu"]').addClass('hide');
