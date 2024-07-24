@@ -48,11 +48,11 @@ function main(){
                                param: {
                                        name: 'exit',
                                        type: 'trigger',
-                       /*values: {
+                            values: {
                                 1:	'Скрыть',
                                 2:	'Отобразить',
-                            },*/
-                                       default: true
+                            },
+                                       default: '2',
                                        },
                                        field: {
                                                name: 'Закрыть приложение',
@@ -73,6 +73,23 @@ function main(){
                                        },
                                        field: {
                                                name: 'Перезагрузить',
+                                               description: 'Нажмите для выбора'
+                               },         
+        });
+
+        Lampa.SettingsApi.addParam({
+                               component: 'back_menu',
+                               param: {
+                                       name: 'switch_server',
+                                       type: 'select',
+                       values: {
+                                1:	'Скрыть',
+                                2:	'Отобразить',
+                            },
+                                       default: '2',
+                                       },
+                                       field: {
+                                               name: 'Сменить сервер',
                                                description: 'Нажмите для выбора'
                                },         
         });
