@@ -41,7 +41,7 @@ function main(){
                                component: 'back_menu',
                                param: {
                                        name: 'exit',
-                                       type: 'toogle',
+                                       type: 'trigger',
                        values: {
                                 1:	'Скрыть',
                                 2:	'Отобразить',
