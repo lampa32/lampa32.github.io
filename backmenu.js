@@ -145,7 +145,7 @@ function main(){
 
    if(localStorage.getItem('exit') !== '1') {
       menu.push({
-        title: exit//'Закрыть приложение',
+        title: exit
       });
    }
  
@@ -155,7 +155,7 @@ function main(){
       });
   }
         
-  if(localStorage.getItem('reboot') !== '1') {
+  if(localStorage.getItem('switch_server') !== '1') {
       menu.push({
         title: switch_server
       });
@@ -179,8 +179,8 @@ function main(){
           
           if (a.title == exit) closeApp();
           if (a.title == reboot) location.reload();
-          if (a.title == youtube) window.location.href = 'https://youtube.com/tv';
           if (a.title == switch_server) showServerInput();    
+          if (a.title == youtube) window.location.href = 'https://youtube.com/tv';
           
         }
       })
