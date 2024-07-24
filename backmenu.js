@@ -125,7 +125,8 @@ function main(){
 
    if(localStorage.getItem('exit') !== '1') {
       menu.push({
-        title: 'Закрыть приложение'
+        title: 'Закрыть приложение',
+        icon: exit
       });
    }
  
