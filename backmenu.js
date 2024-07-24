@@ -47,7 +47,7 @@ function main(){
                                component: 'back_menu',
                                param: {
                                        name: 'exit',
-                                       type: 'trigger',
+                                       type: 'select',
                             values: {
                                 1:	'Скрыть',
                                 2:	'Отобразить',
