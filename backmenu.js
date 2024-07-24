@@ -153,7 +153,7 @@ function main(){
         },
         onSelect: function onSelect(a) {
           
-          if (a.title == 'Выход') closeApp();
+          if (a.title == exit) closeApp();
           if (a.title == 'Перезагрузить') location.reload();
           if (a.title == 'YouTube') window.location.href = 'https://youtube.com/tv';
           if (a.title == 'Сменить адрес') showServerInput();    
