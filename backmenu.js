@@ -131,9 +131,15 @@ function main(){
       });
    }
  
-  if(localStorage.getItem('reboot') !== '1') {
+ if(localStorage.getItem('reboot') !== '1') {
       menu.push({
         title: 'Перезагрузить'
+      });
+  }
+        
+  if(localStorage.getItem('reboot') !== '1') {
+      menu.push({
+        title: switch_server
       });
   }
         
@@ -143,9 +149,6 @@ function main(){
       });
    }
 
-      menu.push({
-        title: switch_server
-      });
       
       Lampa.Select.show({
         title: 'Выход ', // пробел обязателен, чтобы отделить событие от оригинального меню
