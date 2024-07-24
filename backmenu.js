@@ -42,10 +42,10 @@ function main(){
                                param: {
                                        name: 'exit',
                                        type: 'trigger',
-                      /* values: {
+                       values: {
                                 1:	'Скрыть',
                                 2:	'Отобразить',
-                            },*/
+                            },
                                        default: true
                                        },
                                        field: {
