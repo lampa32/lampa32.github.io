@@ -4,7 +4,7 @@
     
 function main(){
 
-   Lampa.Storage.listener.follow('change', function (e) {});
+     Lampa.Storage.listener.follow('change', function (e) {});
                 Lampa.Settings.listener.follow('open', function (e) {
                    if (e.name == 'more') {
                      Lampa.SettingsApi.addComponent({
@@ -33,24 +33,8 @@ function main(){
                 }
                                });
                          }
-       });
-
-       Lampa.SettingsApi.addParam({
-                               component: 'back_menu',
-                               param: {
-                                       name: 'youtube',
-                                       type: 'select',
-                       values: {
-                                1:	'Скрыть',
-                                2:	'Отобразить',
-                            },
-                                       default: '1',
-                                       },
-                                       field: {
-                                               name: 'YouTube',
-                                               description: 'Нажмите для выбора'
-                               },         
         });
+
 
         Lampa.SettingsApi.addParam({
                                component: 'back_menu',
@@ -68,7 +52,40 @@ function main(){
                                                description: 'Нажмите для выбора'
                                },         
         });
-      
+    
+        Lampa.SettingsApi.addParam({
+                               component: 'back_menu',
+                               param: {
+                                       name: 'reboot',
+                                       type: 'select',
+                       values: {
+                                1:	'Скрыть',
+                                2:	'Отобразить',
+                            },
+                                       default: '2',
+                                       },
+                                       field: {
+                                               name: 'Перезагрузить',
+                                               description: 'Нажмите для выбора'
+                               },         
+        });
+
+        Lampa.SettingsApi.addParam({
+                               component: 'back_menu',
+                               param: {
+                                       name: 'youtube',
+                                       type: 'select',
+                       values: {
+                                1:	'Скрыть',
+                                2:	'Отобразить',
+                            },
+                                       default: '1',
+                                       },
+                                       field: {
+                                               name: 'YouTube',
+                                               description: 'Нажмите для выбора'
+                               },         
+        });
     
     var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
    
