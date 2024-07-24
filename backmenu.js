@@ -15,8 +15,6 @@ function main(){
                          $('div[data-component="back_menu"]').remove();
                      }, 0)
                   }
-                 // Lampa.Settings.main().update();
-                 // Lampa.Settings.main().render().find('[data-component="back_menu"]').addClass('hide');
        });
                 Lampa.SettingsApi.addParam({
                          component: 'more',
@@ -51,7 +49,7 @@ function main(){
                                        default: '1',
                                        },
                                        field: {
-                                               name: 'Выход',
+                                               name: 'Закрыть приложение',
                                                description: 'Нажмите для выбора'
                                },         
         });
@@ -124,7 +122,7 @@ function main(){
 
    if(localStorage.getItem('exit') !== '1') {
       menu.push({
-        title: 'Выход'
+        title: 'Закрыть приложение'
       });
    }
  
