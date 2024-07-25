@@ -149,26 +149,28 @@ function main(){
              Lampa.Storage.set('youtube', '1');
     } 
 
-function clearLocalStorage() {
-  var need = ['online_view', 'ser_clarifys', 'torrents_view', 'account_bookmarks', 'recomends_list', 'file_view', 'timetable', 'search_history', 'recomends_scan'];
-  var more = ['online_', 'file_view_', 'storage_'];
+    function clearLocalStorage() {
+        var need = ['online_view', 'ser_clarifys', 'torrents_view', 'account_bookmarks', 'recomends_list', 'file_view', 'timetable', 'search_history', 'recomends_scan'];
+        var more = ['online_', 'file_view_', 'storage_'];
 
-  for (var key in localStorage) {
-    if (more.find(function(w) {
-      return key.indexOf(w) >= 0;
-    })) {
-      need.push(key);
+        for (var key in localStorage) {
+           if (more.find(function(w) {
+              return key.indexOf(w) >= 0;
+           })) {
+           need.push(key);
+           }
+        }
+
+        need.forEach(function(a) {
+           localStorage.removeItem(a);
+        });
+
+        Lampa.Noty.show("Кэш очищен, приложение будет перезапущено!")
+
+        setTimeout(function() {
+            window.location.reload();
+        }, 3000);
     }
-  }
-
-  need.forEach(function(a) {
-    localStorage.removeItem(a);
-  });
-
-  setTimeout(function() {
-    window.location.reload();
-  }, 3000);
-}
     
     var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
    
