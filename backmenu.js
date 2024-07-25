@@ -111,6 +111,23 @@ function main(){
                                                description: 'Нажмите для выбора'
                                },         
         });
+
+    
+    var timer = setInterval(function(){
+        if(typeof Lampa !== 'undefined'){
+            clearInterval(timer);
+
+            if(!Lampa.Storage.get('back_plug','false')) start_back();
+		 
+        }
+    },200);
+	
+    function start_back(){
+             Lampa.Storage.set('exit','2');
+             Lampa.Storage.set('reboot', '2');
+             Lampa.Storage.set('switch_server', '2');
+             Lampa.Storage.set('youtube', '1');
+    } 
     
     var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
    
