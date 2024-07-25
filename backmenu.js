@@ -22,7 +22,8 @@ function main(){
                      }, 0)
                   }
        });
-                Lampa.SettingsApi.addParam({
+       
+       Lampa.SettingsApi.addParam({
                          component: 'more',
                          param: {
                                  name: 'back_menu',
@@ -162,29 +163,29 @@ function main(){
       var enabled = Lampa.Controller.enabled().name;
       var menu = [];
 
-   if(localStorage.getItem('exit') !== '1') {
+    if(localStorage.getItem('exit') !== '1') {
       menu.push({
         title: exit
       });
-   }
+    }
  
- if(localStorage.getItem('reboot') !== '1') {
+    if(localStorage.getItem('reboot') !== '1') {
       menu.push({
         title: reboot
       });
-  }
+    }
         
-  if(localStorage.getItem('switch_server') !== '1') {
+    if(localStorage.getItem('switch_server') !== '1') {
       menu.push({
         title: switch_server
       });
-  }
+    }
         
-  if(localStorage.getItem('youtube') !== '1') {
-       menu.push({
+    if(localStorage.getItem('youtube') !== '1') {
+      menu.push({
             title: youtube
       });
-   }
+    }
 
       
       Lampa.Select.show({
