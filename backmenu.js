@@ -30,7 +30,8 @@ function main(){
                                  default: true
                          },
                          field: {
-                                 name: 'Меню Выхода'
+                                 name: 'Меню Выхода',
+                                 description: 'Настройки отображения пунктов меню'
                          },
                          onRender: function(item) {
                                item.on('hover:enter', function () {
