@@ -30,7 +30,7 @@ function main(){
                                  default: true
                          },
                          field: {
-                                 name: 'Меню Выхода',
+                                 name: 'Меню Выход',
                                  description: 'Настройки отображения пунктов меню'
                          },
                          onRender: function(item) {
