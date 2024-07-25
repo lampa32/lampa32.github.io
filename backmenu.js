@@ -148,6 +148,27 @@ function main(){
 	     Lampa.Storage.set('clear_cache', '2');
              Lampa.Storage.set('youtube', '1');
     } 
+
+function clearLocalStorage() {
+  var need = ['online_view', 'ser_clarifys', 'torrents_view', 'account_bookmarks', 'recomends_list', 'file_view', 'timetable', 'search_history', 'recomends_scan'];
+  var more = ['online_', 'file_view_', 'storage_'];
+
+  for (var key in localStorage) {
+    if (more.find(function(w) {
+      return key.indexOf(w) >= 0;
+    })) {
+      need.push(key);
+    }
+  }
+
+  need.forEach(function(a) {
+    localStorage.removeItem(a);
+  });
+
+  setTimeout(function() {
+    window.location.reload();
+  }, 3000);
+}
     
     var server_protocol = location.protocol === "https:" ? 'https://' : 'http://'
    
@@ -224,7 +245,7 @@ function main(){
           if (a.title == exit) closeApp();
           if (a.title == reboot) location.reload();
           if (a.title == switch_server) showServerInput();
-	  if (a.title == clear_cache) {localStorage.clear(); location.reload();};
+	  if (a.title == clear_cache) clearLocalStorage();
           if (a.title == youtube) window.location.href = 'https://youtube.com/tv';
           
         }
