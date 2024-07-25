@@ -134,7 +134,7 @@ function main(){
    
     function showServerInput() {
       Lampa.Input.edit({
-          title: "Укажите Сервер",
+          title: "Укажите cервер",
           value: '',
           free: true       
       }, function (value) {
