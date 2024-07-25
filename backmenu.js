@@ -222,15 +222,7 @@ function main(){
     function showMeExitMenu() {
       var enabled = Lampa.Controller.enabled().name;
       var menu = [];
-
-     let lastSelectedItem = localStorage.getItem('last_selected_item');
-  if (lastSelectedItem) {
-    menu.unshift({
-      title: lastSelectedItem
-    });
-  }
-
-	    
+    
     if(localStorage.getItem('exit') !== '1') {
       menu.push({
         title: exit
@@ -281,19 +273,13 @@ function main(){
           if (a.title == reboot) location.reload();
           if (a.title == switch_server) showServerInput();
 	  if (a.title == clear_cache) clearLocalStorage();
-          if (a.title == youtube) {
-		  window.location.href = 'https://youtube.com/tv';
-	           saveLastSelectedItem('youtube');
-	  }
+          if (a.title == youtube) window.location.href = 'https://youtube.com/tv';
 	  if (a.title == drm_play) window.location.href = 'https://ott.drm-play.com';
           
         }
       })
     }
 
-    function saveLastSelectedItem(item) {
-  localStorage.setItem('last_selected_item', item);
-    }
 	
     Lampa.Controller.listener.follow('toggle', function(e) {
       if (e.name == 'select' && $('.selectbox__title').text() == Lampa.Lang.translate('title_out')) {
