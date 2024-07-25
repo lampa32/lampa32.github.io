@@ -199,7 +199,7 @@ function main(){
           if (a.title == exit) closeApp();
           if (a.title == reboot) location.reload();
           if (a.title == switch_server) showServerInput();    
-          if (a.title == youtube) Lampa.Android.openYoutube();//window.location.href = 'https://youtube.com/tv';
+          if (a.title == youtube) window.location.href = 'https://youtube.com/tv';
           
         }
       })
