@@ -284,6 +284,7 @@ function main(){
           if (a.title == youtube) {
 		  window.location.href = 'https://youtube.com/tv';
 	           saveLastSelectedItem('youtube');
+	  }
 	  if (a.title == drm_play) window.location.href = 'https://ott.drm-play.com';
           
         }
