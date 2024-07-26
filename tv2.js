@@ -1773,7 +1773,7 @@ else Lampa.Listener.follow('app', function(e){
 	if (e.type === 'ready') {
 		pluginStart() 
 		   setTimeout(function(){
-		       $(".js-my_iptv-menu0").insertAfter($("[data-action=catalog]"));
+		       $(".js-my_iptv-menu0").insertBefore($("[data-action=catalog]"));
 		   },1500);
 	}
 });
