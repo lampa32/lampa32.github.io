@@ -69,7 +69,7 @@ function myRequest(i) {
 		xhr.onerror = function() {
                                 console.log("FreeTorr", 'Сервер ' + options[i] + ' отверг соединение или не существует');
 		}
-	}, 1000) 
+	}, 2500) 
 }
 
 /* Функция чека каждого сервера через опрос на наличие доступности */
@@ -205,7 +205,7 @@ function checkAlive() {
 			 Lampa.Storage.set('torrserver_use_link', 'two');
 		           var myResult = searchRandom();
 			   if (myResult !== 'undefined') Lampa.Storage.set('torrserver_url_two', 'http://' + myResult + ':8090');
-		       }, 4000) //без таймаута undefined	
+		       }, 5000) //без таймаута undefined	
 		}
 		      //по дефолту кнопка только в торрентах, поэтому запускаем функцию showBut_Torr
 		if (localStorage.getItem('switch_server_button') === null) {
