@@ -53,7 +53,9 @@ function backupLocalStorage() {
     var encoder = new TextEncoder();
     var bytes = encoder.encode(backupString);
    // var backupBase64 = btoa(String.fromCharCode(...bytes));
-    var backupBase64 = btoa(String.fromCharCode.apply(null, bytes));
+    var backupBase64 = btoa(bytes.reduce(function(data, byte) {
+    return data + String.fromCharCode(byte);
+  }, ''));
     return backupBase64;
 }
 var backupData = backupLocalStorage();
