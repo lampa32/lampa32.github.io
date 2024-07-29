@@ -11,6 +11,7 @@ function main(){
     var youtube = '<div class="settings-folder" style="padding:0!important"><div style="width:2.2em;height:1.7em;padding-right:.5em"><svg width="256px" height="256px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="1.464"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5949 4.45999C21.5421 4.71353 22.2865 5.45785 22.54 6.40501C22.9982 8.12001 23 11.7004 23 11.7004C23 11.7004 23 15.2807 22.54 16.9957C22.2865 17.9429 21.5421 18.6872 20.5949 18.9407C18.88 19.4007 12 19.4007 12 19.4007C12 19.4007 5.12001 19.4007 3.405 18.9407C2.45785 18.6872 1.71353 17.9429 1.45999 16.9957C1 15.2807 1 11.7004 1 11.7004C1 11.7004 1 8.12001 1.45999 6.40501C1.71353 5.45785 2.45785 4.71353 3.405 4.45999C5.12001 4 12 4 12 4C12 4 18.88 4 20.5949 4.45999ZM15.5134 11.7007L9.79788 15.0003V8.40101L15.5134 11.7007Z" stroke="#ffffff" stroke-linejoin="round"></path> </g></svg></div><div style="font-size:1.3em">YouTube</div></div>'
     var drm_play = '<div class="settings-folder" style="padding:0!important"><div style="width:2.2em;height:1.7em;padding-right:.5em"><svg fill="#ffffff" width="256px" height="256px" viewBox="0 -6 46 46" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="2.3"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="_24.TV" data-name="24.TV" d="M46,37H2a1,1,0,0,1-1-1V8A1,1,0,0,1,2,7H46a1,1,0,0,1,1,1V36A1,1,0,0,1,46,37ZM45,9H3V35H45ZM21,16a.975.975,0,0,1,.563.2l7.771,4.872a.974.974,0,0,1,.261,1.715l-7.974,4.981A.982.982,0,0,1,21,28a1,1,0,0,1-1-1V17A1,1,0,0,1,21,16ZM15,39H33a1,1,0,0,1,0,2H15a1,1,0,0,1,0-2Z" transform="translate(-1 -7)" fill-rule="evenodd"></path> </g></svg></div><div style="font-size:1.3em">DRM Play</div></div>'
     var tik_tok = '<div class="settings-folder" style="padding:0!important"><div style="width:2.2em;height:1.7em;padding-right:.5em"><svg width="256px" height="256px" viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.89px;}</style></defs><path class="cls-1" d="M12.94,1.61V15.78a2.83,2.83,0,0,1-2.83,2.83h0a2.83,2.83,0,0,1-2.83-2.83h0a2.84,2.84,0,0,1,2.83-2.84h0V9.17h0A6.61,6.61,0,0,0,3.5,15.78h0a6.61,6.61,0,0,0,6.61,6.61h0a6.61,6.61,0,0,0,6.61-6.61V9.17l.2.1a8.08,8.08,0,0,0,3.58.84h0V6.33l-.11,0a4.84,4.84,0,0,1-3.67-4.7H12.94Z"></path></g></svg></div><div style="font-size:1.3em">TikTok</div></div>'
+    var fork_player = '<div class="settings-folder" style="padding:0!important"><div style="width:2.2em;height:1.7em;padding-right:.5em"><svg width="256px" height="256px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="0.00032"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="none" fill-rule="evenodd"> <path d="m0 0h32v32h-32z"></path> <g fill="#ffffff" fill-rule="nonzero"> <path d="m32 16c0-8.83636363-7.1636364-16-16-16-8.83636362 0-16 7.16363638-16 16 0 8.8363636 7.16363638 16 16 16 8.8363636 0 16-7.1636364 16-16zm-30.54545453 0c0-8.03345453 6.512-14.54545453 14.54545453-14.54545453 8.0334545 0 14.5454545 6.512 14.5454545 14.54545453 0 8.0334545-6.512 14.5454545-14.5454545 14.5454545-8.03345453 0-14.54545453-6.512-14.54545453-14.5454545z"></path> <path d="m16.6138182 25.2349091v-9.2349091h3.0472727l.4814545-3.0603636h-3.5287272v-1.5345455c0-.7985455.2618182-1.56072727 1.408-1.56072727h2.2909091v-3.05454547h-3.2523636c-2.7345455 0-3.4807273 1.80072728-3.4807273 4.29672724v1.8516364h-1.8763637v3.0618182h1.8763636v9.2349091z"></path> </g> </g> </g></svg></div><div style="font-size:1.3em">ForkPlayer</div></div>'
     
     Lampa.Storage.listener.follow('change', function (e) {});
                 Lampa.Settings.listener.follow('open', function (e) {
@@ -165,6 +166,23 @@ function main(){
                                                description: 'Нажмите для выбора'
                                },         
         });
+
+	Lampa.SettingsApi.addParam({
+                               component: 'back_menu',
+                               param: {
+                                       name: 'fork_player',
+                                       type: 'select',
+                       values: {
+                                1:	'Скрыть',
+                                2:	'Отобразить',
+                            },
+                                       default: '1',
+                                       },
+                                       field: {
+                                               name: 'ForkPlayer',
+                                               description: 'Нажмите для выбора'
+                               },         
+        });
 	
 	
     var timer = setInterval(function(){
@@ -185,6 +203,7 @@ function main(){
              Lampa.Storage.set('youtube', '1');
 	     Lampa.Storage.set('drm_play', '1');
 	     Lampa.Storage.set('tik_tok', '1');
+	     Lampa.Storage.set('fork_player', '1');
     } 
 
     function clearLocalStorage() {
@@ -284,6 +303,12 @@ function main(){
       });
     }
 
+    if(localStorage.getItem('tik_tok') !== '1') {
+      menu.push({
+            title: fork_player
+      });
+    }
+
       
       Lampa.Select.show({
         title: 'Выход ', // пробел обязателен, чтобы отделить событие от оригинального меню
@@ -301,6 +326,7 @@ function main(){
           if (a.title == youtube) window.location.href = 'https://youtube.com/tv';
 	  if (a.title == drm_play) window.location.href = 'https://ott.drm-play.com';
           if (a.title == tik_tok) window.location.href = 'https://tv.tiktok.com/webos';
+          if (a.title == fork_player) window.location.href = 'http://browser.appfxml.com';
           
         }
       })
