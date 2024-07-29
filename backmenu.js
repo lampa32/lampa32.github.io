@@ -10,6 +10,7 @@ function main(){
     var clear_cache = '<div class="settings-folder" style="padding:0!important"><div style="width:2.2em;height:1.7em;padding-right:.5em"><svg width="256px" height="256px" viewBox="0 0 48 48" id="b" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff" stroke-width="1.968"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.t{fill:none;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;}</style></defs><circle id="c" class="t" cx="36.096" cy="22.6536" r="1.3931"></circle><circle id="d" class="t" cx="40.2225" cy="26.8135" r="1.6717"></circle><path id="e" class="t" d="m12.2134,10.4649l11.3032,1.9794"></path><path id="f" class="t" d="m15.5471,14.4757l7.3445,1.3022"></path><path id="g" class="t" d="m13.4115,17.3406l8.9592,1.5627"></path><path id="h" class="t" d="m28.9503,31.9961l-.2768-3.4044c-.6946-4.6049-6.0126-5.7231-7.657-1.2762-1.8215,3.7646-8.3136,7.2818-15.4182,8.1518,2.8623,9.2457,18.1701,7.426,20.2625,4.7401"></path><path id="i" class="t" d="m26.9545,34.7903c-4.9816,2.8272-.2458,7.5687,2.6044,5.7297,2.0714,2.7765,6.4689,2.2491,7.5008.1563,5.8857,2.6255,7.2368-5.5731,2.3961-6.3027-1.076-3.7607-4.9677-4.4122-7.2924-2.1356-1.9877-.4898-4.0291-1.2665-5.2089,2.5524Z"></path><path id="j" class="t" d="m9.2965,17.4072v1.5105"></path><path id="k" class="t" d="m9.2965,21.2702v1.5106"></path><path id="l" class="t" d="m10.5248,20.094l1.5105.0522"></path><path id="m" class="t" d="m6.6618,20.1461h1.5106"></path><path id="n" class="t" d="m14.0712,27.9419l1.0313,1.105m0-3.8734l-1.0682,1.0681m-2.7315-.9945l1.0681,1.0681m0,1.5898l-1.0681,1.0682"></path><path id="o" class="t" d="m21.0164,27.3156c2.3279,1.9405,4.9381,1.9753,7.657,1.2762"></path><path id="p" class="t" d="m10.9776,41.135c5.6948-1.9298,9.2192-4.403,11.1848-7.2823"></path><path id="q" class="t" d="m22.1103,38.4886c-1.116,1.5442-2.4716,2.8254-4.7661,3.8785"></path><path id="r" class="t" d="m7.1015,38.3102c3.2416-.0909,5.7762-1.2165,8.2373-2.4782"></path><path id="s" class="t" d="m23.712,24.6163l3.2165-17.1726c.448-2.9721,3.9476-2.1183,3.2685.573l-3.3643,17.2741"></path></g></svg></div><div style="font-size:1.3em">Очистить кэш</div></div>'
     var youtube = '<div class="settings-folder" style="padding:0!important"><div style="width:2.2em;height:1.7em;padding-right:.5em"><svg width="256px" height="256px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="1.464"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M20.5949 4.45999C21.5421 4.71353 22.2865 5.45785 22.54 6.40501C22.9982 8.12001 23 11.7004 23 11.7004C23 11.7004 23 15.2807 22.54 16.9957C22.2865 17.9429 21.5421 18.6872 20.5949 18.9407C18.88 19.4007 12 19.4007 12 19.4007C12 19.4007 5.12001 19.4007 3.405 18.9407C2.45785 18.6872 1.71353 17.9429 1.45999 16.9957C1 15.2807 1 11.7004 1 11.7004C1 11.7004 1 8.12001 1.45999 6.40501C1.71353 5.45785 2.45785 4.71353 3.405 4.45999C5.12001 4 12 4 12 4C12 4 18.88 4 20.5949 4.45999ZM15.5134 11.7007L9.79788 15.0003V8.40101L15.5134 11.7007Z" stroke="#ffffff" stroke-linejoin="round"></path> </g></svg></div><div style="font-size:1.3em">YouTube</div></div>'
     var drm_play = '<div class="settings-folder" style="padding:0!important"><div style="width:2.2em;height:1.7em;padding-right:.5em"><svg fill="#ffffff" width="256px" height="256px" viewBox="0 -6 46 46" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" stroke-width="2.3"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="_24.TV" data-name="24.TV" d="M46,37H2a1,1,0,0,1-1-1V8A1,1,0,0,1,2,7H46a1,1,0,0,1,1,1V36A1,1,0,0,1,46,37ZM45,9H3V35H45ZM21,16a.975.975,0,0,1,.563.2l7.771,4.872a.974.974,0,0,1,.261,1.715l-7.974,4.981A.982.982,0,0,1,21,28a1,1,0,0,1-1-1V17A1,1,0,0,1,21,16ZM15,39H33a1,1,0,0,1,0,2H15a1,1,0,0,1,0-2Z" transform="translate(-1 -7)" fill-rule="evenodd"></path> </g></svg></div><div style="font-size:1.3em">DRM Play</div></div>'
+    var tik_tok = '<div class="settings-folder" style="padding:0!important"><div style="width:2.2em;height:1.7em;padding-right:.5em"><svg width="256px" height="256px" viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" fill="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:1.89px;}</style></defs><path class="cls-1" d="M12.94,1.61V15.78a2.83,2.83,0,0,1-2.83,2.83h0a2.83,2.83,0,0,1-2.83-2.83h0a2.84,2.84,0,0,1,2.83-2.84h0V9.17h0A6.61,6.61,0,0,0,3.5,15.78h0a6.61,6.61,0,0,0,6.61,6.61h0a6.61,6.61,0,0,0,6.61-6.61V9.17l.2.1a8.08,8.08,0,0,0,3.58.84h0V6.33l-.11,0a4.84,4.84,0,0,1-3.67-4.7H12.94Z"></path></g></svg></div><div style="font-size:1.3em">TikTok</div></div>'
     
     Lampa.Storage.listener.follow('change', function (e) {});
                 Lampa.Settings.listener.follow('open', function (e) {
@@ -148,7 +149,24 @@ function main(){
                                },         
         });
 
-    
+        Lampa.SettingsApi.addParam({
+                               component: 'back_menu',
+                               param: {
+                                       name: 'tik_tok',
+                                       type: 'select',
+                       values: {
+                                1:	'Скрыть',
+                                2:	'Отобразить',
+                            },
+                                       default: '1',
+                                       },
+                                       field: {
+                                               name: 'TikTok',
+                                               description: 'Нажмите для выбора'
+                               },         
+        });
+	
+	
     var timer = setInterval(function(){
         if(typeof Lampa !== 'undefined'){
             clearInterval(timer);
@@ -166,6 +184,7 @@ function main(){
 	     Lampa.Storage.set('clear_cache', '2');
              Lampa.Storage.set('youtube', '1');
 	     Lampa.Storage.set('drm_play', '1');
+	     Lampa.Storage.set('tik_tok', '1');
     } 
 
     function clearLocalStorage() {
@@ -259,6 +278,12 @@ function main(){
       });
     }
 
+    if(localStorage.getItem('tik_tok') !== '1') {
+      menu.push({
+            title: tik_tok
+      });
+    }
+
       
       Lampa.Select.show({
         title: 'Выход ', // пробел обязателен, чтобы отделить событие от оригинального меню
@@ -275,6 +300,7 @@ function main(){
 	  if (a.title == clear_cache) clearLocalStorage();
           if (a.title == youtube) window.location.href = 'https://youtube.com/tv';
 	  if (a.title == drm_play) window.location.href = 'https://ott.drm-play.com';
+          if (a.title == tik_tok) window.location.href = 'https://tv.tiktok.com/webos';
           
         }
       })
