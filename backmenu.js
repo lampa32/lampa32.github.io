@@ -245,20 +245,19 @@ function back_menu(){
     } 
 
     function modal_speedtest() {
-					var modal = $('<div style="text-align:right;"><div style="min-height:360px;"><div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;border:none;background-color: #ffffff;overflow:hidden !important;" src="http://st.agtel.net"></iframe></div></div></div>');
-		  			Lampa.Modal.open({
-		  				title: '',
-		  				html: modal,
-		  				size: 'medium',
-		  				mask: true, 
-		  				onBack: function onBack() {
-		  					Lampa.Modal.close();
-							Lampa.Controller.toggle('content');
-		  				},
-		  				onSelect: function () {}
-  			                 });
+	 var modal = $('<div style="text-align:right;"><div style="min-height:360px;"><div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;border:none;background-color: #ffffff;overflow:hidden !important;" src="http://st.agtel.net"></iframe></div></div></div>');
+	 Lampa.Modal.open({
+		title: '',
+		html: modal,
+		size: 'large',
+		mask: true, 
+		onBack: function onBack() {
+		     Lampa.Modal.close();
+		     Lampa.Controller.toggle('content');
+		},
+		onSelect: function () {}
+  	  });
     }
-	
 	
     function clearLocalStorage() {
         var need = ['online_view', 'ser_clarifys', 'torrents_view', 'account_bookmarks', 'recomends_list', 'file_view', 'timetable', 'search_history', 'recomends_scan'];
