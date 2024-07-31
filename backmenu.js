@@ -245,7 +245,7 @@ function back_menu(){
     } 
 
     function modal_speedtest() {
-	 var modal = $('<div style="text-align:right;"><div style="min-height:360px;"><div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;border:none;background-color: #ffffff;overflow:hidden !important;" src="http://speedtest.vokino.tv"></iframe></div></div></div>');
+	 var modal = $('<div style="text-align:right;"><div style="min-height:360px;"><div style="width:100%;height:0;padding-bottom:50%;position:relative;"><iframe style="border:none;position:absolute;top:0;left:0;width:100%;height:100%;min-height:360px;border:none;background-color: #ffffff;overflow:hidden !important;" src="http://speedtest.vokino.tv/?run=5"></iframe></div></div></div>');
 	 Lampa.Modal.open({
 		title: '',
 		html: modal,
@@ -391,7 +391,7 @@ function back_menu(){
           if (a.title == youtube) window.location.href = 'https://youtube.com/tv';
 	  if (a.title == rutube) window.location.href = 'https://rutube.ru/tv-release/rutube.server-22.0.0/webos/';
 	  if (a.title == drm_play) window.location.href = 'https://ott.drm-play.com';
-          if (a.title == tik_tok) window.location.href = 'https://tv.tiktok.com/tizen/';
+          if (a.title == tik_tok) window.location.href = 'https://m.tiktok.com';
           if (a.title == fork_player) window.location.href = 'http://browser.appfxml.com';
           if (a.title == speedtest) modal_speedtest();//window.location.href = 'http://st.agtel.net';
           
