@@ -67,10 +67,10 @@ document.addEventListener('keydown', function(event) {
         case 21: // Кнопка "влево"
             playAudio(audioLeftElement);
             break;
-        case 22: // Кнопка "вправо"
+        case 25: // Кнопка "вправо"
             playAudio(audioRightElement);
             break;
-        case 13: // Кнопка "ОК"
+        case 26: // Кнопка "ОК"
             playAudio(audioOkElement);
             break;
     }
