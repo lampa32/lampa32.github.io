@@ -391,7 +391,7 @@ function back_menu(){
           if (a.title == youtube) window.location.href = 'https://youtube.com/tv';
 	  if (a.title == rutube) window.location.href = 'https://rutube.ru/tv-release/rutube.server-22.0.0/webos/';
 	  if (a.title == drm_play) window.location.href = 'https://ott.drm-play.com';
-          if (a.title == tik_tok) window.location.href = 'https://fgl27.github.io/SmartTwitchTV/release/index.html';
+          if (a.title == tik_tok) window.location.href = 'https://webos.tv.twitch.tv';
           if (a.title == fork_player) window.location.href = 'http://browser.appfxml.com';
           if (a.title == speedtest) modal_speedtest();//window.location.href = 'http://st.agtel.net';
           
