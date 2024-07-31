@@ -43,11 +43,11 @@ document.onkeydown = function(event) {
 
 
 // Создание аудиоэлементов
-var audioUpElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
-var audioDownElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
-var audioLeftElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
-var audioRightElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
-var audioOkElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+var audioUpElement = Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+var audioDownElement = Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+var audioLeftElement = Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+var audioRightElement = Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+var audioOkElement = Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
 
 // Функция для воспроизведения аудио
 function playAudio(audioElement) {
