@@ -42,52 +42,39 @@ document.onkeydown = function(event) {
 };*/
 
 
-// Функция для воспроизведения аудио на LG TV
-function playAudioOnLGTV(audioElement) {
-    // Используем специальные методы для работы с аудио на LG TV
-    lgTVAudioManager.setSource(audioElement.src);
-    lgTVAudioManager.play();
+// Создание аудиоэлементов
+var audioUpElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+var audioDownElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+var audioLeftElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+var audioRightElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+var audioOkElement = new Audio('https://github.com/spreyo/clicket/raw/main/sounds/click.mp3');
+
+// Функция для воспроизведения аудио
+function playAudio(audioElement) {
+    audioElement.currentTime = 0;
+    audioElement.play();
 }
 
-// Создание аудиоэлементов
-var audioUpElement = document.createElement('audio');
-var audioDownElement = document.createElement('audio');
-var audioLeftElement = document.createElement('audio');
-var audioRightElement = document.createElement('audio');
-var audioOkElement = document.createElement('audio');
-
-// Устанавливаем источники звука
-audioUpElement.src = 'https://github.com/spreyo/clicket/raw/main/sounds/click.mp3';
-audioDownElement.src = 'https://github.com/spreyo/clicket/raw/main/sounds/click.mp3';
-audioLeftElement.src = 'https://github.com/spreyo/clicket/raw/main/sounds/click.mp3';
-audioRightElement.src = 'https://github.com/spreyo/clicket/raw/main/sounds/click.mp3';
-audioOkElement.src = 'https://github.com/spreyo/clicket/raw/main/sounds/click.mp3';
-
-// Коды клавиш для телевизора LG
-const keyCodes = {
-    up: 19,
-    down: 20,
-    left: 21,
-    right: 22,
-    ok: 13
-};
-
 // Обрабатываем события пульта ТВ
-document.onkeydown = function(event) {
-    if (event.keyCode === keyCodes.up) {
-        playAudioOnLGTV(audioUpElement);
-    } else if (event.keyCode === keyCodes.down) {
-        playAudioOnLGTV(audioDownElement);
-    } else if (event.keyCode === keyCodes.left) {
-        playAudioOnLGTV(audioLeftElement);
-    } else if (event.keyCode === keyCodes.right) {
-        playAudioOnLGTV(audioRightElement);
-    } else if (event.keyCode === keyCodes.ok) {
-        playAudioOnLGTV(audioOkElement);
+document.addEventListener('keydown', function(event) {
+    switch (event.keyCode) {
+        case 38: // Кнопка "вверх"
+            playAudio(audioUpElement);
+            break;
+        case 40: // Кнопка "вниз"
+            playAudio(audioDownElement);
+            break;
+        case 37: // Кнопка "влево"
+            playAudio(audioLeftElement);
+            break;
+        case 39: // Кнопка "вправо"
+            playAudio(audioRightElement);
+            break;
+        case 13: // Кнопка "ОК"
+            playAudio(audioOkElement);
+            break;
     }
-};
-
-
+});
 
 
 
