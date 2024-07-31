@@ -58,16 +58,16 @@ function playAudio(audioElement) {
 // Обрабатываем события пульта ТВ
 document.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
-        case 38: // Кнопка "вверх"
+        case 19: // Кнопка "вверх"
             playAudio(audioUpElement);
             break;
-        case 40: // Кнопка "вниз"
+        case 20: // Кнопка "вниз"
             playAudio(audioDownElement);
             break;
-        case 37: // Кнопка "влево"
+        case 21: // Кнопка "влево"
             playAudio(audioLeftElement);
             break;
-        case 39: // Кнопка "вправо"
+        case 22: // Кнопка "вправо"
             playAudio(audioRightElement);
             break;
         case 13: // Кнопка "ОК"
