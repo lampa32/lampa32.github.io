@@ -18,7 +18,7 @@ audioOkElement.src = 'https://github.com/spreyo/clicket/raw/main/sounds/click.mp
 
 // Обрабатываем события пульта ТВ
 document.onkeydown = function(event) {
-  if (event.keyCode === 38) { // Кнопка "вверх"
+  if (event.keyCode === 19) { // Кнопка "вверх"
     audioUpElement.currentTime = 0;
     audioUpElement.play();
     
