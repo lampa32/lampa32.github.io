@@ -256,7 +256,6 @@ function back_menu(){
 		     Lampa.Controller.toggle('content');
 		},
 		onSelect: function () {}
-		 startStop();
   	  });
     }
 	
