@@ -182,7 +182,7 @@ Lampa.SettingsApi.addParam({
                       }],
                       onSelect: function onSelect(a) {
                         if (a["export"]) {
-                          /*var url = 'http://212.113.103.137:3000/lampa/backup/export' + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
+                          var url = 'http://212.113.103.137:3000/lampa/backup/export' + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
                           var file = new File([JSON.stringify(localStorage)], "backup.json", { type: "text/plain" });
                           var formData = new FormData();
                           formData.append("file", file);
@@ -211,27 +211,7 @@ Lampa.SettingsApi.addParam({
                       onBack: function onBack() {
                         Lampa.Controller.toggle('settings_component');
                       }
-                    });*/
-                            var url = 'http://212.113.103.137:3000/lampa/backup/export' + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
-var data = JSON.stringify(localStorage);
-$.ajax({
-  url: url,
-  type: 'POST',
-  data: data,
-  async: true,
-  contentType: 'application/json; charset=utf-8',
-  // headers: { token: account.token },
-  success: function success(result) {
-    if (result.result) {
-      Lampa.Noty.show(Lampa.Lang.translate('account_export_secuses'));
-    } else {
-      Lampa.Noty.show(Lampa.Lang.translate('account_export_fail'));
-    }
-  },
-  error: function error() {
-    Lampa.Noty.show(Lampa.Lang.translate('account_export_fail'));
-  }
-});
+                    });
 
                   } else if (a["import"]) {
                     var url = 'http://212.113.103.137:3000/lampa/backup/import' + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
