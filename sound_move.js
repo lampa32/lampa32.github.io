@@ -1,6 +1,7 @@
 (function () {
     'use strict';
 
+function sound_move() {
     // Создаем элементы аудио
 var audioUpElement = document.createElement('audio');
 var audioDownElement = document.createElement('audio');
@@ -39,5 +40,16 @@ document.onkeydown = function(event) {
     
   }
 };
+
+}
+
+if (window.appready)  sound_move();
+    else {
+        Lampa.Listener.follow('app', function(e) {
+            if (e.type == 'ready') {
+                sound_move();
+            }
+        });
+    }
 
 })();
