@@ -24,7 +24,7 @@ Lampa.Settings.listener.follow('open', function (e) {
     name: 'Выполнить вход',
     description: ''
   },
-  onSave: async (value) => {
+  onChange: async (value) => {
     try {
       const response = await fetch('http://212.113.103.137:3000/checkToken', {
         method: 'POST',
