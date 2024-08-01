@@ -34,14 +34,16 @@ Lampa.Settings.listener.follow('open', function (e) {
       });
       const { userId } = await response.json();
       if (userId) {
+          console.log('Токен действителен');
         // Токен действителен, сохраняем его
         localStorage.setItem('token', value);
       } else {
+          console.log('Токен недействителен');
         // Токен недействителен, очищаем его
         localStorage.removeItem('token');
       }
     } catch (error) {
-      console.error('Ошибка проверки токена:', error);
+      console.log('Ошибка проверки токена:', error);
     }
   }
 });
