@@ -1,16 +1,9 @@
 (function () {
     'use strict';
 
-     Lampa.Settings.listener.follow('open', function (e) {
-            if (e.name == 'main') {
-                Lampa.SettingsApi.addComponent({
-                    component: 'add_acc',
-                    name: 'Аккаунт'
-				        });
-			      }
-      });
+    
 
-     function checkToken(token, callback) {
+function checkToken(token, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'http://212.113.103.137:3000/checkToken', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
@@ -43,6 +36,15 @@ function getUserId() {
   return localStorage.getItem('userId');
 }
 
+ Lampa.Settings.listener.follow('open', function (e) {
+            if (e.name == 'main') {
+                Lampa.SettingsApi.addComponent({
+                    component: 'add_acc',
+                    name: 'Аккаунт'
+		});
+	    }
+      });
+	
 Lampa.SettingsApi.addParam({
   component: 'add_acc',
   param: {
