@@ -10,47 +10,19 @@
 			      }
       });
 
-     // Используем jQuery вместо Axios
-var $ = require('jquery');
-
-Lampa.SettingsApi.addParam({
-  component: 'add_acc',
-  param: {
-    name: 'auth',
-    type: 'input',
-    values: '',
-    placeholder: 'Введите token',
-    default: '',
-    onchange: function(value) {
-      // Используем callback вместо async/await
-      $.ajax({
-        type: 'POST',
-        url: 'http://localhost:3000/checkToken',
-        data: JSON.stringify({ token: value }),
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        success: function(response) {
-          var userId = response.userId;
-          if (userId) {
-            // Токен верный, можно сохранить userId в приложении
-            saveUserId(userId);
-            Lampa.Tools.notify('Успешная авторизация!');
-          } else {
-            Lampa.Tools.notify('Неверный токен');
-          }
-        },
-        error: function(error) {
-          console.error('Ошибка при проверке токена:', error);
-          Lampa.Tools.notify('Ошибка при проверке токена');
-        }
-      });
+     // Используем встроенный объект XMLHttpRequest вместо Axios
+function checkToken(token, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'http://localhost:3000/checkToken', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var response = JSON.parse(xhr.responseText);
+      callback(response.userId);
     }
-  },
-  field: {
-    name: 'Выполнить вход',
-    description: ''
-  }
-});
+  };
+  xhr.send(JSON.stringify({ token: token }));
+}
 
 function saveUserId(userId) {
   // Используем localStorage для сохранения userId
@@ -61,6 +33,32 @@ function getUserId() {
   // Используем localStorage для получения userId
   return localStorage.getItem('userId');
 }
+
+Lampa.SettingsApi.addParam({
+  component: 'add_acc',
+  param: {
+    name: 'auth',
+    type: 'input',
+    values: '',
+    placeholder: 'Введите token',
+    default: '',
+    onchange: function(value) {
+      checkToken(value, function(userId) {
+        if (userId) {
+          // Токен верный, можно сохранить userId в приложении
+          saveUserId(userId);
+          Lampa.Noty.show('Успешная авторизация!');
+        } else {
+          Lampa.Noty.show('Неверный токен');
+        }
+      });
+    }
+  },
+  field: {
+    name: 'Выполнить вход',
+    description: ''
+  }
+});
 
 
 
