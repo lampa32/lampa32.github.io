@@ -20,13 +20,13 @@
         var response = JSON.parse(xhr.responseText);
         callback(response.userId);
       } else {
-        console.error('Ошибка при проверке токена:', xhr.status, xhr.statusText);
+        console.log('Ошибка при проверке токена:', xhr.status, xhr.statusText);
         Lampa.Noty.show('Ошибка при проверке токена');
       }
     }
   };
   xhr.onerror = function() {
-    console.error('Ошибка сети при проверке токена');
+    console.log('Ошибка сети при проверке токена');
     Lampa.Noty.show('Ошибка сети при проверке токена');
   };
   xhr.send(JSON.stringify({ token: token }));
