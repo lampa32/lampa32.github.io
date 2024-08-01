@@ -11,7 +11,6 @@ Lampa.Settings.listener.follow('open', function (e) {
       });
 
       Lampa.SettingsApi.addParam({
-  component: 'adLampa.SettingsApi.addParam({
   component: 'add_acc',
   param: {
     name: 'auth',
