@@ -7,7 +7,7 @@ function checkToken(token, callback) {
   console.log('checkToken function called with token:', token);
 
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:3000/checkToken', true);
+  xhr.open('POST', 'http://212.113.103.137/checkToken', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
