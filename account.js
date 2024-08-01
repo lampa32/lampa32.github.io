@@ -61,7 +61,7 @@ Lampa.Settings.listener.follow('open', function (e) {
     name: 'Выполнить вход',
     description: ''
   },
-  onChange: (value) => {
+  onChange: function(value) {
     console.log('Введенный токен:', value);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://212.113.103.137:3000/checkToken', true);
