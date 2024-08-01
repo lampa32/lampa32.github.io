@@ -7,7 +7,7 @@ function checkToken(token, callback) {
   console.log('checkToken function called with token:', token);
 
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://212.113.103.137/checkToken', true);
+  xhr.open('POST', 'http://212.113.103.137:3000/checkToken', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -15,14 +15,14 @@ function checkToken(token, callback) {
         var response = JSON.parse(xhr.responseText);
         callback(response.userId);
       } else {
-        console.error("Ошибка при проверке токена:", xhr.status, xhr.statusText);
-        Lampa.Noty.show("Ошибка при проверке токена");
+        console.error('Ошибка при проверке токена:', xhr.status, xhr.statusText);
+        console.log('Ошибка при проверке токена');
       }
     }
   };
   xhr.onerror = function() {
-    console.error("Ошибка сети при проверке токена");
-    Lampa.Noty.show("Ошибка сети при проверке токена");
+    console.error('Ошибка сети при проверке токена');
+    console.log('Ошибка сети при проверке токена');
   };
   xhr.send(JSON.stringify({ token: token }));
 }
@@ -36,6 +36,25 @@ function getUserId() {
   // Используем localStorage для получения userId
   return localStorage.getItem('userId');
 }
+
+// Вынесем это в отдельную функцию, не связанную с Lampa
+function handleTokenInput(token) {
+  checkToken(token, function(userId) {
+    if (userId) {
+      // Токен верный, можно сохранить userId в приложении
+      saveUserId(userId);
+      console.log('Успешная авторизация!');
+    } else {
+      console.log('Неверный токен');
+    }
+  });
+}
+
+// Здесь мы просто вызываем функцию handleTokenInput при вводе токена
+document.getElementById('tokenInput').addEventListener('input', function(event) {
+  handleTokenInput(event.target.value);
+});
+
 
 Lampa.SettingsApi.addParam({
   component: 'add_acc',
