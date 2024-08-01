@@ -10,19 +10,28 @@
 			      }
       });
 
-     // Используем встроенный объект XMLHttpRequest вместо Axios
-function checkToken(token, callback) {
+     function checkToken(token, callback) {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'http://localhost:3000/checkToken', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      var response = JSON.parse(xhr.responseText);
-      callback(response.userId);
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        var response = JSON.parse(xhr.responseText);
+        callback(response.userId);
+      } else {
+        console.error('Ошибка при проверке токена:', xhr.status, xhr.statusText);
+        Lampa.Noty.show('Ошибка при проверке токена');
+      }
     }
+  };
+  xhr.onerror = function() {
+    console.error('Ошибка сети при проверке токена');
+    Lampa.Noty.show('Ошибка сети при проверке токена');
   };
   xhr.send(JSON.stringify({ token: token }));
 }
+
 
 function saveUserId(userId) {
   // Используем localStorage для сохранения userId
