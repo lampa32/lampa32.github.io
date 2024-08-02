@@ -143,7 +143,7 @@
       });
 
 Lampa.SettingsApi.addParam({
-        component: 'more',
+        component: 'add_acc',
         param: {
           name: 'pva_backup',
           type: 'static', //доступно select,input,trigger,title,static
@@ -195,7 +195,6 @@ Lampa.SettingsApi.addParam({
                             contentType: false,
                             enctype: 'multipart/form-data',
                             processData: false,
-                            // headers: { token: account.token },
                             success: function success(result) {
                               if (result.result) {
                                 Lampa.Noty.show(Lampa.Lang.translate('account_export_secuses'));
