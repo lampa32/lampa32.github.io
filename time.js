@@ -81,6 +81,51 @@ var Timecode = function () {
       Lampa.Storage.set('file_view_sync', _this.viewed, true);
     }, function (a, c) { this.error++; }, JSON.stringify(data_sync));
   }
+
+  this.update = function (timeout) {
+  if (!this.enable || this.error > 3 || this.last_update_time + timeout > Date.now()) return;
+  this.last_update_time = Date.now();
+  var url = this.url('all');
+  this.network.silent(url, function (result) {
+    if (result.error) return;
+    if (result.result) {
+      if (result.timelines && Lampa.Arrays.getKeys(result.timelines).length > 0) {
+        for (var i in result.timelines) {
+          var time = result.timelines[i];
+          if (!Lampa.Arrays.isObject(time)) continue;
+          _this.received[i] = true;
+          Lampa.Timeline.update({ hash: i, duration: time.duration, time: time.time, percent: time.percent, profile: time.profile, received: true });
+        }
+      }
+      Lampa.Storage.set('timeline_last_update_time', _this.last_update_time);
+    }
+  }, function (a, c) { this.error++; });
+}
+
+this.destroy = function () {
+  Lampa.Listener.remove('full', this.fullListener);
+  Lampa.Timeline.listener.remove('update', this.updateTimeline);
+  Lampa.Player.listener.remove('destroy', this.destroyPlayer);
+  this.enable = false;
+  this.network.clear();
 };
+
+return this;
+}
+
+function startTimecode(destroy) {
+  //if (window.plugin_FilmixPVA.mini) return;
+  if (!destroy) {
+    if (Lampa.Storage.get('pva_timeline', false)) {
+      if (Lampa.Timeline.listener) {
+        if (!Lampa.timecode) Lampa.timecode = new Timecode();
+        Lampa.timecode.init();
+      }
+    }
+  } else if (Lampa.timecode) {
+    Lampa.timecode.destroy();
+  }
+}
+  
 
 })();
