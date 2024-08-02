@@ -155,8 +155,10 @@ Lampa.SettingsApi.addParam({
         },
         onRender: function (item) {
           item.on('hover:enter', function () {          
-            var account = Lampa.Storage.get('account', '{}');
-            if (account.id && account.profile.id) {
+            /*var account = Lampa.Storage.get('account', '{}');
+            if (account.id && account.profile.id) {*/
+            var token = localStorage.getItem('token');
+            if (token) {
               Lampa.Select.show({
                 title: Lampa.Lang.translate('settings_cub_backup'),
                 items: [{
@@ -182,7 +184,7 @@ Lampa.SettingsApi.addParam({
                       }],
                       onSelect: function onSelect(a) {
                         if (a["export"]) {
-                          var url = 'http://212.113.103.137:3000/lampa/backup/export' + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
+                          var url = 'http://212.113.103.137:3000/lampa/backup/export'// + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
                           var file = new File([JSON.stringify(localStorage)], "backup.json", { type: "text/plain" });
                           var formData = new FormData();
                           formData.append("file", file);
@@ -213,7 +215,7 @@ Lampa.SettingsApi.addParam({
                     });
 
                   } else if (a["import"]) {
-                    var url = 'http://212.113.103.137:3000/lampa/backup/import' + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
+                    var url = 'http://212.113.103.137:3000/lampa/backup/import'// + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
                     $.ajax({
                       url: url,
                       type: 'GET',
