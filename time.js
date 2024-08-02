@@ -69,18 +69,24 @@ var Timecode = function () {
   }
 
   this.add = function () {
-    if (!this.enable || this.error > 3) return;
-    var url = this.url('add');
-    var data_sync = [];
-    for (var i in _this.viewed) {
-      data_sync.push({ id: i, data: _this.viewed[i] });
-    }
-    if (data_sync.length == 0) return;
-    this.network.silent(url, function () {
-      for (var i in data_sync) { delete _this.viewed[data_sync[i].id]; }
-      Lampa.Storage.set('file_view_sync', _this.viewed, true);
-    }, function (a, c) { this.error++; }, JSON.stringify(data_sync));
+  if (!this.enable || this.error > 3) return;
+  var url = this.url('add');
+  var data_sync = [];
+  for (var i in _this.viewed) {
+    data_sync.push({ id: i, data: _this.viewed[i] });
   }
+  if (data_sync.length == 0) return;
+
+  var formData = new FormData();
+  formData.append('data', JSON.stringify(data_sync));
+  formData.append('file', new Blob([JSON.stringify(data_sync)], { type: 'application/json' }));
+
+  this.network.silent(url, function () {
+    for (var i in data_sync) { delete _this.viewed[data_sync[i].id]; }
+    Lampa.Storage.set('file_view_sync', _this.viewed, true);
+  }, function (a, c) { this.error++; }, formData);
+}
+
 
   this.update = function (timeout) {
   if (!this.enable || this.error > 3 || this.last_update_time + timeout > Date.now()) return;
