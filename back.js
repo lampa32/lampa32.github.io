@@ -184,7 +184,8 @@ Lampa.SettingsApi.addParam({
                       }],
                       onSelect: function onSelect(a) {
                         if (a["export"]) {
-                          var url = 'http://212.113.103.137:3000/lampa/backup/export' // + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
+                         // var url = 'http://212.113.103.137:3000/lampa/backup/export' // + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
+                          var url = 'http://212.113.103.137:3000/lampa/backup/export?token=' + encodeURIComponent(token);
                           var file = new File([JSON.stringify(localStorage)], "backup.json", { type: "text/plain" });
                           var formData = new FormData();
                           formData.append("file", file);
@@ -215,8 +216,9 @@ Lampa.SettingsApi.addParam({
                     });
 
                   } else if (a["import"]) {
-                    var url = 'http://212.113.103.137:3000/lampa/backup/import'// + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
-                    $.ajax({
+                    //var url = 'http://212.113.103.137:3000/lampa/backup/import'// + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
+                   var url = 'http://212.113.103.137:3000/lampa/backup/import?token=' + encodeURIComponent(token);
+                      $.ajax({
                       url: url,
                       type: 'GET',
                       async: true,
