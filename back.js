@@ -185,6 +185,7 @@ Lampa.SettingsApi.addParam({
                       onSelect: function onSelect(a) {
                         if (a["export"]) {
                          // var url = 'http://212.113.103.137:3000/lampa/backup/export' // + '?id=' + encodeURIComponent(account.id) + '&profile=' + encodeURIComponent(account.profile.id) + '&email=' + encodeURIComponent(account.email);
+                          var token = localStorage.getItem('token');
                           var url = 'http://212.113.103.137:3000/lampa/backup/export?token=' + encodeURIComponent(token);
                           var file = new File([JSON.stringify(localStorage)], "backup.json", { type: "text/plain" });
                           var formData = new FormData();
