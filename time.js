@@ -1,130 +1,108 @@
 (function () {
   'use strict';
-  Lampa.Platform.tv();
 
-  Lampa.SettingsApi.addParam({
-    component: 'more',
-    param: {
-      name: 'pva_timeline',
-      type: 'trigger',
-      default: false
-    },
-    field: {
-      name: 'Синхронизация таймкодов',
-      description: 'Синхронизация таймкодов, требуется токен'
-    },
-    onChange: function (value) {
-      if (value == 'true') {
-        Lampa.Storage.set('timeline_last_update_time', 0);
-        startTimecode();
-      } else {
-        startTimecode(true);
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    Object.defineProperty(Constructor, "prototype", {
+      writable: false
+    });
+    return Constructor;
+  }
+
+  var Timecode = /*#PURE*/ function () {
+    function Timecode(field) {
+      _classCallCheck(this, Timecode);
+      this.localhost = 'http://212.113.103.137:3002/';
+      this.network = new Lampa.Reguest();
+    }
+
+    _createClass(Timecode, [{
+      key: "init",
+      value: function init() {
+        var _this = this;
+        Lampa.Timeline.listener.follow('update', this.add.bind(this));
+        Lampa.Listener.follow('full', function (e) {
+          if (e.type == 'complite') _this.update();
+        });
       }
-    }
-  });
-
-  var Timecode = function () {
-    this.network = new Lampa.Reguest();
-    this.error = 0;
-    this.viewed = Lampa.Storage.cache('file_view_sync', 1000, {});
-    var _this = this;
-    this.received = {};
-
-    this.init = function () {
-      this.token = Lampa.Storage.get('token', '');
-      if (!this.token) {
-        Lampa.Noty.show('Timeline - нужен токен авторизации');
-        return;
+    }, {
+      key: "url",
+      value: function url(method) {
+        var url = this.localhost + 'lampa/timeline/' + method;
+        var token = localStorage.getItem('token');
+        url = Lampa.Utils.addUrlComponent(url, 'token=' + encodeURIComponent(token));
+        return url;
       }
-      this.enable = true;
-      this.last_update_time = Lampa.Storage.get('timeline_last_update_time', 0);
-      Lampa.Listener.follow('full', this.fullListener);
-      Lampa.Timeline.listener.follow('update', this.updateTimeline);
-      Lampa.Player.listener.follow('destroy', this.destroyPlayer);
-      _this.update(60 * 1000);
-    }
-
-    this.fullListener = function (e) {
-      if (e.type == 'complite') _this.update(60 * 60 * 1000);
-    }
-
-    this.updateTimeline = function (e) {
-      if (!e.data || !e.data.hash || e.data.hash.length <= 1) return;
-      if (_this.received[e.data.hash]) { delete _this.received[e.data.hash]; return; }
-      _this.viewed[e.data.hash] = e.data.road;
-      Lampa.Storage.set('file_view_sync', _this.viewed, true);
-      if (Lampa.Player.opened() == false && Lampa.Storage.field('player') != 'inner' && Lampa.Storage.field('player') != 'tizen') _this.add();
-    }
-
-    this.destroyPlayer = function (e) {
-      _this.add();
-    }
-
-    this.url = function (method) {
-      var url = 'http://212.113.103.137:3002/lampa/timeline/' + method;
-      url = Lampa.Utils.addUrlComponent(url, 'token=' + encodeURIComponent(this.token));
-      url = Lampa.Utils.addUrlComponent(url, 'start=' + Lampa.Storage.get('timeline_last_update_time', 0));
-      url = Lampa.Utils.addUrlComponent(url, 'player=' + Lampa.Storage.field('player'));
-      return url;
-    }
-
-    this.add = function () {
-      if (!this.enable || this.error > 3) return;
-      var url = this.url('add');
-      var data_sync = [];
-      for (var i in _this.viewed) {
-        data_sync.push({ id: i, data: _this.viewed[i] });
-      }
-      if (data_sync.length == 0) return;
-
-      var formData = new FormData();
-      formData.append('data', JSON.stringify(data_sync));
-      formData.append('file', new Blob([JSON.stringify(data_sync)], { type: 'application/json' }));
-
-      this.network.silent(url, function () {
-        for (var i in data_sync) { delete _this.viewed[data_sync[i].id]; }
-        Lampa.Storage.set('file_view_sync', _this.viewed, true);
-      }, function (a, c) { this.error++; }, formData);
-    }
-
-    this.update = function (timeout) {
-      if (!this.enable || this.error > 3 || this.last_update_time + timeout > Date.now()) return;
-      this.last_update_time = Date.now();
-      var url = this.url('all');
-      this.network.silent(url, function (result) {
-        if (result.error) return;
-        if (result.result) {
-          if (result.timelines && Lampa.Arrays.getKeys(result.timelines).length > 0) {
-            for (var i in result.timelines) {
-              var time = result.timelines[i];
-              if (!Lampa.Arrays.isObject(time)) continue;
-
-              _this.received[i] = true;
-              Lampa.Timeline.update({ hash: i, duration: time.duration, time: time.time, percent: time.percent, profile: time.profile, received: true });
-            }
-          }
-          Lampa.Storage.set('timeline_last_update_time', _this.last_update_time);
+    }, {
+      key: "filename",
+      value: function filename() {
+        var token = localStorage.getItem('token');
+        var name = 'file_view' + (token ? '_' + token : '');
+        if (window.localStorage.getItem(name) === null && token) {
+          Lampa.Storage.set(name, Lampa.Arrays.clone(Lampa.Storage.cache('file_view', 10000, {})));
         }
-      }, function (a, c) { this.error++; });
+        return name;
+      }
+    }, {
+      key: "update",
+      value: function update() {
+        var _this2 = this;
+        var url = this.url('all');
+        this.network.silent(url, function (result) {
+          if (result.accsdb) return;
+          var viewed = Lampa.Storage.cache(_this2.filename(), 10000, {});
+          for (var i in result) {
+            var time = JSON.parse(result[i]);
+            if (!Lampa.Arrays.isObject(time)) continue;
+            viewed[i] = time;
+            Lampa.Arrays.extend(viewed[i], {
+              duration: 0,
+              time: 0,
+              percent: 0
+            });
+            delete viewed[i].hash;
+          }
+          Lampa.Storage.set(_this2.filename(), viewed, true);
+        });
+      }
+    }, {
+      key: "add",
+      value: function add(e) {
+        var url = this.url('add');
+        this.network.silent(url, false, false, {
+          id: e.data.hash,
+          data: JSON.stringify(e.data.road)
+        });
+      }
+    }]);
+
+    return Timecode;
+  }();
+
+  function startPlugin() {
+    window.lampac_timecode_plugin = true;
+    if (Lampa.Timeline.listener) {
+      var code = new Timecode();
+      code.init();
     }
-
-    this.destroy = function () {
-      Lampa.Listener.remove('full', this.fullListener);
-      Lampa.Timeline.listener.remove('update', this.updateTimeline);
-      Lampa.Player.listener.remove('destroy', this.destroyPlayer);
-      this.enable = false;
-      this.network.clear();
-    };
-
-    return this;
   }
 
-  function startTimecode(stop) {
-    if (stop) {
-      var timecode = Lampa.Plugin.component('timecode');
-      if (timecode) timecode.destroy();
-    } else {
-      Lampa.Plugin.add('timecode', Timecode);
-    }
-  }
+  if (!window.lampac_timecode_plugin)
+    startPlugin();
+
 })();
