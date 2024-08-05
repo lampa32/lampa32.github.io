@@ -72,9 +72,7 @@
             if (result.accsdb) return;
             var viewed = Lampa.Storage.cache(_this2.filename(), 10000, {});
             for (var i in result) {
-              var time = JSON.parse(result[i]);
-              if (!Lampa.Arrays.isObject(time)) continue;
-              viewed[i] = time;
+              viewed[i] = result[i];
               Lampa.Arrays.extend(viewed[i], {
                 duration: 0,
                 time: 0,
