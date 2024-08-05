@@ -12,9 +12,7 @@ Lampa.Settings.listener.follow('open', function (e) {
                     name: 'Аккаунт'
                 });
             }
-            if (e.name == 'add_acc') {
-                $('div[data-name="auth"]', e.body).after(adad);
-            }
+            
       });
 
      
