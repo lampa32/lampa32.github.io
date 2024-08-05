@@ -19,7 +19,7 @@ Lampa.Settings.listener.follow('open', function (e) {
        component: 'add_acc',
        param: {
     name: 'adad',
-    type: 'static',
+   // type: 'static',
       
   },
   field: {
