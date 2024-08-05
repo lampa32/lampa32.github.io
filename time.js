@@ -28,7 +28,6 @@
     function Timecode(field) {
       _classCallCheck(this, Timecode);
       this.localhost = 'http://212.113.103.137:3002/';
-      this.network = new Lampa.Reguest();
     }
 
     _createClass(Timecode, [{
@@ -63,22 +62,27 @@
       value: function update() {
         var _this2 = this;
         var url = this.url('all');
-        this.network.silent(url, function (result) {
-          if (result.accsdb) return;
-          var viewed = Lampa.Storage.cache(_this2.filename(), 10000, {});
-          for (var i in result) {
-            var time = JSON.parse(result[i]);
-            if (!Lampa.Arrays.isObject(time)) continue;
-            viewed[i] = time;
-            Lampa.Arrays.extend(viewed[i], {
-              duration: 0,
-              time: 0,
-              percent: 0
-            });
-            delete viewed[i].hash;
-          }
-          Lampa.Storage.set(_this2.filename(), viewed, true);
-        });
+        fetch(url)
+          .then(function (response) { return response.json(); })
+          .then(function (result) {
+            if (result.accsdb) return;
+            var viewed = Lampa.Storage.cache(_this2.filename(), 10000, {});
+            for (var i in result) {
+              var time = JSON.parse(result[i]);
+              if (!Lampa.Arrays.isObject(time)) continue;
+              viewed[i] = time;
+              Lampa.Arrays.extend(viewed[i], {
+                duration: 0,
+                time: 0,
+                percent: 0
+              });
+              delete viewed[i].hash;
+            }
+            Lampa.Storage.set(_this2.filename(), viewed, true);
+          })
+          .catch(function (error) {
+            console.error('Error fetching timecodes:', error);
+          });
       }
     }, {
       key: "add",
@@ -88,7 +92,21 @@
         formData.append('id', e.data.hash);
         formData.append('data', new Blob([JSON.stringify(e.data.road)], { type: 'application/json' }));
 
-        this.network.silent(url, false, false, formData);
+        fetch(url, {
+          method: 'POST',
+          body: formData
+
+        })
+        .then(function (response) {
+          if (response.ok) {
+            console.log('Timecode added successfully');
+          } else {
+            console.error('Error adding timecode:', response.status);
+          }
+        })
+        .catch(function (error) {
+          console.error('Error adding timecode:', error);
+        });
       }
     }]);
 
