@@ -12,6 +12,9 @@ Lampa.Settings.listener.follow('open', function (e) {
                     name: 'Аккаунт'
                 });
             }
+            if (e.name == 'add_acc') {
+                $('[data-name="add_acc"]', e.body).after(adad);
+            }
       });
 
      
@@ -49,7 +52,7 @@ Lampa.Settings.listener.follow('open', function (e) {
     };
     xhr.send(JSON.stringify({ token: value }));
   }
-        $('[data-name="add_acc"]', e.body).after(ad);
+        $('[data-name="add_acc"]', e.body).after(adad);
 });
 
 })();
