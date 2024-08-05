@@ -15,8 +15,15 @@ Lampa.Settings.listener.follow('open', function (e) {
             
       });
 
-     
-
+     Lampa.SettingsApi.addParam({
+       component: 'add_acc',
+       param: {
+    name: adad,
+    type: 'static',
+    
+  },
+    });
+   
     Lampa.SettingsApi.addParam({
   component: 'add_acc',
   param: {
