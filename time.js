@@ -64,9 +64,11 @@
       value: function update() {
         var _this2 = this;
         var url = this.url('all');
-        fetch(url)
-          .then(function (response) { return response.json(); })
-          .then(function (result) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            var result = JSON.parse(xhr.responseText);
             if (result.accsdb) return;
             var viewed = Lampa.Storage.cache(_this2.filename(), 10000, {});
             for (var i in result) {
@@ -81,10 +83,11 @@
               delete viewed[i].hash;
             }
             Lampa.Storage.set(_this2.filename(), viewed, true);
-          })
-          .catch(function (error) {
-            console.error('Error fetching timecodes:', error);
-          });
+          } else if (xhr.readyState === 4) {
+            console.error('Error fetching timecodes:', xhr.status);
+          }
+        };
+        xhr.send();
       }
     }, {
       key: "add",
@@ -95,48 +98,24 @@
           data: JSON.stringify(e.data.road)
         };
 
-        fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-        .then(function (response) {
-          if (!response) {
-            console.error('No response from server');
-            return;
-          }
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
 
-          if (response.ok) {
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
             console.log('Timecode added successfully');
-          } else {
-
-            response.text().then(function (responseText) {
-              console.error('Error adding timecode:', response.status, response.statusText, responseText);
-            }).catch(function (error) {
-              console.error('Error parsing response:', error);
-            });
+          } else if (xhr.readyState === 4) {
+            console.error('Error adding timecode:', xhr.status);
           }
-        })
-        .catch(function (error) {
-          console.error('Error adding timecode:', error);
-        });
+        };
+        xhr.send(JSON.stringify(data));
       }
     }]);
 
     return Timecode;
   }();
 
-  function startPlugin() {
-    window.lampac_timecode_plugin = true;
-    if (Lampa.Timeline.listener) {
-      var code = new Timecode();
-      code.init();
-    }
-  }
-
-  if (!window.lampac_timecode_plugin)
-    startPlugin();
-
+  var timecode = new Timecode();
+  timecode.init();
 })();
