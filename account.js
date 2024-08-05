@@ -53,9 +53,9 @@ Lampa.SettingsApi.addParam({
   param: {
     name: 'adad',
     field: {
-      name: 'Картинка',
-      type: 'image',
-      value: 'https://i.ibb.co/MRLKBBf/qr-code-2.png'
+      name: 'https://i.ibb.co/MRLKBBf/qr-code-2.png',
+     // type: 'image',
+      //value: 'https://i.ibb.co/MRLKBBf/qr-code-2.png'
     }
   }
 });
