@@ -24,6 +24,12 @@ var adad = $("\n                    <div class=\"ad-server\">\n                 
     name: JSON.stringify(adad)
   }
 });
+    // С помощью jQuery
+var $element = $(JSON.parse(adad));
+
+// С помощью нативного JavaScript
+var parser = new DOMParser();
+var element = parser.parseFromString(adad, 'application/xml').documentElement;
    
     Lampa.SettingsApi.addParam({
   component: 'add_acc',
