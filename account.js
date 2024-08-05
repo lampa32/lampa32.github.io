@@ -48,17 +48,17 @@ console.log('Parameter added');
 
     console.log(getAdBlock());*/
 
-Lampa.SettingsApi.addParam({
-  component: 'add_acc',
-  param: {
-    name: 'adad',
-    field: {
-      name: 'https://i.ibb.co/MRLKBBf/qr-code-2.png',
-     // type: 'image',
-      //value: 'https://i.ibb.co/MRLKBBf/qr-code-2.png'
-    }
-  }
-});
+// Создание элемента img
+const img = document.createElement('img');
+
+// Установка атрибутов изображения
+img.src = 'https://i.ibb.co/MRLKBBf/qr-code-2.png';
+img.alt = 'Картинка';
+img.style.maxWidth = '100%';
+
+// Добавление картинки в DOM
+const container = document.getElementById('container'); // Замените на ID вашего контейнера
+container.appendChild(img);
 
     
     Lampa.SettingsApi.addParam({
