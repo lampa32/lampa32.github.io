@@ -20,8 +20,11 @@ var adad = $("\n                    <div class=\"ad-server\">\n                 
   param: {
     name: 'adad',
   },
-  field: {
-    name: getAdBlock
+field: {
+    name: function() {
+      console.log(getAdBlock());
+      return getAdBlock;
+    }
   }
 });
     
