@@ -27,7 +27,7 @@
   var Timecode = /*#PURE*/ function () {
     function Timecode(field) {
       _classCallCheck(this, Timecode);
-      this.localhost = 'http://212.113.103.137:3002/';
+      this.localhost = 'http://212.113.103.137:3000/';
     }
 
     _createClass(Timecode, [{
@@ -44,7 +44,9 @@
       value: function url(method) {
         var url = this.localhost + 'lampa/timeline/' + method;
         var token = localStorage.getItem('token');
-        url = Lampa.Utils.addUrlComponent(url, 'token=' + encodeURIComponent(token));
+        if (token) {
+          url = Lampa.Utils.addUrlComponent(url, 'token=' + encodeURIComponent(token));
+        }
         return url;
       }
     }, {
@@ -88,20 +90,33 @@
       key: "add",
       value: function add(e) {
         var url = this.url('add');
-        var formData = new FormData();
-        formData.append('id', e.data.hash);
-        formData.append('data', new Blob([JSON.stringify(e.data.road)], { type: 'application/json' }));
+        var data = {
+          id: e.data.hash,
+          data: JSON.stringify(e.data.road)
+        };
 
         fetch(url, {
           method: 'POST',
-          body: formData
-
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
         .then(function (response) {
+          if (!response) {
+            console.error('No response from server');
+            return;
+          }
+
           if (response.ok) {
             console.log('Timecode added successfully');
           } else {
-            console.error('Error adding timecode:', response.status);
+
+            response.text().then(function (responseText) {
+              console.error('Error adding timecode:', response.status, response.statusText, responseText);
+            }).catch(function (error) {
+              console.error('Error parsing response:', error);
+            });
           }
         })
         .catch(function (error) {
