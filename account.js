@@ -16,7 +16,7 @@ Lampa.Settings.listener.follow('open', function (e) {
   component: 'add_acc',
   param: {
     name: 'auth',
-    type: 'input',
+    type: 'modal',//'input',
     values: '',
     placeholder: 'Введите token',
     default: ''
