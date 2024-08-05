@@ -44,7 +44,9 @@
       value: function url(method) {
         var url = this.localhost + 'lampa/timeline/' + method;
         var token = localStorage.getItem('token');
-        url = Lampa.Utils.addUrlComponent(url, 'token=' + encodeURIComponent(token));
+        if (token) {
+          url = Lampa.Utils.addUrlComponent(url, 'token=' + encodeURIComponent(token));
+        }
         return url;
       }
     }, {
@@ -101,12 +103,17 @@
           body: JSON.stringify(data)
         })
         .then(function (response) {
+          if (!response) {
+            console.error('No response from server');
+            return;
+          }
+
           if (response.ok) {
             console.log('Timecode added successfully');
           } else {
-            response.json().then(function (data) {
 
-              console.error('Error adding timecode:', data);
+            response.text().then(function (responseText) {
+              console.error('Error adding timecode:', response.status, response.statusText, responseText);
             }).catch(function (error) {
               console.error('Error parsing response:', error);
             });
