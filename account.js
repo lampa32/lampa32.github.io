@@ -2,8 +2,7 @@
     'use strict';
 
 
-//var adad = $("\n                    <div class=\"ad-server\">\n                        <div class=\"ad-server__text\">\n                            \u0410\u0440\u0435\u043D\u0434\u043E\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u0435\u0440\u0432\u0435\u0440 \u0431\u0435\u0437 \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0438 \u0438 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043A.\n                        </div>\n                        <img src=\"https://i.ibb.co/MRLKBBf/qr-code-2.png\" class=\"ad-server__qr\">\n                        <div class=\"ad-server__label\">\u0420\u0435\u043A\u043B\u0430\u043C\u0430 - https://tsarea.us</div>\n                    </div>\n                ");
-          
+
     Lampa.Settings.listener.follow('open', function (e) {
             if (e.name == 'main') {
                 Lampa.SettingsApi.addComponent({
@@ -14,51 +13,6 @@
             
       });
 
-
-    /* console.log('Attempting to add parameter...');
-
-Lampa.SettingsApi.addParam({
-  component: 'add_acc',
-  param: {
-    name: 'adad',
-  },
-  field: {
-    name: function() {
-      console.log('getAdBlock() called');
-      console.log(getAdBlock);
-      return getAdBlock;
-    }
-  }
-});
-
-console.log('Parameter added');
-    
-    function getAdBlock() {
-  return $(`
-    <div class="ad-server">
-      <div class="ad-servertext">
-        Арендовать ссылку на сервер без установки и настроек.
-      </div>
-      <img src="https://i.ibb.co/MRLKBBf/qr-code-2.png" class="ad-serverqr">
-      <div class="ad-server__label">Реклама - https://tsarea.us</div>
-    </div>
-  `);
-    }
-
-
-    console.log(getAdBlock());*/
-
-// Создание элемента img
-const img = document.createElement('img');
-
-// Установка атрибутов изображения
-img.src = 'https://i.ibb.co/MRLKBBf/qr-code-2.png';
-img.alt = 'Картинка';
-img.style.maxWidth = '100%';
-
-// Добавление картинки в DOM
-const container = document.getElementById('container'); // Замените на ID вашего контейнера
-container.appendChild(img);
 
     
     Lampa.SettingsApi.addParam({
