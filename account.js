@@ -57,7 +57,7 @@ Lampa.Settings.listener.follow('open', function (e) {
     };
     xhr.send(JSON.stringify({ token: value }));
   }
-        $('[data-name="add_acc"]', e.body).after(adad);
+        
 });
 
 })();
