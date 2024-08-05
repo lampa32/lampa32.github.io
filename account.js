@@ -21,16 +21,21 @@ var adad = $("\n                    <div class=\"ad-server\">\n                 
     name: 'adad',
   },
   field: {
-    name: JSON.stringify(adad)
+    name: getAdBlock
   }
 });
-    // С помощью jQuery
-var $element = $(JSON.parse(adad));
-
-// С помощью нативного JavaScript
-var parser = new DOMParser();
-var element = parser.parseFromString(adad, 'application/xml').documentElement;
-   
+    
+    function getAdBlock() {
+  return $(`
+    <div class="ad-server">
+      <div class="ad-servertext">
+        Арендовать ссылку на сервер без установки и настроек.
+      </div>
+      <img src="https://i.ibb.co/MRLKBBf/qr-code-2.png" class="ad-serverqr">
+      <div class="ad-server__label">Реклама - https://tsarea.us</div>
+    </div>
+  `);
+    }
     Lampa.SettingsApi.addParam({
   component: 'add_acc',
   param: {
