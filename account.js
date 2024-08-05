@@ -39,6 +39,9 @@ field: {
     </div>
   `);
     }
+
+
+    console.log(getAdBlock());
     Lampa.SettingsApi.addParam({
   component: 'add_acc',
   param: {
