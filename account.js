@@ -23,8 +23,7 @@ Lampa.Settings.listener.follow('open', function (e) {
       
   },
   field: {
-    name: adad,
-    description: ''
+    name: adad
   },
 
     });
@@ -33,7 +32,7 @@ Lampa.Settings.listener.follow('open', function (e) {
   component: 'add_acc',
   param: {
     name: 'auth',
-    type: 'modal',//'input',
+    type: 'input',
     values: '',
     placeholder: 'Введите token',
     default: ''
