@@ -13,7 +13,7 @@ Lampa.Settings.listener.follow('open', function (e) {
                 });
             }
             if (e.name == 'add_acc') {
-                $('div[data-name="add_acc"]', e.body).after(adad);
+                $('div[data-name="auth"]', e.body).after(adad);
             }
       });
 
