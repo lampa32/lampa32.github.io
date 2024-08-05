@@ -84,10 +84,11 @@
       key: "add",
       value: function add(e) {
         var url = this.url('add');
-        this.network.silent(url, false, false, {
-          id: e.data.hash,
-          data: JSON.stringify(e.data.road)
-        });
+        var formData = new FormData();
+        formData.append('id', e.data.hash);
+        formData.append('data', new Blob([JSON.stringify(e.data.road)], { type: 'application/json' }));
+
+        this.network.silent(url, false, false, formData);
       }
     }]);
 
