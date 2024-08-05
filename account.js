@@ -48,31 +48,17 @@ console.log('Parameter added');
 
     console.log(getAdBlock());*/
 
-function getAdBlock() {
-  var adBlockElement = document.createElement('div');
-  adBlockElement.classList.add('ad-server');
-
-  var adServerTextElement = document.createElement('div');
-  adServerTextElement.classList.add('ad-servertext');
-  adServerTextElement.textContent = 'Арендовать ссылку на сервер без установки и настроек.';
-
-  var adServerQrElement = document.createElement('img');
-  adServerQrElement.classList.add('ad-serverqr');
-  adServerQrElement.src = 'https://i.ibb.co/MRLKBBf/qr-code-2.png';
-
-  var adServerLabelElement = document.createElement('div');
-  adServerLabelElement.classList.add('ad-server__label');
-  adServerLabelElement.textContent = 'Реклама - https://tsarea.us';
-
-  adBlockElement.appendChild(adServerTextElement);
-  adBlockElement.appendChild(adServerQrElement);
-  adBlockElement.appendChild(adServerLabelElement);
-
-  return adBlockElement;
-}
-
-var adBlock = getAdBlock();
-document.getElementById('ad-container').appendChild(adBlock);
+Lampa.SettingsApi.addParam({
+  component: 'add_acc',
+  param: {
+    name: 'adad',
+    field: {
+      name: 'Картинка',
+      type: 'image',
+      value: 'https://i.ibb.co/MRLKBBf/qr-code-2.png'
+    }
+  }
+});
 
     
     Lampa.SettingsApi.addParam({
