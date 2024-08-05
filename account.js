@@ -5,7 +5,9 @@
 var adad = $("\n                    <div class=\"ad-server\">\n                        <div class=\"ad-server__text\">\n                            \u0410\u0440\u0435\u043D\u0434\u043E\u0432\u0430\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443 \u043D\u0430 \u0441\u0435\u0440\u0432\u0435\u0440 \u0431\u0435\u0437 \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0438 \u0438 \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043A.\n                        </div>\n                        <img src=\"https://i.ibb.co/MRLKBBf/qr-code-2.png\" class=\"ad-server__qr\">\n                        <div class=\"ad-server__label\">\u0420\u0435\u043A\u043B\u0430\u043C\u0430 - https://tsarea.us</div>\n                    </div>\n                ");
           
     
-Lampa.SettingsApi.addParam({
+
+
+     Lampa.SettingsApi.addParam({
   component: 'add_acc',
   param: {
     name: 'adad',
@@ -14,19 +16,6 @@ Lampa.SettingsApi.addParam({
     name: JSON.stringify(adad)
   }
 });
-
-     Lampa.SettingsApi.addParam({
-       component: 'add_acc',
-       param: {
-    name: 'adad',
-   // type: 'static',
-      
-  },
-  field: {
-    name: adad
-  },
-
-    });
    
     Lampa.SettingsApi.addParam({
   component: 'add_acc',
