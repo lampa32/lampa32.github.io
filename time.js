@@ -50,16 +50,6 @@
         return url;
       }
     }, {
-      key: "filename",
-      value: function filename() {
-        var token = localStorage.getItem('token');
-        var name = 'file_view' + (token ? '_' + token : '');
-        if (window.localStorage.getItem(name) === null && token) {
-          Lampa.Storage.set(name, Lampa.Arrays.clone(Lampa.Storage.cache('file_view', 10000, {})));
-        }
-        return name;
-      }
-    }, {
       key: "update",
       value: function update() {
         var _this2 = this;
@@ -70,17 +60,7 @@
           if (xhr.readyState === 4 && xhr.status === 200) {
             var result = JSON.parse(xhr.responseText);
             if (result.accsdb) return;
-            var viewed = Lampa.Storage.cache(_this2.filename(), 10000, {});
-            for (var i in result) {
-              viewed[i] = result[i];
-              Lampa.Arrays.extend(viewed[i], {
-                duration: 0,
-                time: 0,
-                percent: 0
-              });
-              delete viewed[i].hash;
-            }
-            Lampa.Storage.set(_this2.filename(), viewed, true);
+            Lampa.Storage.set(_this2.filename(), result, true);
           } else if (xhr.readyState === 4) {
             console.error('Error fetching timecodes:', xhr.status);
           }
@@ -99,7 +79,6 @@
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
-
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4 && xhr.status === 200) {
             console.log('Timecode added successfully');
@@ -108,6 +87,12 @@
           }
         };
         xhr.send(JSON.stringify(data));
+      }
+    }, {
+      key: "filename",
+      value: function filename() {
+        var token = localStorage.getItem('token');
+        return 'file_view';
       }
     }]);
 
