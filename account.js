@@ -27,7 +27,7 @@
   var Timecode = /*#PURE*/ function () {
     function Timecode(field) {
       _classCallCheck(this, Timecode);
-      this.localhost = 'http://212.113.103.137:3002/';
+      this.localhost = 'http://212.113.103.137:3000/';
     }
 
     _createClass(Timecode, [{
@@ -87,22 +87,25 @@
     }, {
       key: "add",
       value: function add(e) {
-        var _this3 = this;
         var url = this.url('add');
-        var formData = new FormData();
-        formData.append('id', e.data.hash);
-        formData.append('data', new Blob([JSON.stringify(e.data.road)], { type: 'application/json' }));
+        var data = {
+          id: e.data.hash,
+          data: JSON.stringify(e.data.road)
+        };
 
         fetch(url, {
           method: 'POST',
-          body: formData
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
-
         .then(function (response) {
           if (response.ok) {
             console.log('Timecode added successfully');
           } else {
             response.json().then(function (data) {
+
               console.error('Error adding timecode:', data);
             }).catch(function (error) {
               console.error('Error parsing response:', error);
