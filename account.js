@@ -59,11 +59,9 @@
     };
     xhr.send(JSON.stringify({ token: value }));
   }
-  onRender: function (item) {
-    if (localStorage.getItem('token') !== null) {
+  
+});
+if (localStorage.getItem('token') !== null) {
 	    $('div[data-name="auth"]').hide();
     }
-  }
-});
-
 })();
