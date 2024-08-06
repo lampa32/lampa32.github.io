@@ -3,7 +3,7 @@
 
     var botElement = $('<div class="myBot" style="line-height: 1;color: #ffffff;font-family: &quot;SegoeUI&quot;, sans-serif;font-size: 10.6px;box-sizing: border-box;outline: none;user-select: none;display: flex;-webkit-box-align: start;align-items: flex-start;position: relative;background-color: rgba(255, 255, 255, 0.1);border-radius: 0.3em;margin: 1.5em 2em;">' +
     '<div class="ad-server__text">' +
-    'Нужный тебе текст.' +
+    'Нужный тебе текст' +
     '</div><div class="ad-server__label">' + 
     'https://bot.us' +
     '</div><img src="http://193.233.134.21/bot/bot.png" class="ad-server__qr"></div>')
