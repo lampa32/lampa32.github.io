@@ -15,7 +15,7 @@
                 });
             }
             if (e.name == 'add_acc') {
-		$('div[data-name="auth"]').after(botElement);
+		$('div[data-name="auth"]').before(botElement);
 	    }
       });
 
