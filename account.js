@@ -22,7 +22,10 @@
 	                $('div[data-name="acc_auth"]').hide();
 			
 			    
-                    }  
+                  } else {
+			$('div[data-name="acc_status"]').hide();
+			$('div[data-name="acc_exit"]').hide();
+		  }
 	    }
       });
 
