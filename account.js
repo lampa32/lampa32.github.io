@@ -92,9 +92,9 @@
                                 description: ''
                                 },
 				onRender: function(item) {
-				     item.show();
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
+					 Lampa.Settings.update();
 					 item.hide(); 
 				     })
                                }
