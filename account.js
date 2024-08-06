@@ -18,6 +18,9 @@
             }
             if (e.name == 'add_acc') {
 		$('div[data-name="auth"]').before(botElement);
+		    if (localStorage.getItem('token') !== null) {
+	                $('div[data-name="auth"]').hide();
+                    }     
 	    }
       });
 
@@ -62,7 +65,5 @@
   }
   
 });
-if (localStorage.getItem('token') !== null) {
-	    $('div[data-name="auth"]').hide();
-    }
+
 })();
