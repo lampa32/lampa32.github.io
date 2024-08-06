@@ -12,14 +12,16 @@
     Lampa.Settings.listener.follow('open', function (e) {
             if (e.name == 'main') {
                 Lampa.SettingsApi.addComponent({
-                    component: 'add_acc',
+                    component: 'acc',
                     name: 'Аккаунт'
                 });
             }
-            if (e.name == 'add_acc') {
-		$('div[data-name="auth"]').before(botElement);
+            if (e.name == 'acc') {
+		$('div[data-name="acc_auth"]').before(botElement);
 		    if (localStorage.getItem('token') !== null) {
-	                $('div[data-name="auth"]').hide();
+	                $('div[data-name="acc_auth"]').hide();
+			$('div[data-name="acc_status"]').hide();
+			$('div[data-name="acc_exit"]').hide();acc_status
 			    
                     }  
 	    }
@@ -28,9 +30,9 @@
 
     
     Lampa.SettingsApi.addParam({
-  component: 'add_acc',
+  component: 'acc',
   param: {
-    name: 'auth',
+    name: 'acc_auth',
     type: 'input',
     values: '',
     placeholder: 'Введите token',
@@ -53,7 +55,7 @@
           console.log('Токен действителен');
           localStorage.setItem('token', value);
 	  Lampa.Noty.show("Токен действителен");
-	  $('div[data-name="auth"]').hide();
+	  //$('div[data-name="acc_auth"]').hide();
         } else {
           console.log('Токен недействителен');
           localStorage.removeItem('token');
@@ -68,7 +70,7 @@
                        var token = localStorage.getItem('token');
                        if (token) {
                           Lampa.SettingsApi.addParam({
-                                component: 'add_acc',
+                                component: 'acc',
                                 param: {
                                 name: 'acc_status',
                                 type: 'title', //доступно select,input,trigger,title,static
@@ -81,7 +83,7 @@
 			    });
 
 			   Lampa.SettingsApi.addParam({
-                                component: 'add_acc',
+                                component: 'acc',
                                 param: {
                                 name: 'acc_exit',
                                 type: 'static', //доступно select,input,trigger,title,static
@@ -94,8 +96,8 @@
 				onRender: function(item) {
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
-					 Lampa.Settings.update();
-					 item.hide(); 
+					// Lampa.Settings.update();
+					// item.hide(); 
 				     })
                                }
 			    });
