@@ -18,12 +18,12 @@
             }
             if (e.name == 'acc') {
 		$('div[data-name="acc_auth"]').before(botElement);
-		   if (localStorage.getItem('token') !== null) {
+		   /*if (localStorage.getItem('token') !== null) {
 	                $('div[data-name="acc_auth"]').hide();
 			//$('div[data-name="acc_status"]').show();
 			//$('div[data-name="acc_exit"]').show();
 			    
-                    }  
+                    }  */
 	    }
       });
 
