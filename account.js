@@ -14,9 +14,9 @@
                     name: 'Аккаунт'
                 });
             }
-            if (e.name == 'account') {
-			     $('.settings--account-device-add', e.body).after(botElement);
-		    }
+            if (e.name == 'add_acc') {
+		$('div[data-name="auth"]').after(botElement);
+	    }
       });
 
 
