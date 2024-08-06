@@ -102,6 +102,7 @@
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
 					 item.hide(); 
+					 $('div[data-name="acc_exit"]').hide();
 					 $('div[data-name="acc_auth"]').show();
 					 $('div[data-name="acc_status"]').hide();
 					 Lampa.Settings.update();
