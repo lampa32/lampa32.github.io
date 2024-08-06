@@ -79,5 +79,23 @@
                                 description: ''
                                 },
 			    });
+
+			   Lampa.SettingsApi.addParam({
+                                component: 'add_acc',
+                                param: {
+                                name: 'acc_exit',
+                                type: 'static', //доступно select,input,trigger,title,static
+                                
+                                },
+                                field: {
+                                name: 'Выйти из аккаунта',
+                                description: ''
+                                },
+				onRender: function(item) {
+                                     item.on('hover:enter', function () {
+                                         localStorage.removeItem('token');
+				     })
+                               }
+			    });
 		       }
 })();
