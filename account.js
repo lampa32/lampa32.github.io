@@ -36,8 +36,7 @@
     name: 'Выполнить вход',
     description: ''
   },
-  //onChange: function(value) {
-	    onRender: function (item) {
+  onChange: function(value) {    
     console.log('Введенный токен:', value);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://212.113.103.137:3001/checkToken', true);
@@ -51,7 +50,7 @@
         if (response.userId) {
           console.log('Токен действителен');
           localStorage.setItem('token', value);
-	   $('div[data-name="auth"]').hide();
+	  
         } else {
           console.log('Токен недействителен');
           localStorage.removeItem('token');
@@ -60,7 +59,11 @@
     };
     xhr.send(JSON.stringify({ token: value }));
   }
-        
+  onRender: function (item) {
+    if (localStorage.getItem('token') !== null) {
+	    $('div[data-name="auth"]').hide();
+    }
+  }
 });
 
 })();
