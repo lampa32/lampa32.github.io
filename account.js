@@ -65,7 +65,8 @@
   }
   
 });
-
+                       var token = localStorage.getItem('token');
+                       if (token) {
                           Lampa.SettingsApi.addParam({
                                 component: 'add_acc',
                                 param: {
@@ -74,9 +75,9 @@
                                 
                                 },
                                 field: {
-                                name: 'Вы авторизированы. Ваш токен localStorage.getItem('token')',
+                                name: 'Вы авторизированы. Ваш токен ${token}',
                                 description: 'Бэкап настроек для профиля, требуется аккаут CUB'
                                 },
 			    });
-	
+		       }
 })();
