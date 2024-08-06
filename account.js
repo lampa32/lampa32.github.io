@@ -101,12 +101,12 @@
 				onRender: function(item) {
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
+					setTimeout(function(){
 					 item.hide(); 
-					 $('div[data-name="acc_exit"]').hide();
 					 $('div[data-name="acc_auth"]').show();
 					 $('div > span:contains("Вы авторизированы")').hide();
 					 Lampa.Settings.update();
-					 
+					}, 100) 
 					
 					
 					
