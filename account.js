@@ -23,7 +23,7 @@
 			
 			    
                   } else {
-			$('div[data-name="acc_status"]').hide();
+			$('div > span:contains("Вы авторизированы")').hide();
 			$('div[data-name="acc_exit"]').hide();
 		  }
 	    }
