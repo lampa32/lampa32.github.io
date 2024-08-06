@@ -92,11 +92,10 @@
                                 description: ''
                                 },
 				onRender: function(item) {
-				    // item.show();
+				     item.show();
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
-					 item.hide();
-					  else {item.show();}
+					 item.hide(); 
 				     })
                                }
 			    });
