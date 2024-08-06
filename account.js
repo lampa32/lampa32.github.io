@@ -58,7 +58,9 @@
 	  clo();
 	  $('div[data-name="acc_auth"]').hide();
 	  Lampa.Settings.update();
-	  Lampa.Controller.toggle('settings_component');	
+	  var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(2)")
+                                                  Lampa.Controller.focus(M)
+                                                  Lampa.Controller.toggle('settings_component')	
 	  
 		
         } else {
