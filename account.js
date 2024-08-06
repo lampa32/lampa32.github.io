@@ -50,10 +50,11 @@
         if (response.userId) {
           console.log('Токен действителен');
           localStorage.setItem('token', value);
-	  
+	  Lampa.Noty.show("Токен действителен");
         } else {
           console.log('Токен недействителен');
           localStorage.removeItem('token');
+	  Lampa.Noty.show("Токен недействителен");
         }
       }
     };
