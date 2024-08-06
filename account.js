@@ -58,11 +58,11 @@
 	  clo();
 	  $('div[data-name="acc_auth"]').hide();
 	  Lampa.Settings.update();
-	  var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div > div:nth-child(4)")
+	  var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4) > div")
                                                   Lampa.Controller.focus(M)
                                                   Lampa.Controller.toggle('settings_component')	
 	  
-		
+		#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4) > div
         } else {
           console.log('Токен недействителен');
           localStorage.removeItem('token');
@@ -108,7 +108,7 @@
 					 item.hide(); 
 					 $('div[data-name="acc_auth"]').show();
 					 $('div > span:contains("Вы авторизированы")').hide();
-					 Lampa.Controller.toggle('settings_component');
+					
 					
 					
 					
