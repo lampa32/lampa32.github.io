@@ -21,7 +21,7 @@
 		    if (localStorage.getItem('token') !== null) {
 	                $('div[data-name="acc_auth"]').hide();
 			$('div[data-name="acc_status"]').hide();
-			$('div[data-name="acc_exit"]').hide();acc_status
+			$('div[data-name="acc_exit"]').hide();
 			    
                     }  
 	    }
