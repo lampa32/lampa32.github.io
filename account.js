@@ -62,7 +62,7 @@
                                                   Lampa.Controller.focus(M)
                                                   Lampa.Controller.toggle('settings_component')	
 	  
-		#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4) > div
+		
         } else {
           console.log('Токен недействителен');
           localStorage.removeItem('token');
