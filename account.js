@@ -77,7 +77,8 @@
 });
                     // function clo() {  
 	              var token = localStorage.getItem('token');
-                       if (token) {
+                       //if (token) {
+	                 if (localStorage.getItem('token') !== null) {
                           Lampa.SettingsApi.addParam({
                                 component: 'acc',
                                 param: {
