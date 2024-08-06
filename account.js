@@ -20,7 +20,7 @@
 		$('div[data-name="acc_auth"]').before(botElement);
 		   if (localStorage.getItem('token') !== null) {
 	                $('div[data-name="acc_auth"]').hide();
-			clo();
+			
 			    
                     }  
 	    }
@@ -102,6 +102,8 @@
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
 					 item.hide(); 
+					 $('div[data-name="acc_auth"]').show();
+					 Lampa.Settings.update();
 					 
 					
 					
