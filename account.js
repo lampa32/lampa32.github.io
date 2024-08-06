@@ -103,6 +103,7 @@
                                          localStorage.removeItem('token');
 					 item.hide(); 
 					 $('div[data-name="acc_auth"]').show();
+					 $('div[data-name="acc_status"]').hide();
 					 Lampa.Settings.update();
 					 
 					
