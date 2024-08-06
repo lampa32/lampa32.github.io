@@ -18,12 +18,12 @@
             }
             if (e.name == 'acc') {
 		$('div[data-name="acc_auth"]').before(botElement);
-		    if (localStorage.getItem('token') !== null) {
+		   /* if (localStorage.getItem('token') !== null) {
 	                $('div[data-name="acc_auth"]').hide();
 			$('div[data-name="acc_status"]').show();
 			$('div[data-name="acc_exit"]').show();
 			    
-                    }  
+                    }  */
 	    }
       });
 
@@ -56,6 +56,8 @@
           localStorage.setItem('token', value);
 	  Lampa.Noty.show("Токен действителен");
 	  $('div[data-name="acc_auth"]').hide();
+	  $('div[data-name="acc_status"]').show();
+          $('div[data-name="acc_exit"]').show();
         } else {
           console.log('Токен недействителен');
           localStorage.removeItem('token');
@@ -96,7 +98,10 @@
 				onRender: function(item) {
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
-					 item.hide(); 
+					 //item.hide(); 
+					 $('div[data-name="acc_status"]').hide();
+                                         $('div[data-name="acc_exit"]').hide();
+                                         $('div[data-name="acc_auth"]').show();
 				     })
                                }
 			    });
