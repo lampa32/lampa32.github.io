@@ -74,6 +74,7 @@
                       // var token = localStorage.getItem('token');
                       // if (token) {
                           function clo() {
+				  var token = localStorage.getItem('token');
                           Lampa.SettingsApi.addParam({
                                 component: 'acc',
                                 param: {
