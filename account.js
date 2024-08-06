@@ -20,9 +20,19 @@
 		$('div[data-name="auth"]').before(botElement);
 		    if (localStorage.getItem('token') !== null) {
 	                $('div[data-name="auth"]').hide();
-                    }  else {
-			 $('div[data-name="auth"]').show();   
-		    }
+			    Lampa.SettingsApi.addParam({
+                                component: 'add_acc',
+                                param: {
+                                name: 'acc_status',
+                                type: 'title', //доступно select,input,trigger,title,static
+                                
+                                },
+                                field: {
+                                name: 'settings_cub_backup',
+                                description: 'Бэкап настроек для профиля, требуется аккаут CUB'
+                                },
+			    });
+                    }  
 	    }
       });
 
