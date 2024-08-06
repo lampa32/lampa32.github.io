@@ -20,7 +20,9 @@
 		$('div[data-name="auth"]').before(botElement);
 		    if (localStorage.getItem('token') !== null) {
 	                $('div[data-name="auth"]').hide();
-                    }     
+                    }  else {
+			 $('div[data-name="auth"]').show();   
+		    }
 	    }
       });
 
