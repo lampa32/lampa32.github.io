@@ -55,7 +55,7 @@
           console.log('Токен действителен');
           localStorage.setItem('token', value);
 	  Lampa.Noty.show("Токен действителен");
-	  //$('div[data-name="acc_auth"]').hide();
+	  $('div[data-name="acc_auth"]').hide();
         } else {
           console.log('Токен недействителен');
           localStorage.removeItem('token');
@@ -96,8 +96,7 @@
 				onRender: function(item) {
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
-					// Lampa.Settings.update();
-					// item.hide(); 
+					 item.hide(); 
 				     })
                                }
 			    });
