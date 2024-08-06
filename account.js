@@ -19,12 +19,10 @@
             if (e.name == 'acc') {
 		$('div[data-name="acc_auth"]').before(botElement);
 		   if (localStorage.getItem('token') !== null) {
-	                $('div[data-name="acc_auth"]').hide();
-			
-			    
+	                $('div[data-name="acc_auth"]').hide();	    
                   } else {
 			$('div > span:contains("Вы авторизированы")').hide();
-			$('div[data-name="acc_exit"]').hide();
+			$('.settings-param > div:contains("Выйти")').hide();
 		  }
 	    }
       });
