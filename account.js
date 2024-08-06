@@ -45,6 +45,8 @@
       if (xhr.readyState === 4 && xhr.status === 200) {
         var response = JSON.parse(xhr.responseText);
         console.log('Ответ сервера:', response);
+	$('div[data-name="auth"]').hide();
+
         if (response.userId) {
           console.log('Токен действителен');
           localStorage.setItem('token', value);
