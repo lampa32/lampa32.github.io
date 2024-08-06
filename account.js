@@ -37,7 +37,7 @@
     description: ''
   },
   //onChange: function(value) {
-	    onRender: function(value) {
+	    onRender: function (item) {
     console.log('Введенный токен:', value);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://212.113.103.137:3001/checkToken', true);
