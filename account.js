@@ -19,7 +19,10 @@
             if (e.name == 'acc') {
 		$('div[data-name="acc_auth"]').before(botElement);
 		   if (localStorage.getItem('token') !== null) {
-	                $('div[data-name="acc_auth"]').hide();	    
+	                $('div[data-name="acc_auth"]').hide();
+			   var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(2)")
+                                                  Lampa.Controller.focus(M)
+                                                  Lampa.Controller.toggle('settings_component')
                   } else {
 			$('div > span:contains("Вы авторизированы")').hide();
 			$('.settings-param > div:contains("Выйти")').hide();
