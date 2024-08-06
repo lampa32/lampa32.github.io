@@ -55,9 +55,9 @@
           console.log('Токен действителен');
           localStorage.setItem('token', value);
 	  Lampa.Noty.show("Токен действителен");
-	
+	  $('div[data-name="acc_exit"]').show();
 	  $('div[data-name="acc_auth"]').hide();
-		clo();
+		
 	  
 		
         } else {
@@ -71,10 +71,8 @@
   }
   
 });
-                      // var token = localStorage.getItem('token');
-                      // if (token) {
-                          function clo() {
-				  var token = localStorage.getItem('token');
+                       var token = localStorage.getItem('token');
+                       if (token) {
                           Lampa.SettingsApi.addParam({
                                 component: 'acc',
                                 param: {
