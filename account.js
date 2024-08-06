@@ -57,6 +57,7 @@
 	  Lampa.Noty.show("Токен действителен");
 	  clo();
 	  $('div[data-name="acc_auth"]').hide();
+	  Lampa.Settings.update();
 		
 	  
 		
