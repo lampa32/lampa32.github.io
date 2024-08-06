@@ -57,6 +57,7 @@
 	  Lampa.Noty.show("Токен действителен");
 	
 	  $('div[data-name="acc_auth"]').hide();
+		clo();
 	  
 		
         } else {
@@ -70,10 +71,9 @@
   }
   
 });
-                       var token = localStorage.getItem('token');
-                       if (token) {
-			setTimeout(function() {
-
+                      // var token = localStorage.getItem('token');
+                      // if (token) {
+                          function clo() {
                           Lampa.SettingsApi.addParam({
                                 component: 'acc',
                                 param: {
@@ -108,6 +108,6 @@
 				     })
                                }
 			    });
-			},100);
+			
 		       }
 })();
