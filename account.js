@@ -36,7 +36,8 @@
     name: 'Выполнить вход',
     description: ''
   },
-  onChange: function(value) {
+  //onChange: function(value) {
+	    onRender: function(value) {
     console.log('Введенный токен:', value);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://212.113.103.137:3001/checkToken', true);
