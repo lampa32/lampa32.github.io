@@ -143,7 +143,7 @@
       });
 
 Lampa.SettingsApi.addParam({
-        component: 'add_acc',
+        component: 'acc',
         param: {
           name: 'pva_backup',
           type: 'static', //доступно select,input,trigger,title,static
