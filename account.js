@@ -103,6 +103,7 @@
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
 					 item.hide(); 
+					 $('div[data-name="acc_status"]').hide();
 					
 					
 					
