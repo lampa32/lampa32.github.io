@@ -104,7 +104,7 @@
 					 item.hide(); 
 					 $('div[data-name="acc_exit"]').hide();
 					 $('div[data-name="acc_auth"]').show();
-					 $('div[data-name="acc_status"]').hide();
+					 $('div > span:contains("Вы авторизированы")').hide();
 					 Lampa.Settings.update();
 					 
 					
