@@ -60,7 +60,7 @@
 	  Lampa.Noty.show("Токен действителен");
 	  //clo();
 	  $('div[data-name="acc_auth"]').hide();
-	 // Lampa.Settings.update();
+	  Lampa.Settings.update();
 	  var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4)")
           Lampa.Controller.focus(M)
           Lampa.Controller.toggle('settings_component')		
