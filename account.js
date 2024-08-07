@@ -79,8 +79,8 @@ function start_plugin_account() {
           localStorage.setItem('token', value);
 	  Lampa.Noty.show("Токен действителен");
 	  //clo();
-	  $('div[data-name="acc_auth"]').hide();
-	  Lampa.Settings.update();
+	  //$('div[data-name="acc_auth"]').hide();
+	 // Lampa.Settings.update();
 	  var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4)")
           Lampa.Controller.focus(M)
           Lampa.Controller.toggle('settings_component')		
@@ -130,8 +130,8 @@ function start_plugin_account() {
                                          localStorage.removeItem('token');
 					// item.hide(); 
 					// $('div[data-name="acc_exit"]').parent().remove();
-					 $('.settings-param > div:contains("Выйти")').parent().hide();
-					 $('div[data-name="acc_auth"]').show();
+					// $('.settings-param > div:contains("Выйти")').parent().hide();
+					// $('div[data-name="acc_auth"]').show();
 					// $('div > span:contains("Аккаунт")').hide();
 					var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(2)")
                                         Lampa.Controller.focus(M)
