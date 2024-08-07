@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  /*Lampa.SettingsApi.addParam({
+  Lampa.SettingsApi.addParam({
         component: 'acc',
         param: {
           name: 'acc_timecode',
@@ -16,7 +16,9 @@
           if (value == 'true') { 
             var token = localStorage.getItem('token');
             if (token) {
-                 startTimecode(); 
+                 //startTimecode(); 
+              Lampa.Noty.show("Вы");
+                 
             } else {
                  Lampa.Noty.show("Вы не зашли в аккаунт");
                  if (Lampa.Storage.field('acc_timecode') == true) {
@@ -30,7 +32,7 @@
 
  function startTimecode() {
      if (Lampa.Storage.field('acc_timecode') == true) {
-*/
+
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
@@ -133,6 +135,6 @@
        var timecode = new Timecode();
        timecode.init();
     
-   // }
-// }
+    }
+ }
 })();
