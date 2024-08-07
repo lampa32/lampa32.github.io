@@ -17,9 +17,9 @@ function start_plugin_account() {
    });
     
 	Lampa.Settings.listener.follow('open', function (e) {
-		//setTimeout(function() {
+		setTimeout(function() {
 					  $('div[data-component=tmdb]').before($('div[data-component=acc]'))
-					//}, 30)
+					}, 30)
             /*if (e.name == 'main') {
                 Lampa.SettingsApi.addComponent({
                     component: 'acc',
