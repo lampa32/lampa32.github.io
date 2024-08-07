@@ -135,6 +135,7 @@ function start_plugin_account() {
                                         Lampa.Controller.focus(M)
                                         Lampa.Controller.toggle('settings_component')	
 					Lampa.Storage.set('acc_timecode', false);
+					Lampa.Settings.update();
 				     })
                                }
 			    });
