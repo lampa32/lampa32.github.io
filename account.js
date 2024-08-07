@@ -8,8 +8,8 @@ function start_plugin_account() {
     'Нужный тебе текст' +
     '</div><div class="ad-server__label">' + 
     'https://bot.us' +
-    '</div><img src="http://193.233.134.21/bot/bot.png" class="ad-server__qr"></div>')
-    
+    //'</div><img src="http://193.233.134.21/bot/bot.png" class="ad-server__qr"></div>')
+    '</div><img src="http://79.137.204.8/qr.png" class="ad-server__qr"></div>')
     Lampa.SettingsApi.addComponent({
             component: 'acc',
             name: 'Аккаунт'
