@@ -21,7 +21,8 @@
                  Lampa.Noty.show("Вы не зашли в аккаунт");
             } 
           }
-      });
+        }
+  });
 
  function startTimecode() {
 
