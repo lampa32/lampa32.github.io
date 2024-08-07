@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  Lampa.SettingsApi.addParam({
+  /*Lampa.SettingsApi.addParam({
         component: 'acc',
         param: {
           name: 'acc_timecode',
@@ -30,7 +30,7 @@
 
  function startTimecode() {
      if (Lampa.Storage.field('acc_timecode') == true) {
-
+*/
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
@@ -133,6 +133,6 @@
        var timecode = new Timecode();
        timecode.init();
     
-    }
- }
+   // }
+// }
 })();
