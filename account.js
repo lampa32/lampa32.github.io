@@ -24,12 +24,24 @@
                            Lampa.Controller.focus(M)
                            Lampa.Controller.toggle('settings_component')
                   } else {
-			$('div > span:contains("Аккаунт")').hide();
+			//$('div > span:contains("Аккаунт")').hide();
 			$('.settings-param > div:contains("Выйти")').hide();
 		  }
 	    }
       });
 
+      Lampa.SettingsApi.addParam({
+                                component: 'acc',
+                                param: {
+                                name: 'acc_title_auth',
+                                type: 'title', //доступно select,input,trigger,title,static
+                                
+                                },
+                                field: {
+                                name: 'Авторизация',
+				description: ''
+                                },
+			    });
 
     
     Lampa.SettingsApi.addParam({
