@@ -10,14 +10,19 @@ function start_plugin_account() {
     'https://bot.us' +
     '</div><img src="http://193.233.134.21/bot/bot.png" class="ad-server__qr"></div>')
     
+    Lampa.SettingsApi.addComponent({
+            component: 'acc',
+            name: 'Аккаунт'
+            //icon: icon_server_redirect
+   });
     
-    Lampa.Settings.listener.follow('open', function (e) {
-            if (e.name == 'main') {
+	Lampa.Settings.listener.follow('open', function (e) {
+            /*if (e.name == 'main') {
                 Lampa.SettingsApi.addComponent({
                     component: 'acc',
                     name: 'Аккаунт'
                 });
-            }
+            }*/
             if (e.name == 'acc') {
 		    $('div[data-name="acc_auth"]').before(botElement);
 		//$('div > span:contains("Авторизация")').before(botElement);
