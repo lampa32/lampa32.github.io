@@ -20,6 +20,7 @@
             } else {
                  Lampa.Noty.show("Вы не зашли в аккаунт");
                  return false;
+                 Lampa.Settings.update();
             } 
           }
         }
