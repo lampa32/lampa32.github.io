@@ -14,9 +14,13 @@
         },
         onChange: function (value) {
           if (value == 'true') { 
-            startTimecode(); 
-          } 
-        }
+            var token = localStorage.getItem('token');
+            if (token) {
+                 startTimecode(); 
+            } else {
+                 Lampa.Noty.show("Вы не зашли в аккаунт");
+            } 
+          }
       });
 
  function startTimecode() {
