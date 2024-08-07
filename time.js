@@ -19,8 +19,10 @@
                  startTimecode(); 
             } else {
                  Lampa.Noty.show("Вы не зашли в аккаунт");
-                 return false;
-                 Lampa.Settings.update();
+                 if (value == true) {
+                     localStorage.setItem('acc_timecode', false);
+                 }
+                 //Lampa.Settings.update();
             } 
           }
         }
