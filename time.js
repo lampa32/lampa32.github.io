@@ -18,12 +18,8 @@
             if (token) {
                  startTimecode(); 
             } else {
-                 // Если токена нет, устанавливаем триггер в положение false
-                  if (value == 'true') {
-                 // Меняем значение триггера на false
-                       this.set('value', 'false');
-                  }
                  Lampa.Noty.show("Вы не зашли в аккаунт");
+                 return false;
             } 
           }
         }
