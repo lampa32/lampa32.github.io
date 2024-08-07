@@ -16,9 +16,7 @@
           if (value == 'true') { 
             var token = localStorage.getItem('token');
             if (token) {
-                 //startTimecode(); 
-              Lampa.Noty.show("Вы");
-                 
+                 startTimecode();           
             } else {
                  Lampa.Noty.show("Вы не зашли в аккаунт");
                  if (Lampa.Storage.field('acc_timecode') == true) {
