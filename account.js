@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+function start_plugin_account() {
+	
     var botElement = $('<div class="myBot" style="line-height: 1;color: #ffffff;font-family: &quot;SegoeUI&quot;, sans-serif;font-size: 10.6px;box-sizing: border-box;outline: none;user-select: none;display: flex;-webkit-box-align: start;align-items: flex-start;position: relative;background-color: rgba(255, 255, 255, 0.1);border-radius: 0.3em;margin: 1.5em 2em;">' +
     '<div class="ad-server__text">' +
     'Нужный тебе текст' +
@@ -269,4 +271,15 @@
           })
         }
       });
+
+}
+if (window.appready) start_plugin_account();
+    else {
+        Lampa.Listener.follow('app', function(e) {
+            if (e.type == 'ready') {
+                start_plugin_account();
+            }
+        });
+    }
+
 })();
