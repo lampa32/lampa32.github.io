@@ -17,14 +17,14 @@
                 });
             }
             if (e.name == 'acc') {
-		$('div[data-name="acc_auth"]').before(botElement);
+		$('div[data-name="acc_title_auth"]').before(botElement);
 		   if (localStorage.getItem('token') !== null) {
 	                $('div[data-name="acc_auth"]').hide();
 			   var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4)")
                            Lampa.Controller.focus(M)
                            Lampa.Controller.toggle('settings_component')
                   } else {
-			//$('div > span:contains("Аккаунт")').hide();
+			$('div > span:contains("Аккаунт")').hide();
 			$('.settings-param > div:contains("Выйти")').hide();
 		  }
 	    }
