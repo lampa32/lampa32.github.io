@@ -17,7 +17,8 @@
                 });
             }
             if (e.name == 'acc') {
-		$('div > span:contains("Авторизация")').before(botElement);
+		    $('div[data-name="acc_title_auth"]').before(botElement);
+		//$('div > span:contains("Авторизация")').before(botElement);
 		   if (localStorage.getItem('token') !== null) {
 	                $('div[data-name="acc_auth"]').hide();
 			   var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(4)")
