@@ -256,6 +256,8 @@ Lampa.SettingsApi.addParam({
                   Lampa.Controller.toggle('settings_component');
                 }
               });
+            } else {
+                Lampa.Noty.show("Вы не зашли в аккаунт");
             }
           })
         }
