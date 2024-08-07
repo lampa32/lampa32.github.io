@@ -33,7 +33,7 @@ function start_plugin_account() {
                            Lampa.Controller.toggle('settings_component')
                   } else {
 			$('div > span:contains("Аккаунт")').hide();
-			$('.settings-param > div:contains("Выйти")').hide();
+			$('.settings-param > div:contains("Выйти")').parent().hide();
 		  }
 	    }
       });
@@ -128,8 +128,8 @@ function start_plugin_account() {
 				onRender: function(item) {
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
-					 //item.hide(); 
-					 $('div[data-name="acc_exit"]').parent().remove();
+					 item.hide(); 
+					// $('div[data-name="acc_exit"]').parent().remove();
 					 $('div[data-name="acc_auth"]').show();
 					 $('div > span:contains("Аккаунт")').hide();
 					var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(2)")
