@@ -135,4 +135,17 @@
 		        // }
 		    // }
 	//clo()
+
+	Lampa.SettingsApi.addParam({
+                                component: 'acc',
+                                param: {
+                                name: 'acc_title_auth',
+                                type: 'title', //доступно select,input,trigger,title,static
+                                
+                                },
+                                field: {
+                                name: 'Синхронизация',
+				description: ''
+                                },
+			    });
 })();
