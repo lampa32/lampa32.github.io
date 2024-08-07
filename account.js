@@ -128,7 +128,8 @@ function start_plugin_account() {
 				onRender: function(item) {
                                      item.on('hover:enter', function () {
                                          localStorage.removeItem('token');
-					 item.hide(); 
+					 //item.hide(); 
+					 $('div[data-name="acc_exit"]').hide();
 					 $('div[data-name="acc_auth"]').show();
 					 $('div > span:contains("Аккаунт")').hide();
 					var M = document.querySelector("#app > div.settings > div.settings__content.layer--height > div.settings__body > div > div > div > div > div:nth-child(2)")
