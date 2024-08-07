@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    Lampa.Platform.tv();
+   /* Lampa.Platform.tv();
 
     if (!Lampa.Lang) {
         var lang_data = {};
@@ -140,18 +140,18 @@
           uk: 'Виникла помилка',
           en: 'An error has occurred'
         },
-      });
+      });*/
 
 Lampa.SettingsApi.addParam({
         component: 'acc',
         param: {
-          name: 'pva_backup',
+          name: 'acc_backup',
           type: 'static', //доступно select,input,trigger,title,static
           default: ''
         },
         field: {
           name: Lampa.Lang.translate('settings_cub_backup'),
-          description: 'Бэкап настроек для профиля, требуется аккаут CUB'
+          description: 'Бэкап настроек для профиля, требуется зайти в аккаунт'
         },
         onRender: function (item) {
           item.on('hover:enter', function () {          
