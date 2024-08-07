@@ -1,6 +1,26 @@
 (function () {
   'use strict';
 
+  Lampa.SettingsApi.addParam({
+        component: 'acc',
+        param: {
+          name: 'acc_timecode',
+          type: 'trigger', //доступно select,input,trigger,title,static
+          default: false
+        },
+        field: {
+          name: 'Синхронизация таймкодов', 
+          description: 'Синхронизация таймкодов, требуется аккаут CUB'
+        },
+        onChange: function (value) {
+          if (value == 'true') { 
+            startTimecode(); 
+          } 
+        }
+      });
+
+ function startTimecode() {
+
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
@@ -101,4 +121,6 @@
 
   var timecode = new Timecode();
   timecode.init();
+
+ }
 })();
