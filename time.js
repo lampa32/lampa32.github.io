@@ -29,7 +29,7 @@
   });
 
  function startTimecode() {
-    
+     if (Lampa.Storage.field('acc_timecode') == true) {
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -129,11 +129,10 @@
     return Timecode;
   }();
  
-   if (Lampa.Storage.field('acc_timecode') == true) {
+  
        var timecode = new Timecode();
        timecode.init();
-    } else {
-         console.log('Таймкоды выключены в настройках');
+    
     }
  }
 })();
