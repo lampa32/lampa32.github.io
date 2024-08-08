@@ -76,9 +76,15 @@
         },
         body: JSON.stringify(syncData)
       })
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error(`Ошибка при синхронизации: ${response.status} - ${response.statusText}`);
+        }
+      })
       .then(result => {
-        if (result.success && result.data) {
+        if (result.success) {
           this.updateLocalStorage(result.data);
         } else {
           throw new Error('Синхронизация не удалась');
@@ -112,7 +118,14 @@
 
     loadDataFromServer(token) {
       return fetch(`http://212.113.103.137:3003/lampa/sync?token=${encodeURIComponent(token)}`)
-        .then(response => response.json())
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+
+            throw new Error(`Ошибка при загрузке данных: ${response.status} - ${response.statusText}`);
+          }
+        })
         .then(result => {
           if (result.success && result.data) {
             return result.data;
@@ -131,8 +144,8 @@
       if (token) {
         syncManager.loadDataFromServer(token)
           .then(syncManager.updateLocalStorage)
-          .catch(() => {
-            console.log('Синхронизация не удалась');
+          .catch((error) => {
+            console.error('Ошибка при загрузке данных:', error);
           });
       } else {
         Lampa.Noty.show('Вы не зашли в аккаунт');
