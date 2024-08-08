@@ -88,16 +88,13 @@
     Lampa.Storage.set('setting_member', data.setting_member);
   }
 
-  // Регистрируем события для отслеживания изменений
-  Lampa.Storage.on('change', (key, value) => {
-    switch (key) {
-      case 'torrents_view':
-      case 'plugins':
-      case 'favorite':
-      case 'file_view':
-      case 'setting_member':
-        startSync(localStorage.getItem('token'));
-        break;
+  // Синхронизируем данные при выходе из приложения
+  window.addEventListener('beforeunload', () => {
+    if (Lampa.Storage.field('acc_sync')) {
+      const token = localStorage.getItem('token');
+      if (token) {
+        startSync(token);
+      }
     }
   });
 
