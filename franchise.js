@@ -153,6 +153,7 @@ function ennTitle(url) {
 
   // Функция для начала работы плагина
   function startPlugin() {
+   if (Lampa.Storage.get('source') == 'cub' || Lampa.Storage.get('source') == 'tmdb') {
     window.rezkacoll_plugin = true;
     Lampa.Listener.follow("full", function (e) {
       if (e.type == "complite") {
@@ -209,6 +210,7 @@ function ennTitle(url) {
         document.head.appendChild(styleEl);
       }
     });
+   }
   };
 
   if (!window.rezkacoll_plugin) startPlugin();
