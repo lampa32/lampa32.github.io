@@ -14,7 +14,7 @@
     },
     onChange: function (value) {
       if (value == 'true') {
-        var token = localStorage.getItem('token');
+        const token = localStorage.getItem('token');
         if (token) {
           startSync();
         } else {
@@ -29,6 +29,12 @@
   });
 
   function startSync() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      Lampa.Noty.show("Вы не зашли в аккаунт");
+      return;
+    }
+
     // Получаем данные для синхронизации
     const syncData = {
       torrents_view: Lampa.Storage.get('torrents_view', '[]'),
@@ -45,11 +51,9 @@
       data: JSON.stringify(syncData),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
-     headers: {
-              'Authorization': localStorage.getItem('token')
-     }
-
-
+      headers: {
+        'Authorization': localStorage.getItem('token')
+      },
       success: function (result) {
         if (result.success) {
           console.log('Синхронизация успешна');
@@ -64,12 +68,18 @@
   }
 
   if (Lampa.Storage.field('acc_sync')) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      Lampa.Noty.show("Вы не зашли в аккаунт");
+      return;
+    }
+
     // Загрузка данных с сервера
     $.ajax({
       url: 'http://212.113.103.137:3003/lampa/sync',
       type: 'GET',
       headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
+        'Authorization': localStorage.getItem('token')
       },
       success: function (result) {
         if (result.success) {
