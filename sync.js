@@ -78,10 +78,11 @@
       })
       .then(response => response.json())
       .then(result => {
-        if (!result.success) {
+        if (result.success && result.data) {
+          this.updateLocalStorage(result.data);
+        } else {
           throw new Error('Синхронизация не удалась');
         }
-        this.updateLocalStorage(result.data);
       });
     },
 
@@ -95,10 +96,30 @@
     },
 
     updateLocalStorage(data) {
-      Lampa.Storage.set('torrents_view', data.torrents_view);
-      Lampa.Storage.set('plugins', data.plugins);
-      Lampa.Storage.set('favorite', data.favorite);
-      Lampa.Storage.set('file_view', data.file_view);
+      if (typeof data.torrents_view !== 'undefined') {
+        Lampa.Storage.set('torrents_view', data.torrents_view);
+      }
+      if (typeof data.plugins !== 'undefined') {
+        Lampa.Storage.set('plugins', data.plugins);
+      }
+      if (typeof data.favorite !== 'undefined') {
+        Lampa.Storage.set('favorite', data.favorite);
+      }
+      if (typeof data.file_view !== 'undefined') {
+        Lampa.Storage.set('file_view', data.file_view);
+      }
+    },
+
+    loadDataFromServer(token) {
+      return fetch(`http://212.113.103.137:3003/lampa/sync?token=${encodeURIComponent(token)}`)
+        .then(response => response.json())
+        .then(result => {
+          if (result.success && result.data) {
+            return result.data;
+          } else {
+            throw new Error('Синхронизация не удалась');
+          }
+        });
     }
   };
 
@@ -126,7 +147,6 @@
       if (token) {
         syncManager.startSync(token);
       }
-
     } else if (name === 'acc_sync') {
       if (event.value === 'true') {
         const token = localStorage.getItem('token');
