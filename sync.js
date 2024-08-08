@@ -38,6 +38,7 @@
     sendDataToServer(token, syncData)
       .then(() => {
         console.log('Синхронизация успешна');
+        updateLocalStorage(syncData);
       })
       .catch(() => {
         console.log('Синхронизация не удалась');
@@ -131,9 +132,9 @@
       }
     } else if (name === 'acc_sync') {
       if (event.value === 'true') {
+
         const token = localStorage.getItem('token');
         if (token) {
-
           startSync(token);
         }
       } else {
