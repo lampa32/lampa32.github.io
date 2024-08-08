@@ -73,31 +73,31 @@
         }.bind(this));
     },
 
-  sendDataToServer: function (token) {
-  var syncData = this.getSyncedData();
-  if (Object.keys(syncData).length === 0) {
-    this.isSyncSuccessful = false;
-    return Promise.reject(new Error('Данные для синхронизации отсутствуют')); // Если данных нет, возвращаем ошибку
-  }
-  return this.makeHttpRequest('POST', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
-    .then(function (response) {
-      if (response.status === 200) {
-        this.isSyncSuccessful = true;
-        return JSON.parse(response.responseText); // Здесь может возникнуть ошибка, если ответ сервера некорректный
-      } else {
+    sendDataToServer: function (token) {
+      var syncData = this.getSyncedData();
+      if (Object.keys(syncData).length === 0) {
         this.isSyncSuccessful = false;
-        throw new Error('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
+        return Promise.reject(new Error('Данные для синхронизации отсутствуют'));
       }
-    }.bind(this))
-    .then(function (result) {
-      if (result.success) {
-        this.updateLocalStorage(result.data); // Обновление локальных данных
-      } else {
-        this.isSyncSuccessful = false;
-        throw new Error('Синхронизация не удалась');
-      }
-    }.bind(this));
-}
+      return this.makeHttpRequest('POST', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
+        .then(function (response) {
+          if (response.status === 200) {
+            this.isSyncSuccessful = true;
+            return JSON.parse(response.responseText);
+          } else {
+            this.isSyncSuccessful = false;
+            throw new Error('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
+          }
+        }.bind(this))
+        .then(function (result) {
+          if (result.success) {
+            this.updateLocalStorage(result.data);
+          } else {
+            this.isSyncSuccessful = false;
+            throw new Error('Синхронизация не удалась');
+          }
+        }.bind(this));
+    },
 
     makeHttpRequest: function (method, url, data) {
       return new Promise(function (resolve, reject) {
