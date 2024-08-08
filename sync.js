@@ -77,7 +77,7 @@
       var syncData = this.getSyncedData();
       if (Object.keys(syncData).length === 0) {
         this.isSyncSuccessful = false;
-        return Promise.reject(new Error('Данные для синхронизации отсутствуют'));
+        return Promise.reject(console.log('Данные для синхронизации отсутствуют'));
       }
       return this.makeHttpRequest('POST', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
         .then(function (response) {
@@ -86,7 +86,8 @@
             return JSON.parse(response.responseText);
           } else {
             this.isSyncSuccessful = false;
-            throw new Error('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
+            //throw new Error
+            console.log('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
           }
         }.bind(this))
         .then(function (result) {
@@ -94,7 +95,8 @@
             this.updateLocalStorage(result.data);
           } else {
             this.isSyncSuccessful = false;
-            throw new Error('Синхронизация не удалась');
+            //throw new Error
+            console.log('Синхронизация не удалась');
           }
         }.bind(this));
     },
