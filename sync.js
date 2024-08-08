@@ -38,6 +38,13 @@
       setting_member: Lampa.Storage.get('setting_member', '[]')
     };
 
+    // Сохраняем изменения для всех параметров
+    Lampa.Storage.set('torrents_view', syncData.torrents_view);
+    Lampa.Storage.set('plugins', syncData.plugins);
+    Lampa.Storage.set('favorite', syncData.favorite);
+    Lampa.Storage.set('file_view', syncData.file_view);
+    Lampa.Storage.set('setting_member', syncData.setting_member);
+
     // Отправляем данные на сервер
     $.ajax({
       url: `http://212.113.103.137:3003/lampa/sync?token=${encodeURIComponent(token)}`,
@@ -49,7 +56,6 @@
         if (result.success) {
           console.log('Синхронизация успешна');
         } else {
-
           console.log('Синхронизация не удалась');
         }
       },
