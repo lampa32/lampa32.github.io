@@ -6,7 +6,7 @@
     param: {
       name: 'acc_sync',
       type: 'trigger',
-      default: ''
+      default: false
     },
     field: {
       name: 'Синхронизация данных',
