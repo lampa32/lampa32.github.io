@@ -63,12 +63,12 @@
           if (this.isSyncSuccessful) {
             console.log('Синхронизация успешно завершена');
           } else {
-            console.error('Ошибка: Данные для синхронизации отсутствуют');
+            console.log('Ошибка: Данные для синхронизации отсутствуют');
           }
           this.needsSync = false;
         }.bind(this))
         .catch(function (error) {
-          console.error('Ошибка синхронизации:', error);
+          console.log('Ошибка синхронизации:', error);
           this.needsSync = true; // Оставляем флаг, чтобы попробовать снова
         }.bind(this));
     },
