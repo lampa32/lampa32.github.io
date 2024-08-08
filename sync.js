@@ -90,30 +90,40 @@
   }
 
   // Регистрируем события для отслеживания изменений
- const interestingKeys = ['torrents_view', 'plugins', 'favorite', 'file_view'];
-let timer = null;
-let needsSync = false;
+const interestingKeys = ['torrents_view', 'plugins', 'favorite', 'file_view'];
+const syncManager = {
+  timer: null,
+  needsSync: false,
 
-Lampa.Storage.listener.follow('change', function(event) {
-  const key = event.name;
-  if (interestingKeys.includes(key)) {
-    console.log(`Изменен ключ в локальном хранилище: ${key}`);
-    needsSync = true;
+  handleStorageChange(event) {
+    const key = event.name;
+    if (interestingKeys.includes(key)) {
+      console.log(`Изменен ключ в локальном хранилище: ${key}`);
+      this.needsSync = true;
 
-    if (timer) {
-      clearTimeout(timer);
-    }
-    timer = setTimeout(function() {
-      if (needsSync) {
-        const token = localStorage.getItem('token');
-        if (token) {
-          startSync(token);
-        }
-        needsSync = false;
+      if (this.timer) {
+        clearTimeout(this.timer);
       }
-    }, 2000); // Задержка 2 секунды
+      this.timer = setTimeout(() => {
+        if (this.needsSync) {
+          const token = localStorage.getItem('token');
+          if (token) {
+            this.startSync(token);
+          }
+          this.needsSync = false;
+        }
+      }, 2000);
+    }
+  },
+
+  startSync(token) {
+    console.log('Запуск синхронизации...');
+    // Код функции startSync()
   }
-});
+};
+
+Lampa.Storage.listener.follow('change', (event) => syncManager.handleStorageChange(event));
+
 
 
 
