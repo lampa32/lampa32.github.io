@@ -102,17 +102,21 @@
     },
 
     updateLocalStorage(data) {
-      if (typeof data.torrents_view !== 'undefined') {
-        Lampa.Storage.set('torrents_view', data.torrents_view);
-      }
-      if (typeof data.plugins !== 'undefined') {
-        Lampa.Storage.set('plugins', data.plugins);
-      }
-      if (typeof data.favorite !== 'undefined') {
-        Lampa.Storage.set('favorite', data.favorite);
-      }
-      if (typeof data.file_view !== 'undefined') {
-        Lampa.Storage.set('file_view', data.file_view);
+      if (data) {
+        if (typeof data.torrents_view !== 'undefined') {
+          Lampa.Storage.set('torrents_view', data.torrents_view);
+        }
+        if (typeof data.plugins !== 'undefined') {
+          Lampa.Storage.set('plugins', data.plugins);
+        }
+        if (typeof data.favorite !== 'undefined') {
+          Lampa.Storage.set('favorite', data.favorite);
+        }
+        if (typeof data.file_view !== 'undefined') {
+          Lampa.Storage.set('file_view', data.file_view);
+        }
+      } else {
+        console.error('Ошибка: Данные для синхронизации отсутствуют');
       }
     },
 
@@ -120,9 +124,9 @@
       return fetch(`http://212.113.103.137:3003/lampa/sync?token=${encodeURIComponent(token)}`)
         .then(response => {
           if (response.ok) {
+
             return response.json();
           } else {
-
             throw new Error(`Ошибка при загрузке данных: ${response.status} - ${response.statusText}`);
           }
         })
