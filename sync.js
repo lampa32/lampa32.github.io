@@ -132,8 +132,8 @@
       }
     } else if (name === 'acc_sync') {
       if (event.value === 'true') {
-
         const token = localStorage.getItem('token');
+
         if (token) {
           startSync(token);
         }
