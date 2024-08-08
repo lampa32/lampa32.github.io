@@ -14,7 +14,7 @@
     },
     onChange: function (value) {
       if (value === 'true') {
-        const token = localStorage.getItem('token');
+        var token = localStorage.getItem('token');
         if (token) {
           syncManager.startSync(token);
         } else {
@@ -28,71 +28,74 @@
     }
   });
 
-  const interestingKeys = ['torrents_view', 'plugins', 'favorite', 'file_view'];
-  const syncManager = {
+  var interestingKeys = ['torrents_view', 'plugins', 'favorite', 'file_view'];
+  var syncManager = {
     timer: null,
     needsSync: false,
+    isSyncSuccessful: false,
 
-    handleStorageChange(event) {
-      const key = event.name;
-      if (interestingKeys.includes(key)) {
-        console.log(`Изменен ключ в локальном хранилище: ${key}`);
+    handleStorageChange: function (event) {
+      var key = event.name;
+      if (interestingKeys.indexOf(key) !== -1) {
+        console.log('Изменен ключ в локальном хранилище: ' + key);
         this.needsSync = true;
 
         if (this.timer) {
           clearTimeout(this.timer);
         }
-        this.timer = setTimeout(() => {
+        this.timer = setTimeout(function () {
           if (this.needsSync) {
-            const token = localStorage.getItem('token');
+            var token = localStorage.getItem('token');
             if (token) {
               this.startSync(token);
             }
             this.needsSync = false;
           }
-        }, 2000);
+        }.bind(this), 2000);
       }
     },
 
-    startSync(token) {
+    startSync: function (token) {
       console.log('Запуск синхронизации...');
+      this.isSyncSuccessful = false;
       this.sendDataToServer(token)
-        .then(() => {
-          console.log('Синхронизация успешно завершена');
+        .then(function () {
+          if (this.isSyncSuccessful) {
+            console.log('Синхронизация успешно завершена');
+          } else {
+            console.error('Ошибка: Данные для синхронизации отсутствуют');
+          }
           this.needsSync = false;
-        })
-        .catch((error) => {
+        }.bind(this))
+        .catch(function (error) {
           console.error('Ошибка синхронизации:', error);
           this.needsSync = true; // Оставляем флаг, чтобы попробовать снова
-        });
+        }.bind(this));
     },
 
-    sendDataToServer(token) {
-      const syncData = this.getSyncedData();
-      return fetch(`http://212.113.103.137:3003/lampa/sync?token=${encodeURIComponent(token)}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(syncData)
-      })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error(`Ошибка при синхронизации: ${response.status} - ${response.statusText}`);
-        }
-      })
-      .then(result => {
-        if (result.success) {
-          this.updateLocalStorage(result.data);
-        } else {
-          throw new Error('Синхронизация не удалась');
-        }
-      });
+    sendDataToServer: function (token) {
+      var syncData = this.getSyncedData();
+      return Lampa.Http.post('http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
+        .then(function (response) {
+          if (response.status === 200) {
+            this.isSyncSuccessful = true;
+            return response.json();
+          } else {
+            this.isSyncSuccessful = false;
+            throw new Error('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
+          }
+        }.bind(this))
+        .then(function (result) {
+          if (result.success) {
+            this.updateLocalStorage(result.data);
+          } else {
+            this.isSyncSuccessful = false;
+            throw new Error('Синхронизация не удалась');
+          }
+        }.bind(this));
     },
 
-    getSyncedData() {
+    getSyncedData: function () {
       return {
         torrents_view: Lampa.Storage.get('torrents_view', '[]'),
         plugins: Lampa.Storage.get('plugins', '[]'),
@@ -101,7 +104,7 @@
       };
     },
 
-    updateLocalStorage(data) {
+    updateLocalStorage: function (data) {
       if (data) {
         if (typeof data.torrents_view !== 'undefined') {
           Lampa.Storage.set('torrents_view', data.torrents_view);
@@ -110,6 +113,7 @@
           Lampa.Storage.set('plugins', data.plugins);
         }
         if (typeof data.favorite !== 'undefined') {
+
           Lampa.Storage.set('favorite', data.favorite);
         }
         if (typeof data.file_view !== 'undefined') {
@@ -120,17 +124,16 @@
       }
     },
 
-    loadDataFromServer(token) {
-      return fetch(`http://212.113.103.137:3003/lampa/sync?token=${encodeURIComponent(token)}`)
-        .then(response => {
-          if (response.ok) {
-
+    loadDataFromServer: function (token) {
+      return Lampa.Http.get('http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token))
+        .then(function (response) {
+          if (response.status === 200) {
             return response.json();
           } else {
-            throw new Error(`Ошибка при загрузке данных: ${response.status} - ${response.statusText}`);
+            throw new Error('Ошибка при загрузке данных: ' + response.status + ' - ' + response.statusText);
           }
         })
-        .then(result => {
+        .then(function (result) {
           if (result.success && result.data) {
             return result.data;
           } else {
@@ -141,21 +144,23 @@
     }
   };
 
-  Lampa.Storage.listener.follow('change', (event) => syncManager.handleStorageChange(event));
+  Lampa.Storage.listener.follow('change', function (event) {
+    syncManager.handleStorageChange(event);
+  });
 
-  Lampa.Settings.listener.follow('open', function(event) {
+  Lampa.Settings.listener.follow('open', function (event) {
     if (event.name === 'acc') {
-      const token = localStorage.getItem('token');
+      var token = localStorage.getItem('token');
       if (token) {
         syncManager.loadDataFromServer(token)
-          .then(data => {
+          .then(function (data) {
             if (data) {
               syncManager.updateLocalStorage(data);
             } else {
               console.error('Не удалось загрузить данные для синхронизации');
             }
           })
-          .catch((error) => {
+          .catch(function (error) {
             console.error('Ошибка при загрузке данных:', error);
           });
       } else {
@@ -164,16 +169,16 @@
     }
   });
 
-  Lampa.Storage.listener.follow('change', function(event) {
-    const { name } = event;
+  Lampa.Storage.listener.follow('change', function (event) {
+    var name = event.name;
     if (name === 'token') {
-      const token = localStorage.getItem('token');
+      var token = localStorage.getItem('token');
       if (token) {
         syncManager.startSync(token);
       }
     } else if (name === 'acc_sync') {
       if (event.value === 'true') {
-        const token = localStorage.getItem('token');
+        var token = localStorage.getItem('token');
         if (token) {
           syncManager.startSync(token);
         } else {
