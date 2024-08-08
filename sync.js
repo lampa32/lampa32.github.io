@@ -73,31 +73,43 @@
         }.bind(this));
     },
 
-    sendDataToServer: function (token) {
-      var syncData = this.getSyncedData();
-      if (Object.keys(syncData).length === 0) {
+  sendDataToServer: function (token) {
+  var syncData = this.getSyncedData();
+  if (Object.keys(syncData).length === 0) {
+    this.isSyncSuccessful = false;
+    console.log('Данные для синхронизации отсутствуют');
+    return Promise.reject(new Error('Данные для синхронизации отсутствуют')); // Если данных нет, возвращаем ошибку
+  }
+  return this.makeHttpRequest('POST', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
+    .then(function (response) {
+      if (response.status === 200) {
+        this.isSyncSuccessful = true;
+        try {
+          return JSON.parse(response.responseText);
+        } catch (e) {
+          this.isSyncSuccessful = false;
+          console.log('Ошибка при обработке ответа сервера:', e.message);
+          throw new Error('Ошибка при обработке ответа сервера: ' + e.message);
+        }
+      } else {
         this.isSyncSuccessful = false;
-        return Promise.reject(new Error('Данные для синхронизации отсутствуют'));
+        console.log('Ошибка при синхронизации:', response.status, '-', response.statusText);
+        throw new Error('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
       }
-      return this.makeHttpRequest('POST', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
-        .then(function (response) {
-          if (response.status === 200) {
-            this.isSyncSuccessful = true;
-            return JSON.parse(response.responseText);
-          } else {
-            this.isSyncSuccessful = false;
-            throw new Error('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
-          }
-        }.bind(this))
-        .then(function (result) {
-          if (result.success) {
-            this.updateLocalStorage(result.data);
-          } else {
-            this.isSyncSuccessful = false;
-            throw new Error('Синхронизация не удалась');
-          }
-        }.bind(this));
-    },
+    }.bind(this))
+    .then(function (result) {
+      if (result.success) {
+        this.updateLocalStorage(result.data); // Обновление локальных данных
+      } else {
+        this.isSyncSuccessful = false;
+        console.log('Синхронизация не удалась');
+        throw new Error('Синхронизация не удалась');
+      }
+    }.bind(this))
+    .catch(function (error) {
+      console.log('Ошибка синхронизации:', error.message);
+    }.bind(this));
+}
 
     makeHttpRequest: function (method, url, data) {
       return new Promise(function (resolve, reject) {
