@@ -90,25 +90,26 @@
   }
 
   // Регистрируем события для отслеживания изменений
-  Lampa.Storage.listener.follow('change', function(event) {
-  const key = event.name;
-  console.log(`Изменен ключ в локальном хранилище: ${key}`);
+  const interestingKeys = ['torrents_view', 'plugins', 'favorite', 'file_view'];
+let timer;
 
-  switch (key) {
-    case 'torrents_view':
-    case 'plugins':
-    case 'favorite':
-    case 'file_view':
+Lampa.Storage.listener.follow('change', function(event) {
+  const key = event.name;
+  if (interestingKeys.includes(key)) {
+    console.log(`Изменен ключ в локальном хранилище: ${key}`);
+
+    if (timer) {
       clearTimeout(timer);
-      timer = setTimeout(function() {
-        const token = localStorage.getItem('token');
-        if (token) {
-          startSync(token);
-        }
-      }, 500);
-      break;
+    }
+    timer = setTimeout(function() {
+      const token = localStorage.getItem('token');
+      if (token) {
+        startSync(token);
+      }
+    }, 500);
   }
 });
+
 
   Lampa.Settings.listener.follow('open', function(event) {
     if (event.name === 'acc') {
