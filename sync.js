@@ -92,6 +92,7 @@
   // Регистрируем события для отслеживания изменений
   Lampa.Storage.listener.follow('change', function(event) {
     const { key } = event;
+    console.log(`Изменен ключ в локальном хранилище: ${key}`);
     switch (key) {
       case 'torrents_view':
       case 'plugins':
