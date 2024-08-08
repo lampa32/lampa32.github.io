@@ -28,6 +28,8 @@
     }
   });
 
+  let timer;
+
   function startSync(token) {
     // Получаем данные для синхронизации
     const syncData = getSyncedData();
@@ -47,8 +49,7 @@
       torrents_view: Lampa.Storage.get('torrents_view', '[]'),
       plugins: Lampa.Storage.get('plugins', '[]'),
       favorite: Lampa.Storage.get('favorite', '{}'),
-      file_view: Lampa.Storage.get('file_view', '{}'),
-      setting_member: Lampa.Storage.get('setting_member', '[]')
+      file_view: Lampa.Storage.get('file_view', '{}')
     };
   }
 
@@ -85,7 +86,6 @@
     Lampa.Storage.set('plugins', data.plugins);
     Lampa.Storage.set('favorite', data.favorite);
     Lampa.Storage.set('file_view', data.file_view);
-    Lampa.Storage.set('setting_member', data.setting_member);
   }
 
   // Регистрируем события для отслеживания изменений
@@ -96,13 +96,53 @@
       case 'plugins':
       case 'favorite':
       case 'file_view':
-      case 'setting_member':
-        startSync(localStorage.getItem('token'));
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+          const token = localStorage.getItem('token');
+          if (token) {
+            startSync(token);
+          }
+        }, 500);
         break;
     }
   });
 
-  // Загрузка данных с сервера
+  Lampa.Settings.listener.follow('open', function(event) {
+    if (event.name === 'acc') {
+      const token = localStorage.getItem('token');
+      if (token) {
+        loadDataFromServer(token)
+          .then(updateLocalStorage)
+          .catch(() => {
+            console.log('Синхронизация не удалась');
+          });
+      } else {
+        Lampa.Noty.show('Вы не зашли в аккаунт');
+      }
+    }
+  });
+
+  Lampa.Storage.listener.follow('change', function(event) {
+    const { name } = event;
+    if (name === 'token') {
+      const token = localStorage.getItem('token');
+      if (token) {
+        startSync(token);
+      }
+    } else if (name === 'acc_sync') {
+      if (event.value === 'true') {
+        const token = localStorage.getItem('token');
+        if (token) {
+
+          startSync(token);
+        }
+      } else {
+        clearTimeout(timer);
+      }
+    }
+  });
+
+  // Загрузка данных с сервера при открытии настроек
   if (Lampa.Storage.field('acc_sync')) {
     const token = localStorage.getItem('token');
     if (!token) {
