@@ -45,9 +45,11 @@
       data: JSON.stringify(syncData),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
-      headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
-      },
+     headers: {
+              'Authorization': localStorage.getItem('token')
+     }
+
+
       success: function (result) {
         if (result.success) {
           console.log('Синхронизация успешна');
