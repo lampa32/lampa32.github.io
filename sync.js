@@ -75,6 +75,10 @@
 
     sendDataToServer: function (token) {
       var syncData = this.getSyncedData();
+      if (Object.keys(syncData).length === 0) {
+        this.isSyncSuccessful = false;
+        return Promise.reject(new Error('Данные для синхронизации отсутствуют'));
+      }
       return this.makeHttpRequest('POST', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
         .then(function (response) {
           if (response.status === 200) {
@@ -101,13 +105,13 @@
         xhr.open(method, url, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = function () {
+
           if (xhr.status >= 200 && xhr.status < 300) {
             resolve(xhr);
           } else {
             reject(xhr);
           }
         };
-
         xhr.onerror = function () {
           reject(xhr);
         };
