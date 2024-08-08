@@ -75,11 +75,11 @@
 
     sendDataToServer: function (token) {
       var syncData = this.getSyncedData();
-      return Lampa.Http.post('http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
+      return this.makeHttpRequest('POST', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
         .then(function (response) {
           if (response.status === 200) {
             this.isSyncSuccessful = true;
-            return response.json();
+            return JSON.parse(response.responseText);
           } else {
             this.isSyncSuccessful = false;
             throw new Error('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
@@ -93,6 +93,26 @@
             throw new Error('Синхронизация не удалась');
           }
         }.bind(this));
+    },
+
+    makeHttpRequest: function (method, url, data) {
+      return new Promise(function (resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve(xhr);
+          } else {
+            reject(xhr);
+          }
+        };
+
+        xhr.onerror = function () {
+          reject(xhr);
+        };
+        xhr.send(JSON.stringify(data));
+      });
     },
 
     getSyncedData: function () {
@@ -110,7 +130,6 @@
           Lampa.Storage.set('torrents_view', data.torrents_view);
         }
         if (typeof data.plugins !== 'undefined') {
-
           Lampa.Storage.set('plugins', data.plugins);
         }
         if (typeof data.favorite !== 'undefined') {
@@ -125,10 +144,10 @@
     },
 
     loadDataFromServer: function (token) {
-      return Lampa.Http.get('http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token))
+      return this.makeHttpRequest('GET', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token))
         .then(function (response) {
           if (response.status === 200) {
-            return response.json();
+            return JSON.parse(response.responseText);
           } else {
             throw new Error('Ошибка при загрузке данных: ' + response.status + ' - ' + response.statusText);
           }
