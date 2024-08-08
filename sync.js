@@ -134,7 +134,8 @@
           if (result.success && result.data) {
             return result.data;
           } else {
-            throw new Error('Синхронизация не удалась');
+            console.error('Ошибка: Данные для синхронизации отсутствуют');
+            return null;
           }
         });
     }
@@ -147,7 +148,13 @@
       const token = localStorage.getItem('token');
       if (token) {
         syncManager.loadDataFromServer(token)
-          .then(syncManager.updateLocalStorage)
+          .then(data => {
+            if (data) {
+              syncManager.updateLocalStorage(data);
+            } else {
+              console.error('Не удалось загрузить данные для синхронизации');
+            }
+          })
           .catch((error) => {
             console.error('Ошибка при загрузке данных:', error);
           });
