@@ -91,22 +91,27 @@
 
   // Регистрируем события для отслеживания изменений
  const interestingKeys = ['torrents_view', 'plugins', 'favorite', 'file_view'];
+let timer = null;
+let needsSync = false;
 
 Lampa.Storage.listener.follow('change', function(event) {
   const key = event.name;
   if (interestingKeys.includes(key)) {
     console.log(`Изменен ключ в локальном хранилище: ${key}`);
+    needsSync = true;
 
-    let timer = null;
     if (timer) {
       clearTimeout(timer);
     }
     timer = setTimeout(function() {
-      const token = localStorage.getItem('token');
-      if (token) {
-        startSync(token);
+      if (needsSync) {
+        const token = localStorage.getItem('token');
+        if (token) {
+          startSync(token);
+        }
+        needsSync = false;
       }
-    }, 500);
+    }, 2000); // Задержка 2 секунды
   }
 });
 
