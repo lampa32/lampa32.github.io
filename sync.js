@@ -110,10 +110,10 @@
           Lampa.Storage.set('torrents_view', data.torrents_view);
         }
         if (typeof data.plugins !== 'undefined') {
+
           Lampa.Storage.set('plugins', data.plugins);
         }
         if (typeof data.favorite !== 'undefined') {
-
           Lampa.Storage.set('favorite', data.favorite);
         }
         if (typeof data.file_view !== 'undefined') {
