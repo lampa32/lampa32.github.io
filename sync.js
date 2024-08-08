@@ -16,7 +16,7 @@
       if (value == 'true') {
         const token = localStorage.getItem('token');
         if (token) {
-          startSync();
+          startSync(token);
         } else {
           Lampa.Noty.show("Вы не зашли в аккаунт");
           if (Lampa.Storage.field('acc_sync') == true) {
@@ -28,13 +28,7 @@
     }
   });
 
-  function startSync() {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      Lampa.Noty.show("Вы не зашли в аккаунт");
-      return;
-    }
-
+  function startSync(token) {
     // Получаем данные для синхронизации
     const syncData = {
       torrents_view: Lampa.Storage.get('torrents_view', '[]'),
@@ -46,18 +40,16 @@
 
     // Отправляем данные на сервер
     $.ajax({
-      url: 'http://212.113.103.137:3003/lampa/sync',
+      url: `http://212.113.103.137:3003/lampa/sync?token=${encodeURIComponent(token)}`,
       type: 'POST',
       data: JSON.stringify(syncData),
       contentType: 'application/json; charset=utf-8',
       dataType: 'json',
-      headers: {
-        'Authorization': localStorage.getItem('token')
-      },
       success: function (result) {
         if (result.success) {
           console.log('Синхронизация успешна');
         } else {
+
           console.log('Синхронизация не удалась');
         }
       },
@@ -76,11 +68,8 @@
 
     // Загрузка данных с сервера
     $.ajax({
-      url: 'http://212.113.103.137:3003/lampa/sync',
+      url: `http://212.113.103.137:3003/lampa/sync?token=${encodeURIComponent(token)}`,
       type: 'GET',
-      headers: {
-        'Authorization': localStorage.getItem('token')
-      },
       success: function (result) {
         if (result.success) {
           // Записываем данные из ответа в localStorage
