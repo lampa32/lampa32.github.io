@@ -102,12 +102,12 @@
     updateLocalStorage: function (data) {
   console.log('Обновление локального хранилища:', data);
   if (data && typeof data === 'object' && Object.keys(data).length > 0) {
-    if (Array.isArray(data.torrents_view) && data.torrents_view.length > 0) {
+   /* if (Array.isArray(data.torrents_view) && data.torrents_view.length > 0) {
       console.log('Данные для "torrents_view":', data.torrents_view);
       Lampa.Storage.set('torrents_view', data.torrents_view);
     } else {
       console.log('Ошибка: Данные для ключа "torrents_view" некорректны или отсутствуют');
-    }
+    }*/
     if (Array.isArray(data.plugins) && data.plugins.length > 0) {
       console.log('Данные для "plugins":', data.plugins);
       Lampa.Storage.set('plugins', data.plugins);
@@ -122,7 +122,7 @@
       Lampa.Storage.set('favorite', data.favorite);
     } else {
       console.log('Ошибка: Данные для ключа "favorite" некорректны или отсутствуют');
-    }*/
+    }
     if (Array.isArray(data.file_view) && data.file_view.length > 0) {
       console.log('Данные для "file_view":', data.file_view);
       Lampa.Storage.set('file_view', data.file_view);
@@ -131,7 +131,7 @@
       Lampa.Storage.set('file_view', data.file_view);
     } else {
       console.log('Ошибка: Данные для ключа "file_view" некорректны или отсутствуют');
-    }
+    }*/
   } else {
     console.log('Ошибка: Данные для синхронизации некорректны или отсутствуют');
   }
