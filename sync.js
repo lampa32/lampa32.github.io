@@ -103,21 +103,25 @@
   console.log('Обновление локального хранилища:', data);
   if (data && typeof data === 'object' && Object.keys(data).length > 0) {
     if (Array.isArray(data.torrents_view)) {
+      console.log('Данные для "torrents_view":', data.torrents_view);
       Lampa.Storage.set('torrents_view', data.torrents_view);
     } else {
       console.log('Ошибка: Данные для ключа "torrents_view" некорректны');
     }
     if (Array.isArray(data.plugins)) {
+      console.log('Данные для "plugins":', data.plugins);
       Lampa.Storage.set('plugins', data.plugins);
     } else {
       console.log('Ошибка: Данные для ключа "plugins" некорректны');
     }
     if (typeof data.favorite === 'object') {
+      console.log('Данные для "favorite":', data.favorite);
       Lampa.Storage.set('favorite', data.favorite);
     } else {
       console.log('Ошибка: Данные для ключа "favorite" некорректны');
     }
     if (typeof data.file_view === 'object') {
+      console.log('Данные для "file_view":', data.file_view);
       Lampa.Storage.set('file_view', data.file_view);
     } else {
       console.log('Ошибка: Данные для ключа "file_view" некорректны');
@@ -126,7 +130,6 @@
     console.log('Ошибка: Данные для синхронизации некорректны или отсутствуют');
   }
 },
-
     makeHttpRequest: function (method, url, data) {
       return new Promise(function (resolve, reject) {
         var xhr = new XMLHttpRequest();
