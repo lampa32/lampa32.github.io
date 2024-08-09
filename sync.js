@@ -16,7 +16,11 @@
       if (value === 'true') {
         var token = localStorage.getItem('token');
         if (token) {
-          syncManager.loadDataFromServer(token);
+          syncManager.loadDataFromServer(token)
+          .then(function (data) {
+            if (data) {
+              syncManager.updateLocalStorage(data);
+            }
         } else {
           console.log('Вы не зашли в аккаунт');
           if (Lampa.Storage.field('acc_sync')) {
