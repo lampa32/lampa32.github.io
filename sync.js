@@ -63,83 +63,41 @@
           if (this.isSyncSuccessful) {
             console.log('Синхронизация успешно завершена');
           } else {
-            console.log('Ошибка: Данные для синхронизации отсутствуют');
+            console.error('Ошибка: Данные для синхронизации отсутствуют');
           }
           this.needsSync = false;
         }.bind(this))
         .catch(function (error) {
-          console.log('Ошибка синхронизации:', error);
+          console.error('Ошибка синхронизации:', error);
           this.needsSync = true; // Оставляем флаг, чтобы попробовать снова
         }.bind(this));
     },
 
-    sendDataToServer: function (token) {
-      var syncData = this.getSyncedData();
-      if (Object.keys(syncData).length === 0) {
-        this.isSyncSuccessful = false;
-        return Promise.reject(console.log('Данные для синхронизации отсутствуют'));
-      }
-      return this.makeHttpRequest('POST', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
-        .then(function (response) {
-          if (response.status === 200) {
-            this.isSyncSuccessful = true;
-            return JSON.parse(response.responseText);
-          } else {
-            this.isSyncSuccessful = false;
-            console.log('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
-          }
-        }.bind(this))
-        .then(function (result) {
-          if (result.success) {
-            this.updateLocalStorage(result.data);
-          } else {
-            this.isSyncSuccessful = false;
-            console.log('Синхронизация не удалась');
-          }
-        }.bind(this));
-    },
-
-     updateLocalStorage: function (data) {
-  console.log('Обновление локального хранилища:', data);
-  console.log('Тип data:', typeof data);
-  console.log('Количество ключей в data:', data ? Object.keys(data).length : 0);
-       if (data === undefined) {
-  console.log('Ошибка: data имеет тип undefined');
-  return;
-       }
-  // Проверяем, что data является объектом
-  if (typeof data === 'object' && data !== null) {
-    // Проверяем наличие и тип данных для каждого ключа
-    if (Array.isArray(data.torrents_view) && data.torrents_view.length > 0) {
-      console.log('Данные для "torrents_view":', data.torrents_view);
-      Lampa.Storage.set('torrents_view', data.torrents_view);
-    }
-
-    if (Array.isArray(data.plugins) && data.plugins.length > 0) {
-      console.log('Данные для "plugins":', data.plugins);
-      Lampa.Storage.set('plugins', data.plugins);
-    }
-
-    if (Array.isArray(data.favorite) && data.favorite.length > 0) {
-      console.log('Данные для "favorite":', data.favorite);
-      Lampa.Storage.set('favorite', data.favorite);
-    } else if (typeof data.favorite === 'object' && Object.keys(data.favorite).length > 0) {
-      console.log('Данные для "favorite":', data.favorite);
-      Lampa.Storage.set('favorite', data.favorite);
-    }
-
-    if (Array.isArray(data.file_view) && data.file_view.length > 0) {
-      console.log('Данные для "file_view":', data.file_view);
-      Lampa.Storage.set('file_view', data.file_view);
-    } else if (typeof data.file_view === 'object' && Object.keys(data.file_view).length > 0) {
-      console.log('Данные для "file_view":', data.file_view);
-      Lampa.Storage.set('file_view', data.file_view);
-    }
-  } else {
-    console.log('Ошибка: Данные для синхронизации некорректны или отсутствуют');
+  sendDataToServer: function (token) {
+  var syncData = this.getSyncedData();
+  if (Object.keys(syncData).length === 0) {
+    this.isSyncSuccessful = false;
+    return Promise.reject(new Error('Данные для синхронизации отсутствуют')); // Если данных нет, возвращаем ошибку
   }
-},
-
+  return this.makeHttpRequest('POST', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token), syncData)
+    .then(function (response) {
+      if (response.status === 200) {
+        this.isSyncSuccessful = true;
+        return JSON.parse(response.responseText); // Здесь может возникнуть ошибка, если ответ сервера некорректный
+      } else {
+        this.isSyncSuccessful = false;
+        throw new Error('Ошибка при синхронизации: ' + response.status + ' - ' + response.statusText);
+      }
+    }.bind(this))
+    .then(function (result) {
+      if (result.success) {
+        this.updateLocalStorage(result.data); // Обновление локальных данных
+      } else {
+        this.isSyncSuccessful = false;
+        throw new Error('Синхронизация не удалась');
+      }
+    }.bind(this));
+}
 
     makeHttpRequest: function (method, url, data) {
       return new Promise(function (resolve, reject) {
@@ -147,6 +105,7 @@
         xhr.open(method, url, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onload = function () {
+
           if (xhr.status >= 200 && xhr.status < 300) {
             resolve(xhr);
           } else {
@@ -169,20 +128,39 @@
       };
     },
 
+    updateLocalStorage: function (data) {
+      if (data) {
+        if (typeof data.torrents_view !== 'undefined') {
+          Lampa.Storage.set('torrents_view', data.torrents_view);
+        }
+        if (typeof data.plugins !== 'undefined') {
+          Lampa.Storage.set('plugins', data.plugins);
+        }
+        if (typeof data.favorite !== 'undefined') {
+          Lampa.Storage.set('favorite', data.favorite);
+        }
+        if (typeof data.file_view !== 'undefined') {
+          Lampa.Storage.set('file_view', data.file_view);
+        }
+      } else {
+        console.error('Ошибка: Данные для синхронизации отсутствуют');
+      }
+    },
+
     loadDataFromServer: function (token) {
       return this.makeHttpRequest('GET', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token))
         .then(function (response) {
           if (response.status === 200) {
             return JSON.parse(response.responseText);
           } else {
-            console.log('Ошибка при загрузке данных: ' + response.status + ' - ' + response.statusText);
+            throw new Error('Ошибка при загрузке данных: ' + response.status + ' - ' + response.statusText);
           }
         })
         .then(function (result) {
           if (result.success && result.data) {
             return result.data;
           } else {
-            console.log('Ошибка: Данные для синхронизации отсутствуют');
+            console.error('Ошибка: Данные для синхронизации отсутствуют');
             return null;
           }
         });
@@ -199,7 +177,6 @@
       if (token) {
         syncManager.loadDataFromServer(token)
           .then(function (data) {
-             console.log('Данные, полученные с сервера:', data);
             if (data) {
               syncManager.updateLocalStorage(data);
             } else {
@@ -234,7 +211,6 @@
             Lampa.Settings.update();
           }
         }
-        
       }
     }
   });
