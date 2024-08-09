@@ -145,7 +145,7 @@
           Lampa.Storage.set('file_view', data.file_view);
         }
       } else {
-        console.log('Ошибка: Данные для синхронизации отсутствуют');
+        //console.log('Ошибка: Данные для синхронизации отсутствуют');
       }
     },
 
