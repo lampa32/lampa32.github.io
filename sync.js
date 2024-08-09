@@ -114,21 +114,35 @@
     } else {
       console.log('Ошибка: Данные для ключа "plugins" некорректны или отсутствуют');
     }
-    if (Array.isArray(data.favorite) && data.favorite.length > 0) {
-      console.log('Данные для "favorite":', data.favorite);
-      Lampa.Storage.set('favorite', data.favorite);
-    } else if (typeof data.favorite === 'object' && Object.keys(data.favorite).length > 0) {
-      console.log('Данные для "favorite":', data.favorite);
-      Lampa.Storage.set('favorite', data.favorite);
+    if (typeof data.favorite === 'object' && Object.keys(data.favorite).length > 0) {
+      if (Array.isArray(data.favorite.card) && data.favorite.card.length > 0 &&
+          Array.isArray(data.favorite.like) &&
+          Array.isArray(data.favorite.wath) &&
+          Array.isArray(data.favorite.book) &&
+          Array.isArray(data.favorite.history)) {
+        console.log('Данные для "favorite":', data.favorite);
+        Lampa.Storage.set('favorite', data.favorite);
+      } else {
+        console.log('Ошибка: Данные для ключа "favorite" имеют некорректную структуру');
+      }
     } else {
       console.log('Ошибка: Данные для ключа "favorite" некорректны или отсутствуют');
     }
-    if (Array.isArray(data.file_view) && data.file_view.length > 0) {
-      console.log('Данные для "file_view":', data.file_view);
-      Lampa.Storage.set('file_view', data.file_view);
-    } else if (typeof data.file_view === 'object' && Object.keys(data.file_view).length > 0) {
-      console.log('Данные для "file_view":', data.file_view);
-      Lampa.Storage.set('file_view', data.file_view);
+    if (typeof data.file_view === 'object' && Object.keys(data.file_view).length > 0) {
+      let isFileViewValid = true;
+      for (let key in data.file_view) {
+        if (typeof data.file_view[key] !== 'object' || Object.keys(data.file_view[key]).length === 0) {
+          isFileViewValid = false;
+          console.log(`Ошибка: Данные для ключа "file_view.${key}" некорректны`);
+          break;
+        }
+      }
+      if (isFileViewValid) {
+        console.log('Данные для "file_view":', data.file_view);
+        Lampa.Storage.set('file_view', data.file_view);
+      } else {
+        console.log('Ошибка: Данные для ключа "file_view" имеют некорректную структуру');
+      }
     } else {
       console.log('Ошибка: Данные для ключа "file_view" некорректны или отсутствуют');
     }
