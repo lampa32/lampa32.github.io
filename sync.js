@@ -102,7 +102,7 @@
      updateLocalStorage: function (data) {
   console.log('Обновление локального хранилища:', data);
   console.log('Тип data:', typeof data);
-  console.log('Количество ключей в data:', Object.keys(data).length);
+  console.log('Количество ключей в data:', data ? Object.keys(data).length : 0);
 
   if (data && typeof data === 'object' && Object.keys(data).length > 0) {
     try {
