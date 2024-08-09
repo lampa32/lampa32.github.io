@@ -99,34 +99,55 @@
         }.bind(this));
     },
 
-    updateLocalStorage: function (data) {
-      console.log('Обновление локального хранилища:', data);
-      if (data && typeof data === 'object' && Object.keys(data).length > 0) {
-        if (typeof data.torrents_view !== 'undefined' && data.torrents_view !== null) {
-          Lampa.Storage.set('torrents_view', data.torrents_view);
-        } else {
-          console.log('Ошибка: Данные для ключа "torrents_view" отсутствуют или некорректны');
-        }
-        
-        if (typeof data.plugins !== 'undefined' && data.plugins !== null) {
-          Lampa.Storage.set('plugins', data.plugins);
-        } else {
-          console.log('Ошибка: Данные для ключа "plugins" отсутствуют или некорректны');
-        }
-        if (typeof data.favorite !== 'undefined' && data.favorite !== null) {
-          Lampa.Storage.set('favorite', data.favorite);
-        } else {
-          console.log('Ошибка: Данные для ключа "favorite" отсутствуют или некорректны');
-        }
-        if (typeof data.file_view !== 'undefined' && data.file_view !== null) {
-          Lampa.Storage.set('file_view', data.file_view);
-        } else {
-          console.log('Ошибка: Данные для ключа "file_view" отсутствуют или некорректны');
-        }
-      } else {
-        console.log('Ошибка: Данные для синхронизации некорректны или отсутствуют');
-      }
-    },
+ updateLocalStorage: function (data) {
+  console.log('Обновление локального хранилища:', data);
+
+  // Сначала проверяем, что data не равно undefined
+  if (data === undefined) {
+    console.log('Ошибка: data имеет тип undefined');
+    return;
+  }
+
+  // Проверяем, что data является объектом
+  if (typeof data === 'object' && data !== null) {
+    // Проверяем наличие и тип данных для каждого ключа
+    if (Array.isArray(data.torrents_view) && data.torrents_view.length > 0) {
+      console.log('Данные для "torrents_view":', data.torrents_view);
+      Lampa.Storage.set('torrents_view', data.torrents_view);
+    } else {
+      console.log('Ошибка: Данные для ключа "torrents_view" некорректны или отсутствуют');
+    }
+
+    if (Array.isArray(data.plugins) && data.plugins.length > 0) {
+      console.log('Данные для "plugins":', data.plugins);
+      Lampa.Storage.set('plugins', data.plugins);
+    } else {
+      console.log('Ошибка: Данные для ключа "plugins" некорректны или отсутствуют');
+    }
+
+    if (Array.isArray(data.favorite) && data.favorite.length > 0) {
+      console.log('Данные для "favorite":', data.favorite);
+      Lampa.Storage.set('favorite', data.favorite);
+    } else if (typeof data.favorite === 'object' && Object.keys(data.favorite).length > 0) {
+      console.log('Данные для "favorite":', data.favorite);
+      Lampa.Storage.set('favorite', data.favorite);
+    } else {
+      console.log('Ошибка: Данные для ключа "favorite" некорректны или отсутствуют');
+    }
+
+    if (Array.isArray(data.file_view) && data.file_view.length > 0) {
+      console.log('Данные для "file_view":', data.file_view);
+      Lampa.Storage.set('file_view', data.file_view);
+    } else if (typeof data.file_view === 'object' && Object.keys(data.file_view).length > 0) {
+      console.log('Данные для "file_view":', data.file_view);
+      Lampa.Storage.set('file_view', data.file_view);
+    } else {
+      console.log('Ошибка: Данные для ключа "file_view" некорректны или отсутствуют');
+    }
+  } else {
+    console.log('Ошибка: Данные для синхронизации некорректны или отсутствуют');
+  }
+},
 
     makeHttpRequest: function (method, url, data) {
       return new Promise(function (resolve, reject) {
