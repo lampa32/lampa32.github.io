@@ -16,7 +16,7 @@
       if (value === 'true') {
         var token = localStorage.getItem('token');
         if (token) {
-          syncManager.startSync(token);
+          syncManager.loadDataFromServer(token);
         } else {
           console.log('Вы не зашли в аккаунт');
           if (Lampa.Storage.field('acc_sync')) {
@@ -201,7 +201,7 @@
     syncManager.handleStorageChange(event);
   });
 
-  Lampa.Settings.listener.follow('open', function (event) {
+  /*Lampa.Settings.listener.follow('open', function (event) {
     if (event.name === 'acc') {
       var token = localStorage.getItem('token');
       if (token) {
@@ -244,5 +244,5 @@
         }
       }
     }
-  });
+  });*/
 })();
