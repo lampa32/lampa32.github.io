@@ -145,7 +145,7 @@
           Lampa.Storage.set('file_view', data.file_view);
         }
       } else {
-        console.error('Ошибка: Данные для синхронизации отсутствуют');
+        console.log('Ошибка: Данные для синхронизации отсутствуют');
       }
     },
 
@@ -155,14 +155,14 @@
           if (response.status === 200) {
             return JSON.parse(response.responseText);
           } else {
-            throw new Error('Ошибка при загрузке данных: ' + response.status + ' - ' + response.statusText);
+            console.log('Ошибка при загрузке данных: ' + response.status + ' - ' + response.statusText);
           }
         })
         .then(function (result) {
           if (result.success && result.data) {
             return result.data;
           } else {
-            console.error('Ошибка: Данные для синхронизации отсутствуют');
+            console.log('Ошибка: Данные для синхронизации отсутствуют');
             return null;
           }
         });
