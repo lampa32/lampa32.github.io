@@ -16,11 +16,8 @@
       if (value === 'true') {
         var token = localStorage.getItem('token');
         if (token) {
-          //syncManager.loadDataFromServer(token)
-          //.then(function (data) {
-            //if (data) {
-              syncManager.updateLocalStorage(data);
-          //  }
+          syncManager.loadDataFromServer(token)
+          
         } else {
           console.log('Вы не зашли в аккаунт');
           if (Lampa.Storage.field('acc_sync')) {
@@ -205,8 +202,8 @@
     syncManager.handleStorageChange(event);
   });
 
-  /*Lampa.Settings.listener.follow('open', function (event) {
-    if (event.name === 'acc') {
+  Lampa.Settings.listener.follow('open', function (event) {
+    if (event.name === 'acc_sync') {
       var token = localStorage.getItem('token');
       if (token) {
         syncManager.loadDataFromServer(token)
@@ -226,7 +223,7 @@
     }
   });
 
-  Lampa.Storage.listener.follow('change', function (event) {
+  /*Lampa.Storage.listener.follow('change', function (event) {
     var name = event.name;
     if (name === 'token') {
       var token = localStorage.getItem('token');
