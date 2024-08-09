@@ -131,7 +131,8 @@
     },
 
     updateLocalStorage: function (data) {
-  if (data && Object.keys(data).length > 0) {
+  if (data && typeof data === 'object' && Object.keys(data).length > 0) {
+    // Проверяем наличие ожидаемых ключей и обновляем локальное хранилище
     if (typeof data.torrents_view !== 'undefined' && data.torrents_view !== null) {
       Lampa.Storage.set('torrents_view', data.torrents_view);
     } else {
@@ -155,7 +156,7 @@
   } else {
     console.log('Ошибка: Данные для синхронизации некорректны или отсутствуют');
   }
-}
+    }
 
     loadDataFromServer: function (token) {
       return this.makeHttpRequest('GET', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token))
