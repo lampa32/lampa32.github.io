@@ -203,7 +203,7 @@
   });
 
   Lampa.Settings.listener.follow('open', function (event) {
-    if (event.name === 'acc_sync') {
+    if (event.name === 'acc') {
       var token = localStorage.getItem('token');
       if (token) {
         syncManager.loadDataFromServer(token)
