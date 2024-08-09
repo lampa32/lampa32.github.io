@@ -185,6 +185,7 @@
       if (token) {
         syncManager.loadDataFromServer(token)
           .then(function (data) {
+             console.log('Данные, полученные с сервера:', data);
             if (data) {
               syncManager.updateLocalStorage(data);
             } else {
