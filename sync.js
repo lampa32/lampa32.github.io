@@ -194,12 +194,16 @@
   });
 
   Lampa.Settings.listener.follow('open', function (event) {
-    if (event.name === 'acc') {
-      var token = localStorage.getItem('token');
-      if (token) {
+  if (event.name === 'acc') {
+    var token = localStorage.getItem('token');
+    if (token) {
+      // Если есть токен, проверяем триггер синхронизации
+      var isSyncEnabled = Lampa.Storage.field('acc_sync');
+      if (isSyncEnabled) {
+        // Если синхронизация включена, загружаем данные с сервера
         syncManager.loadDataFromServer(token)
           .then(function (data) {
-             console.log('Данные, полученные с сервера:', data);
+            console.log('Данные, полученные с сервера:', data);
             if (data) {
               syncManager.updateLocalStorage(data);
             } else {
@@ -210,32 +214,28 @@
             console.error('Ошибка при загрузке данных:', error);
           });
       } else {
-        Lampa.Noty.show('Вы не зашли в аккаунт');
+        // Если синхронизация выключена, ничего не делаем
+        console.log('Синхронизация отключена, данные не будут отправлены на сервер');
       }
+    } else {
+      Lampa.Noty.show('Вы не зашли в аккаунт');
     }
-  });
+  }
+});
 
-  Lampa.Storage.listener.follow('change', function (event) {
-    var name = event.name;
-    if (name === 'token') {
-      var token = localStorage.getItem('token');
-      if (token) {
+Lampa.Storage.listener.follow('change', function (event) {
+  var name = event.name;
+  if (name === 'token') {
+    var token = localStorage.getItem('token');
+    if (token) {
+      var isSyncEnabled = Lampa.Storage.field('acc_sync');
+      if (isSyncEnabled) {
         syncManager.startSync(token);
-      }
-    } else if (name === 'acc_sync') {
-      if (event.value === 'true') {
-        var token = localStorage.getItem('token');
-        if (token) {
-          syncManager.startSync(token);
-        } else {
-          Lampa.Noty.show('Вы не зашли в аккаунт');
-          if (Lampa.Storage.field('acc_sync')) {
-            Lampa.Storage.set('acc_sync', false);
-            Lampa.Settings.update();
-          }
-        }
-        
+      } else {
+        console.log('Синхронизация отключена, данные не будут отправлены на сервер');
       }
     }
-  });
+  }
+});
+  
 })();
