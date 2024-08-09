@@ -100,15 +100,15 @@
     },
 
     updateLocalStorage: function (data) {
+      console.log('Обновление локального хранилища:', data);
       if (data && typeof data === 'object' && Object.keys(data).length > 0) {
         if (typeof data.torrents_view !== 'undefined' && data.torrents_view !== null) {
           Lampa.Storage.set('torrents_view', data.torrents_view);
         } else {
           console.log('Ошибка: Данные для ключа "torrents_view" отсутствуют или некорректны');
         }
-        if (typeof data.plugins !== 'undefined' && data.plugins !== null) {
+         if (typeof data.plugins !== 'undefined' && data.plugins !== null) {
           Lampa.Storage.set('plugins', data.plugins);
-          
         } else {
           console.log('Ошибка: Данные для ключа "plugins" отсутствуют или некорректны');
         }
