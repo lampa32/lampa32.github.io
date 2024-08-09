@@ -103,10 +103,10 @@
   console.log('Обновление локального хранилища:', data);
   console.log('Тип data:', typeof data);
   console.log('Количество ключей в data:', data ? Object.keys(data).length : 0);
-       if (data === undefined) {
+       /*if (data === undefined) {
   console.log('Ошибка: data имеет тип undefined');
   return;
-       }
+       }*/
   // Проверяем, что data является объектом
   if (typeof data === 'object' && data !== null) {
     // Проверяем наличие и тип данных для каждого ключа
