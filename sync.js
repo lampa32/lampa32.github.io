@@ -103,10 +103,10 @@
   console.log('Обновление локального хранилища:', data);
   console.log('Тип data:', typeof data);
   console.log('Количество ключей в data:', data ? Object.keys(data).length : 0);
-       /*if (data === undefined) {
+       if (data === undefined) {
   console.log('Ошибка: data имеет тип undefined');
   return;
-       }*/
+       }
   // Проверяем, что data является объектом
   if (typeof data === 'object' && data !== null) {
     // Проверяем наличие и тип данных для каждого ключа
@@ -194,16 +194,12 @@
   });
 
   Lampa.Settings.listener.follow('open', function (event) {
-  if (event.name === 'acc') {
-    var token = localStorage.getItem('token');
-    if (token) {
-      // Если есть токен, проверяем триггер синхронизации
-      var isSyncEnabled = Lampa.Storage.field('acc_sync');
-      if (isSyncEnabled) {
-        // Если синхронизация включена, загружаем данные с сервера
+    if (event.name === 'acc') {
+      var token = localStorage.getItem('token');
+      if (token) {
         syncManager.loadDataFromServer(token)
           .then(function (data) {
-            console.log('Данные, полученные с сервера:', data);
+             console.log('Данные, полученные с сервера:', data);
             if (data) {
               syncManager.updateLocalStorage(data);
             } else {
@@ -214,28 +210,32 @@
             console.error('Ошибка при загрузке данных:', error);
           });
       } else {
-        // Если синхронизация выключена, ничего не делаем
-        console.log('Синхронизация отключена, данные не будут отправлены на сервер');
+        Lampa.Noty.show('Вы не зашли в аккаунт');
       }
-    } else {
-      Lampa.Noty.show('Вы не зашли в аккаунт');
     }
-  }
-});
+  });
 
-Lampa.Storage.listener.follow('change', function (event) {
-  var name = event.name;
-  if (name === 'token') {
-    var token = localStorage.getItem('token');
-    if (token) {
-      var isSyncEnabled = Lampa.Storage.field('acc_sync');
-      if (isSyncEnabled) {
+  Lampa.Storage.listener.follow('change', function (event) {
+    var name = event.name;
+    if (name === 'token') {
+      var token = localStorage.getItem('token');
+      if (token) {
         syncManager.startSync(token);
-      } else {
-        console.log('Синхронизация отключена, данные не будут отправлены на сервер');
+      }
+    } else if (name === 'acc_sync') {
+      if (event.value === 'true') {
+        var token = localStorage.getItem('token');
+        if (token) {
+          syncManager.startSync(token);
+        } else {
+          Lampa.Noty.show('Вы не зашли в аккаунт');
+          if (Lampa.Storage.field('acc_sync')) {
+            Lampa.Storage.set('acc_sync', false);
+            Lampa.Settings.update();
+          }
+        }
+        
       }
     }
-  }
-});
-  
+  });
 })();
