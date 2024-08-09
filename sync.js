@@ -131,23 +131,31 @@
     },
 
     updateLocalStorage: function (data) {
-      if (data) {
-        if (typeof data.torrents_view !== 'undefined') {
-          Lampa.Storage.set('torrents_view', data.torrents_view);
-        }
-        if (typeof data.plugins !== 'undefined') {
-          Lampa.Storage.set('plugins', data.plugins);
-        }
-        if (typeof data.favorite !== 'undefined') {
-          Lampa.Storage.set('favorite', data.favorite);
-        }
-        if (typeof data.file_view !== 'undefined') {
-          Lampa.Storage.set('file_view', data.file_view);
-        }
-      } else {
-        console.log('Ошибка: Данные для синхронизации отсутствуют');
-      }
-    },
+  if (data) {
+    if (typeof data.torrents_view !== 'undefined' && data.torrents_view !== null) {
+      Lampa.Storage.set('torrents_view', data.torrents_view);
+    } else {
+      console.log('Ошибка: Данные для ключа "torrents_view" отсутствуют или некорректны');
+    }
+    if (typeof data.plugins !== 'undefined' && data.plugins !== null) {
+      Lampa.Storage.set('plugins', data.plugins);
+    } else {
+      console.log('Ошибка: Данные для ключа "plugins" отсутствуют или некорректны');
+    }
+    if (typeof data.favorite !== 'undefined' && data.favorite !== null) {
+      Lampa.Storage.set('favorite', data.favorite);
+    } else {
+      console.log('Ошибка: Данные для ключа "favorite" отсутствуют или некорректны');
+    }
+    if (typeof data.file_view !== 'undefined' && data.file_view !== null) {
+      Lampa.Storage.set('file_view', data.file_view);
+    } else {
+      console.log('Ошибка: Данные для ключа "file_view" отсутствуют или некорректны');
+    }
+  } else {
+    console.log('Ошибка: Данные для синхронизации отсутствуют');
+  }
+},
 
     loadDataFromServer: function (token) {
       return this.makeHttpRequest('GET', 'http://212.113.103.137:3003/lampa/sync?token=' + encodeURIComponent(token))
