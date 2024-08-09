@@ -99,7 +99,7 @@
         }.bind(this));
     },
 
-    updateLocalStorage: function (data) {
+     updateLocalStorage: function (data) {
   console.log('Обновление локального хранилища:', data);
   console.log('Тип data:', typeof data);
   console.log('Количество ключей в data:', Object.keys(data).length);
@@ -108,7 +108,8 @@
     try {
       console.log('Данные для обработки:', data);
 
-      if (Array.isArray(data.torrents_view) && data.torrents_view.length > 0) {
+      // Проверяем каждый ключ на наличие значения
+      if (data.torrents_view && Array.isArray(data.torrents_view) && data.torrents_view.length > 0) {
         console.log('Данные для "torrents_view":', data.torrents_view);
         try {
           Lampa.Storage.set('torrents_view', data.torrents_view);
@@ -119,7 +120,7 @@
         console.log('Ошибка: Данные для ключа "torrents_view" некорректны или отсутствуют');
       }
 
-      if (Array.isArray(data.plugins) && data.plugins.length > 0) {
+      if (data.plugins && Array.isArray(data.plugins) && data.plugins.length > 0) {
         console.log('Данные для "plugins":', data.plugins);
         try {
           Lampa.Storage.set('plugins', data.plugins);
@@ -130,14 +131,7 @@
         console.log('Ошибка: Данные для ключа "plugins" некорректны или отсутствуют');
       }
 
-      if (Array.isArray(data.favorite) && data.favorite.length > 0) {
-        console.log('Данные для "favorite":', data.favorite);
-        try {
-          Lampa.Storage.set('favorite', data.favorite);
-        } catch (error) {
-          console.error('Ошибка при записи "favorite":', error);
-        }
-      } else if (typeof data.favorite === 'object' && Object.keys(data.favorite).length > 0) {
+      if (data.favorite && (Array.isArray(data.favorite) && data.favorite.length > 0 || typeof data.favorite === 'object' && Object.keys(data.favorite).length > 0)) {
         console.log('Данные для "favorite":', data.favorite);
         try {
           Lampa.Storage.set('favorite', data.favorite);
@@ -148,14 +142,7 @@
         console.log('Ошибка: Данные для ключа "favorite" некорректны или отсутствуют');
       }
 
-      if (Array.isArray(data.file_view) && data.file_view.length > 0) {
-        console.log('Данные для "file_view":', data.file_view);
-        try {
-          Lampa.Storage.set('file_view', data.file_view);
-        } catch (error) {
-          console.error('Ошибка при записи "file_view":', error);
-        }
-      } else if (typeof data.file_view === 'object' && Object.keys(data.file_view).length > 0) {
+      if (data.file_view && (Array.isArray(data.file_view) && data.file_view.length > 0 || typeof data.file_view === 'object' && Object.keys(data.file_view).length > 0)) {
         console.log('Данные для "file_view":', data.file_view);
         try {
           Lampa.Storage.set('file_view', data.file_view);
