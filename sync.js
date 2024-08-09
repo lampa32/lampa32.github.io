@@ -101,7 +101,8 @@
 
      updateLocalStorage: function (data) {
   console.log('Обновление локального хранилища:', data);
-
+  console.log('Тип data:', typeof data);
+  console.log('Количество ключей в data:', data ? Object.keys(data).length : 0);
   // Проверяем, что data является объектом
   if (typeof data === 'object' && data !== null) {
     // Проверяем наличие и тип данных для каждого ключа
