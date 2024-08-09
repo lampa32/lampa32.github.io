@@ -171,7 +171,7 @@
     syncManager.handleStorageChange(event);
   });
 
-  Lampa.Settings.listener.follow('open', function (event) {
+ /* Lampa.Settings.listener.follow('open', function (event) {
     if (event.name === 'acc') {
       var token = localStorage.getItem('token');
       if (token) {
@@ -213,5 +213,5 @@
         }
       }
     }
-  });
+  });*/
 })();
